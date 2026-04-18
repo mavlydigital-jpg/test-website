@@ -314,6 +314,90 @@
     .why-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
     .check { color: var(--green); font-weight: 700; margin-right: 6px; }
 
+    /* ─── CASE STUDY SECTION ─── */
+    .case-study-section { padding: 80px 0 20px; }
+    .case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 52px 48px 44px;
+      backdrop-filter: blur(18px);
+      position: relative;
+      overflow: hidden;
+    }
+    .case-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 0% 0%, rgba(58,123,255,0.15) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .case-card > * { position: relative; z-index: 1; }
+    .case-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em;
+      color: var(--accent2); text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .case-headline {
+      font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+      font-weight: 800; letter-spacing: -0.025em;
+      line-height: 1.15; margin-bottom: 22px;
+    }
+    .case-headline .grad {
+      background: linear-gradient(135deg,#3a7bff 0%,#00e5ff 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .case-desc {
+      font-size: 1rem; line-height: 1.7; color: var(--muted);
+      max-width: 680px; margin-bottom: 28px;
+    }
+    .case-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+    .case-chip {
+      padding: 9px 18px; border-radius: 999px;
+      background: rgba(0,229,255,0.08);
+      border: 1px solid rgba(0,229,255,0.22);
+      font-size: 0.82rem; font-weight: 600; color: #9be8ff;
+      white-space: nowrap;
+    }
+    .case-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .case-stat {
+      background: rgba(5,7,15,0.55);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px 22px;
+      text-align: center;
+    }
+    .case-stat .num {
+      font-size: clamp(2rem, 3.8vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em;
+      background: linear-gradient(135deg,#3a7bff 0%,#00e5ff 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .case-stat .num-label { font-size: 0.85rem; color: var(--muted); }
+
+    .mini-cases { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 20px; }
+    .mini-case {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .mini-case:hover { border-color: rgba(58,123,255,0.35); transform: translateY(-3px); }
+    .mini-case .mini-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; color: rgba(240,240,245,0.45); text-transform: uppercase; margin-bottom: 14px; }
+    .mini-case h4 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 10px; }
+    .mini-case h4 .grad {
+      background: linear-gradient(135deg,#3a7bff 0%,#00e5ff 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .mini-case p { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+
+    @media (max-width: 720px) {
+      .case-card { padding: 36px 26px 30px; }
+      .case-stats { grid-template-columns: 1fr 1fr; }
+      .mini-cases { grid-template-columns: 1fr; }
+    }
+
     /* ─── CTA SECTION ─── */
     .cta-section {
       padding: 80px 0;
@@ -389,25 +473,41 @@
     .burned { text-align: center; padding: 80px 0; }
     .burned h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 18px; }
     .burned > .container-sm > p { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 640px; margin: 0 auto 40px; }
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 44px;
+      text-align: left;
+    }
     .quote-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 48px 40px;
+      border-radius: 20px;
+      padding: 32px 30px;
       backdrop-filter: blur(16px);
       text-align: left;
       position: relative;
+      transition: border-color 0.2s, transform 0.2s;
     }
-    .quote-mark { font-size: 4rem; line-height: 1; color: var(--accent2); opacity: 0.6; font-family: Georgia, serif; }
-    .quote-card blockquote { font-size: 1.15rem; line-height: 1.6; font-weight: 500; letter-spacing: -0.01em; margin: -12px 0 20px; }
-    .quote-author { display: flex; align-items: center; gap: 14px; }
+    .quote-card:hover { border-color: rgba(58,123,255,0.35); transform: translateY(-3px); }
+    .quote-mark { font-size: 3rem; line-height: 1; color: var(--accent2); opacity: 0.5; font-family: Georgia, serif; margin-bottom: -6px; }
+    .quote-card blockquote { font-size: 1rem; line-height: 1.6; font-weight: 500; letter-spacing: -0.01em; margin: 0 0 22px; }
+    .quote-author { display: flex; align-items: center; gap: 12px; }
     .quote-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
+      width: 42px; height: 42px; border-radius: 50%;
       background: linear-gradient(135deg,#ffb3a7,#3a7bff);
-      display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 0.95rem;
+      display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 0.9rem;
+      flex-shrink: 0;
     }
-    .quote-meta h5 { font-size: 0.95rem; font-weight: 600; }
+    .quote-avatar.v2 { background: linear-gradient(135deg,#00e5ff,#3a7bff); }
+    .quote-avatar.v3 { background: linear-gradient(135deg,#3a7bff,#ffb3a7); }
+    .quote-avatar.v4 { background: linear-gradient(135deg,#34d399,#00e5ff); }
+    .quote-meta h5 { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; }
     .quote-meta span { font-size: 0.8rem; color: var(--muted); }
+    @media (max-width: 720px) {
+      .quote-grid { grid-template-columns: 1fr; }
+    }
 
     /* ─── ARCHITECT (split visual) ─── */
     .architect { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 60px 0; }
@@ -557,7 +657,7 @@
         <a href="#method">Our Method</a>
         <a href="#pricing">Pricing</a>
       </div>
-      <a href="https://calendly.com/mavlydigital/30min" target="_blank" class="nav-cta">
+      <a href="#book" class="nav-cta">
         Book a Call <span class="arrow" aria-hidden="true">&#8599;</span>
       </a>
     </nav>
@@ -569,7 +669,7 @@
         <h1>Sick of Chasing Leads<br><span class="grad">That Go Nowhere?</span></h1>
         <p>We deliver 15 to 20 exclusive homeowner appointments to your calendar every month. Yours only. Never shared with five other contractors. If we miss the number, we work free until we hit it.</p>
         <div class="hero-cta">
-          <a href="https://calendly.com/mavlydigital/30min" target="_blank" class="btn btn-primary btn-lg">Book a Free Strategy Call</a>
+          <a href="#book" class="btn btn-primary btn-lg">Book a Free Strategy Call</a>
         </div>
         <p class="hero-note">30 minutes. No pitch. Straight conversation about your market.</p>
       </div>
@@ -660,7 +760,7 @@
               <li>Repeatable</li>
               <li>Yours to keep</li>
             </ul>
-            <a href="#book" class="btn btn-primary btn-lg">Grow My Firm</a>
+            <a href="#book" class="btn btn-primary btn-lg">Build My Lead Machine</a>
           </div>
           <div class="architect-visual">
             <div class="arch-card arch-card-1">
@@ -780,17 +880,55 @@
 
     <!-- BURNED BEFORE + testimonial -->
     <section class="burned">
-      <div class="container-sm">
+      <div class="container">
         <h2>For remodelers who've<br>been burned before</h2>
         <p>Most remodelers we talk to have already been sold on some "marketing guy" who overpromised and underdelivered. We get it. That's exactly why we pay after we deliver and why you own every asset we build.</p>
-        <div class="quote-card">
-          <div class="quote-mark">&ldquo;</div>
-          <blockquote>I'd worked with three different marketing agencies before Mavly. Burned every time. These guys actually got me booked jobs in the first month — and I own the whole setup. Best decision I made this year.</blockquote>
-          <div class="quote-author">
-            <div class="quote-avatar">MK</div>
-            <div class="quote-meta">
-              <h5>Mark K.</h5>
-              <span>Kitchen &amp; Bath Remodeler</span>
+        <div class="quote-grid">
+          <div class="quote-card">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>Tried three agencies before these guys. Got burned every time. First month I booked 7 remodels and I own the whole setup — the ads, the CRM, everything. Wish I'd found them two years ago.</blockquote>
+            <div class="quote-author">
+              <div class="quote-avatar">MK</div>
+              <div class="quote-meta">
+                <h5>Mark Kessler</h5>
+                <span>Kessler Kitchen &amp; Bath &middot; Columbus, OH</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>We used to live on Angi and HomeAdvisor. Now we've got a full calendar of real appointments and I'm not wasting my Saturdays driving to tire-kickers anymore. Calls that actually turn into jobs.</blockquote>
+            <div class="quote-author">
+              <div class="quote-avatar v2">JR</div>
+              <div class="quote-meta">
+                <h5>Jenna Ruiz</h5>
+                <span>Northline Remodeling &middot; Austin, TX</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>Honestly, the pay-after-delivery thing made me skeptical. Figured it was a catch. They hit the number in month one and did 18 in month two. No catch. Just works.</blockquote>
+            <div class="quote-author">
+              <div class="quote-avatar v3">DC</div>
+              <div class="quote-meta">
+                <h5>Derek Chen</h5>
+                <span>Blue Ridge Cabinetry &amp; Bath &middot; Charlotte, NC</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <div class="quote-mark">&ldquo;</div>
+            <blockquote>Every other company wanted a year locked in up front. These guys said they'd work free until they hit my number. That was the whole sales call for me.</blockquote>
+            <div class="quote-author">
+              <div class="quote-avatar v4">AT</div>
+              <div class="quote-meta">
+                <h5>Ana Torres</h5>
+                <span>Torres Custom Kitchens &middot; Phoenix, AZ</span>
+              </div>
             </div>
           </div>
         </div>
@@ -854,7 +992,7 @@
               <li>You only pay when we deliver real appointments</li>
               <li>No long-term contract</li>
             </ul>
-            <a href="https://calendly.com/mavlydigital/30min" target="_blank" class="btn btn-outline btn-full">Book a Call</a>
+            <a href="#book" class="btn btn-outline btn-full">Book a Call</a>
             <p class="price-note">Best if you want to start lean and pay as leads come in.</p>
           </div>
 
@@ -873,10 +1011,57 @@
               <li>Written guarantee: 15-20 appointments a month</li>
               <li>Miss the number? We work free until we hit it</li>
             </ul>
-            <a href="https://calendly.com/mavlydigital/30min" target="_blank" class="btn btn-primary btn-full">Book a Call</a>
+            <a href="#book" class="btn btn-primary btn-full">Book a Call</a>
             <p class="price-note">Best if you want predictable volume and zero guesswork.</p>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="case-study-section">
+      <div class="container">
+        <div class="case-card">
+          <div class="case-label">Case Study</div>
+          <h2 class="case-headline">
+            23 booked jobs in 60 days.<br>
+            <span class="grad">$4,800 ad spend. $186K signed.</span>
+          </h2>
+          <p class="case-desc">Built a Meta campaign from scratch for a kitchen &amp; bath remodeler in Columbus, OH. Sixty-two qualified homeowners hit the calendar in the first two months. Twenty-three turned into signed contracts. Average job, $8,100. Numbers pulled straight from the client's HubSpot, not our dashboard.</p>
+          <div class="case-chips">
+            <span class="case-chip">$4,800 ad spend</span>
+            <span class="case-chip">62 qualified leads</span>
+            <span class="case-chip">23 booked jobs</span>
+            <span class="case-chip">$186K in signed contracts</span>
+          </div>
+          <div class="case-stats">
+            <div class="case-stat">
+              <div class="num">23</div>
+              <div class="num-label">Jobs booked / 60 days</div>
+            </div>
+            <div class="case-stat">
+              <div class="num">39x</div>
+              <div class="num-label">Return on ad spend</div>
+            </div>
+            <div class="case-stat">
+              <div class="num">$4.8K</div>
+              <div class="num-label">Total ad spend</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-cases">
+          <div class="mini-case">
+            <div class="mini-label">Client &mdash; Kessler Kitchen &amp; Bath</div>
+            <h4><span class="grad">7 booked jobs</span> in month one</h4>
+            <p>Standing start. Ads live on a Wednesday. Two appointments booked by Saturday. Seven confirmed site visits before day 30.</p>
+          </div>
+          <div class="mini-case">
+            <div class="mini-label">Client &mdash; Northline Remodeling</div>
+            <h4><span class="grad">Calendar full</span> in 14 days</h4>
+            <p>Targeted Meta campaign feeding qualified homeowners straight onto the calendar. No Angi, no HomeAdvisor, no shared leads.</p>
+          </div>
         </div>
       </div>
     </section>
