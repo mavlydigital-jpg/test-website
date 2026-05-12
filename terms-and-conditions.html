@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions | Mavly Digital</title>
+  <meta name="description" content="Terms and Conditions for Mavly Digital, a marketing and appointment-setting service for kitchen and bathroom remodelers." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #05070f;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f0f5;
+      --muted: rgba(240,240,245,0.62);
+      --accent: #3a7bff;
+      --accent2: #00e5ff;
+      --accent3: #ffb3a7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(58,123,255,0.16), transparent 36rem),
+        radial-gradient(circle at bottom right, rgba(0,229,255,0.12), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .wrap { min-height: 100vh; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+    .legal-container { max-width: 860px; margin: 0 auto; padding: 0 28px; }
+
+    nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 32px);
+      max-width: 1100px;
+      padding: 10px 14px 10px 18px;
+      background: rgba(10,14,26,0.72);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+    .logo img { display: block; width: 36px; height: 36px; border-radius: 8px; }
+    .logo-word { font-size: 1.05rem; line-height: 1; white-space: nowrap; }
+    .logo-word .brand { font-weight: 800; color: var(--text); }
+    .logo-word .brand-sub { font-weight: 400; color: rgba(240,240,245,0.7); margin-left: 4px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-left: 28px;
+      margin-right: auto;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(240,240,245,0.78);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, #3a7bff 0%, #00e5ff 100%);
+      box-shadow: 0 0 24px rgba(58,123,255,0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 44px rgba(0,229,255,0.6); }
+    .nav-cta .arrow { display: inline-block; transform: rotate(45deg); font-weight: 700; }
+
+    .legal-hero { padding: 150px 0 42px; }
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent3);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+    .intro {
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.75;
+      max-width: 720px;
+    }
+
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 48px;
+      padding: 24px 0 92px;
+    }
+    .toc {
+      position: sticky;
+      top: 110px;
+      align-self: start;
+      border-left: 1px solid var(--border);
+      padding-left: 18px;
+    }
+    .toc p {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      color: rgba(240,240,245,0.72);
+      text-decoration: none;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      margin: 0 0 10px;
+    }
+    .toc a:hover { color: var(--accent2); }
+
+    .legal-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 42px;
+      backdrop-filter: blur(16px);
+    }
+    section + section { border-top: 1px solid var(--border); margin-top: 32px; padding-top: 32px; }
+    h2 {
+      font-size: 1.25rem;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    h3 {
+      font-size: 1rem;
+      line-height: 1.35;
+      margin: 22px 0 8px;
+      color: var(--text);
+    }
+    p, li {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.72;
+    }
+    ul { padding-left: 20px; margin: 12px 0 0; }
+    li + li { margin-top: 7px; }
+    strong { color: var(--text); font-weight: 700; }
+    a { color: var(--accent2); }
+
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    .footer-links { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(240,240,245,0.7);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 860px) {
+      .legal-layout { grid-template-columns: 1fr; gap: 24px; }
+      .toc { position: static; border-left: 0; border-top: 1px solid var(--border); padding: 18px 0 0; }
+      .toc a { display: inline-block; margin: 0 14px 10px 0; }
+      .legal-content { padding: 30px 24px; }
+    }
+    @media (max-width: 720px) {
+      nav { padding: 8px 10px 8px 14px; gap: 10px; }
+      .nav-links { display: none; }
+      .logo img { width: 32px; height: 32px; }
+      .logo-word { font-size: 0.95rem; }
+      .nav-cta { padding: 9px 16px; font-size: 0.82rem; }
+      .legal-hero { padding-top: 128px; }
+    }
+    @media (max-width: 520px) {
+      .container, .legal-container { padding: 0 20px; }
+      nav {
+        width: calc(100% - 24px);
+        padding: 8px 8px 8px 12px;
+      }
+      .logo { gap: 8px; }
+      .logo img { width: 30px; height: 30px; }
+      .logo-word { font-size: 0.9rem; }
+      .nav-cta {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+      .legal-hero {
+        padding-top: 126px;
+        padding-bottom: 28px;
+      }
+      h1 {
+        font-size: 2.25rem;
+        letter-spacing: -0.02em;
+        overflow-wrap: anywhere;
+      }
+      .intro {
+        font-size: 0.96rem;
+        overflow-wrap: anywhere;
+      }
+      .legal-content {
+        border-radius: 18px;
+        padding: 24px 20px;
+      }
+      p, li { font-size: 0.9rem; }
+      .toc a {
+        font-size: 0.82rem;
+        margin-right: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Primary">
+      <a href="index.html" class="logo" aria-label="Mavly Digital home">
+        <img src="logo.svg" alt="Mavly Digital logo" />
+        <span class="logo-word"><span class="brand">Mavly</span><span class="brand-sub">Digital</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#method">Our Method</a>
+        <a href="index.html#pricing">Pricing</a>
+      </div>
+      <a href="https://calendly.com/mavlydigital/30min" target="_blank" class="nav-cta" rel="noopener">
+        Book a Call <span class="arrow" aria-hidden="true">&#8599;</span>
+      </a>
+    </nav>
+
+    <main>
+      <header class="legal-hero">
+        <div class="legal-container">
+          <div class="eyebrow">Last Updated: May 10, 2026</div>
+          <h1>Terms &amp; Conditions</h1>
+          <p class="intro">These Terms &amp; Conditions govern your access to Mavly Digital's website and services, including marketing systems, appointment-setting, CRM setup, automation, reporting, and related services for kitchen and bathroom remodelers.</p>
+        </div>
+      </header>
+
+      <div class="legal-container">
+        <div class="legal-layout">
+          <aside class="toc" aria-label="Terms and Conditions contents">
+            <p>Contents</p>
+            <a href="#agreement">Agreement</a>
+            <a href="#services">Services</a>
+            <a href="#responsibilities">Client Responsibilities</a>
+            <a href="#payments">Payments</a>
+            <a href="#messaging">Messaging &amp; Automation</a>
+            <a href="#sms">SMS Terms</a>
+            <a href="#platforms">Third-Party Platforms</a>
+            <a href="#ip">Intellectual Property</a>
+            <a href="#limitations">Limitations</a>
+            <a href="#contact">Contact Us</a>
+          </aside>
+
+          <article class="legal-content">
+            <section id="agreement">
+              <h2>1. Agreement to These Terms</h2>
+              <p>These Terms &amp; Conditions ("Terms") are a binding agreement between you, whether personally or on behalf of a business, and Mavly Digital ("Mavly Digital," "we," "us," or "our"). By accessing our website, booking a call, purchasing services, or using our services, you agree to these Terms.</p>
+              <p>If you do not agree to these Terms, do not use our website or services.</p>
+              <p><strong>Mavly Digital</strong><br />
+                00400 Platinum Plaza, Tom Mboya St,<br />
+                Nairobi Starehe District CBD<br />
+                Nairobi, Kenya</p>
+              <p>Phone: <a href="tel:+18666796242">+1 866-679-6242</a><br />
+                Email: <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a></p>
+            </section>
+
+            <section id="services">
+              <h2>2. Our Services</h2>
+              <p>Mavly Digital provides business-to-business marketing and growth services for kitchen and bathroom remodelers. Services may include advertising strategy, ad management, landing pages, appointment qualification, CRM setup, follow-up workflows, reporting, consulting, creative assets, and related support.</p>
+              <p>Specific deliverables, timelines, fees, and any written guarantee will be stated in your proposal, invoice, service agreement, or order form. If there is a conflict between these Terms and a signed written agreement, the signed written agreement controls for that conflict.</p>
+            </section>
+
+            <section id="eligibility">
+              <h2>3. Eligibility</h2>
+              <p>Our services are intended for business users who are at least 18 years old. By using our website or services, you confirm that you have authority to bind the business you represent.</p>
+            </section>
+
+            <section id="responsibilities">
+              <h2>4. Client Responsibilities</h2>
+              <p>You agree to provide accurate business information, timely access to necessary accounts, prompt feedback, and any approvals reasonably needed for us to perform the services.</p>
+              <ul>
+                <li>You are responsible for your products, services, pricing, licenses, permits, offers, claims, and fulfillment.</li>
+                <li>You are responsible for reviewing and approving ad copy, landing page copy, messages, offers, and campaigns before launch when approval is requested.</li>
+                <li>You must not provide contact records unless you have the required consent and lawful basis to contact those individuals.</li>
+                <li>You must follow all applicable laws, platform policies, industry rules, and carrier messaging requirements.</li>
+                <li>You agree not to use our services for unlawful, abusive, deceptive, discriminatory, or harmful activity.</li>
+              </ul>
+            </section>
+
+            <section id="payments">
+              <h2>5. Purchases, Payments, and Subscriptions</h2>
+              <p>Fees, billing timing, payment method, ad spend, setup costs, and any recurring charges will be stated in your proposal, invoice, service agreement, or order form. Unless stated otherwise in writing, fees are due when invoiced and are non-refundable once work has started.</p>
+              <p>Advertising spend, platform fees, CRM fees, SMS/email usage fees, and third-party tool costs may be billed separately or paid directly by you to the relevant provider. Late or failed payments may result in paused work, paused campaigns, or suspension of services.</p>
+            </section>
+
+            <section id="messaging">
+              <h2>6. Messaging Content and Automation</h2>
+              <p>Our services may include email, phone, SMS, calendar, CRM, and follow-up automation. You are responsible for ensuring that contact records supplied to us were collected with proper consent and may be used for the requested communication.</p>
+              <p>We may refuse, pause, or remove any campaign, message, or workflow that we believe violates law, carrier requirements, platform rules, or these Terms.</p>
+            </section>
+
+            <section id="sms">
+              <h2>7. SMS Text Messaging Terms</h2>
+              <p>By providing your mobile number to Mavly Digital, you agree that we may send you SMS messages related to appointment reminders, service updates, support, account notices, and permitted marketing communications. Message frequency may vary. Message and data rates may apply.</p>
+              <p>Consent to receive SMS messages is not a condition of purchase. You may opt out at any time by replying STOP. For help, reply HELP or contact <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a>.</p>
+              <p><strong>No mobile opt-in data or SMS consent is sold, rented, or shared with third parties for their own marketing or promotional purposes.</strong> We may share mobile data with service providers only as needed to send or manage the communications you requested or consented to receive.</p>
+            </section>
+
+            <section id="privacy">
+              <h2>8. Privacy Policy</h2>
+              <p>Our collection and use of personal information is described in our <a href="privacy-policy.html">Privacy Policy</a>. By using our website or services, you also agree to the Privacy Policy.</p>
+            </section>
+
+            <section id="platforms">
+              <h2>9. Third-Party Platforms and Accounts</h2>
+              <p>Our work may rely on third-party platforms such as advertising networks, analytics tools, CRM systems, calendars, phone/SMS providers, payment processors, and hosting providers. These platforms operate under their own terms and policies.</p>
+              <p>We do not control third-party platforms and are not responsible for their outages, policy changes, account decisions, data handling, reporting differences, or feature changes. You are responsible for keeping account credentials secure and for maintaining ownership and access to accounts you control.</p>
+            </section>
+
+            <section id="ip">
+              <h2>10. Intellectual Property</h2>
+              <p>We own or license the content, code, designs, templates, processes, methods, systems, graphics, logos, and materials we create or provide, except for materials you supply or rights assigned to you in a signed written agreement.</p>
+              <p>You grant us permission to use business information, logos, trademarks, images, reviews, testimonials, account access, and other materials you provide as needed to perform the services. You confirm that you have the rights needed to provide those materials to us.</p>
+            </section>
+
+            <section id="prohibited">
+              <h2>11. Prohibited Activities</h2>
+              <p>You may not use our website or services to violate laws, infringe rights, send unlawful messages, upload malicious code, interfere with security, scrape or copy our materials, impersonate another person, make deceptive claims, or engage in abusive, discriminatory, or harmful conduct.</p>
+            </section>
+
+            <section id="results">
+              <h2>12. Service Limitations and Results</h2>
+              <p>Marketing performance depends on many factors outside our control, including market conditions, offer strength, sales follow-up, pricing, reputation, website quality, ad platform rules, competition, budget, and seasonality. We do not promise specific revenue, profit, ranking, sales volume, or appointment volume unless that promise appears in a signed written agreement.</p>
+              <p>Any examples, testimonials, or past results are illustrative and do not guarantee that you will achieve the same outcome.</p>
+            </section>
+
+            <section id="termination">
+              <h2>13. Termination and Suspension</h2>
+              <p>Either party may end services according to the cancellation terms in the applicable proposal, invoice, service agreement, or order form. We may suspend or terminate services if payment is overdue, required access is missing, requested work violates policy or law, or continued work creates unreasonable risk.</p>
+            </section>
+
+            <section id="disclaimer">
+              <h2>14. Disclaimer</h2>
+              <p>Our website and services are provided on an "as is" and "as available" basis unless stated otherwise in a signed written agreement. We disclaim warranties of merchantability, fitness for a particular purpose, non-infringement, and uninterrupted availability to the fullest extent permitted by law.</p>
+            </section>
+
+            <section id="limitations">
+              <h2>15. Limitation of Liability</h2>
+              <p>To the fullest extent permitted by law, Mavly Digital will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for lost profits, lost revenue, lost data, platform downtime, ad account decisions, or business interruption.</p>
+              <p>To the fullest extent permitted by law, our total liability for any claim related to the website or services will not exceed the amount you paid to us for the services giving rise to the claim during the three months before the claim arose.</p>
+            </section>
+
+            <section id="indemnification">
+              <h2>16. Indemnification</h2>
+              <p>You agree to defend, indemnify, and hold harmless Mavly Digital from claims, damages, losses, liabilities, costs, and expenses arising from your business, your materials, your products or services, your breach of these Terms, your violation of law, or your misuse of our website or services.</p>
+            </section>
+
+            <section id="law">
+              <h2>17. Governing Law and Disputes</h2>
+              <p>These Terms are governed by the laws of Kenya, unless a signed written agreement states otherwise or applicable law requires a different rule. Any dispute that cannot be resolved informally will be handled in the courts located in Nairobi, Kenya, unless a signed written agreement states otherwise.</p>
+            </section>
+
+            <section id="changes">
+              <h2>18. Changes to These Terms</h2>
+              <p>We may update these Terms from time to time. Updates will be posted on this page with a revised "Last Updated" date. Your continued use of the website or services after an update means you accept the updated Terms.</p>
+            </section>
+
+            <section id="contact">
+              <h2>19. Contact Us</h2>
+              <p>If you have questions about these Terms, contact us:</p>
+              <p><strong>Mavly Digital</strong><br />
+                00400 Platinum Plaza, Tom Mboya St,<br />
+                Nairobi Starehe District CBD<br />
+                Nairobi, Kenya</p>
+              <p>Phone: <a href="tel:+18666796242">+1 866-679-6242</a><br />
+                Email: <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a></p>
+            </section>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <p>&copy; 2026 Mavly Digital. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

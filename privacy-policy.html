@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Mavly Digital</title>
+  <meta name="description" content="Privacy Policy for Mavly Digital, a marketing and appointment-setting service for kitchen and bathroom remodelers." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #05070f;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --text: #f0f0f5;
+      --muted: rgba(240,240,245,0.62);
+      --accent: #3a7bff;
+      --accent2: #00e5ff;
+      --accent3: #ffb3a7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(58,123,255,0.16), transparent 36rem),
+        radial-gradient(circle at bottom right, rgba(0,229,255,0.12), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .wrap { min-height: 100vh; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+    .legal-container { max-width: 860px; margin: 0 auto; padding: 0 28px; }
+
+    nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 32px);
+      max-width: 1100px;
+      padding: 10px 14px 10px 18px;
+      background: rgba(10,14,26,0.72);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+    .logo img { display: block; width: 36px; height: 36px; border-radius: 8px; }
+    .logo-word { font-size: 1.05rem; line-height: 1; white-space: nowrap; }
+    .logo-word .brand { font-weight: 800; color: var(--text); }
+    .logo-word .brand-sub { font-weight: 400; color: rgba(240,240,245,0.7); margin-left: 4px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-left: 28px;
+      margin-right: auto;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(240,240,245,0.78);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, #3a7bff 0%, #00e5ff 100%);
+      box-shadow: 0 0 24px rgba(58,123,255,0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 44px rgba(0,229,255,0.6); }
+    .nav-cta .arrow { display: inline-block; transform: rotate(45deg); font-weight: 700; }
+
+    .legal-hero { padding: 150px 0 42px; }
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent3);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+    .intro {
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.75;
+      max-width: 720px;
+    }
+
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 48px;
+      padding: 24px 0 92px;
+    }
+    .toc {
+      position: sticky;
+      top: 110px;
+      align-self: start;
+      border-left: 1px solid var(--border);
+      padding-left: 18px;
+    }
+    .toc p {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      color: rgba(240,240,245,0.72);
+      text-decoration: none;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      margin: 0 0 10px;
+    }
+    .toc a:hover { color: var(--accent2); }
+
+    .legal-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 42px;
+      backdrop-filter: blur(16px);
+    }
+    section + section { border-top: 1px solid var(--border); margin-top: 32px; padding-top: 32px; }
+    h2 {
+      font-size: 1.25rem;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    h3 {
+      font-size: 1rem;
+      line-height: 1.35;
+      margin: 22px 0 8px;
+      color: var(--text);
+    }
+    p, li {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.72;
+    }
+    ul { padding-left: 20px; margin: 12px 0 0; }
+    li + li { margin-top: 7px; }
+    strong { color: var(--text); font-weight: 700; }
+    a { color: var(--accent2); }
+
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    .footer-links { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(240,240,245,0.7);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 860px) {
+      .legal-layout { grid-template-columns: 1fr; gap: 24px; }
+      .toc { position: static; border-left: 0; border-top: 1px solid var(--border); padding: 18px 0 0; }
+      .toc a { display: inline-block; margin: 0 14px 10px 0; }
+      .legal-content { padding: 30px 24px; }
+    }
+    @media (max-width: 720px) {
+      nav { padding: 8px 10px 8px 14px; gap: 10px; }
+      .nav-links { display: none; }
+      .logo img { width: 32px; height: 32px; }
+      .logo-word { font-size: 0.95rem; }
+      .nav-cta { padding: 9px 16px; font-size: 0.82rem; }
+      .legal-hero { padding-top: 128px; }
+    }
+    @media (max-width: 520px) {
+      .container, .legal-container { padding: 0 20px; }
+      nav {
+        width: calc(100% - 24px);
+        padding: 8px 8px 8px 12px;
+      }
+      .logo { gap: 8px; }
+      .logo img { width: 30px; height: 30px; }
+      .logo-word { font-size: 0.9rem; }
+      .nav-cta {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+      }
+      .legal-hero {
+        padding-top: 126px;
+        padding-bottom: 28px;
+      }
+      h1 {
+        font-size: 2.25rem;
+        letter-spacing: -0.02em;
+        overflow-wrap: anywhere;
+      }
+      .intro {
+        font-size: 0.96rem;
+        overflow-wrap: anywhere;
+      }
+      .legal-content {
+        border-radius: 18px;
+        padding: 24px 20px;
+      }
+      p, li { font-size: 0.9rem; }
+      .toc a {
+        font-size: 0.82rem;
+        margin-right: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav aria-label="Primary">
+      <a href="index.html" class="logo" aria-label="Mavly Digital home">
+        <img src="logo.svg" alt="Mavly Digital logo" />
+        <span class="logo-word"><span class="brand">Mavly</span><span class="brand-sub">Digital</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#method">Our Method</a>
+        <a href="index.html#pricing">Pricing</a>
+      </div>
+      <a href="https://calendly.com/mavlydigital/30min" target="_blank" class="nav-cta" rel="noopener">
+        Book a Call <span class="arrow" aria-hidden="true">&#8599;</span>
+      </a>
+    </nav>
+
+    <main>
+      <header class="legal-hero">
+        <div class="legal-container">
+          <div class="eyebrow">Last Updated: May 10, 2026</div>
+          <h1>Privacy Policy</h1>
+          <p class="intro">This Privacy Policy explains how Mavly Digital collects, uses, stores, and shares personal information when you visit our website, book a call, use our marketing services, or communicate with us.</p>
+        </div>
+      </header>
+
+      <div class="legal-container">
+        <div class="legal-layout">
+          <aside class="toc" aria-label="Privacy Policy contents">
+            <p>Contents</p>
+            <a href="#information">Information We Collect</a>
+            <a href="#use">How We Use Information</a>
+            <a href="#sharing">How We Share Information</a>
+            <a href="#cookies">Cookies</a>
+            <a href="#ai">AI Services</a>
+            <a href="#retention">Retention &amp; Security</a>
+            <a href="#rights">Your Rights</a>
+            <a href="#sms">Mobile Opt-In Data</a>
+            <a href="#contact">Contact Us</a>
+          </aside>
+
+          <article class="legal-content">
+            <section id="overview">
+              <h2>Overview</h2>
+              <p>Mavly Digital ("Mavly Digital," "we," "us," or "our") provides marketing, appointment-setting, advertising, CRM, automation, and reporting services for kitchen and bathroom remodelers. This policy applies to our website, our client services, and related communications.</p>
+              <p>If you have questions about this policy, contact us at <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a>.</p>
+            </section>
+
+            <section id="information">
+              <h2>1. Information We Collect</h2>
+              <p>We collect information you voluntarily provide when you book a call, contact us, become a client, use our services, or communicate with our team.</p>
+              <ul>
+                <li>Name, company name, job title, email address, phone number, and mailing address.</li>
+                <li>Business details such as service area, remodeling services, advertising goals, budget range, and current sales process.</li>
+                <li>Billing and payment details handled by our payment processors.</li>
+                <li>Messages, call notes, support requests, survey answers, and files you choose to share with us.</li>
+                <li>Website and device information, including pages visited, browser type, IP address, and analytics events.</li>
+                <li>Customer or homeowner contact records that clients provide for permitted business communications.</li>
+              </ul>
+
+              <h3>Client Responsibility for Customer Data</h3>
+              <p>Clients who provide customer or homeowner contact records represent that they have the required permission, consent, and legal authority to contact those individuals by phone, SMS, email, or other electronic communication. Mavly Digital relies on the client's confirmation that the data was collected and provided lawfully.</p>
+
+              <h3>Payment Data</h3>
+              <p>Payments may be processed by third-party payment providers. We do not store full payment card numbers on our own systems.</p>
+            </section>
+
+            <section id="use">
+              <h2>2. How We Use Information</h2>
+              <p>We use personal information to operate, deliver, improve, and protect our services.</p>
+              <ul>
+                <li>Provide marketing, appointment-setting, advertising, CRM, automation, and reporting services.</li>
+                <li>Book calls, schedule meetings, respond to support requests, and manage client relationships.</li>
+                <li>Send administrative notices, service updates, appointment reminders, and permitted marketing communications.</li>
+                <li>Run advertising campaigns, landing pages, follow-up workflows, and performance reporting for clients.</li>
+                <li>Analyze service performance, improve our website, prevent fraud, and maintain security.</li>
+                <li>Comply with applicable laws, platform policies, contracts, and dispute-resolution obligations.</li>
+              </ul>
+
+              <h3>Case Studies and Marketing Use</h3>
+              <p>We may use business names, logos, public reviews, testimonials, and high-level performance results in case studies or marketing materials when permitted. If you prefer not to be featured, contact us at <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a>.</p>
+            </section>
+
+            <section id="legal-bases">
+              <h2>3. Legal Bases for Processing</h2>
+              <p>Depending on where you live, we may process information based on your consent, our contract with you, our legitimate business interests, compliance with legal obligations, or other lawful bases recognized by applicable law.</p>
+            </section>
+
+            <section id="sharing">
+              <h2>4. How We Share Information</h2>
+              <p>We may share information with trusted service providers and platforms that help us operate our website and deliver services.</p>
+              <ul>
+                <li>Cloud hosting, storage, security, and website providers.</li>
+                <li>Payment processors and accounting tools.</li>
+                <li>Email, phone, SMS, calendar, CRM, and automation providers.</li>
+                <li>Advertising, analytics, attribution, and reporting platforms.</li>
+                <li>Professional advisors, legal authorities, or regulators when required or appropriate.</li>
+              </ul>
+              <p>We do not sell personal information. We do not sell or share mobile opt-in data with third parties for their own marketing or promotional purposes.</p>
+            </section>
+
+            <section id="cookies">
+              <h2>5. Cookies and Tracking Technologies</h2>
+              <p>We may use cookies, pixels, tags, and similar technologies to keep the website working, understand visitor behavior, measure advertising performance, personalize experiences, and protect against abuse. You can control cookies through your browser settings, though some website features may not work correctly if cookies are disabled.</p>
+            </section>
+
+            <section id="ai">
+              <h2>6. Artificial Intelligence Services</h2>
+              <p>Some workflows may use artificial intelligence tools to draft copy, summarize calls, organize campaign data, or support reporting. We use these tools to assist our team and may rely on third-party providers for AI features.</p>
+            </section>
+
+            <section id="retention">
+              <h2>7. Retention and Security</h2>
+              <p>We keep personal information for as long as needed to provide services, maintain records, resolve disputes, comply with legal obligations, and protect our business. Information may remain in backups for a limited period after deletion from active systems.</p>
+              <p>We use reasonable technical and organizational safeguards designed to protect personal information. No website, network, or storage system can be guaranteed to be completely secure.</p>
+            </section>
+
+            <section id="minors">
+              <h2>8. Information From Minors</h2>
+              <p>Our services are intended for business users who are at least 18 years old. We do not knowingly collect personal information from children.</p>
+            </section>
+
+            <section id="rights">
+              <h2>9. Your Privacy Rights</h2>
+              <p>Depending on your location, you may have the right to request access to, correction of, deletion of, or a copy of your personal information. You may also have the right to object to or restrict certain processing, or to withdraw consent where processing is based on consent.</p>
+              <p>To submit a request, email <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a>. We may verify your identity before processing your request.</p>
+            </section>
+
+            <section id="dnt">
+              <h2>10. Do Not Track</h2>
+              <p>Some browsers offer "Do Not Track" settings. Because there is no common industry standard for these signals, our website does not currently respond to them.</p>
+            </section>
+
+            <section id="sms">
+              <h2>11. Mobile Opt-In Data</h2>
+              <p>Mobile numbers provided to Mavly Digital are used to send relevant business communications, appointment reminders, service updates, support messages, and permitted marketing communications. Message frequency may vary. Message and data rates may apply.</p>
+              <p><strong>No mobile opt-in data or SMS consent is sold, rented, or shared with third parties for their own marketing or promotional purposes.</strong> We may share mobile data with service providers only as needed to deliver the communications you requested or consented to receive.</p>
+              <p>You can opt out of SMS messages at any time by replying STOP. For help, reply HELP or contact <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a>. Consent to receive SMS messages is not a condition of purchase.</p>
+            </section>
+
+            <section id="updates">
+              <h2>12. Updates to This Policy</h2>
+              <p>We may update this Privacy Policy from time to time. Updates will be posted on this page with a revised "Last Updated" date.</p>
+            </section>
+
+            <section id="contact">
+              <h2>13. Contact Us</h2>
+              <p>If you have questions about this Privacy Policy or want to submit a privacy request, contact us:</p>
+              <p><strong>Mavly Digital</strong><br />
+                00400 Platinum Plaza, Tom Mboya St,<br />
+                Nairobi Starehe District CBD<br />
+                Nairobi, Kenya</p>
+              <p>Phone: <a href="tel:+18666796242">+1 866-679-6242</a><br />
+                Email: <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a></p>
+            </section>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <p>&copy; 2026 Mavly Digital. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
