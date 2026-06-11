@@ -1389,6 +1389,7 @@
     position: relative;
     z-index: 1;
   }
+  
   .founder-text { position: relative; z-index: 1; }
   .founder-text p {
     color: var(--text);
@@ -1396,6 +1397,16 @@
     line-height: 1.7;
     margin-bottom: 16px;
   }
+  
+.founder-avatar { overflow: hidden; }
+.founder-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+  
   .founder-text .name {
     color: var(--cyan);
     font-weight: 700;
@@ -4211,7 +4222,7 @@
       <h2>One operator. <span class="gradient">Built on calls, not slides.</span></h2>
     </div>
     <div class="founder-wrap fade-in">
-      <div class="founder-avatar">D</div>
+      <div class="founder-avatar"><img src="david.jpg" alt="David Omondi"></div>
       <div class="founder-text">
         <p>I'm David. I started Mavly because I watched too many contractors get sold $3,500/month agency packages they couldn't afford or escape from. The lock-in was the product. The results were secondary.</p>
         <p>I think waterproofing contractors deserve agency-grade systems without agency-grade prices or contracts. Same speed-to-lead automation, same Google Ads expertise, same dashboards. But you only pay when your phone actually rings.</p>
