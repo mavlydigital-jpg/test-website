@@ -66,3 +66,7 @@ body{background-color:#FFFFFF}
 /* Hide testimonial slider scrollbar */
 .reviews__slider,.reviews__slider-list{scrollbar-width:none;-ms-overflow-style:none}
 .reviews__slider::-webkit-scrollbar,.reviews__slider-list::-webkit-scrollbar{display:none;width:0;height:0}
+/* Remove decorative star bg behind booking calendar */
+.contact-us{background-image:none!important}
+.contact-us__booking{position:relative;z-index:1;background:#fff;border-radius:20px;overflow:hidden}
+.contact-us::after{display:none!important;content:none!important}
