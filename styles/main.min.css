@@ -60,3 +60,9 @@ body{background-color:#FFFFFF}
 .legal-footer a:hover{color:var(--color-blue)}
 @media (max-width:900px){.legal{grid-template-columns:1fr;gap:20px}.legal__toc{position:static;border-left:0;border-top:var(--border);padding:16px 0 0}.legal__toc a{display:inline-block;margin:0 14px 10px 0}.legal__content{padding:28px 22px;border-radius:22px}}
 .footer__legal-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+/* Testimonial screenshots */
+.review-card--shot{background:#fff;padding:16px}
+.review-card--shot img{width:100%;height:auto;display:block;border-radius:16px}
+/* Hide testimonial slider scrollbar */
+.reviews__slider,.reviews__slider-list{scrollbar-width:none;-ms-overflow-style:none}
+.reviews__slider::-webkit-scrollbar,.reviews__slider-list::-webkit-scrollbar{display:none;width:0;height:0}
