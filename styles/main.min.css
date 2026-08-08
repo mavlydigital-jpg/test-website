@@ -26,3 +26,10 @@ body{background-color:#FFFFFF}
 @media (max-width:900px){.about__inner{grid-template-columns:1fr;gap:26px;padding:26px;border-radius:30px}.about__text h3{font-size:28px}}
 /* Simple pricing / quote CTA reuses banner look */
 .quote__note{font-size:18px;line-height:1.6;margin:0 0 8px}
+/* Case studies */
+.case-card{border:var(--border);border-radius:30px;overflow:hidden;background:var(--color-gray);display:flex;flex-direction:column}
+.case-card__media{background:#fff;padding:16px;border-bottom:var(--border)}
+.case-card__media img{width:100%;height:auto;display:block;border-radius:12px}
+.case-card__cap{padding:22px 26px;font-size:17px;line-height:1.5}
+.case-card__cap b{display:block;font-size:26px;line-height:1.1;margin-bottom:6px}
+@media (max-width:600px){.case-card__cap b{font-size:22px}}
