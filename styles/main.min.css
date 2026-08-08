@@ -33,3 +33,30 @@ body{background-color:#FFFFFF}
 .case-card__cap{padding:22px 26px;font-size:17px;line-height:1.5}
 .case-card__cap b{display:block;font-size:26px;line-height:1.1;margin-bottom:6px}
 @media (max-width:600px){.case-card__cap b{font-size:22px}}
+/* Legal pages (privacy / terms) */
+.legal-page{background:#fff}
+.legal-hero{padding:56px 0 18px}
+.legal-eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--color-blue);margin:0 0 12px}
+.legal-title{font-size:clamp(40px,7vw,72px);line-height:1;letter-spacing:-.03em;margin:0 0 16px;text-wrap:balance}
+.legal-intro{font-size:18px;line-height:1.6;max-width:70ch;color:#2b3157}
+.legal{display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px;padding:22px 0 90px}
+.legal__toc{position:sticky;top:24px;align-self:start;border-left:2px solid var(--color-dark);padding-left:18px}
+.legal__toc p{font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;margin:0 0 12px}
+.legal__toc a{display:block;color:var(--color-dark);text-decoration:none;font-size:15px;line-height:1.4;margin:0 0 10px;opacity:.72}
+.legal__toc a:hover{opacity:1;color:var(--color-blue)}
+.legal__content{background:var(--color-gray);border:var(--border);border-radius:30px;padding:44px}
+.legal__content section+section{border-top:1px solid rgba(5,10,52,.12);margin-top:30px;padding-top:30px}
+.legal__content h2{font-size:24px;line-height:1.25;margin:0 0 12px}
+.legal__content h3{font-size:18px;margin:20px 0 6px}
+.legal__content p,.legal__content li{font-size:16px;line-height:1.7;color:#2b3157;margin:0 0 10px}
+.legal__content a{color:var(--color-blue);text-decoration:underline}
+.legal__content ul{padding-left:20px;margin:10px 0 0}
+.legal__content li+li{margin-top:6px}
+.legal__content strong{color:var(--color-dark)}
+.legal-footer{border-top:var(--border);padding:26px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.legal-footer p{font-size:14px;color:var(--color-gray-alt)}
+.legal-footer a{color:var(--color-dark);text-decoration:none;font-size:14px}
+.legal-footer a+a{margin-left:18px}
+.legal-footer a:hover{color:var(--color-blue)}
+@media (max-width:900px){.legal{grid-template-columns:1fr;gap:20px}.legal__toc{position:static;border-left:0;border-top:var(--border);padding:16px 0 0}.legal__toc a{display:inline-block;margin:0 14px 10px 0}.legal__content{padding:28px 22px;border-radius:22px}}
+.footer__legal-links{display:flex;gap:20px;flex-wrap:wrap;align-items:center}

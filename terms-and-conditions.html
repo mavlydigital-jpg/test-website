@@ -1,300 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service | Mavly Digital</title>
-  <meta name="description" content="Terms of Service for Mavly Digital, a marketing and appointment-setting service for kitchen and bathroom remodelers." />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="icon" type="image/svg+xml" href="logo.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #05070f;
-      --surface: rgba(255,255,255,0.04);
-      --border: rgba(255,255,255,0.08);
-      --text: #f0f0f5;
-      --muted: rgba(240,240,245,0.62);
-      --accent: #3a7bff;
-      --accent2: #00e5ff;
-      --accent3: #ffb3a7;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(58,123,255,0.16), transparent 36rem),
-        radial-gradient(circle at bottom right, rgba(0,229,255,0.12), transparent 34rem),
-        var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    .wrap { min-height: 100vh; }
-    .container { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
-    .legal-container { max-width: 860px; margin: 0 auto; padding: 0 28px; }
-
-    nav {
-      position: fixed;
-      top: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      width: calc(100% - 32px);
-      max-width: 1100px;
-      padding: 10px 14px 10px 18px;
-      background: rgba(10,14,26,0.72);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 999px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text);
-      flex-shrink: 0;
-    }
-    .logo img { display: block; width: 36px; height: 36px; border-radius: 8px; }
-    .logo-word { font-size: 1.05rem; line-height: 1; white-space: nowrap; }
-    .logo-word .brand { font-weight: 800; color: var(--text); }
-    .logo-word .brand-sub { font-weight: 400; color: rgba(240,240,245,0.7); margin-left: 4px; }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      margin-left: 28px;
-      margin-right: auto;
-    }
-    .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: rgba(240,240,245,0.78);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.88rem;
-      color: #fff;
-      text-decoration: none;
-      background: linear-gradient(135deg, #3a7bff 0%, #00e5ff 100%);
-      box-shadow: 0 0 24px rgba(58,123,255,0.45);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      white-space: nowrap;
-    }
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 44px rgba(0,229,255,0.6); }
-    .nav-cta .arrow { display: inline-block; transform: rotate(45deg); font-weight: 700; }
-
-    .legal-hero { padding: 150px 0 42px; }
-    .eyebrow {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent3);
-      margin-bottom: 16px;
-    }
-    h1 {
-      font-size: clamp(2.4rem, 5.6vw, 4.4rem);
-      line-height: 1.05;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: 18px;
-    }
-    .intro {
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.75;
-      max-width: 720px;
-    }
-
-    .legal-layout {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 48px;
-      padding: 24px 0 92px;
-    }
-    .toc {
-      position: sticky;
-      top: 110px;
-      align-self: start;
-      border-left: 1px solid var(--border);
-      padding-left: 18px;
-    }
-    .toc p {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-    .toc a {
-      display: block;
-      color: rgba(240,240,245,0.72);
-      text-decoration: none;
-      font-size: 0.86rem;
-      line-height: 1.45;
-      margin: 0 0 10px;
-    }
-    .toc a:hover { color: var(--accent2); }
-
-    .legal-content {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 42px;
-      backdrop-filter: blur(16px);
-    }
-    section + section { border-top: 1px solid var(--border); margin-top: 32px; padding-top: 32px; }
-    h2 {
-      font-size: 1.25rem;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      margin-bottom: 14px;
-    }
-    h3 {
-      font-size: 1rem;
-      line-height: 1.35;
-      margin: 22px 0 8px;
-      color: var(--text);
-    }
-    p, li {
-      color: var(--muted);
-      font-size: 0.94rem;
-      line-height: 1.72;
-    }
-    ul { padding-left: 20px; margin: 12px 0 0; }
-    li + li { margin-top: 7px; }
-    strong { color: var(--text); font-weight: 700; }
-    a { color: var(--accent2); }
-
-    footer {
-      padding: 32px 0;
-      border-top: 1px solid var(--border);
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-    footer p { font-size: 0.8rem; color: var(--muted); }
-    .footer-links { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-    .footer-links a {
-      font-size: 0.8rem;
-      color: rgba(240,240,245,0.7);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-    .footer-links a:hover { color: var(--text); }
-
-    @media (max-width: 860px) {
-      .legal-layout { grid-template-columns: 1fr; gap: 24px; }
-      .toc { position: static; border-left: 0; border-top: 1px solid var(--border); padding: 18px 0 0; }
-      .toc a { display: inline-block; margin: 0 14px 10px 0; }
-      .legal-content { padding: 30px 24px; }
-    }
-    @media (max-width: 720px) {
-      nav { padding: 8px 10px 8px 14px; gap: 10px; }
-      .nav-links { display: none; }
-      .logo img { width: 32px; height: 32px; }
-      .logo-word { font-size: 0.95rem; }
-      .nav-cta { padding: 9px 16px; font-size: 0.82rem; }
-      .legal-hero { padding-top: 128px; }
-    }
-    @media (max-width: 520px) {
-      .container, .legal-container { padding: 0 20px; }
-      nav {
-        width: calc(100% - 24px);
-        padding: 8px 8px 8px 12px;
-      }
-      .logo { gap: 8px; }
-      .logo img { width: 30px; height: 30px; }
-      .logo-word { font-size: 0.9rem; }
-      .nav-cta {
-        padding: 8px 12px;
-        font-size: 0.78rem;
-      }
-      .legal-hero {
-        padding-top: 126px;
-        padding-bottom: 28px;
-      }
-      h1 {
-        font-size: 2.25rem;
-        letter-spacing: -0.02em;
-        overflow-wrap: anywhere;
-      }
-      .intro {
-        font-size: 0.96rem;
-        overflow-wrap: anywhere;
-      }
-      .legal-content {
-        border-radius: 18px;
-        padding: 24px 20px;
-      }
-      p, li { font-size: 0.9rem; }
-      .toc a {
-        font-size: 0.82rem;
-        margin-right: 12px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <nav aria-label="Primary">
-      <a href="index.html" class="logo" aria-label="Mavly Digital home">
-        <img src="logo.svg" alt="Mavly Digital logo" />
-        <span class="logo-word"><span class="brand">Mavly</span><span class="brand-sub">Digital</span></span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html#method">Our Method</a>
-        <a href="index.html#pricing">Pricing</a>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service | Mavly Digital</title>
+    <meta name="description" content="Terms of Service for Mavly Digital, lead generation and automation for waterproofing, foundation, and crawl space contractors." />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles/main.min.css" />
+  </head>
+  <body class="legal-page">
+    <header class="header">
+      <div class="header__inner container">
+        <a class="header__logo logo" href="index.html" aria-label="Mavly home">
+          <svg class="logo__star" width="26" height="28" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 1C14 1 3 13 3 20A11 11 0 0 0 25 20C25 13 14 1 14 1Z" fill="#085CF0"/><path d="M9 19.5A5 5 0 0 0 14 24.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="logo__text">Mavly</span>
+        </a>
+        <a class="header__button button button--transparent" href="index.html">Back to site</a>
       </div>
-      <a href="index.html#book" class="nav-cta">
-        Book a Call <span class="arrow" aria-hidden="true">&#8599;</span>
-      </a>
-    </nav>
-
+    </header>
     <main>
       <header class="legal-hero">
-        <div class="legal-container">
-          <div class="eyebrow">Last Updated: May 12, 2026</div>
-          <h1>Terms of Service</h1>
-          <p class="intro">These Terms of Service govern your access to Mavly Digital's website and services, including marketing systems, appointment-setting, CRM setup, automation, reporting, and related services for kitchen and bathroom remodelers.</p>
+        <div class="container">
+          <div class="legal-eyebrow">Last Updated: May 12, 2026</div>
+          <h1 class="legal-title">Terms of Service</h1>
+          <p class="legal-intro">These Terms of Service govern your access to Mavly Digital's website and services, including marketing systems, appointment-setting, CRM setup, automation, reporting, and related services for waterproofing, foundation, and crawl space contractors.</p>
         </div>
       </header>
 
-      <div class="legal-container">
-        <div class="legal-layout">
-          <aside class="toc" aria-label="Terms of Service contents">
+      <div class="container">
+        <div class="legal">
+          <aside class="legal__toc" aria-label="Terms of Service contents">
             <p>Contents</p>
             <a href="#agreement">Agreement</a>
             <a href="#services">Services</a>
@@ -308,22 +44,21 @@
             <a href="#contact">Contact Us</a>
           </aside>
 
-          <article class="legal-content">
+          <article class="legal__content">
             <section id="agreement">
               <h2>1. Agreement to These Terms</h2>
               <p>These Terms of Service ("Terms") are a binding agreement between you, whether personally or on behalf of a business, and Mavly Digital ("Mavly Digital," "we," "us," or "our"). By accessing our website, booking a call, purchasing services, or using our services, you agree to these Terms.</p>
               <p>If you do not agree to these Terms, do not use our website or services.</p>
               <p><strong>Mavly Digital</strong><br />
-                00400 Platinum Plaza, Tom Mboya St,<br />
-                Nairobi Starehe District CBD<br />
-                Nairobi, Kenya</p>
-              <p>Phone: <a href="tel:+254705255147">+254705255147</a><br />
-                Email: <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a></p>
+                15 Tanguay Ave, Ste 112u<br />
+                Nashua, New Hampshire 03063<br />
+                United States</p>
+              <p>Email: <a href="mailto:hello@mavlydigital.com">hello@mavlydigital.com</a></p>
             </section>
 
             <section id="services">
               <h2>2. Our Services</h2>
-              <p>Mavly Digital provides business-to-business marketing and growth services for kitchen and bathroom remodelers. Services may include advertising strategy, ad management, landing pages, appointment qualification, CRM setup, follow-up workflows, reporting, consulting, creative assets, and related support.</p>
+              <p>Mavly Digital provides business-to-business marketing and growth services for waterproofing, foundation, and crawl space contractors. Services may include advertising strategy, ad management, landing pages, appointment qualification, CRM setup, follow-up workflows, reporting, consulting, creative assets, and related support.</p>
               <p>Specific deliverables, timelines, fees, and any written guarantee will be stated in your proposal, invoice, service agreement, or order form. If there is a conflict between these Terms and a signed written agreement, the signed written agreement controls for that conflict.</p>
             </section>
 
@@ -359,7 +94,7 @@
             <section id="sms">
               <h2>7. SMS Text Messaging Terms</h2>
               <p>By providing your mobile number to Mavly Digital and checking the applicable opt-in box, you agree that we may send you SMS messages related to appointment reminders, service updates, support, account notices, and permitted marketing communications. Transactional and marketing consents may be requested separately. Message frequency may vary. Message and data rates may apply.</p>
-              <p>Consent to receive SMS messages is not a condition of purchase. You may opt out at any time by replying STOP. For help, reply HELP or contact <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a>.</p>
+              <p>Consent to receive SMS messages is not a condition of purchase. You may opt out at any time by replying STOP. For help, reply HELP or contact <a href="mailto:hello@mavlydigital.com">hello@mavlydigital.com</a>.</p>
               <p><strong>No mobile opt-in data or SMS consent is sold, rented, or shared with third parties for their own marketing or promotional purposes.</strong> We may share mobile data with service providers only as needed to send or manage the communications you requested or consented to receive.</p>
             </section>
 
@@ -414,7 +149,7 @@
 
             <section id="law">
               <h2>17. Governing Law and Disputes</h2>
-              <p>These Terms are governed by the laws of Kenya, unless a signed written agreement states otherwise or applicable law requires a different rule. Any dispute that cannot be resolved informally will be handled in the courts located in Nairobi, Kenya, unless a signed written agreement states otherwise.</p>
+              <p>These Terms are governed by the laws of the State of New Hampshire, United States, unless a signed written agreement states otherwise or applicable law requires a different rule. Any dispute that cannot be resolved informally will be handled in the courts located in New Hampshire, United States, unless a signed written agreement states otherwise.</p>
             </section>
 
             <section id="changes">
@@ -426,30 +161,23 @@
               <h2>19. Contact Us</h2>
               <p>If you have questions about these Terms, contact us:</p>
               <p><strong>Mavly Digital</strong><br />
-                00400 Platinum Plaza, Tom Mboya St,<br />
-                Nairobi Starehe District CBD<br />
-                Nairobi, Kenya</p>
-              <p>Phone: <a href="tel:+254705255147">+254705255147</a><br />
-                Email: <a href="mailto:info@mavlydigital.com">info@mavlydigital.com</a></p>
+                15 Tanguay Ave, Ste 112u<br />
+                Nashua, New Hampshire 03063<br />
+                United States</p>
+              <p>Email: <a href="mailto:hello@mavlydigital.com">hello@mavlydigital.com</a></p>
             </section>
           </article>
         </div>
       </div>
     </main>
-
-    <footer>
-      <div class="container">
-        <div class="footer-inner">
-          <p>&copy; 2026 Mavly Digital. All rights reserved.</p>
-          <div class="footer-links">
-            <a href="tel:+254705255147">Call +254705255147</a>
-            <a href="opt-in/">Opt-In</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="terms-and-conditions.html">Terms of Service</a>
-          </div>
-        </div>
+    <div class="container">
+      <div class="legal-footer">
+        <p>&copy; 2026 Mavly Digital. All Rights Reserved.</p>
+        <span>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms of Service</a>
+        </span>
       </div>
-    </footer>
-  </div>
-</body>
+    </div>
+  </body>
 </html>
