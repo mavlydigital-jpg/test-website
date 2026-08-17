@@ -12,7 +12,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
 </head>
 
 <body id="top">
@@ -35,7 +34,7 @@
           <li class="navbar-item"><a href="#top" class="navbar-link" data-nav-link>Home</a></li>
           <li class="navbar-item"><a href="#problem" class="navbar-link" data-nav-link>The Problem</a></li>
           <li class="navbar-item"><a href="#feature" class="navbar-link" data-nav-link>How It Works</a></li>
-          <li class="navbar-item"><a href="#project" class="navbar-link" data-nav-link>Results</a></li>
+          <li class="navbar-item"><a href="#who" class="navbar-link" data-nav-link>Who We Serve</a></li>
           <li class="navbar-item"><a href="#faq" class="navbar-link" data-nav-link>FAQ</a></li>
         </ul>
       </nav>
@@ -44,7 +43,7 @@
         <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
       </button>
 
-      <a href="#contact" class="btn btn-primary has-before has-after">Free Leak Report</a>
+      <a href="#contact" class="btn btn-primary">Free Leak Report</a>
 
       <div class="overlay" data-nav-toggler data-overlay></div>
     </div>
@@ -58,7 +57,7 @@
         <div class="container">
 
           <div class="hero-content">
-            <p class="section-subtitle has-before">For contractors who are great at the work and tired of losing jobs to guys who aren't</p>
+            <p class="section-subtitle has-before">For contractors great at the work, tired of losing jobs to guys who aren't</p>
 
             <h1 class="h1 hero-title">
               The best contractor doesn't win the job. The <span class="has-before">most trusted</span> one does.
@@ -69,7 +68,7 @@
             </p>
 
             <div class="wrapper">
-              <a href="#contact" class="btn btn-primary has-before has-after">Get my free Revenue Leak Report</a>
+              <a href="#contact" class="btn btn-primary">Get my free Revenue Leak Report</a>
               <a href="#feature" class="hero-btn-link">
                 <ion-icon name="play-outline" aria-hidden="true"></ion-icon>
                 <span class="span">See how it works</span>
@@ -84,7 +83,28 @@
           </div>
 
           <figure class="hero-banner">
-            <img src="./assets/images/hero-banner.png" width="794" height="637" alt="hero banner" class="w-100">
+            <svg class="hero-graphic" viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#085CF0"/>
+                </linearGradient>
+              </defs>
+              <circle cx="230" cy="230" r="210" stroke="#1b2a52" stroke-width="2"/>
+              <circle cx="230" cy="230" r="150" stroke="#22356a" stroke-width="2"/>
+              <circle cx="230" cy="230" r="90" stroke="#2b4488" stroke-width="2"/>
+              <g opacity="0.9">
+                <path d="M230 70 L262 196 L230 230 L198 196 Z" fill="url(#g1)"/>
+                <path d="M230 390 L198 264 L230 230 L262 264 Z" fill="#0b1c46"/>
+                <path d="M70 230 L196 198 L230 230 L196 262 Z" fill="#123a86"/>
+                <path d="M390 230 L264 262 L230 230 L264 198 Z" fill="#123a86"/>
+              </g>
+              <circle cx="230" cy="230" r="26" fill="#085CF0"/>
+              <circle cx="230" cy="230" r="10" fill="#AFE9FD"/>
+              <g fill="#AFE9FD">
+                <circle cx="70" cy="120" r="5"/><circle cx="392" cy="150" r="4"/>
+                <circle cx="360" cy="360" r="6"/><circle cx="110" cy="360" r="4"/>
+              </g>
+            </svg>
           </figure>
 
         </div>
@@ -100,7 +120,7 @@
           <div class="problem-text">
             <p>You drive home from an estimate you nailed. You gave them a fair number. You explained the job better than anyone else will. You know you are the best contractor who is going to walk through that door.</p>
             <p>Two weeks later you find out they went with the other guy. Cheaper. Newer. Cuts corners you would never cut. And he got your job.</p>
-            <p>It eats at you, because it is not the first time. You are losing work you should be winning and you can't figure out why. Here is why, and it is going to sting a little. The homeowner never got far enough to find out you are the best. In the ninety seconds they spent deciding, they looked you up, felt unsure, and moved on. They didn't reject you. They just couldn't tell you were the safe choice, so they picked whoever felt safest.</p>
+            <p>It eats at you, because it is not the first time. Here is why, and it is going to sting a little. The homeowner never got far enough to find out you are the best. In the ninety seconds they spent deciding, they looked you up, felt unsure, and moved on. They didn't reject you. They just couldn't tell you were the safe choice, so they picked whoever felt safest.</p>
           </div>
 
           <ul class="leak-list">
@@ -114,7 +134,7 @@
             </li>
             <li class="leak-card">
               <span class="leak-num">03</span>
-              <p>You sent the quote and the trail went cold. No nudge, no follow up, and while you waited, someone faster closed them.</p>
+              <p>You sent the quote and the trail went cold. No nudge, no follow up, and someone faster closed them.</p>
             </li>
           </ul>
 
@@ -133,56 +153,54 @@
           <ul class="grid-list">
 
             <li>
-              <div class="service-card" style="--color: 217, 94%, 48%">
-                <div class="card-icon"><img src="./assets/images/service-icon-1.png" width="30" height="30" loading="lazy" alt=""></div>
+              <div class="service-card">
+                <div class="card-icon"><ion-icon name="ribbon-outline"></ion-icon></div>
                 <h3 class="h3"><span class="card-title">The go-to name in your area</span></h3>
                 <p class="service-text">Found first, and proven before you are even in the room.</p>
               </div>
             </li>
 
             <li>
-              <div class="service-card" style="--color: 205, 90%, 55%">
-                <div class="card-icon"><img src="./assets/images/service-icon-2.png" width="30" height="30" loading="lazy" alt=""></div>
+              <div class="service-card">
+                <div class="card-icon"><ion-icon name="call-outline"></ion-icon></div>
                 <h3 class="h3"><span class="card-title">Every homeowner gets caught</span></h3>
                 <p class="service-text">No missed call, no cold quote, no lead ever slips away again.</p>
               </div>
             </li>
 
             <li>
-              <div class="service-card" style="--color: 228, 86%, 45%">
-                <div class="card-icon"><img src="./assets/images/service-icon-3.png" width="30" height="30" loading="lazy" alt=""></div>
+              <div class="service-card">
+                <div class="card-icon"><ion-icon name="refresh-outline"></ion-icon></div>
                 <h3 class="h3"><span class="card-title">We recover jobs you lost</span></h3>
                 <p class="service-text">Old estimates reopened, stalled deals revived, money you thought was gone brought back.</p>
               </div>
             </li>
 
             <li>
-              <div class="service-card" style="--color: 217, 94%, 48%">
-                <div class="card-icon"><img src="./assets/images/service-icon-4.png" width="30" height="30" loading="lazy" alt=""></div>
+              <div class="service-card">
+                <div class="card-icon"><ion-icon name="search-outline"></ion-icon></div>
                 <h3 class="h3"><span class="card-title">Homeowners shopping right now</span></h3>
                 <p class="service-text">We put you in front of the ones actively looking, so you are not living job to job on referrals.</p>
               </div>
             </li>
 
             <li>
-              <div class="service-card" style="--color: 205, 90%, 55%">
-                <div class="card-icon"><img src="./assets/images/service-icon-5.png" width="30" height="30" loading="lazy" alt=""></div>
-                <h3 class="h3"><span class="card-title">You see every dollar it brings back</span></h3>
+              <div class="service-card">
+                <div class="card-icon"><ion-icon name="bar-chart-outline"></ion-icon></div>
+                <h3 class="h3"><span class="card-title">You see every dollar back</span></h3>
                 <p class="service-text">A straight scorecard of jobs recovered and bids won, so it pays for itself in front of your face.</p>
               </div>
             </li>
 
             <li>
-              <div class="service-card" style="--color: 228, 86%, 45%">
-                <div class="card-icon"><img src="./assets/images/service-icon-6.png" width="30" height="30" loading="lazy" alt=""></div>
+              <div class="service-card">
+                <div class="card-icon"><ion-icon name="construct-outline"></ion-icon></div>
                 <h3 class="h3"><span class="card-title">Done entirely for you</span></h3>
                 <p class="service-text">You keep doing the work you are great at. We run the machine.</p>
               </div>
             </li>
 
           </ul>
-
-          <p class="who-line text-center">Built for: Waterproofing · Foundation repair · Crawl space · Mold remediation · Tree removal · Epoxy &amp; concrete coatings · Decks &amp; outdoor living · Retaining walls &amp; hardscaping · Artificial turf · Landscape lighting</p>
 
         </div>
       </section>
@@ -192,7 +210,19 @@
         <div class="container">
 
           <figure class="feature-banner">
-            <img src="./assets/images/feature-banner.png" width="582" height="585" loading="lazy" alt="how it works" class="w-100">
+            <svg class="feature-graphic" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="40" y="60" width="150" height="110" rx="16" fill="#0d1c44"/>
+              <rect x="40" y="60" width="150" height="110" rx="16" fill="#0d1c44" stroke="#22356a" stroke-width="2"/>
+              <rect x="230" y="60" width="150" height="110" rx="16" fill="#085CF0"/>
+              <rect x="135" y="250" width="150" height="110" rx="16" fill="#0d1c44" stroke="#22356a" stroke-width="2"/>
+              <path d="M190 115 H230" stroke="#AFE9FD" stroke-width="3" stroke-linecap="round"/>
+              <path d="M305 170 L210 250" stroke="#AFE9FD" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 10"/>
+              <g stroke="#AFE9FD" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="115" cy="115" r="16"/><path d="M104 128 l-8 8"/>
+                <path d="M292 100 l10 12 20 -26" stroke="#fff"/>
+                <path d="M196 292 l14 16 26 -34"/>
+              </g>
+            </svg>
           </figure>
 
           <div class="feature-content">
@@ -206,9 +236,7 @@
 
               <li>
                 <div class="feature-card">
-                  <div class="card-icon" style="--color: 217, 94%, 48%">
-                    <ion-icon name="search-sharp" aria-hidden="true"></ion-icon>
-                  </div>
+                  <div class="card-icon"><ion-icon name="search-sharp" aria-hidden="true"></ion-icon></div>
                   <div>
                     <h3 class="h3 card-title">The Diagnosis</h3>
                     <p class="card-text">We pull up your area live and show you exactly where you are bleeding jobs to worse contractors. That is your free Revenue Leak Report.</p>
@@ -218,31 +246,27 @@
 
               <li>
                 <div class="feature-card">
-                  <div class="card-icon" style="--color: 205, 90%, 55%">
-                    <ion-icon name="ribbon-sharp" aria-hidden="true"></ion-icon>
-                  </div>
+                  <div class="card-icon"><ion-icon name="ribbon-sharp" aria-hidden="true"></ion-icon></div>
                   <div>
                     <h3 class="h3 card-title">Move 1: Get found and get trusted</h3>
-                    <p class="card-text">Before a homeowner calls, they have already half decided on what they find. We make what they find you, looking like the safest, most proven contractor in your zip code. When you talk, you are not one of three strangers. You are the one they already trust.</p>
+                    <p class="card-text">Before a homeowner calls, they have already half decided on what they find. We make what they find you, looking like the safest, most proven contractor in your zip code. When you talk, you are the one they already trust.</p>
                   </div>
                 </div>
               </li>
 
               <li>
                 <div class="feature-card">
-                  <div class="card-icon" style="--color: 228, 86%, 45%">
-                    <ion-icon name="cash-sharp" aria-hidden="true"></ion-icon>
-                  </div>
+                  <div class="card-icon"><ion-icon name="cash-sharp" aria-hidden="true"></ion-icon></div>
                   <div>
                     <h3 class="h3 card-title">Move 2: Recover the revenue</h3>
-                    <p class="card-text">Every quote that went quiet. Every call you missed up a ladder. Every homeowner shopping today. We reopen the stalled estimates, catch everyone who reaches out, and put you in front of the people actively looking. Fix the trust. Recover the revenue.</p>
+                    <p class="card-text">Every quote that went quiet. Every call you missed up a ladder. Every homeowner shopping today. We reopen the stalled estimates, catch everyone who reaches out, and put you in front of the people actively looking.</p>
                   </div>
                 </div>
               </li>
 
             </ul>
 
-            <a href="#contact" class="btn btn-primary has-before has-after">Show me the revenue I'm losing</a>
+            <a href="#contact" class="btn btn-primary">Show me the revenue I'm losing</a>
           </div>
 
         </div>
@@ -279,6 +303,28 @@
         </div>
       </section>
 
+      <!-- #WHO WE SERVE -->
+      <section class="section who" id="who" aria-label="who we serve">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Who we serve</p>
+          <h2 class="h2 section-title text-center">Built for work homeowners are <span class="has-before">scared to get wrong</span></h2>
+          <p class="who-sub text-center">If the job is expensive, high stakes, or hard for a homeowner to judge, the trusted contractor wins every time. That is you.</p>
+
+          <ul class="who-grid">
+            <li class="who-card"><ion-icon name="water-outline"></ion-icon><span>Waterproofing</span></li>
+            <li class="who-card"><ion-icon name="business-outline"></ion-icon><span>Foundation repair</span></li>
+            <li class="who-card"><ion-icon name="home-outline"></ion-icon><span>Crawl space</span></li>
+            <li class="who-card"><ion-icon name="bug-outline"></ion-icon><span>Mold remediation</span></li>
+            <li class="who-card"><ion-icon name="leaf-outline"></ion-icon><span>Tree removal</span></li>
+            <li class="who-card"><ion-icon name="layers-outline"></ion-icon><span>Epoxy &amp; concrete</span></li>
+            <li class="who-card"><ion-icon name="grid-outline"></ion-icon><span>Decks &amp; outdoor</span></li>
+            <li class="who-card"><ion-icon name="cube-outline"></ion-icon><span>Retaining walls</span></li>
+            <li class="who-card"><ion-icon name="flower-outline"></ion-icon><span>Artificial turf</span></li>
+            <li class="who-card"><ion-icon name="bulb-outline"></ion-icon><span>Landscape lighting</span></li>
+          </ul>
+        </div>
+      </section>
+
       <!-- #PROJECT (results) -->
       <section class="section project" id="project" aria-label="results">
         <div class="container">
@@ -288,74 +334,38 @@
             Contractors who stopped <span class="has-before">losing jobs</span>
           </h2>
 
-          <ul class="grid-list">
-
-            <li>
-              <div class="project-card">
-                <figure class="card-banner img-holder" style="--width: 416; --height: 429;">
-                  <img src="./assets/images/project-1.jpg" width="416" height="429" loading="lazy" alt="result" class="img-cover">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3"><span class="card-title">$80,000+ returned</span></h3>
-                  <span class="card-tag">38 leads · 80% booked · 40% closed</span>
-                </div>
-              </div>
+          <ul class="result-list">
+            <li class="result-card">
+              <span class="result-num">$80,000+</span>
+              <span class="result-label">returned</span>
+              <p>38 leads from one campaign. 80% booking rate, 40% close rate.</p>
             </li>
-
-            <li>
-              <div class="project-card">
-                <figure class="card-banner img-holder" style="--width: 416; --height: 429;">
-                  <img src="./assets/images/project-2.jpg" width="416" height="429" loading="lazy" alt="result" class="img-cover">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3"><span class="card-title">$93,000 in value</span></h3>
-                  <span class="card-tag">31 leads at $10.88 each</span>
-                </div>
-              </div>
+            <li class="result-card">
+              <span class="result-num">$93,000</span>
+              <span class="result-label">in value</span>
+              <p>31 leads at $10.88 each from $337 of ad spend.</p>
             </li>
-
-            <li>
-              <div class="project-card">
-                <figure class="card-banner img-holder" style="--width: 416; --height: 429;">
-                  <img src="./assets/images/project-3.jpg" width="416" height="429" loading="lazy" alt="result" class="img-cover">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3"><span class="card-title">225 leads at $4.80</span></h3>
-                  <span class="card-tag">689 clicks · 32.7% conversion</span>
-                </div>
-              </div>
+            <li class="result-card">
+              <span class="result-num">225</span>
+              <span class="result-label">leads at $4.80</span>
+              <p>689 clicks and a 32.7% conversion rate.</p>
             </li>
-
-            <li>
-              <div class="project-card">
-                <figure class="card-banner img-holder" style="--width: 416; --height: 429;">
-                  <img src="./assets/images/project-4.jpg" width="416" height="429" loading="lazy" alt="result" class="img-cover">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3"><span class="card-title">15 jobs booked in a month</span></h3>
-                  <span class="card-tag">30 leads · 25 assessments</span>
-                </div>
-              </div>
+            <li class="result-card">
+              <span class="result-num">15</span>
+              <span class="result-label">jobs in a month</span>
+              <p>30 leads turned into 25 booked assessments.</p>
             </li>
-
-            <li>
-              <div class="project-card">
-                <figure class="card-banner img-holder" style="--width: 416; --height: 429;">
-                  <img src="./assets/images/project-5.jpg" width="416" height="429" loading="lazy" alt="result" class="img-cover">
-                </figure>
-                <div class="card-content">
-                  <h3 class="h3"><span class="card-title">First lead in under an hour</span></h3>
-                  <span class="card-tag">From the day we switched it on</span>
-                </div>
-              </div>
+            <li class="result-card">
+              <span class="result-num">&lt; 1 hr</span>
+              <span class="result-label">to first lead</span>
+              <p>From the day we switched the system on.</p>
             </li>
-
           </ul>
 
         </div>
       </section>
 
-      <!-- #FAQ (repurposed blog) -->
+      <!-- #FAQ -->
       <section class="section blog" id="faq" aria-label="faq">
         <div class="container">
 
@@ -406,15 +416,14 @@
         </div>
       </section>
 
-      <!-- #CONTACT / CLOSE (repurposed newsletter) -->
-      <section class="section newsletter has-bg-image" id="contact" aria-label="book a call"
-        style="background-image: url('./assets/images/newsletter-bg.jpg')">
+      <!-- #CONTACT / CLOSE -->
+      <section class="section close" id="contact" aria-label="book a call">
         <div class="container">
 
-          <div class="newsletter-content close-content">
+          <div class="close-content">
             <p class="section-subtitle has-before">Book your free Revenue Leak Report</p>
             <h2 class="h2 section-title">You already did the hard part. You are great at the work.</h2>
-            <p class="close-text">Book a free 15 minute Revenue Leak Report. We pull up your area live, show you exactly where you are bleeding jobs to worse contractors, and tell you straight what it would take to win them back. If there is nothing there, we will tell you that too. No pitch unless you ask for one.</p>
+            <p class="close-text">Book a free 15 minute Revenue Leak Report. We pull up your area live, show you exactly where you are bleeding jobs, and tell you straight what it would take to win them back. If there is nothing there, we will tell you that too. No pitch unless you ask.</p>
           </div>
 
           <div class="booking-embed">
@@ -438,14 +447,14 @@
           <p class="footer-text">
             We make contractors the go-to, trusted name in their area, then recover the revenue they are already losing. You do the work. We run the machine.
           </p>
-          <a href="mailto:hello@mavlydigital.com" class="footer-link">hello@mavlydigital.com</a>
+          <a href="mailto:hello@mavlydigital.com" class="footer-link footer-email">hello@mavlydigital.com</a>
         </div>
 
         <ul class="footer-list">
           <li><p class="footer-list-title">The System</p></li>
           <li><a href="#problem" class="footer-link">The Problem</a></li>
           <li><a href="#feature" class="footer-link">How It Works</a></li>
-          <li><a href="#project" class="footer-link">Results</a></li>
+          <li><a href="#who" class="footer-link">Who We Serve</a></li>
           <li><a href="#faq" class="footer-link">FAQ</a></li>
           <li><a href="#contact" class="footer-link">Book a call</a></li>
         </ul>
@@ -461,9 +470,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="copyright">
-          Copyright &copy; 2026 Mavly Digital LLC All rights reserved.
-        </p>
+        <p class="copyright">Copyright &copy; 2026 Mavly Digital LLC All rights reserved.</p>
         <ul class="footer-bottom-list">
           <li><a href="terms-and-conditions.html" class="footer-bottom-link">Terms and conditions</a></li>
           <li><a href="privacy-policy.html" class="footer-bottom-link">Privacy policy</a></li>
@@ -475,7 +482,7 @@
 
   <a href="#contact" class="sticky-cta">Show me the jobs I'm losing</a>
 
-  <a href="#top" class="back-top-btn has-after active" aria-label="back to top" data-back-top-btn>
+  <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
     <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
   </a>
 
