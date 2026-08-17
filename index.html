@@ -1,547 +1,489 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mavly — The most trusted name in waterproofing</title>
-    <meta name="description" content="Mavly makes waterproofing, foundation and crawl space contractors the most trusted, obvious choice in their market — then runs the back-end system that keeps the calendar full." />
-    <link rel="icon" href="favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <link rel="stylesheet" href="styles/main.min.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__inner container">
-        <a class="header__logo logo" href="#top" aria-label="Mavly home">
-          <svg class="logo__star" width="26" height="28" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 1C14 1 3 13 3 20A11 11 0 0 0 25 20C25 13 14 1 14 1Z" fill="#085CF0"/><path d="M9 19.5A5 5 0 0 0 14 24.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-          <span class="logo__text">Mavly</span>
-        </a>
-        <nav class="header__menu hidden-mobile">
-          <ul class="header__menu-list">
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#the-system">The System</a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#cases">Case Studies</a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#process">Process</a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#results">Results</a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
-        <a class="header__button button button--transparent hidden-mobile" href="#contact">
-          Get your free proposal
-        </a>
-        <button
-          class="header__burger-button burger-button visible-mobile"
-          type="button"
-          onclick="mobileOverlay.showModal()"
-        >
-          <span class="visually-hidden">Open navigation menu</span>
-        </button>
-      </div>
-    </header>
-    <main class="content" id="top">
-      <section class="section section--hidden-x container">
-        <div class="section__body">
-          <div class="hero">
-            <div class="hero__main">
-              <div class="hero__body">
-                <h1 class="hero__title">
-                  The most trusted name in waterproofing
-                </h1>
-                <div class="hero__description">
-                  <p>Homeowners don't hand an $8k to $30k job to a stranger. They hire the company that looks proven and safe. Mavly makes you that company, the obvious choice in your area, then runs the back end that keeps your calendar full.</p>
-                </div>
-                <a class="hero__button button" href="#contact">
-                  Get your free proposal
-                </a>
-              </div>
-              <img
-                class="hero__image"
-                src="./assets/images/backgrounds/hero-bg.svg"
-                alt="" width="600" height="515" loading="lazy"
-              />
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mavly Digital — The Revenue Recovery System for Contractors</title>
+  <meta name="description" content="The best contractor doesn't win the job. The most trusted one does. We make you the go-to name in your area and recover the jobs you already lost.">
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+</head>
+
+<body id="top">
+
+  <!-- #HEADER -->
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#top" class="logo">Mavly</a>
+
+      <nav class="navbar" data-navbar>
+        <div class="wrapper">
+          <a href="#top" class="logo">Mavly</a>
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="#top" class="navbar-link" data-nav-link>Home</a></li>
+          <li class="navbar-item"><a href="#problem" class="navbar-link" data-nav-link>The Problem</a></li>
+          <li class="navbar-item"><a href="#feature" class="navbar-link" data-nav-link>How It Works</a></li>
+          <li class="navbar-item"><a href="#project" class="navbar-link" data-nav-link>Results</a></li>
+          <li class="navbar-item"><a href="#faq" class="navbar-link" data-nav-link>FAQ</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <a href="#contact" class="btn btn-primary has-before has-after">Free Leak Report</a>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <!-- #HERO -->
+      <section class="section hero" id="home" aria-label="hero">
+        <div class="container">
+
+          <div class="hero-content">
+            <p class="section-subtitle has-before">For contractors who are great at the work and tired of losing jobs to guys who aren't</p>
+
+            <h1 class="h1 hero-title">
+              The best contractor doesn't win the job. The <span class="has-before">most trusted</span> one does.
+            </h1>
+
+            <p class="hero-text">
+              You show up, you quote it right, you know your work beats the other three guys. Then the homeowner picks someone cheaper and worse. Not because you lost on price. Because you were invisible or unproven at the second they decided. We fix that, and we go back and recover the jobs you already lost.
+            </p>
+
+            <div class="wrapper">
+              <a href="#contact" class="btn btn-primary has-before has-after">Get my free Revenue Leak Report</a>
+              <a href="#feature" class="hero-btn-link">
+                <ion-icon name="play-outline" aria-hidden="true"></ion-icon>
+                <span class="span">See how it works</span>
+              </a>
             </div>
-          </div>
-        </div>
-      </section>
-      <section class="section container" id="the-system">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">The System</h2>
-          <div class="section__description">
-            <p>We make you look like the safest, most proven specialist in town. Then we feed that trust with a back end that turns attention into booked jobs.</p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="services">
-            <ul class="services__list grid grid--2">
-              <li class="services__item">
-                <article class="service-card">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg">Trusted authority</span>
-                      <span class="puddle-bg">in your market</span>
-                    </h3>
-                    <a class="service-card__link" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/1.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-              <li class="services__item">
-                <article class="service-card service-card--accent-bg">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg puddle-bg--light">Reviews that</span>
-                      <span class="puddle-bg puddle-bg--light">sell for you</span>
-                    </h3>
-                    <a class="service-card__link" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/2.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-              <li class="services__item">
-                <article class="service-card service-card--dark-bg">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg puddle-bg--light">Ads built on trust,</span>
-                      <span class="puddle-bg puddle-bg--light">not just clicks</span>
-                    </h3>
-                    <a class="service-card__link service-card__link--light" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/3.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-              <li class="services__item">
-                <article class="service-card">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg">First when</span>
-                      <span class="puddle-bg">they search</span>
-                    </h3>
-                    <a class="service-card__link" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/4.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-              <li class="services__item">
-                <article class="service-card service-card--accent-bg">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg puddle-bg--light">A back end that</span>
-                      <span class="puddle-bg puddle-bg--light">never sleeps</span>
-                    </h3>
-                    <a class="service-card__link" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/5.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-              <li class="services__item">
-                <article class="service-card service-card--dark-bg">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg">Old estimates,</span>
-                      <span class="puddle-bg">new revenue</span>
-                    </h3>
-                    <a class="service-card__link service-card__link--light" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/6.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-            </ul>
-            <div class="services__banner banner">
-              <div class="banner__inner">
-                <div class="banner__body">
-                  <h3 class="banner__title">Let's make you the obvious choice</h3>
-                  <div class="banner__description">
-                    <p>Book a free proposal and we'll show you exactly how we make you the most trusted name in your market and keep your phone ringing.</p>
-                  </div>
-                  <a class="banner__button button" href="#contact">
-                    Get your free proposal
-                  </a>
-                </div>
-                <img class="banner__image hidden-mobile" src="./assets/images/backgrounds/banner-bg.svg" alt="" width="494" height="394" loading="lazy" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section container" id="cases">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Case Studies</h2>
-          <div class="section__description">
-            <p>Real campaigns, real dashboards, real booked jobs. This is the machine working.</p>
-          </div>
-        </header>
-        <div class="section__body">
-          <ul class="grid grid--2" style="list-style:none;padding:0;margin:0;">
-            <li>
-              <article class="case-card">
-                <div class="case-card__media"><img src="./assets/images/proof/result-80k.jpg" alt="Client results: 38 leads, 80% booking rate, 40% close rate, $80,000+ return" loading="lazy" /></div>
-                <p class="case-card__cap"><b>$80,000+ returned</b>38 leads from one campaign. 80% booking rate, 40% close rate.</p>
-              </article>
-            </li>
-            <li>
-              <article class="case-card">
-                <div class="case-card__media"><img src="./assets/images/proof/result-93k.jpg" alt="Client results: 31 leads at $10.88 each, $93,000 value" loading="lazy" /></div>
-                <p class="case-card__cap"><b>$93,000 in value</b>31 leads at $10.88 each from $337 of ad spend.</p>
-              </article>
-            </li>
-            <li>
-              <article class="case-card">
-                <div class="case-card__media"><img src="./assets/images/proof/ads-225.jpg" alt="Google Ads: 689 clicks, 225 conversions, 32.66% conversion rate, $1.08K cost" loading="lazy" /></div>
-                <p class="case-card__cap"><b>225 leads at $4.80 each</b>689 clicks, a 32.7% conversion rate, on $1.08K of ad spend.</p>
-              </article>
-            </li>
-            <li>
-              <article class="case-card">
-                <div class="case-card__media"><img src="./assets/images/proof/monthly-15jobs.jpg" alt="Monthly overview: 30 leads, 25 booked assessments, 15 booked jobs" loading="lazy" /></div>
-                <p class="case-card__cap"><b>15 jobs booked in a month</b>30 leads turned into 25 booked assessments and 15 booked jobs.</p>
-              </article>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section class="section section--hidden-x container" id="why">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Why It Works</h2>
-          <div class="section__description">
-            <p>Homeowners shop around on big jobs. The one that looks the most trustworthy wins. That is the thing no other agency actually builds for you.</p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="studies">
-            <ul class="studies__list">
-              <li class="studies__item">
-                <div class="studies__description">
-                  <p>Nobody buys $8k to $30k foundation and waterproofing work from a company with no reputation. We make you look like the established, proven specialist, so you win before the first call even happens.</p>
-                </div>
-                <a class="studies__link" href="#contact">
-                  <span>Learn more</span>
-                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                </a>
-              </li>
-              <li class="studies__item">
-                <div class="studies__description">
-                  <p>Every competitor runs the same generic "free estimate" ad. We run trust: real customer results and before-and-afters that tell homeowners why your town already picks you. You stand out instead of racing to the bottom.</p>
-                </div>
-                <a class="studies__link" href="#contact">
-                  <span>Learn more</span>
-                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                </a>
-              </li>
-              <li class="studies__item">
-                <div class="studies__description">
-                  <p>The fastest reply wins. Our back-end answers every lead and follows up automatically, so a homeowner with a wet basement never has time to call the next guy. Speed reads as reliable. Reliable is trust.</p>
-                </div>
-                <a class="studies__link" href="#contact">
-                  <span>Learn more</span>
-                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                </a>
-              </li>
+
+            <ul class="trust-bar">
+              <li>15 minutes</li>
+              <li>We show you where you're bleeding jobs</li>
+              <li>No pitch unless you ask</li>
             </ul>
           </div>
+
+          <figure class="hero-banner">
+            <img src="./assets/images/hero-banner.png" width="794" height="637" alt="hero banner" class="w-100">
+          </figure>
+
         </div>
       </section>
-      <section class="section container" id="process">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Our Process</h2>
-          <div class="section__description">
-            <p>
-              How we make you the obvious choice<br />
-              and keep your calendar full
-            </p>
+
+      <!-- #PROBLEM (the enemy) -->
+      <section class="section problem" id="problem" aria-label="the problem">
+        <div class="container">
+
+          <p class="section-subtitle has-before text-center">You already know this feeling</p>
+          <h2 class="h2 section-title text-center">You lost a job you should have <span class="has-before">won</span></h2>
+
+          <div class="problem-text">
+            <p>You drive home from an estimate you nailed. You gave them a fair number. You explained the job better than anyone else will. You know you are the best contractor who is going to walk through that door.</p>
+            <p>Two weeks later you find out they went with the other guy. Cheaper. Newer. Cuts corners you would never cut. And he got your job.</p>
+            <p>It eats at you, because it is not the first time. You are losing work you should be winning and you can't figure out why. Here is why, and it is going to sting a little. The homeowner never got far enough to find out you are the best. In the ninety seconds they spent deciding, they looked you up, felt unsure, and moved on. They didn't reject you. They just couldn't tell you were the safe choice, so they picked whoever felt safest.</p>
           </div>
-        </header>
-        <div class="section__body">
-          <div class="process">
-            <ol class="process__list">
-              <li class="process__item">
-                <details class="process__accordion" open>
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">Build your trust &amp; authority</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>Before we spend a dollar chasing leads, we make you look like the safest choice in town: a steady stream of fresh reviews, real proof, and specialist positioning around the exact work you do. Authority gets homeowners to pay attention. Trust gets them to sign.</p>
-                  </div>
-                </details>
-              </li>
-              <li class="process__item">
-                <details class="process__accordion">
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">Position you as the specialist</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>One clear problem, named the same way across every touchpoint: bowing walls, foundation piers, wet crawl space, encapsulation. You look like the proven specialist, not a "we do everything" generalist.</p>
-                  </div>
-                </details>
-              </li>
-              <li class="process__item">
-                <details class="process__accordion">
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">Turn on lead generation</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>Now that the reputation is behind you, we put you in front of homeowners the moment they're searching. That is ready to buy traffic routed straight into your follow up. You front and own the ad spend directly, and we never mark it up.</p>
-                  </div>
-                </details>
-              </li>
-              <li class="process__item">
-                <details class="process__accordion">
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">Automate the follow-up</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>Every new lead and estimate enters the back end: an instant opening message, spaced follow ups if there's no reply, and a missed call text back so no call ever goes cold. Positive replies get a booking link and a nudge to call. It runs without you lifting a finger.</p>
-                  </div>
-                </details>
-              </li>
-              <li class="process__item">
-                <details class="process__accordion">
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">You work the live replies</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>Mavly builds and maintains the machine. You work the live replies and own the customer relationship, the part only you can do. Old, unsold estimates get reactivated too: booked work from homeowners who stalled, at zero extra ad spend.</p>
-                  </div>
-                </details>
-              </li>
-              <li class="process__item">
-                <details class="process__accordion">
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">We optimize and compound</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>We keep watching what competitors run, keep the reviews and trust ads fresh, and keep the machine improving month over month, so you stay the most trusted name in your market, not just for a season.</p>
-                  </div>
-                </details>
-              </li>
-            </ol>
-          </div>
+
+          <ul class="leak-list">
+            <li class="leak-card">
+              <span class="leak-num">01</span>
+              <p>They searched your trade in your town and barely found you, or found the other guy first.</p>
+            </li>
+            <li class="leak-card">
+              <span class="leak-num">02</span>
+              <p>They found you and weren't sure they could trust you. Thin proof, old reviews, nothing that said "this one won't screw me."</p>
+            </li>
+            <li class="leak-card">
+              <span class="leak-num">03</span>
+              <p>You sent the quote and the trail went cold. No nudge, no follow up, and while you waited, someone faster closed them.</p>
+            </li>
+          </ul>
+
+          <p class="problem-close text-center">None of that is a skills problem. You already have the skills. It is a trust and timing problem, and it is costing you more than any tool, truck, or crew you have ever paid for.</p>
+
         </div>
       </section>
-      <section class="section container" id="pricing">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Get Started</h2>
-          <div class="section__description">
-            <p>One flat monthly rate for the whole machine: the trust engine, the lead generation, and the automation. You own your ad spend directly, and we never mark it up.</p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="services">
-            <div class="services__banner banner">
-              <div class="banner__inner">
-                <div class="banner__body">
-                  <h3 class="banner__title">Want a real number?</h3>
-                  <div class="banner__description">
-                    <p>What it costs depends on your market and how far you want to push it. Book a quick call and we'll give you a straight number. No pressure, no contract.</p>
-                  </div>
-                  <a class="banner__button button" href="#contact">
-                    Book here to get your quote
-                  </a>
-                </div>
-                <img class="banner__image hidden-mobile" src="./assets/images/backgrounds/banner-bg.svg" alt="" width="494" height="394" loading="lazy" />
+
+      <!-- #SERVICE (what the system does) -->
+      <section class="section service" id="service" aria-label="what you get">
+        <div class="container">
+
+          <p class="section-subtitle has-before text-center">The Revenue Recovery System</p>
+          <h2 class="h2 section-title text-center">What it does <span class="has-before">for you</span></h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="service-card" style="--color: 217, 94%, 48%">
+                <div class="card-icon"><img src="./assets/images/service-icon-1.png" width="30" height="30" loading="lazy" alt=""></div>
+                <h3 class="h3"><span class="card-title">The go-to name in your area</span></h3>
+                <p class="service-text">Found first, and proven before you are even in the room.</p>
               </div>
-            </div>
-          </div>
+            </li>
+
+            <li>
+              <div class="service-card" style="--color: 205, 90%, 55%">
+                <div class="card-icon"><img src="./assets/images/service-icon-2.png" width="30" height="30" loading="lazy" alt=""></div>
+                <h3 class="h3"><span class="card-title">Every homeowner gets caught</span></h3>
+                <p class="service-text">No missed call, no cold quote, no lead ever slips away again.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card" style="--color: 228, 86%, 45%">
+                <div class="card-icon"><img src="./assets/images/service-icon-3.png" width="30" height="30" loading="lazy" alt=""></div>
+                <h3 class="h3"><span class="card-title">We recover jobs you lost</span></h3>
+                <p class="service-text">Old estimates reopened, stalled deals revived, money you thought was gone brought back.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card" style="--color: 217, 94%, 48%">
+                <div class="card-icon"><img src="./assets/images/service-icon-4.png" width="30" height="30" loading="lazy" alt=""></div>
+                <h3 class="h3"><span class="card-title">Homeowners shopping right now</span></h3>
+                <p class="service-text">We put you in front of the ones actively looking, so you are not living job to job on referrals.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card" style="--color: 205, 90%, 55%">
+                <div class="card-icon"><img src="./assets/images/service-icon-5.png" width="30" height="30" loading="lazy" alt=""></div>
+                <h3 class="h3"><span class="card-title">You see every dollar it brings back</span></h3>
+                <p class="service-text">A straight scorecard of jobs recovered and bids won, so it pays for itself in front of your face.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card" style="--color: 228, 86%, 45%">
+                <div class="card-icon"><img src="./assets/images/service-icon-6.png" width="30" height="30" loading="lazy" alt=""></div>
+                <h3 class="h3"><span class="card-title">Done entirely for you</span></h3>
+                <p class="service-text">You keep doing the work you are great at. We run the machine.</p>
+              </div>
+            </li>
+
+          </ul>
+
+          <p class="who-line text-center">Built for: Waterproofing · Foundation repair · Crawl space · Mold remediation · Tree removal · Epoxy &amp; concrete coatings · Decks &amp; outdoor living · Retaining walls &amp; hardscaping · Artificial turf · Landscape lighting</p>
+
         </div>
       </section>
-      <section class="section container" id="results">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Real Results</h2>
-          <div class="section__description">
-            <p>
-              $1.50 a lead. 225 conversions at a 32% rate. $80,000+ back from a single campaign. First lead in under an hour. Real clients, real numbers.
-            </p>
+
+      <!-- #FEATURE (the mechanism) -->
+      <section class="section feature" id="feature" aria-label="how it works">
+        <div class="container">
+
+          <figure class="feature-banner">
+            <img src="./assets/images/feature-banner.png" width="582" height="585" loading="lazy" alt="how it works" class="w-100">
+          </figure>
+
+          <div class="feature-content">
+            <p class="section-subtitle has-before">How it works</p>
+            <h2 class="h2 section-title">
+              How we turn "the best" into the <span class="has-before">one they pick</span>
+            </h2>
+            <p class="feature-lead">It runs in two moves. We diagnose first, then we recover.</p>
+
+            <ul class="feature-list">
+
+              <li>
+                <div class="feature-card">
+                  <div class="card-icon" style="--color: 217, 94%, 48%">
+                    <ion-icon name="search-sharp" aria-hidden="true"></ion-icon>
+                  </div>
+                  <div>
+                    <h3 class="h3 card-title">The Diagnosis</h3>
+                    <p class="card-text">We pull up your area live and show you exactly where you are bleeding jobs to worse contractors. That is your free Revenue Leak Report.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="feature-card">
+                  <div class="card-icon" style="--color: 205, 90%, 55%">
+                    <ion-icon name="ribbon-sharp" aria-hidden="true"></ion-icon>
+                  </div>
+                  <div>
+                    <h3 class="h3 card-title">Move 1: Get found and get trusted</h3>
+                    <p class="card-text">Before a homeowner calls, they have already half decided on what they find. We make what they find you, looking like the safest, most proven contractor in your zip code. When you talk, you are not one of three strangers. You are the one they already trust.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="feature-card">
+                  <div class="card-icon" style="--color: 228, 86%, 45%">
+                    <ion-icon name="cash-sharp" aria-hidden="true"></ion-icon>
+                  </div>
+                  <div>
+                    <h3 class="h3 card-title">Move 2: Recover the revenue</h3>
+                    <p class="card-text">Every quote that went quiet. Every call you missed up a ladder. Every homeowner shopping today. We reopen the stalled estimates, catch everyone who reaches out, and put you in front of the people actively looking. Fix the trust. Recover the revenue.</p>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+
+            <a href="#contact" class="btn btn-primary has-before has-after">Show me the revenue I'm losing</a>
           </div>
-        </header>
-        <div class="section__body">
-          <div class="reviews">
-            <div class="reviews__slider">
-              <ul class="reviews__slider-list">
-                <li class="reviews__slider-item">
-                  <blockquote class="review-card review-card--shot"><img src="./assets/images/testimonials/braden.png" alt="Slack message from Braden: what a great way to end the year, you did an awesome job and it is already having a big impact." loading="lazy" /></blockquote>
-                </li>
-                <li class="reviews__slider-item">
-                  <blockquote class="review-card review-card--shot"><img src="./assets/images/testimonials/juan.jpg" alt="Message from Juan Urzua: two leads, feels good waking up to new clients." loading="lazy" /></blockquote>
-                </li>
-                <li class="reviews__slider-item">
-                  <blockquote class="review-card review-card--shot"><img src="./assets/images/testimonials/robert.jpg" alt="Message from Robert Ciepiela: going to sign one in Arlington Heights, two story home." loading="lazy" /></blockquote>
-                </li>
+
+        </div>
+      </section>
+
+      <!-- #COMPARE (us vs them) -->
+      <section class="section compare" aria-label="why this is different">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Why this isn't the last agency that burned you</p>
+          <h2 class="h2 section-title text-center">The typical marketing guy <span class="has-before">vs us</span></h2>
+
+          <div class="compare-table">
+            <div class="compare-col compare-them">
+              <p class="compare-head">The typical marketing company</p>
+              <ul>
+                <li>Sells you leads or reviews, the tool</li>
+                <li>Dumps raw leads and disappears</li>
+                <li>You are one of 34 industries they "do"</li>
+                <li>Locks you in a 12 month contract</li>
+                <li>"Give it 6 months"</li>
               </ul>
             </div>
-            <div class="reviews__actions">
-              <button class="reviews__arrow-button" type="button" disabled>
-                <span class="visually-hidden">Previous slide</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 13.5C22.8284 13.5 23.5 12.8284 23.5 12C23.5 11.1716 22.8284 10.5 22 10.5L22 13.5ZM0.939341 10.9393C0.353554 11.5251 0.353554 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97918 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939341 10.9393ZM22 10.5L2 10.5L2 13.5L22 13.5L22 10.5Z" fill="white" fill-opacity="0.3" /></svg>
-              </button>
-              <div class="reviews__pagination pagination">
-                <ul class="pagination__list">
-                  <li class="pagination__item"><button class="pagination__button is-current" type="button"><span class="visually-hidden">First slide</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.0099 2.05941L14 0L11.9604 7.0099L14 14L7.0099 11.9604L0 14L2.05941 7.0099L0 0L7.0099 2.05941Z" fill="white" /></svg></button></li>
-                  <li class="pagination__item"><button class="pagination__button" type="button"><span class="visually-hidden">Second slide</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.0099 2.05941L14 0L11.9604 7.0099L14 14L7.0099 11.9604L0 14L2.05941 7.0099L0 0L7.0099 2.05941Z" fill="white" /></svg></button></li>
-                  <li class="pagination__item"><button class="pagination__button" type="button"><span class="visually-hidden">Third slide</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.0099 2.05941L14 0L11.9604 7.0099L14 14L7.0099 11.9604L0 14L2.05941 7.0099L0 0L7.0099 2.05941Z" fill="white" /></svg></button></li>
-                </ul>
+            <div class="compare-col compare-us">
+              <p class="compare-head">The Revenue Recovery System</p>
+              <ul>
+                <li>Gets you the jobs, the outcome</li>
+                <li>Recovers the deals you already lost too</li>
+                <li>Built only for contractors like you</li>
+                <li>You stay because it is working, or you leave</li>
+                <li>You see recovered jobs in the scorecard</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- #PROJECT (results) -->
+      <section class="section project" id="project" aria-label="results">
+        <div class="container">
+
+          <p class="section-subtitle has-before text-center">Real results</p>
+          <h2 class="h2 section-title text-center">
+            Contractors who stopped <span class="has-before">losing jobs</span>
+          </h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="project-card">
+                <figure class="card-banner img-holder" style="--width: 416; --height: 429;">
+                  <img src="./assets/images/project-1.jpg" width="416" height="429" loading="lazy" alt="result" class="img-cover">
+                </figure>
+                <div class="card-content">
+                  <h3 class="h3"><span class="card-title">$80,000+ returned</span></h3>
+                  <span class="card-tag">38 leads · 80% booked · 40% closed</span>
+                </div>
               </div>
-              <button class="reviews__arrow-button" type="button">
-                <span class="visually-hidden">Next slide</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10.5C1.17157 10.5 0.5 11.1716 0.5 12C0.5 12.8284 1.17157 13.5 2 13.5L2 10.5ZM23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807613 11.9792 0.807613 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM2 13.5L22 13.5L22 10.5L2 10.5L2 13.5Z" fill="white" /></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section container" id="contact">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Contact Us</h2>
-          <div class="section__description">
-            <p>
-              Pick a time that works for you. Book a quick call and we'll show you the plan for your market.
-            </p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="contact-us">
-            <div class="contact-us__booking">
-              <iframe src="https://api.leadconnectorhq.com/widget/booking/ufEtFsK29fYGQ5WPoGz6" allow="payment" style="width:100%;border:none;overflow:hidden;min-height:740px;" scrolling="no" id="ufEtFsK29fYGQ5WPoGz6_1786205791214" title="Book a call with Mavly Digital"></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section container" id="about">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">About</h2>
-          <div class="section__description">
-            <p>The person who builds and runs your machine</p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="about">
-            <div class="about__inner">
-              <img class="about__photo" src="./assets/images/david.jpg" alt="David, founder of Mavly Digital LLC" width="420" height="560" loading="lazy" />
-              <div class="about__text">
-                <h3>Hey, I'm David.</h3>
-                <p>I started Mavly because I watched good contractors lose $8k to $30k jobs to companies that were only better at one thing: looking trustworthy. So that is what I build for you first. The reviews, the proof, the specialist look. Then the lead generation and the back end that answers every lead before your competition wakes up.</p>
-                <p>You stay on the tools and close the work. I keep the machine running and get paid to make your phone ring. Simple as that.</p>
-                <p class="about__sign">David, Founder of Mavly Digital LLC</p>
+            </li>
+
+            <li>
+              <div class="project-card">
+                <figure class="card-banner img-holder" style="--width: 416; --height: 429;">
+                  <img src="./assets/images/project-2.jpg" width="416" height="429" loading="lazy" alt="result" class="img-cover">
+                </figure>
+                <div class="card-content">
+                  <h3 class="h3"><span class="card-title">$93,000 in value</span></h3>
+                  <span class="card-tag">31 leads at $10.88 each</span>
+                </div>
               </div>
-            </div>
-          </div>
+            </li>
+
+            <li>
+              <div class="project-card">
+                <figure class="card-banner img-holder" style="--width: 416; --height: 429;">
+                  <img src="./assets/images/project-3.jpg" width="416" height="429" loading="lazy" alt="result" class="img-cover">
+                </figure>
+                <div class="card-content">
+                  <h3 class="h3"><span class="card-title">225 leads at $4.80</span></h3>
+                  <span class="card-tag">689 clicks · 32.7% conversion</span>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card">
+                <figure class="card-banner img-holder" style="--width: 416; --height: 429;">
+                  <img src="./assets/images/project-4.jpg" width="416" height="429" loading="lazy" alt="result" class="img-cover">
+                </figure>
+                <div class="card-content">
+                  <h3 class="h3"><span class="card-title">15 jobs booked in a month</span></h3>
+                  <span class="card-tag">30 leads · 25 assessments</span>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card">
+                <figure class="card-banner img-holder" style="--width: 416; --height: 429;">
+                  <img src="./assets/images/project-5.jpg" width="416" height="429" loading="lazy" alt="result" class="img-cover">
+                </figure>
+                <div class="card-content">
+                  <h3 class="h3"><span class="card-title">First lead in under an hour</span></h3>
+                  <span class="card-tag">From the day we switched it on</span>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+
         </div>
       </section>
-    </main>
-    <footer class="footer container">
-      <div class="footer__inner">
-        <div class="footer__navigation">
-          <a class="footer__logo logo" href="#top">
-            <svg class="logo__star" width="22" height="24" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 1C14 1 3 13 3 20A11 11 0 0 0 25 20C25 13 14 1 14 1Z" fill="#085CF0"/><path d="M9 19.5A5 5 0 0 0 14 24.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-            <span class="logo__text">Mavly</span>
-          </a>
-          <nav class="footer__menu">
-            <ul class="footer__menu-list">
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#the-system">The System</a></li>
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#cases">Case Studies</a></li>
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#process">Process</a></li>
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#results">Results</a></li>
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#about">About</a></li>
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#contact">Contact</a></li>
-            </ul>
-          </nav>
+
+      <!-- #FAQ (repurposed blog) -->
+      <section class="section blog" id="faq" aria-label="faq">
+        <div class="container">
+
+          <p class="section-subtitle text-center has-before">Straight answers</p>
+          <h2 class="h2 section-title text-center">
+            Questions you are <span class="has-before">right to ask</span>
+          </h2>
+
+          <ul class="faq-list">
+            <li>
+              <details class="faq-item">
+                <summary>How is this different from every agency that has spammed me?</summary>
+                <p>They sell you a tool: leads, reviews, ads, then leave you to figure it out. We sell you the result: jobs won and jobs recovered. If it is not putting money back in your pocket, you are not staying.</p>
+              </details>
+            </li>
+            <li>
+              <details class="faq-item">
+                <summary>I have been burned before. Why trust this?</summary>
+                <p>Fair. That is exactly the feeling homeowners have about you, and it is the whole thing we fix. So we go first. Start with the free Revenue Leak Report, see the holes for yourself, decide after.</p>
+              </details>
+            </li>
+            <li>
+              <details class="faq-item">
+                <summary>Will this work with what I already have?</summary>
+                <p>Yes. It is built on top of your setup. Nothing to rip out, nothing new for you to learn.</p>
+              </details>
+            </li>
+            <li>
+              <details class="faq-item">
+                <summary>How fast do I see anything?</summary>
+                <p>The recovery move starts on jobs you already quoted, so you can see it move in the first couple of weeks, not six months.</p>
+              </details>
+            </li>
+            <li>
+              <details class="faq-item">
+                <summary>What does it cost?</summary>
+                <p>We keep it call first. Book the free Revenue Leak Report and we put a real number in front of you. No retainer games, no long contract.</p>
+              </details>
+            </li>
+            <li>
+              <details class="faq-item">
+                <summary>Do I own everything?</summary>
+                <p>Yes. Your profile, your reputation, your accounts. You keep all of it.</p>
+              </details>
+            </li>
+          </ul>
+
         </div>
-        <div class="footer__body">
-          <div class="footer__contacts">
-            <h2 class="footer__contacts-title h4 puddle-bg">Contact us:</h2>
-            <address class="footer__contacts-body">
-              <p>Email:
-                <a href="mailto:hello@mavlydigital.com">hello@mavlydigital.com</a>
-              </p>
-              <p>
-                Address: 15 Tanguay Ave, Ste 112u<br />
-                Nashua, New Hampshire 03063
-              </p>
-              <p>Mavly builds and runs the machine. You work the live replies and own the customer.</p>
-            </address>
+      </section>
+
+      <!-- #CONTACT / CLOSE (repurposed newsletter) -->
+      <section class="section newsletter has-bg-image" id="contact" aria-label="book a call"
+        style="background-image: url('./assets/images/newsletter-bg.jpg')">
+        <div class="container">
+
+          <div class="newsletter-content close-content">
+            <p class="section-subtitle has-before">Book your free Revenue Leak Report</p>
+            <h2 class="h2 section-title">You already did the hard part. You are great at the work.</h2>
+            <p class="close-text">Book a free 15 minute Revenue Leak Report. We pull up your area live, show you exactly where you are bleeding jobs to worse contractors, and tell you straight what it would take to win them back. If there is nothing there, we will tell you that too. No pitch unless you ask for one.</p>
           </div>
-          <form class="footer__subscribe-form subscribe-form" action="mailto:hello@mavlydigital.com" method="post" enctype="text/plain">
-            <h2 class="visually-hidden">Subscription</h2>
-            <div class="subscribe-form__field field field--big-height field--dark-bg">
-              <label class="field__label visually-hidden" for="subscribe-email">Email</label>
-              <input class="field__input" id="subscribe-email" name="email" placeholder="Email" type="email" required />
-            </div>
-            <button class="subscribe-form__button button button--accent" type="submit">
-              Get your free proposal
-            </button>
-          </form>
+
+          <div class="booking-embed">
+            <iframe src="https://api.leadconnectorhq.com/widget/booking/ufEtFsK29fYGQ5WPoGz6" allow="payment" style="width:100%;border:none;overflow:hidden;min-height:740px;" scrolling="no" id="ufEtFsK29fYGQ5WPoGz6_1786205791214" title="Book a call with Mavly Digital"></iframe>
+          </div>
+
         </div>
-        <div class="footer__extra">
-          <p class="footer__copyright">
-            Copyright &copy; <time datetime="2026">2026</time> Mavly Digital LLC All rights reserved.
+      </section>
+
+    </article>
+  </main>
+
+  <!-- #FOOTER -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top section">
+
+        <div class="footer-brand">
+          <a href="#top" class="logo">Mavly</a>
+          <p class="footer-text">
+            We make contractors the go-to, trusted name in their area, then recover the revenue they are already losing. You do the work. We run the machine.
           </p>
-          <span class="footer__legal-links">
-            <a class="footer__privacy-policy-link" href="privacy-policy.html">Privacy Policy</a>
-            <a class="footer__privacy-policy-link" href="terms-and-conditions.html">Terms of Service</a>
-          </span>
+          <a href="mailto:hello@mavlydigital.com" class="footer-link">hello@mavlydigital.com</a>
         </div>
+
+        <ul class="footer-list">
+          <li><p class="footer-list-title">The System</p></li>
+          <li><a href="#problem" class="footer-link">The Problem</a></li>
+          <li><a href="#feature" class="footer-link">How It Works</a></li>
+          <li><a href="#project" class="footer-link">Results</a></li>
+          <li><a href="#faq" class="footer-link">FAQ</a></li>
+          <li><a href="#contact" class="footer-link">Book a call</a></li>
+        </ul>
+
+        <ul class="footer-list">
+          <li><p class="footer-list-title">Company</p></li>
+          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html" class="footer-link">Terms of Service</a></li>
+          <li><p class="footer-link">15 Tanguay Ave, Ste 112u</p></li>
+          <li><p class="footer-link">Nashua, New Hampshire 03063</p></li>
+        </ul>
+
       </div>
-    </footer>
-    <dialog class="mobile-overlay visible-mobile" id="mobileOverlay">
-      <form class="mobile-overlay__close-button-wrapper" method="dialog">
-        <button class="mobile-overlay__close-button cross-button" type="submit">
-          <span class="visually-hidden">Close navigation menu</span>
-        </button>
-      </form>
-      <div class="mobile-overlay__body">
-        <ul class="mobile-overlay__list">
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#the-system">The System</a></li>
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#cases">Case Studies</a></li>
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#process">Process</a></li>
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#results">Results</a></li>
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#about">About</a></li>
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#contact">Contact</a></li>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          Copyright &copy; 2026 Mavly Digital LLC All rights reserved.
+        </p>
+        <ul class="footer-bottom-list">
+          <li><a href="terms-and-conditions.html" class="footer-bottom-link">Terms and conditions</a></li>
+          <li><a href="privacy-policy.html" class="footer-bottom-link">Privacy policy</a></li>
         </ul>
       </div>
-    </dialog>
-    <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
-  </body>
+
+    </div>
+  </footer>
+
+  <a href="#contact" class="sticky-cta">Show me the jobs I'm losing</a>
+
+  <a href="#top" class="back-top-btn has-after active" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <script src="./assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+
+</body>
+
 </html>
