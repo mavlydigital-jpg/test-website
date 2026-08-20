@@ -525,6 +525,54 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
 .ic-foot{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding-top:6px; border-top:1px solid rgba(255,255,255,.06); padding-top:20px; flex-wrap:wrap }
 .ic-note{ color:var(--muted); font-size:.78rem }
 
+/* ============ CARE — two dashboards ============ */
+.care-sec{ background:radial-gradient(ellipse 70% 50% at 50% 20%, rgba(47,107,255,.10), transparent 65%) }
+.dashboards{ display:grid; gap:24px; margin-top:clamp(50px,7vw,72px); align-items:stretch }
+@media(min-width:900px){ .dashboards{ grid-template-columns:1fr 1fr; gap:28px } }
+.dash{ position:relative; background:#08090e; border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:24px 24px 22px;
+  display:flex; flex-direction:column; gap:18px; overflow:hidden }
+.dash.real{ background:linear-gradient(150deg, rgba(47,107,255,.10), rgba(47,107,255,.02) 60%), #06070c;
+  border-color:rgba(47,107,255,.25); box-shadow:0 40px 90px -35px rgba(47,107,255,.35), 0 0 0 1px rgba(47,107,255,.15) inset }
+.dash-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
+  padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.06) }
+.dash-head b{ color:#fff; font-weight:500; font-size:1rem; display:block; line-height:1.15 }
+.dash-head small{ color:var(--muted); font-size:.78rem; display:block; margin-top:4px }
+.dash-tag{ font-size:.7rem; padding:5px 12px; border-radius:100px; font-weight:500; white-space:nowrap;
+  display:inline-flex; align-items:center; gap:6px }
+.dash-tag-mute{ background:rgba(255,255,255,.05); color:var(--muted); border:1px solid rgba(255,255,255,.08) }
+.dash-tag-live{ background:rgba(47,107,255,.14); color:var(--blue-hi); border:1px solid rgba(47,107,255,.32) }
+.dash-tag-live .lv{ width:6px; height:6px; border-radius:50%; background:var(--blue-hi); box-shadow:0 0 8px rgba(91,139,255,.8); animation:pulse-live 1.8s var(--ease) infinite }
+
+/* vanity metrics — flat list */
+.dash-metrics{ list-style:none; padding:0; display:grid; gap:12px }
+.dash-metrics li{ display:grid; grid-template-columns:1fr auto auto; gap:14px; align-items:baseline;
+  padding:12px 14px; background:rgba(255,255,255,.02); border-radius:10px; border:1px solid rgba(255,255,255,.04) }
+.dash-metrics li span{ color:var(--muted); font-size:.85rem }
+.dash-metrics li b{ color:rgba(255,255,255,.85); font-weight:500; font-size:1.15rem; letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums }
+.dash-metrics li em{ color:rgba(255,255,255,.35); font-style:normal; font-size:.75rem; font-weight:500 }
+
+/* funnel dashboard */
+.dash-funnel{ list-style:none; padding:0; display:grid; gap:8px }
+.dash-funnel li{ position:relative; padding:14px 16px; background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.05); border-radius:10px;
+  display:grid; grid-template-columns:1fr auto; gap:8px 14px; align-items:baseline; overflow:hidden }
+.fn-bar{ position:absolute; left:0; top:0; height:100%; width:var(--w); pointer-events:none;
+  background:linear-gradient(90deg, rgba(47,107,255,.20), rgba(47,107,255,.02));
+  border-right:2px solid rgba(91,139,255,.55); z-index:0 }
+.dash-funnel li > *{ position:relative; z-index:1 }
+.fn-lbl{ color:#fff; font-size:.92rem; font-weight:500 }
+.fn-num{ color:#fff; font-weight:600; font-size:1.35rem; letter-spacing:-.01em; font-variant-numeric:tabular-nums }
+.fn-win{ border-color:rgba(47,107,255,.45); background:linear-gradient(90deg, rgba(47,107,255,.22), rgba(47,107,255,.05)) }
+.fn-win .fn-bar{ background:linear-gradient(90deg, rgba(47,107,255,.42), rgba(47,107,255,.08)); border-right-color:var(--blue-hi) }
+.fn-win .fn-num{ color:var(--blue-hi) }
+
+.dash-foot{ margin-top:6px; padding-top:14px; border-top:1px solid rgba(255,255,255,.06);
+  color:var(--muted); font-size:.86rem }
+.dash-foot b{ color:#fff; font-weight:600; font-variant-numeric:tabular-nums }
+.dash.real .dash-foot b{ color:var(--blue-hi) }
+.care-close{ text-align:center; margin-top:34px; color:#fff; font-weight:500; font-size:1.1rem; max-width:58ch; margin-inline:auto }
+
 /* ============ PREMIUM CARDS (site-wide) — subtle blur glow behind ============ */
 .step, .q, .layer, .care-col, .im, .trade, .faq details, .phone-outcome, .mult-side{
   position:relative; overflow:hidden;
@@ -953,34 +1001,57 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
     </div>
   </section>
 
-  <!-- CARE -->
-  <section class="section">
+  <!-- CARE — two dashboards -->
+  <section class="section care-sec">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="pill"><span class="dot"></span>What we actually care about</span>
-        <h2 class="gradient-heading">What happens after they raise their hand</h2>
+        <span class="pill"><span class="dot"></span>Same funnel, different scoreboard</span>
+        <h2 class="gradient-heading">Two dashboards. Only one pays for your truck.</h2>
+        <p>Your last agency probably showed you the left one. We only look at the right.</p>
       </div>
-      <div class="care">
-        <div class="care-col no reveal">
-          <h3><svg class="icon"><use href="#i-x"/></svg> Not this</h3>
-          <ul>
-            <li><svg class="icon"><use href="#i-x"/></svg> Impressions</li>
-            <li><svg class="icon"><use href="#i-x"/></svg> Followers</li>
-            <li><svg class="icon"><use href="#i-x"/></svg> How many people clicked an ad</li>
-            <li><svg class="icon"><use href="#i-x"/></svg> A pretty dashboard</li>
+
+      <div class="dashboards">
+        <!-- Vanity dashboard -->
+        <article class="dash vanity reveal">
+          <header class="dash-head">
+            <div>
+              <b>Monthly Ad Report</b>
+              <small>What most agencies email you</small>
+            </div>
+            <span class="dash-tag dash-tag-mute">Vanity</span>
+          </header>
+          <ul class="dash-metrics">
+            <li><span>Impressions</span><b>42,318</b><em>+18.4%</em></li>
+            <li><span>Clicks</span><b>3,204</b><em>+7.2%</em></li>
+            <li><span>Click-through rate</span><b>12.4%</b><em>+0.8pt</em></li>
+            <li><span>Cost per click</span><b>$4.20</b><em>−12%</em></li>
+            <li><span>Followers gained</span><b>+284</b><em>+22%</em></li>
           </ul>
-        </div>
-        <div class="care-col yes reveal">
-          <h3><svg class="icon"><use href="#i-check"/></svg> This</h3>
-          <ul>
-            <li><svg class="icon"><use href="#i-check"/></svg> Did they get a response?</li>
-            <li><svg class="icon"><use href="#i-check"/></svg> Did they have a conversation?</li>
-            <li><svg class="icon"><use href="#i-check"/></svg> Did they book?</li>
-            <li><svg class="icon"><use href="#i-check"/></svg> Did they get an estimate?</li>
-            <li><svg class="icon"><use href="#i-check"/></svg> Did they become a customer?</li>
+          <p class="dash-foot">Where did all this land? Nobody asks.</p>
+        </article>
+
+        <!-- Real dashboard -->
+        <article class="dash real reveal">
+          <header class="dash-head">
+            <div>
+              <b>Money-in-the-Bank Report</b>
+              <small>What Mavly measures</small>
+            </div>
+            <span class="dash-tag dash-tag-live"><span class="lv"></span>Money</span>
+          </header>
+          <ul class="dash-funnel">
+            <li><span class="fn-lbl">Raised their hand</span><b class="fn-num">87</b><span class="fn-bar" style="--w:100%"></span></li>
+            <li><span class="fn-lbl">Got a response</span><b class="fn-num">72</b><span class="fn-bar" style="--w:83%"></span></li>
+            <li><span class="fn-lbl">Real conversation</span><b class="fn-num">41</b><span class="fn-bar" style="--w:47%"></span></li>
+            <li><span class="fn-lbl">Appointment booked</span><b class="fn-num">23</b><span class="fn-bar" style="--w:26%"></span></li>
+            <li><span class="fn-lbl">Estimate sent</span><b class="fn-num">18</b><span class="fn-bar" style="--w:21%"></span></li>
+            <li class="fn-win"><span class="fn-lbl">Signed jobs</span><b class="fn-num">7</b><span class="fn-bar" style="--w:8%"></span></li>
           </ul>
-        </div>
+          <p class="dash-foot"><b>$58,400</b> in signed work · <b>$41,600</b> in open estimates</p>
+        </article>
       </div>
+
+      <p class="care-close reveal">Impressions don't fund payroll. Signed jobs do. That's the only scoreboard we play on.</p>
     </div>
   </section>
 
