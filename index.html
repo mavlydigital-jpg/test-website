@@ -208,9 +208,11 @@ h1,h2,h3{color:var(--ink);text-wrap:balance;line-height:1.1;font-weight:600;lett
 .imagine{ margin-top:clamp(44px,6vw,60px); display:grid; gap:14px }
 @media(min-width:760px){ .imagine{ grid-template-columns:1fr 1fr } }
 .im{ border:1px solid var(--border); border-radius:16px; padding:26px 28px; background:var(--panel); backdrop-filter:blur(10px) }
-.im .was{ display:block; color:var(--muted); text-decoration:line-through; text-decoration-color:rgba(255,106,114,.5); font-size:.93rem }
-.im .now{ display:flex; gap:10px; align-items:flex-start; margin-top:10px; color:#fff; font-weight:500; font-size:1.05rem; line-height:1.4 }
-.im .now .icon{ color:var(--blue-hi); flex:none; margin-top:3px }
+.im{ padding:24px 26px 24px; display:flex; flex-direction:column }
+.im .was{ display:block; color:var(--muted); font-size:.74rem; font-weight:600; text-transform:uppercase; letter-spacing:.14em; opacity:.65; margin-bottom:12px }
+.im .was::before{ content:"When "; opacity:.75 }
+.im .now{ display:block; color:#fff; font-weight:500; font-size:1.1rem; line-height:1.4 }
+.im .now .icon{ display:none }
 
 /* ============ TWO QUESTIONS ============ */
 .qs{ margin-top:clamp(40px,6vw,60px); display:grid; gap:16px }
@@ -288,6 +290,9 @@ h1,h2,h3{color:var(--ink);text-wrap:balance;line-height:1.1;font-weight:600;lett
 .cta-sec{ background:radial-gradient(ellipse 80% 70% at 50% 0%, rgba(47,107,255,.22), transparent 60%) }
 .cta-head{ text-align:center; max-width:46ch; margin-inline:auto; margin-bottom:40px }
 .cta-head h2{ font-size:clamp(2.2rem,5vw,3.4rem); font-weight:500; letter-spacing:-.04em; margin-top:18px }
+.cta-title{ max-width:16ch; margin-inline:auto; line-height:1.05 }
+.cta-title .hl{ display:inline-block; background:var(--majorelle-blue); color:#fff; padding:0 16px 4px; border-radius:16px;
+  -webkit-text-fill-color:#fff; background-clip:border-box; -webkit-background-clip:border-box }
 .cta-head p{ margin-top:18px; color:var(--muted); font-size:1.02rem; line-height:1.6 }
 .booking{ background:#fff; border-radius:20px; overflow:hidden; padding:8px; box-shadow:0 40px 90px -40px rgba(0,0,0,.9); max-width:900px; margin-inline:auto }
 .booking iframe{width:100%;border:none;min-height:740px;display:block}
@@ -353,39 +358,19 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
   padding:6px 14px; border-radius:100px; border:1px solid var(--border); background:var(--panel) }
 .dot-r{width:8px;height:8px;border-radius:50%;background:#ff6a72;box-shadow:0 0 10px rgba(255,106,114,.7)}
 .dot-b{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px rgba(47,107,255,.8)}
-/* iPhone 16 — dynamic island, titanium body, side buttons */
-.phone{ width:100%; max-width:320px; aspect-ratio:9/19.5; border-radius:54px; padding:10px;
-  background:
-    linear-gradient(150deg, #3a3a44 0%, #1a1a22 22%, #0d0d13 55%, #232329 100%);
-  border:1px solid #2b2b33;
-  box-shadow:
-    0 70px 140px -50px rgba(0,0,0,.95),
-    0 30px 60px -30px rgba(0,0,0,.7),
-    inset 0 0 0 1.5px rgba(255,255,255,.05),
-    inset 0 2px 0 rgba(255,255,255,.06),
-    inset 0 -2px 0 rgba(0,0,0,.5);
-  position:relative;
+/* iPhone 16 — real PNG frame + content overlaid on screen area */
+.phone{ position:relative; width:100%; max-width:320px; aspect-ratio:415/843;
+  background: url("assets/img/iphone-16.png") center/contain no-repeat;
+  filter: drop-shadow(0 60px 90px rgba(0,0,0,.6)) drop-shadow(0 20px 40px rgba(0,0,0,.5));
 }
-/* left side buttons */
-.phone::before{ content:""; position:absolute; left:-3px; top:16%; width:3px; height:3.5%;
-  border-radius:2px 0 0 2px; background:linear-gradient(#4a4a52,#2a2a30);
-  box-shadow:0 6% 0 -1px #4a4a52, 0 12% 0 -1px #4a4a52 }
-/* right side button (power) */
-.phone::after{ content:""; position:absolute; right:-3px; top:28%; width:3px; height:11%;
-  border-radius:0 2px 2px 0; background:linear-gradient(#4a4a52,#2a2a30) }
-/* dynamic island */
-.phone-notch{ position:absolute; top:16px; left:50%; transform:translateX(-50%);
-  width:112px; height:32px; border-radius:20px; background:#000; z-index:3;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04), 0 2px 8px rgba(0,0,0,.6);
-}
-.phone-notch::after{ content:""; position:absolute; right:11px; top:50%; transform:translateY(-50%);
-  width:9px; height:9px; border-radius:50%;
-  background:radial-gradient(circle at 32% 32%, #1a2030 0%, #05070a 55%);
-  box-shadow:inset 0 0 0 1px rgba(120,140,180,.15), inset 0 0 4px rgba(60,90,140,.4);
-}
-.phone-screen{ height:100%; border-radius:44px; background:#000; padding:56px 16px 22px;
-  display:flex; flex-direction:column; gap:12px; overflow:hidden; position:relative;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);
+.phone-notch{ display:none } /* PNG already has it */
+.phone-screen{ position:absolute;
+  top:1.5%; left:3.7%; right:3.7%; bottom:1.5%;
+  padding: 8.5% 5.5% 4%;
+  border-radius: 12%/6%;
+  overflow:hidden;
+  display:flex; flex-direction:column; gap:10px;
+  background:transparent;
 }
 .ps-status{ display:flex; justify-content:space-between; font-size:.72rem; color:var(--muted); padding:0 4px }
 .ps-status .sig{letter-spacing:1px}
@@ -463,12 +448,13 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
 .trade-body b{ display:block; color:#fff; font-weight:500; font-size:1.05rem }
 .trade-body small{ display:block; color:var(--muted); font-size:.88rem; margin-top:6px; line-height:1.5 }
 .trade.more{ display:grid; place-items:center; background:linear-gradient(150deg,rgba(47,107,255,.14),rgba(47,107,255,.02)); border-color:rgba(47,107,255,.35) }
-.trade-more{ padding:32px; text-align:center; display:flex; flex-direction:column; gap:14px; align-items:center }
+.trade-more{ padding:36px 28px; text-align:center; display:flex; flex-direction:column; gap:14px; align-items:center; max-width:340px; margin-inline:auto }
+.tm-count{ display:inline-grid; place-items:center; width:56px; height:56px; border-radius:16px;
+  background:linear-gradient(135deg,#3B82F6,#085CF0); color:#fff; font-weight:600; font-size:1.4rem;
+  letter-spacing:-.02em; box-shadow:0 12px 30px -8px rgba(47,107,255,.55) }
 .trade-more b{ color:#fff; font-weight:500; font-size:1.05rem }
-.trade-chips{ list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:8px; justify-content:center }
-.trade-chips li{ color:var(--ice); background:rgba(47,107,255,.10); border:1px solid rgba(47,107,255,.25);
-  padding:6px 12px; border-radius:100px; font-size:.82rem; font-weight:500 }
-.trade-more small{ color:var(--muted); font-size:.85rem }
+.tm-list{ color:var(--ice); font-size:.92rem; line-height:1.7; margin:0 }
+.trade-more small{ color:var(--muted); font-size:.85rem; margin-top:2px }
 
 /* ============ FOUNDER ============ */
 .founder{ background:radial-gradient(ellipse 55% 65% at 20% 40%, rgba(47,107,255,.14), transparent 60%) }
@@ -886,15 +872,10 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
         </li>
         <li class="trade more">
           <div class="trade-more">
-            <b>And a few more</b>
-            <ul class="trade-chips">
-              <li>Waterproofing</li>
-              <li>Foundation repair</li>
-              <li>Epoxy &amp; concrete</li>
-              <li>Tree removal</li>
-              <li>Artificial turf</li>
-            </ul>
-            <small>Different trades. Same problem. Same fix.</small>
+            <span class="tm-count">+5</span>
+            <b>more trades we serve</b>
+            <p class="tm-list">Waterproofing · Foundation repair · Epoxy &amp; concrete · Tree removal · Artificial turf</p>
+            <small>Same problem, every one. Same fix.</small>
           </div>
         </li>
       </ul>
@@ -1192,8 +1173,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
   <section class="section cta-sec" id="book">
     <div class="wrap">
       <div class="cta-head reveal">
-        <span class="pill"><span class="dot"></span>Ready when you are</span>
-        <h2 class="gradient-heading">Book your free business inspection</h2>
+        <h2 class="gradient-heading cta-title">Book your <span class="hl">free inspection</span></h2>
         <p>We'll look at your current process live and show you where opportunities are slipping away. If everything's already handled, we'll tell you. No pitch. No pressure.</p>
       </div>
       <div class="booking reveal">
