@@ -1,547 +1,1294 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mavly — The most trusted name in waterproofing</title>
-    <meta name="description" content="Mavly makes waterproofing, foundation and crawl space contractors the most trusted, obvious choice in their market — then runs the back-end system that keeps the calendar full." />
-    <link rel="icon" href="favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <link rel="stylesheet" href="styles/main.min.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__inner container">
-        <a class="header__logo logo" href="#top" aria-label="Mavly home">
-          <svg class="logo__star" width="26" height="28" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 1C14 1 3 13 3 20A11 11 0 0 0 25 20C25 13 14 1 14 1Z" fill="#085CF0"/><path d="M9 19.5A5 5 0 0 0 14 24.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-          <span class="logo__text">Mavly</span>
-        </a>
-        <nav class="header__menu hidden-mobile">
-          <ul class="header__menu-list">
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#the-system">The System</a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#cases">Case Studies</a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#process">Process</a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#results">Results</a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
-        <a class="header__button button button--transparent hidden-mobile" href="#contact">
-          Get your free proposal
-        </a>
-        <button
-          class="header__burger-button burger-button visible-mobile"
-          type="button"
-          onclick="mobileOverlay.showModal()"
-        >
-          <span class="visually-hidden">Open navigation menu</span>
-        </button>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mavly Digital — Stop Losing Jobs You Already Paid For</title>
+<meta name="description" content="We inspect the sales process high-value home-service contractors already have. Fix what is costing jobs. Then bring more homeowners in. Book your free business inspection.">
+<link rel="icon" href="assets/img/logo-icon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --panel:rgba(23,23,28,.55); --panel-hi:rgba(31,31,38,.65);
+  --border:rgba(63,63,70,.55); --border-hi:rgba(96,96,110,.7);
+  --ink:#fff; --ink-2:rgba(255,255,255,.72); --muted:#9ca3af;
+  --blue:#2f6bff; --blue-hi:#5b8bff; --ice:#bcd4ff;
+  --font:'Poppins',system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --wrap:1180px; --pad:clamp(20px,5vw,64px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;font-family:var(--font)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg); color:var(--ink-2); font-weight:400;
+  font-size:clamp(15px,1vw,17px); line-height:1.65; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{ /* subtle blue field */
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(70vw 60vh at 80% -10%, rgba(47,107,255,.16), transparent 55%),
+    radial-gradient(50vw 50vh at 5% 15%, rgba(47,107,255,.08), transparent 60%);
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--blue);color:#fff}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+h1,h2,h3{color:var(--ink);text-wrap:balance;line-height:1.1;font-weight:600;letter-spacing:-.03em}
+.gradient-heading{
+  background:linear-gradient(to bottom,#fff,#fff,rgba(255,255,255,.6));
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+}
+.lead{color:var(--muted);font-size:clamp(.95rem,1.15vw,1.05rem);line-height:1.7;max-width:60ch}
+.center{text-align:center;margin-inline:auto}
+.icon{width:1em;height:1em;display:inline-block;vertical-align:-.15em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* pill badge (shadcn-style) */
+.pill{ display:inline-flex; align-items:center; gap:10px; padding:8px 16px; border-radius:100px;
+  border:1px solid var(--border); background:rgba(31,31,38,.5); backdrop-filter:blur(6px);
+  color:var(--muted); font-size:.82rem; font-weight:500; }
+.pill a{ display:inline-flex; align-items:center; gap:4px; color:var(--muted); transition:color .2s }
+.pill a:hover{color:#fff}
+.pill .dot{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px rgba(47,107,255,.7)}
+
+/* buttons — white gradient primary like the theme */
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; white-space:nowrap;
+  font-weight:500; font-size:.95rem; padding:12px 24px; border-radius:10px; border:1px solid transparent;
+  cursor:pointer; transition:transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease); }
+.btn-lg{ padding:14px 32px; font-size:1rem; border-radius:12px }
+.btn-primary{ background:linear-gradient(to bottom,#fff,rgba(255,255,255,.95),rgba(255,255,255,.6)); color:#000;
+  box-shadow:0 10px 30px -10px rgba(255,255,255,.3); }
+.btn-primary:hover{ transform:scale(1.03); box-shadow:0 14px 40px -10px rgba(255,255,255,.4) }
+.btn-primary:active{ transform:scale(.97) }
+.btn-ghost{ background:transparent; border-color:var(--border); color:#fff }
+.btn-ghost:hover{ background:rgba(255,255,255,.06) }
+.btn-blue{ background:var(--blue); color:#fff; box-shadow:0 10px 28px -8px rgba(47,107,255,.6) }
+.btn-blue:hover{ transform:scale(1.03); background:#3f78ff }
+
+/* ============ NAV ============ */
+.nav{ position:fixed; top:0; left:0; right:0; z-index:100; border-bottom:1px solid var(--border);
+  background:rgba(0,0,0,.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+.nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; position:relative }
+.brand{ display:inline-flex; align-items:center; gap:10px; z-index:2; text-decoration:none; color:#fff }
+.brand-logo{ width:34px; height:34px; display:block; object-fit:contain; filter:drop-shadow(0 0 10px rgba(47,107,255,.4)) }
+.brand-word{ font-weight:600; font-size:1.05rem; letter-spacing:-.02em; line-height:1; color:#fff }
+.brand-word-sub{ font-weight:400; color:var(--muted); margin-left:5px }
+.footer .brand-logo{ width:30px; height:30px }
+.footer .brand-word{ font-size:1rem }
+.nav-links{ display:none; gap:32px; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) }
+.nav-links a{ color:rgba(255,255,255,.6); font-size:.88rem; transition:color .2s }
+.nav-links a:hover{ color:#fff }
+.nav-cta{ display:none; gap:10px }
+.nav-burger{ background:none;border:1px solid var(--border);color:#fff;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;cursor:pointer }
+@media(min-width:940px){ .nav-links,.nav-cta{display:flex} .nav-burger{display:none} }
+
+.mnav{ position:fixed; inset:0; z-index:101; background:rgba(0,0,0,.96); backdrop-filter:blur(10px);
+  display:flex; flex-direction:column; gap:12px; padding:90px var(--pad) 40px; transform:translateY(-100%); transition:transform .4s var(--ease); }
+.mnav.open{transform:translateY(0)}
+.mnav a{ font-size:1.25rem; color:#fff; padding-block:10px; font-weight:500 }
+.mnav .btn{ margin-top:12px }
+.mnav-close{ position:absolute; top:14px; right:var(--pad); background:none;border:1px solid var(--border);color:#fff;width:40px;height:40px;border-radius:10px;font-size:1.2rem;cursor:pointer }
+
+/* ============ HERO ============ */
+.hero{ padding-top:clamp(110px,16vh,160px); padding-bottom:clamp(60px,9vw,110px); text-align:center; position:relative; overflow:hidden }
+.hero.has-video{ min-height:100vh; display:flex; flex-direction:column; justify-content:center }
+.hero-video{ position:absolute; inset:0; z-index:-1; overflow:hidden }
+.hero-video video{ width:100%; height:100%; object-fit:cover; display:block }
+.hero-video-scrim{ position:absolute; inset:0; background:
+  linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.75) 55%, #000 100%),
+  radial-gradient(ellipse 70% 60% at 50% 40%, rgba(47,107,255,.22), transparent 65%);
+  z-index:1; pointer-events:none }
+.hero.has-video > .wrap{ position:relative; z-index:2 }
+.hero .pill{margin-inline:auto}
+.hero h1{ margin-top:26px; font-size:clamp(2.5rem,6.5vw,4.5rem); font-weight:500; letter-spacing:-.045em; max-width:18ch; margin-inline:auto; line-height:1.05 }
+.hero .sub{ margin-top:22px; color:var(--muted); font-size:clamp(.95rem,1.3vw,1.1rem); max-width:52ch; margin-inline:auto; line-height:1.6 }
+.hero-cta{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:36px }
+.hero-metrics{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px 42px; margin-top:60px }
+.hero-metrics div{ text-align:center }
+.hero-metrics b{ display:block; font-size:clamp(1.6rem,2.6vw,2rem); color:#fff; font-weight:600; letter-spacing:-.02em; line-height:1 }
+.hero-metrics span{ color:var(--muted); font-size:.82rem; margin-top:6px; display:block }
+.hero-metrics em{ color:var(--blue-hi); font-style:normal }
+
+/* trades marquee */
+.marquee{ margin-top:64px; border-block:1px solid var(--border); padding-block:16px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); }
+.marquee-track{ display:flex; gap:48px; width:max-content; animation:scroll 34s linear infinite }
+.marquee-track span{ color:var(--muted); font-weight:500; font-size:.92rem; white-space:nowrap; display:inline-flex; align-items:center; gap:48px }
+.marquee-track span::after{content:"";width:4px;height:4px;border-radius:50%;background:var(--blue)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* section base */
+.section{ padding-block:clamp(80px,12vw,150px); position:relative }
+.sec-head{ max-width:60ch; margin-inline:auto; text-align:center }
+.sec-head .pill{margin-bottom:20px}
+.sec-head h2{ font-size:clamp(2rem,4.6vw,3.2rem); font-weight:500; letter-spacing:-.04em }
+.sec-head p{ margin-top:18px; color:var(--muted); max-width:52ch; margin-inline:auto; font-size:1.02rem; line-height:1.7 }
+
+/* ============ INTRO 2-col ============ */
+.intro-grid{ display:grid; gap:36px; align-items:start }
+@media(min-width:860px){ .intro-grid{ grid-template-columns:.9fr 1.1fr; gap:clamp(40px,6vw,90px) } }
+.intro-grid h2{ font-size:clamp(1.9rem,4vw,3rem); font-weight:500; letter-spacing:-.04em; line-height:1.05 }
+.intro-body p{ margin-bottom:16px; color:var(--muted); font-size:1.02rem; line-height:1.7 }
+.intro-body p.hi{ color:#fff; font-weight:500 }
+
+/* ============ FAILURE MOMENTS (editorial rows) ============ */
+.moments{ margin-top:clamp(40px,6vw,64px) }
+.moment{ display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:center; padding-block:30px; border-top:1px solid var(--border) }
+.moment:last-child{border-bottom:1px solid var(--border)}
+@media(min-width:760px){ .moment{ grid-template-columns:70px 1fr 1fr; gap:34px } }
+.moment-n{ font-size:1.9rem; color:var(--blue); font-weight:500; letter-spacing:-.03em }
+.moment-when{ display:flex; align-items:center; gap:16px }
+.moment-when .mi{ width:44px;height:44px;border-radius:12px;background:rgba(47,107,255,.12);border:1px solid rgba(47,107,255,.22);display:grid;place-items:center;color:var(--blue-hi);flex:none;font-size:19px }
+.moment-when h3{ font-size:1.15rem; color:#fff; font-weight:500; line-height:1.15 }
+.moment-then{ color:var(--muted); font-size:1rem }
+.moment-then strong{color:#fff;font-weight:500}
+.moments-foot{ margin-top:36px; color:#fff; font-weight:500; max-width:44ch; font-size:1.2rem }
+.moments-foot em{color:var(--blue-hi);font-style:normal}
+
+/* ============ FIND (leak scanner) ============ */
+.find{ display:grid; gap:44px; align-items:center }
+@media(min-width:900px){ .find{ grid-template-columns:1fr 1fr; gap:clamp(44px,6vw,90px) } }
+.find h2{ font-size:clamp(2rem,4.4vw,3rem); font-weight:500; letter-spacing:-.04em; margin-top:18px; line-height:1.05 }
+.find p{ margin-top:18px; color:var(--muted); font-size:1.02rem; line-height:1.7 }
+.find p.hi{color:#fff;font-weight:500}
+.leak-scan{ background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:10px; backdrop-filter:blur(10px); box-shadow:0 30px 70px -30px rgba(0,0,0,.8) }
+.leak-scan .top{ display:flex; align-items:center; gap:6px; padding:10px 12px 14px }
+.leak-scan .top i{ width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.15) }
+.leak-scan .top span{ margin-left:auto;color:var(--muted);font-size:.78rem;font-weight:500 }
+.leak-row{ display:flex; align-items:center; gap:12px; padding:14px; border-radius:10px }
+.leak-row + .leak-row{ margin-top:4px }
+.leak-row .lx{ width:30px;height:30px;border-radius:8px;background:rgba(255,106,114,.12);color:#ff6a72;display:grid;place-items:center;flex:none;font-size:15px }
+.leak-row .lt{ color:#fff; font-weight:500; font-size:.95rem }
+.leak-row .lv{ margin-left:auto; color:#ff6a72; font-weight:500; font-size:.78rem; background:rgba(255,106,114,.1); padding:4px 10px; border-radius:100px }
+
+/* ============ CAPTURE ============ */
+.cap-grid{ margin-top:clamp(44px,6vw,72px); display:grid; gap:0; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:var(--panel); backdrop-filter:blur(10px) }
+@media(min-width:680px){ .cap-grid{ grid-template-columns:1fr 1fr } }
+@media(min-width:1000px){ .cap-grid{ grid-template-columns:1fr 1fr 1fr } }
+.cap{ padding:32px; border-top:1px solid var(--border); border-left:1px solid var(--border); transition:background .25s }
+.cap:hover{ background:var(--panel-hi) }
+.cap .ci{ width:42px;height:42px;border-radius:10px;background:rgba(47,107,255,.15);border:1px solid rgba(47,107,255,.28);display:grid;place-items:center;color:var(--blue-hi);font-size:18px }
+.cap h3{ font-size:1.08rem; color:#fff; margin-top:18px; font-weight:500 }
+.cap p{ margin-top:8px; color:var(--muted); font-size:.95rem; line-height:1.6 }
+.cap-foot{ margin-top:32px; text-align:center; color:#fff; font-weight:500; font-size:1.15rem }
+
+/* ============ TEAM band ============ */
+.team-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:32px }
+.team-row li{ list-style:none; display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--border);
+  padding:12px 20px; border-radius:100px; color:#fff; font-weight:500; font-size:.98rem }
+.team-row .icon{ color:var(--blue-hi); font-size:1.05rem }
+
+/* ============ SPLIT (turn on leads) ============ */
+.split{ display:grid; gap:44px; align-items:center }
+@media(min-width:900px){ .split{ grid-template-columns:1.1fr .9fr; gap:clamp(44px,6vw,90px) } .split.rev>*:first-child{order:2} }
+.split h2{ font-size:clamp(2rem,4.4vw,3rem); font-weight:500; letter-spacing:-.04em; margin-top:16px; line-height:1.05 }
+.split p{ margin-top:16px; color:var(--muted); font-size:1.02rem; line-height:1.7 }
+.split p.hi{color:#fff;font-weight:500}
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:20px }
+.chips li{ list-style:none; background:rgba(47,107,255,.08); border:1px solid rgba(47,107,255,.22); color:var(--ice); padding:7px 14px; border-radius:100px; font-weight:500; font-size:.88rem }
+.demand-art{ aspect-ratio:1; border:1px solid var(--border); border-radius:20px;
+  background:radial-gradient(circle at 50% 30%, rgba(47,107,255,.22), transparent 60%), var(--panel); position:relative; overflow:hidden; display:grid; place-items:center }
+.demand-art svg{width:78%;height:78%}
+
+/* ============ TWO LAYERS ============ */
+.diptych{ margin-top:clamp(44px,6vw,64px); display:grid; gap:16px; align-items:stretch }
+@media(min-width:820px){ .diptych{ grid-template-columns:1fr auto 1fr } }
+.layer{ border:1px solid var(--border); border-radius:20px; padding:34px; background:var(--panel); backdrop-filter:blur(10px) }
+.layer.two{ background:linear-gradient(150deg,rgba(47,107,255,.16),rgba(47,107,255,.04)); border-color:rgba(47,107,255,.35) }
+.layer .lnum{ font-size:.82rem; color:var(--blue-hi); letter-spacing:.14em; text-transform:uppercase; font-weight:500 }
+.layer h3{ font-size:1.65rem; margin-top:10px; font-weight:500; letter-spacing:-.03em; line-height:1.1 }
+.layer p{ margin-top:14px; color:var(--muted); line-height:1.65 }
+.layer ul{ margin-top:14px; display:flex; flex-wrap:wrap; gap:8px }
+.layer li{ list-style:none; font-size:.85rem; color:var(--muted); background:rgba(255,255,255,.04); padding:6px 12px; border-radius:8px }
+.dip-arrow{ display:grid; place-items:center; color:var(--blue); font-size:1.75rem }
+@media(max-width:819px){ .dip-arrow{transform:rotate(90deg)} }
+.diptych-foot{ text-align:center; margin-top:28px; color:#fff; font-weight:500; font-size:1.1rem; max-width:56ch; margin-inline:auto }
+
+/* ============ IMAGINE ============ */
+.imagine{ margin-top:clamp(44px,6vw,60px); display:grid; gap:14px }
+@media(min-width:760px){ .imagine{ grid-template-columns:1fr 1fr } }
+.im{ border:1px solid var(--border); border-radius:16px; padding:26px 28px; background:var(--panel); backdrop-filter:blur(10px) }
+.im{ padding:24px 26px 24px; display:flex; flex-direction:column }
+.im .was{ display:block; color:var(--muted); font-size:.74rem; font-weight:600; text-transform:uppercase; letter-spacing:.14em; opacity:.65; margin-bottom:12px }
+.im .was::before{ content:"When "; opacity:.75 }
+.im .now{ display:block; color:#fff; font-weight:500; font-size:1.1rem; line-height:1.4 }
+.im .now .icon{ display:none }
+
+/* ============ TWO QUESTIONS ============ */
+.qs{ margin-top:clamp(40px,6vw,60px); display:grid; gap:16px }
+@media(min-width:760px){ .qs{ grid-template-columns:1fr 1fr } }
+.q{ border:1px solid var(--border); border-radius:20px; padding:36px; background:var(--panel); backdrop-filter:blur(10px); position:relative }
+.q.two{ background:linear-gradient(150deg,rgba(47,107,255,.15),rgba(47,107,255,.03)); border-color:rgba(47,107,255,.35) }
+.q .qn{ font-size:2.4rem; color:rgba(255,255,255,.1); line-height:1; font-weight:500 }
+.q.two .qn{ color:rgba(91,139,255,.35) }
+.q h3{ font-size:1.4rem; margin-top:8px; line-height:1.15; font-weight:500; letter-spacing:-.03em }
+.q span{ display:block; margin-top:14px; color:var(--blue-hi); font-weight:500; font-size:.95rem }
+
+/* ============ CARE (scorecard) ============ */
+.care{ margin-top:clamp(44px,6vw,60px); display:grid; gap:16px; max-width:920px; margin-inline:auto }
+@media(min-width:760px){ .care{ grid-template-columns:1fr 1fr } }
+.care-col{ border:1px solid var(--border); border-radius:20px; padding:32px; background:var(--panel); backdrop-filter:blur(10px) }
+.care-col.yes{ background:linear-gradient(150deg,rgba(47,107,255,.14),rgba(47,107,255,.03)); border-color:rgba(47,107,255,.35) }
+.care-col h3{ font-size:1.1rem; margin-bottom:18px; display:flex; align-items:center; gap:10px; color:#fff; font-weight:500 }
+.care-col ul{ display:grid; gap:12px }
+.care-col li{ list-style:none; display:flex; align-items:center; gap:12px; font-size:1rem }
+.care-col.no li{ color:var(--muted) }
+.care-col.no .icon{ color:#ff6a72 }
+.care-col.yes li{ color:#fff }
+.care-col.yes .icon{ color:var(--blue-hi) }
+.care-col .icon{flex:none}
+
+/* ============ ROADMAP (aligned, animated) ============ */
+.roadmap{ position:relative; margin-top:clamp(50px,7vw,70px); max-width:900px; margin-inline:auto; padding-block:12px }
+.road-rail{ position:absolute; left:32px; top:24px; bottom:24px; width:2px; border-radius:2px; background:rgba(255,255,255,.08); z-index:0 }
+@media(min-width:720px){ .road-rail{ left:50%; transform:translateX(-1px) } }
+.road-fill{ position:absolute; inset:0 0 auto 0; height:0%; background:linear-gradient(180deg,var(--blue) 0%,var(--blue-hi) 100%); border-radius:2px; box-shadow:0 0 24px rgba(47,107,255,.55); transition:height .15s linear }
+.fill-head{ position:absolute; bottom:-7px; left:50%; transform:translateX(-50%); width:16px; height:16px; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#e7f0ff,var(--blue-hi) 55%,var(--blue) 100%);
+  box-shadow:0 0 0 4px rgba(47,107,255,.18), 0 0 22px 6px rgba(47,107,255,.6), 0 0 50px rgba(91,139,255,.35);
+  opacity:0; transition:opacity .3s var(--ease) }
+.road-fill.active .fill-head{ opacity:1; animation:pulse 2.2s var(--ease) infinite }
+@keyframes pulse{ 0%,100%{ box-shadow:0 0 0 4px rgba(47,107,255,.18), 0 0 22px 6px rgba(47,107,255,.55), 0 0 50px rgba(91,139,255,.3) } 50%{ box-shadow:0 0 0 8px rgba(47,107,255,.10), 0 0 30px 8px rgba(47,107,255,.75), 0 0 60px rgba(91,139,255,.45) } }
+.road-nodes{ list-style:none; padding:0; margin:0; position:relative; z-index:1 }
+.road-node{ display:grid; grid-template-columns:64px 1fr; align-items:center; gap:20px; padding-block:22px }
+@media(min-width:720px){
+  .road-node{ grid-template-columns:1fr 64px 1fr; gap:36px }
+  .road-node .rn-dot{ grid-column:2; justify-self:center }
+  .road-node .rn-card{ grid-column:3 }
+  .road-node:nth-child(even) .rn-card{ grid-column:1; text-align:right }
+}
+.rn-dot{ width:60px; height:60px; border-radius:50%; background:#0a0a12; border:2px solid rgba(255,255,255,.12);
+  display:grid; place-items:center; color:rgba(255,255,255,.55); z-index:2;
+  transition:all .45s var(--ease); place-self:center }
+.rn-dot .icon{ width:22px; height:22px }
+.rn-card{ padding:20px 24px; border-radius:14px; background:rgba(255,255,255,.02); border:1px solid var(--border); transition:all .4s var(--ease); width:fit-content; max-width:100%; place-self:center start }
+@media(min-width:720px){ .road-node:nth-child(even) .rn-card{ place-self:center end } }
+.rn-card b{ display:block; color:#fff; font-size:1.05rem; font-weight:500; line-height:1.2 }
+.rn-card small{ display:block; color:var(--muted); font-size:.86rem; margin-top:6px }
+.road-node.on .rn-dot{ background:var(--blue); border-color:var(--blue-hi); color:#fff; box-shadow:0 0 30px -2px rgba(47,107,255,.85), 0 0 0 6px rgba(47,107,255,.12); transform:scale(1.08) }
+.road-node.on .rn-card{ border-color:rgba(47,107,255,.35); background:linear-gradient(150deg,rgba(47,107,255,.10),rgba(47,107,255,.02)) }
+.road-node.win.on .rn-dot{ background:linear-gradient(140deg,#4a86ff,#1c4fd6) }
+.road-node.win.on .rn-card b{ color:var(--blue-hi) }
+.roadmap-foot{ text-align:center; margin-top:44px; color:var(--muted); max-width:52ch; margin-inline:auto }
+
+/* ============ JOBS statement ============ */
+.jobs{ text-align:center; background:radial-gradient(ellipse 70% 60% at 50% 50%, rgba(47,107,255,.14), transparent 65%) }
+.jobs p{ max-width:58ch; margin-inline:auto; color:var(--muted); font-size:1.05rem; line-height:1.7 }
+.jobs .word{ font-size:clamp(4rem,15vw,10rem); color:var(--blue); line-height:.85; margin-top:26px; font-weight:600; letter-spacing:-.05em }
+
+/* ============ PROCESS ============ */
+.steps{ margin-top:clamp(44px,6vw,64px); display:grid; gap:16px }
+@media(min-width:640px){ .steps{ grid-template-columns:repeat(auto-fit,minmax(200px,1fr)) } }
+.step{ border:1px solid var(--border); border-radius:16px; padding:28px 24px; background:var(--panel); backdrop-filter:blur(10px) }
+.step .sn{ font-size:.75rem; color:var(--blue-hi); letter-spacing:.14em; text-transform:uppercase; font-weight:500 }
+.step .si{ width:42px;height:42px;border-radius:10px;background:rgba(47,107,255,.12);border:1px solid rgba(47,107,255,.22);display:grid;place-items:center;color:var(--blue-hi);font-size:18px;margin-top:14px }
+.step h3{ font-size:1.08rem; margin-top:16px; font-weight:500 }
+.step p{ margin-top:8px; color:var(--muted); font-size:.94rem; line-height:1.55 }
+.steps-foot{ margin-top:32px; text-align:center; color:#fff; font-weight:500; font-size:1.05rem; max-width:60ch; margin-inline:auto }
+
+/* ============ CTA + BOOKING ============ */
+.cta-sec{ background:radial-gradient(ellipse 80% 70% at 50% 0%, rgba(47,107,255,.22), transparent 60%) }
+.cta-head{ text-align:center; max-width:46ch; margin-inline:auto; margin-bottom:40px }
+.cta-head h2{ font-size:clamp(2.2rem,5vw,3.4rem); font-weight:500; letter-spacing:-.04em; margin-top:18px }
+.cta-title{ max-width:16ch; margin-inline:auto; line-height:1.05 }
+.cta-title .hl{ display:inline-block; background:var(--majorelle-blue); color:#fff; padding:0 16px 4px; border-radius:16px;
+  -webkit-text-fill-color:#fff; background-clip:border-box; -webkit-background-clip:border-box }
+.cta-head p{ margin-top:18px; color:var(--muted); font-size:1.02rem; line-height:1.6 }
+.booking{ background:#fff; border-radius:20px; overflow:hidden; padding:8px; box-shadow:0 40px 90px -40px rgba(0,0,0,.9); max-width:900px; margin-inline:auto }
+.booking iframe{width:100%;border:none;min-height:740px;display:block}
+
+/* ============ FAQ ============ */
+.faq{ max-width:820px; margin-inline:auto; margin-top:clamp(40px,6vw,60px); display:grid; gap:12px }
+.faq details{ border:1px solid var(--border); border-radius:14px; background:var(--panel); backdrop-filter:blur(10px); padding:4px 24px; transition:border-color .2s }
+.faq details[open]{ border-color:var(--border-hi) }
+.faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; gap:20px; align-items:center;
+  padding-block:20px; font-size:1.05rem; font-weight:500; color:#fff }
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{ flex:none; width:26px;height:26px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;color:var(--blue-hi);transition:transform .3s var(--ease),background .3s; font-size:1rem; line-height:1 }
+.faq details[open] summary .pm{ transform:rotate(45deg); background:rgba(47,107,255,.15) }
+.faq p{ padding:0 0 22px; color:var(--muted); font-size:.98rem; line-height:1.7 }
+
+/* ============ FINAL ============ */
+.final{ text-align:center; background:radial-gradient(ellipse 70% 70% at 50% 100%, rgba(47,107,255,.24), transparent 68%) }
+.final h2{ font-size:clamp(2.4rem,6vw,4.6rem); font-weight:500; letter-spacing:-.045em; max-width:16ch; margin-inline:auto; line-height:1.05 }
+.final .ink-blue{ color:var(--blue-hi) }
+.final p{ margin-top:22px; color:var(--muted); font-size:1.05rem; max-width:50ch; margin-inline:auto; line-height:1.6 }
+.final .btn{ margin-top:30px }
+.final .note{ margin-top:22px; color:rgba(255,255,255,.4); font-size:.92rem }
+
+/* ============ FOOTER ============ */
+footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:32px }
+.foot-top{ display:grid; gap:36px }
+@media(min-width:760px){ .foot-top{ grid-template-columns:1.6fr 1fr 1fr } }
+.foot-brand .brand{margin-bottom:16px}
+.foot-brand p{ color:var(--muted); max-width:40ch; line-height:1.6; font-size:.94rem }
+.foot-brand a.mail{ color:var(--blue-hi); font-weight:500; display:inline-block; margin-top:14px; font-size:.94rem }
+.foot-col h4{ color:#fff; font-size:.78rem; text-transform:uppercase; letter-spacing:.14em; margin-bottom:14px; font-weight:500 }
+.foot-col a,.foot-col p{ display:block; color:var(--muted); margin-bottom:10px; transition:color .2s; font-size:.92rem }
+.foot-col a:hover{color:#fff}
+.foot-bottom{ margin-top:42px; padding-top:24px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; align-items:center }
+.foot-bottom p{ color:var(--muted); font-size:.85rem }
+.foot-bottom nav{ display:flex; gap:20px }
+.foot-bottom a{ color:var(--muted); font-size:.85rem }
+.foot-bottom a:hover{color:#fff}
+
+/* sticky mobile CTA */
+.sticky-cta{ position:fixed; left:50%; bottom:16px; transform:translateX(-50%); z-index:80;
+  background:linear-gradient(to bottom,#fff,rgba(255,255,255,.9)); color:#000; font-weight:500; padding:12px 22px; border-radius:100px; box-shadow:0 14px 34px -8px rgba(0,0,0,.6);
+  opacity:0; pointer-events:none; transition:opacity .3s; white-space:nowrap; font-size:.92rem }
+.sticky-cta.show{ opacity:1; pointer-events:auto }
+@media(min-width:940px){ .sticky-cta{display:none} }
+
+/* reveal */
+.js .reveal{ opacity:0; transform:translateY(20px); transition:opacity .7s var(--ease), transform .7s var(--ease) }
+.js .reveal.in{ opacity:1; transform:none }
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .reveal{opacity:1;transform:none}
+  .road-line .fill{height:100%!important}
+  .road-node .rn-dot{border-color:var(--blue);color:#fff;background:var(--blue)}
+}
+
+/* ========== CAPTURE: phones + multiplier + losing grid ========== */
+.capture-sec{ background:radial-gradient(ellipse 90% 60% at 50% 20%, rgba(47,107,255,.12), transparent 65%) }
+.phones{ margin-top:clamp(50px,7vw,80px); display:grid; gap:24px; align-items:center }
+@media(min-width:920px){ .phones{ grid-template-columns:1fr auto 1fr; gap:36px } }
+.phone-col{ display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center }
+.phone-label{ display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:.85rem; font-weight:500;
+  padding:6px 14px; border-radius:100px; border:1px solid var(--border); background:var(--panel) }
+.dot-r{width:8px;height:8px;border-radius:50%;background:#ff6a72;box-shadow:0 0 10px rgba(255,106,114,.7)}
+.dot-b{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px rgba(47,107,255,.8)}
+/* iPhone 16 — real PNG frame + content overlaid on screen area */
+.phone{ position:relative; width:100%; max-width:320px; aspect-ratio:415/843;
+  background: url("assets/img/iphone-16.png") center/contain no-repeat;
+  filter: drop-shadow(0 60px 90px rgba(0,0,0,.6)) drop-shadow(0 20px 40px rgba(0,0,0,.5));
+}
+.phone-notch{ display:none } /* PNG already has it */
+.phone-screen{ position:absolute;
+  top:1.5%; left:3.7%; right:3.7%; bottom:1.5%;
+  padding: 8.5% 5.5% 4%;
+  border-radius: 12%/6%;
+  overflow:hidden;
+  display:flex; flex-direction:column; gap:10px;
+  background:transparent;
+}
+.ps-status{ display:flex; justify-content:space-between; font-size:.72rem; color:var(--muted); padding:0 4px }
+.ps-status .sig{letter-spacing:1px}
+.ps-status.light{ color:rgba(255,255,255,.75) }
+.ps-missed{ background:rgba(255,106,114,.08); border:1px solid rgba(255,106,114,.25);
+  border-radius:14px; padding:12px; display:flex; gap:10px; align-items:center; text-align:left }
+.pm-ico{ width:32px; height:32px; border-radius:50%; background:rgba(255,106,114,.16); display:grid; place-items:center; flex:none }
+.pm-text{ display:flex; flex-direction:column; gap:1px; flex:1; min-width:0 }
+.pm-text b{ color:#ff9199; font-size:.78rem; font-weight:500 }
+.pm-text small{ color:rgba(255,255,255,.7); font-size:.7rem; line-height:1.2 }
+.pm-text small.dim{ color:rgba(255,255,255,.35); font-size:.66rem }
+.pm-badge{ background:#ff6a72; color:#fff; font-size:.65rem; font-weight:600; padding:2px 8px; border-radius:100px; align-self:flex-start; flex:none }
+.ps-silence{ display:flex; flex-direction:column; gap:10px; margin-top:6px; padding:8px }
+.silence-row{ display:flex; align-items:center; gap:8px; color:rgba(255,255,255,.28); font-size:.72rem; text-decoration:line-through; text-decoration-color:rgba(255,106,114,.4) }
+.silence-row .icon{ width:12px;height:12px;color:rgba(255,106,114,.6) }
+.silence-mark{ margin-top:auto; text-align:center; color:rgba(255,255,255,.25); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; padding-block:12px 6px }
+.phone-screen.chat{ padding:36px 12px 14px; gap:8px; overflow:hidden; background:linear-gradient(180deg,#0a0a12,#0f1220) }
+.msg{ max-width:82%; padding:8px 12px; border-radius:14px; font-size:.72rem; line-height:1.4; display:flex; flex-direction:column; gap:3px }
+.msg p{ margin:0 }
+.msg small{ font-size:.6rem; opacity:.6 }
+.msg.out{ background:rgba(255,255,255,.08); color:#fff; align-self:flex-start; border-top-left-radius:4px }
+.msg.in{ background:var(--blue); color:#fff; align-self:flex-end; border-top-right-radius:4px }
+.msg.in small{ color:rgba(255,255,255,.75); text-align:right }
+.msg.out small{ color:rgba(255,255,255,.5) }
+.msg-booked{ margin-top:auto; align-self:center; background:rgba(47,107,255,.14); color:var(--blue-hi);
+  border:1px solid rgba(47,107,255,.35); padding:6px 14px; border-radius:100px; font-size:.72rem; font-weight:500 }
+.phone-outcome{ max-width:290px; padding:16px 18px; border-radius:14px; text-align:left; border:1px solid var(--border); width:100% }
+.phone-outcome.bad{ background:rgba(255,106,114,.06); border-color:rgba(255,106,114,.28) }
+.phone-outcome.good{ background:rgba(47,107,255,.08); border-color:rgba(47,107,255,.32) }
+.oc-label{ display:block; font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.14em; margin-bottom:6px; font-weight:500 }
+.phone-outcome b{ display:block; color:#fff; font-weight:500; font-size:.92rem; line-height:1.4 }
+.oc-cost{ display:inline-block; margin-top:10px; font-size:1.4rem; font-weight:600; letter-spacing:-.02em; color:#ff9199 }
+.oc-cost.win{ color:var(--blue-hi) }
+.vs{ display:grid; place-items:center; color:var(--muted); font-size:.85rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500 }
+.vs span{ padding:8px 14px; border:1px solid var(--border); border-radius:100px; background:var(--panel); backdrop-filter:blur(6px) }
+.multiplier{ margin-top:clamp(60px,8vw,90px); border:1px solid var(--border); border-radius:24px;
+  background:linear-gradient(150deg,rgba(47,107,255,.14),rgba(47,107,255,.02));
+  padding:clamp(30px,4vw,48px); display:grid; gap:28px; align-items:center }
+@media(min-width:820px){ .multiplier{ grid-template-columns:auto 1fr; gap:60px } }
+.mult-side{ text-align:left }
+.mult-eyebrow{ display:block; color:var(--blue-hi); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:500; margin-bottom:12px }
+.mult-num{ font-size:clamp(3.2rem,8vw,5.5rem); color:#fff; font-weight:600; line-height:.95; letter-spacing:-.045em }
+.mult-sub{ display:block; color:var(--muted); margin-top:10px; font-size:.92rem }
+.mult-copy{ color:var(--muted); font-size:1.02rem; line-height:1.7; max-width:52ch }
+.losing-head{ margin-top:clamp(50px,7vw,80px); text-align:center; color:var(--muted); font-size:.82rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500; margin-bottom:24px }
+.losing-grid{ display:grid; gap:14px; padding:0; list-style:none }
+@media(min-width:600px){ .losing-grid{ grid-template-columns:repeat(2,1fr) } }
+@media(min-width:900px){ .losing-grid{ grid-template-columns:repeat(3,1fr) } }
+.lg{ border:1px solid var(--border); border-radius:14px; padding:20px 22px; background:var(--panel); backdrop-filter:blur(8px);
+  display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto; gap:4px 14px; transition:border-color .2s, background .2s }
+.lg:hover{ border-color:var(--border-hi); background:var(--panel-hi) }
+.lg{ position:relative; overflow:hidden; background:#0a0a0f }
+.lg::before{ content:""; position:absolute; top:-60%; left:50%; transform:translateX(-50%);
+  width:70%; height:120%; border-radius:50%; background:rgba(47,107,255,.10); filter:blur(50px); z-index:0; transition:background .5s var(--ease) }
+.lg:hover::before{ background:rgba(47,107,255,.16) }
+.lg > *{ position:relative; z-index:1 }
+.lg .icon{ grid-row:1/3; align-self:start; margin-top:3px; color:var(--blue-hi); width:20px; height:20px }
+.lg b{ color:#fff; font-weight:500; font-size:.95rem }
+.lg small{ color:var(--muted); font-size:.82rem; line-height:1.45 }
+
+/* ============ TRADES (real photos) ============ */
+.trades{ background:radial-gradient(ellipse 60% 40% at 50% 0%, rgba(47,107,255,.10), transparent 60%) }
+.trade-grid{ list-style:none; padding:0; margin-top:clamp(50px,7vw,80px); display:grid; gap:20px }
+@media(min-width:640px){ .trade-grid{ grid-template-columns:repeat(2,1fr) } }
+@media(min-width:1000px){ .trade-grid{ grid-template-columns:repeat(3,1fr) } }
+.trade{ background:#0a0a0f; border:1px solid var(--border); border-radius:18px; overflow:hidden;
+  transition:border-color .3s var(--ease), transform .4s var(--ease); position:relative }
+.trade:hover{ border-color:rgba(47,107,255,.35); transform:translateY(-2px) }
+.trade figure{ aspect-ratio:16/10; overflow:hidden; margin:0; position:relative }
+.trade figure::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55)); pointer-events:none }
+.trade img{ width:100%; height:100%; object-fit:cover; transition:transform 1.2s var(--ease) }
+.trade:hover img{ transform:scale(1.05) }
+.trade-body{ padding:20px 22px }
+.trade-body b{ display:block; color:#fff; font-weight:500; font-size:1.05rem }
+.trade-body small{ display:block; color:var(--muted); font-size:.88rem; margin-top:6px; line-height:1.5 }
+.trade.more{ display:grid; place-items:center; background:linear-gradient(150deg,rgba(47,107,255,.14),rgba(47,107,255,.02)); border-color:rgba(47,107,255,.35) }
+.trade-more{ padding:36px 28px; text-align:center; display:flex; flex-direction:column; gap:14px; align-items:center; max-width:340px; margin-inline:auto }
+.tm-count{ display:inline-grid; place-items:center; width:56px; height:56px; border-radius:16px;
+  background:linear-gradient(135deg,#3B82F6,#085CF0); color:#fff; font-weight:600; font-size:1.4rem;
+  letter-spacing:-.02em; box-shadow:0 12px 30px -8px rgba(47,107,255,.55) }
+.trade-more b{ color:#fff; font-weight:500; font-size:1.05rem }
+.tm-list{ color:var(--ice); font-size:.92rem; line-height:1.7; margin:0 }
+.trade-more small{ color:var(--muted); font-size:.85rem; margin-top:2px }
+
+/* ============ FOUNDER ============ */
+.founder{ background:radial-gradient(ellipse 55% 65% at 20% 40%, rgba(47,107,255,.14), transparent 60%) }
+.founder-inner{ display:grid; gap:44px; align-items:center }
+@media(min-width:880px){ .founder-inner{ grid-template-columns:0.9fr 1.1fr; gap:clamp(50px,7vw,90px) } }
+.founder-photo{ margin:0; position:relative; border-radius:20px; overflow:hidden; border:1px solid var(--border-hi);
+  box-shadow:0 40px 90px -35px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.03) inset;
+  max-width:460px; margin-inline:auto; aspect-ratio:4/5 }
+.founder-photo img{ width:100%; height:100%; object-fit:cover; display:block }
+.founder-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(0,0,0,.55)); pointer-events:none }
+.founder-tag{ position:absolute; left:16px; bottom:16px; z-index:2; display:inline-flex; align-items:center; gap:8px;
+  padding:8px 14px; border-radius:100px; background:rgba(10,10,15,.72); backdrop-filter:blur(10px);
+  border:1px solid var(--border-hi); color:#fff; font-size:.82rem; font-weight:500 }
+.founder-text .pill{ margin-bottom:20px }
+.founder-text h2{ font-size:clamp(2rem,4.4vw,3rem); font-weight:500; letter-spacing:-.04em; line-height:1.05 }
+.founder-text p{ color:var(--muted); font-size:1.02rem; line-height:1.7; margin-top:18px; max-width:56ch }
+.founder-text .btn{ margin-top:26px }
+
+/* ============ IMPACT (Uiverse-style dashboard card) ============ */
+.impact{ background:radial-gradient(ellipse 60% 60% at 50% 30%, rgba(47,107,255,.14), transparent 65%) }
+.impact-card{ position:relative; max-width:720px; margin:clamp(50px,7vw,80px) auto 0; padding:1.5px; border-radius:22px;
+  background:linear-gradient(135deg, rgba(47,107,255,.55), rgba(91,139,255,.15) 40%, rgba(47,107,255,.35) 100%);
+  box-shadow:0 40px 100px -30px rgba(0,0,0,.8), 0 0 60px rgba(47,107,255,.15); }
+.impact-glow{ position:absolute; inset:-40px; border-radius:44px; background:radial-gradient(ellipse at center, rgba(47,107,255,.35), transparent 60%); filter:blur(40px); z-index:-1; pointer-events:none; opacity:.55 }
+.impact-shell{ background:#05060a; border-radius:20px; padding:clamp(24px,3vw,34px); display:flex; flex-direction:column; gap:22px }
+.ic-head{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,.06); flex-wrap:wrap }
+.ic-title{ display:flex; align-items:center; gap:12px }
+.ic-title-icon{ width:36px; height:36px; border-radius:10px; display:grid; place-items:center; color:#fff;
+  background:linear-gradient(135deg,#3B82F6,#085CF0); box-shadow:0 8px 22px -6px rgba(47,107,255,.55) }
+.ic-title-icon svg{ width:18px; height:18px }
+.ic-title b{ color:#fff; font-weight:600; font-size:1rem; display:block; line-height:1.15 }
+.ic-title small{ color:var(--muted); font-size:.78rem; display:block; margin-top:2px }
+.ic-live{ display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:100px;
+  background:rgba(47,107,255,.12); color:var(--blue-hi); font-size:.72rem; font-weight:500; border:1px solid rgba(47,107,255,.25) }
+.ic-live-dot{ width:6px; height:6px; border-radius:50%; background:var(--blue-hi); box-shadow:0 0 8px rgba(91,139,255,.8); animation:pulse-live 1.8s var(--ease) infinite }
+@keyframes pulse-live{ 0%,100%{ opacity:1 } 50%{ opacity:.35 } }
+
+.ic-stats{ display:grid; grid-template-columns:1fr; gap:12px }
+@media(min-width:600px){ .ic-stats{ grid-template-columns:repeat(3,1fr) } }
+.ic-stat{ background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.05); border-radius:12px; padding:14px 16px }
+.ic-lbl{ display:block; color:var(--muted); font-size:.75rem; font-weight:500 }
+.ic-num{ display:block; color:#fff; font-weight:600; font-size:1.5rem; letter-spacing:-.02em; line-height:1.1; margin-top:6px }
+.ic-delta{ display:inline-block; margin-top:6px; font-size:.72rem; font-weight:500; color:var(--blue-hi) }
+.ic-delta.up::before{ content:"↑ "; font-weight:700 }
+
+.ic-chart{ background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.05); border-radius:12px; padding:16px; position:relative }
+.bars{ display:flex; align-items:flex-end; justify-content:space-between; gap:10px; height:108px }
+.bar{ position:relative; flex:1; height:var(--h); background:rgba(47,107,255,.16); border-radius:4px 4px 0 0; overflow:hidden; display:flex; align-items:flex-end; transition:filter .3s var(--ease) }
+.bar i{ display:block; width:100%; height:var(--f); background:linear-gradient(180deg,var(--blue-hi),var(--blue)); border-radius:4px 4px 0 0; box-shadow:0 -4px 12px rgba(47,107,255,.5) }
+.bar em{ position:absolute; bottom:-22px; left:50%; transform:translateX(-50%); color:var(--muted); font-style:normal; font-size:.68rem; font-weight:500 }
+.ic-chart{ padding-bottom:34px }
+.chart-y{ position:absolute; top:12px; right:14px; color:var(--muted); font-size:.72rem; font-weight:500 }
+
+.ic-foot{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding-top:6px; border-top:1px solid rgba(255,255,255,.06); padding-top:20px; flex-wrap:wrap }
+.ic-note{ color:var(--muted); font-size:.78rem }
+
+/* ============ CARE — two dashboards ============ */
+.care-sec{ background:radial-gradient(ellipse 70% 50% at 50% 20%, rgba(47,107,255,.10), transparent 65%) }
+.dashboards{ display:grid; gap:24px; margin-top:clamp(50px,7vw,72px); align-items:stretch }
+@media(min-width:900px){ .dashboards{ grid-template-columns:1fr 1fr; gap:28px } }
+.dash{ position:relative; background:#08090e; border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:24px 24px 22px;
+  display:flex; flex-direction:column; gap:18px; overflow:hidden }
+.dash.real{ background:linear-gradient(150deg, rgba(47,107,255,.10), rgba(47,107,255,.02) 60%), #06070c;
+  border-color:rgba(47,107,255,.25); box-shadow:0 40px 90px -35px rgba(47,107,255,.35), 0 0 0 1px rgba(47,107,255,.15) inset }
+.dash-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
+  padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,.06) }
+.dash-head b{ color:#fff; font-weight:500; font-size:1rem; display:block; line-height:1.15 }
+.dash-head small{ color:var(--muted); font-size:.78rem; display:block; margin-top:4px }
+.dash-tag{ font-size:.7rem; padding:5px 12px; border-radius:100px; font-weight:500; white-space:nowrap;
+  display:inline-flex; align-items:center; gap:6px }
+.dash-tag-mute{ background:rgba(255,255,255,.05); color:var(--muted); border:1px solid rgba(255,255,255,.08) }
+.dash-tag-live{ background:rgba(47,107,255,.14); color:var(--blue-hi); border:1px solid rgba(47,107,255,.32) }
+.dash-tag-live .lv{ width:6px; height:6px; border-radius:50%; background:var(--blue-hi); box-shadow:0 0 8px rgba(91,139,255,.8); animation:pulse-live 1.8s var(--ease) infinite }
+
+/* vanity metrics — flat list */
+.dash-metrics{ list-style:none; padding:0; display:grid; gap:12px }
+.dash-metrics li{ display:grid; grid-template-columns:1fr auto auto; gap:14px; align-items:baseline;
+  padding:12px 14px; background:rgba(255,255,255,.02); border-radius:10px; border:1px solid rgba(255,255,255,.04) }
+.dash-metrics li span{ color:var(--muted); font-size:.85rem }
+.dash-metrics li b{ color:rgba(255,255,255,.85); font-weight:500; font-size:1.15rem; letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums }
+.dash-metrics li em{ color:rgba(255,255,255,.35); font-style:normal; font-size:.75rem; font-weight:500 }
+
+/* funnel dashboard */
+.dash-funnel{ list-style:none; padding:0; display:grid; gap:8px }
+.dash-funnel li{ position:relative; padding:14px 16px; background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.05); border-radius:10px;
+  display:grid; grid-template-columns:1fr auto; gap:8px 14px; align-items:baseline; overflow:hidden }
+.fn-bar{ position:absolute; left:0; top:0; height:100%; width:var(--w); pointer-events:none;
+  background:linear-gradient(90deg, rgba(47,107,255,.20), rgba(47,107,255,.02));
+  border-right:2px solid rgba(91,139,255,.55); z-index:0 }
+.dash-funnel li > *{ position:relative; z-index:1 }
+.fn-lbl{ color:#fff; font-size:.92rem; font-weight:500 }
+.fn-num{ color:#fff; font-weight:600; font-size:1.35rem; letter-spacing:-.01em; font-variant-numeric:tabular-nums }
+.fn-win{ border-color:rgba(47,107,255,.45); background:linear-gradient(90deg, rgba(47,107,255,.22), rgba(47,107,255,.05)) }
+.fn-win .fn-bar{ background:linear-gradient(90deg, rgba(47,107,255,.42), rgba(47,107,255,.08)); border-right-color:var(--blue-hi) }
+.fn-win .fn-num{ color:var(--blue-hi) }
+
+.dash-foot{ margin-top:6px; padding-top:14px; border-top:1px solid rgba(255,255,255,.06);
+  color:var(--muted); font-size:.86rem }
+.dash-foot b{ color:#fff; font-weight:600; font-variant-numeric:tabular-nums }
+.dash.real .dash-foot b{ color:var(--blue-hi) }
+.care-close{ text-align:center; margin-top:34px; color:#fff; font-weight:500; font-size:1.1rem; max-width:58ch; margin-inline:auto }
+
+/* ============ PREMIUM CARDS (site-wide) — subtle blur glow behind ============ */
+.step, .q, .layer, .care-col, .im, .trade, .faq details, .phone-outcome, .mult-side{
+  position:relative; overflow:hidden;
+}
+.step, .q, .layer, .care-col, .im, .trade{ background-color:#0a0a0f }
+.step::before, .q::before, .layer::before, .care-col::before, .im::before, .trade::before, .faq details::before, .phone-outcome::before{
+  content:""; position:absolute; top:-60%; left:50%; transform:translateX(-50%);
+  width:80%; height:120%; border-radius:50%;
+  background:rgba(47,107,255,.09); filter:blur(60px); z-index:0; pointer-events:none;
+  transition:background .5s var(--ease);
+}
+.step:hover::before, .q:hover::before, .layer:hover::before, .care-col:hover::before,
+.im:hover::before, .trade:hover::before, .faq details[open]::before{ background:rgba(47,107,255,.16) }
+.q.two::before, .layer.two::before, .care-col.yes::before{ background:rgba(47,107,255,.20) }
+.q.two:hover::before, .layer.two:hover::before, .care-col.yes:hover::before{ background:rgba(47,107,255,.28) }
+.phone-outcome.bad::before{ background:rgba(255,106,114,.10) }
+.phone-outcome.good::before{ background:rgba(47,107,255,.14) }
+/* keep inner content above glow */
+.step > *, .q > *, .layer > *, .care-col > *, .im > *, .trade > *, .faq details > *, .phone-outcome > *{ position:relative; z-index:1 }
+
+/* thin top divider on cards with an icon header (Uiverse look) */
+.step .si + h3, .q .qn + h3, .care-col ul, .layer p:first-of-type{ /* no-op selectors kept for future */ }
+
+/* trades: darker card body over image */
+.trade{ background:#0a0a0f }
+.trade figure{ background:#0a0a0f }
+</style>
+</head>
+<body>
+
+<!-- icon defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 17z"/><line x1="16" y1="2" x2="22" y2="8"/><line x1="22" y1="2" x2="16" y2="8"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></symbol>
+<symbol id="i-inbox" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></symbol>
+<symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.2 5.2l-6 6a2 2 0 1 0 2.8 2.8l6-6a4 4 0 0 0 5.2-5.2l-2.6 2.6-2.4-.6-.6-2.4z"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><line x1="4" y1="20" x2="4" y2="12"/><line x1="10" y1="20" x2="10" y2="5"/><line x1="16" y1="20" x2="16" y2="14"/><line x1="21" y1="20" x2="3" y2="20"/></symbol>
+<symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8a2 2 0 0 0-3 0z"/><path d="M12 15l-3-3a22 22 0 0 1 8-11c3 0 5 2 5 5a22 22 0 0 1-11 8z"/><path d="M9 12H4s.5-2.8 2-4a3 3 0 0 1 3 0"/><path d="M12 15v5s2.8-.5 4-2a3 3 0 0 0 0-3"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M6 2h12v7a6 6 0 0 1-12 0z"/><line x1="12" y1="15" x2="12" y2="19"/><path d="M8 22h8l-1-3H9z"/></symbol>
+<symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+</defs></svg>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><img class="brand-logo" src="assets/img/logo.png" alt="Mavly Digital" width="36" height="36"><span class="brand-word">Mavly<span class="brand-word-sub">Digital</span></span></a>
+    <nav class="nav-links">
+      <a href="#problem">The Problem</a>
+      <a href="#capture">How It Works</a>
+      <a href="#trades">Trades</a>
+      <a href="#roadmap">The Journey</a>
+      <a href="#founder">About</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#book" class="btn btn-primary" style="padding:8px 18px">Book my inspection</a>
+    </div>
+    <button class="nav-burger" id="burger" aria-label="Open menu">☰</button>
+  </div>
+</header>
+<div class="mnav" id="mnav">
+  <button class="mnav-close" id="mclose" aria-label="Close menu">✕</button>
+  <a href="#problem">The Problem</a>
+  <a href="#trades">Trades</a>
+  <a href="#capture">How It Works</a>
+  <a href="#roadmap">The Journey</a>
+  <a href="#process">Process</a>
+  <a href="#faq">FAQ</a>
+  <a href="#book" class="btn btn-primary btn-lg">Book my inspection</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero has-video">
+    <div class="hero-video" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/img/hero-bg.jpg">
+        <source src="assets/video/hero-bg.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-scrim"></div>
+    </div>
+    <div class="wrap">
+      <div class="pill reveal">
+        <span class="dot"></span>
+        <span>For high-value home-service contractors</span>
+        <a href="#capture">See how it works <svg class="icon" style="width:12px;height:12px"><use href="#i-arrow-r"/></svg></a>
       </div>
-    </header>
-    <main class="content" id="top">
-      <section class="section section--hidden-x container">
-        <div class="section__body">
-          <div class="hero">
-            <div class="hero__main">
-              <div class="hero__body">
-                <h1 class="hero__title">
-                  The most trusted name in waterproofing
-                </h1>
-                <div class="hero__description">
-                  <p>Homeowners don't hand an $8k to $30k job to a stranger. They hire the company that looks proven and safe. Mavly makes you that company, the obvious choice in your area, then runs the back end that keeps your calendar full.</p>
-                </div>
-                <a class="hero__button button" href="#contact">
-                  Get your free proposal
-                </a>
-              </div>
-              <img
-                class="hero__image"
-                src="./assets/images/backgrounds/hero-bg.svg"
-                alt="" width="600" height="515" loading="lazy"
-              />
-            </div>
-          </div>
+      <h1 class="gradient-heading reveal">Stop losing jobs you<br>already paid for</h1>
+      <p class="sub reveal">We inspect the sales process you already have. Fix what is costing you jobs. Then bring more homeowners in.</p>
+      <div class="hero-cta reveal">
+        <a href="#book" class="btn btn-primary btn-lg">Book my free inspection</a>
+        <a href="#capture" class="btn btn-ghost btn-lg">See how it works</a>
+      </div>
+      <div class="hero-metrics reveal">
+        <div><b>$93k</b><span>recovered from dead quotes</span></div>
+        <div><b>80%</b><span>booking rate</span></div>
+        <div><b>&lt;1hr</b><span>first reply, <em>day one</em></span></div>
+      </div>
+    </div>
+    <div class="marquee reveal" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Waterproofing</span><span>Foundation repair</span><span>Crawl space</span><span>Mold remediation</span><span>Tree removal</span><span>Epoxy &amp; concrete</span><span>Decks &amp; outdoor</span><span>Retaining walls</span><span>Artificial turf</span><span>Landscape lighting</span>
+        <span>Waterproofing</span><span>Foundation repair</span><span>Crawl space</span><span>Mold remediation</span><span>Tree removal</span><span>Epoxy &amp; concrete</span><span>Decks &amp; outdoor</span><span>Retaining walls</span><span>Artificial turf</span><span>Landscape lighting</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section">
+    <div class="wrap intro-grid">
+      <h2 class="gradient-heading reveal">You're bleeding jobs before the marketing even starts</h2>
+      <div class="intro-body reveal">
+        <p>You can spend thousands getting homeowners to call, fill out a form, or request an estimate.</p>
+        <p>But if calls go unanswered, leads don't get followed up with, or estimates sit untouched, you're losing jobs before your marketing even gets a chance to work.</p>
+        <p class="hi">So before we recommend a single new lead, we inspect the process you already have. We fix what is broken. Then, and only then, we bring more homeowners in.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section" id="problem">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>More leads aren't the answer</span>
+        <h2 class="gradient-heading">Watch a good opportunity vanish</h2>
+        <p>Before you spend another dollar on advertising, look at what happens when someone actually contacts you.</p>
+      </div>
+      <div class="moments">
+        <div class="moment reveal">
+          <span class="moment-n">01</span>
+          <div class="moment-when"><span class="mi"><svg class="icon"><use href="#i-phone"/></svg></span><h3>A homeowner calls</h3></div>
+          <p class="moment-then">Nobody answers. <strong>They call the next contractor.</strong></p>
         </div>
-      </section>
-      <section class="section container" id="the-system">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">The System</h2>
-          <div class="section__description">
-            <p>We make you look like the safest, most proven specialist in town. Then we feed that trust with a back end that turns attention into booked jobs.</p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="services">
-            <ul class="services__list grid grid--2">
-              <li class="services__item">
-                <article class="service-card">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg">Trusted authority</span>
-                      <span class="puddle-bg">in your market</span>
-                    </h3>
-                    <a class="service-card__link" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/1.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-              <li class="services__item">
-                <article class="service-card service-card--accent-bg">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg puddle-bg--light">Reviews that</span>
-                      <span class="puddle-bg puddle-bg--light">sell for you</span>
-                    </h3>
-                    <a class="service-card__link" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/2.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-              <li class="services__item">
-                <article class="service-card service-card--dark-bg">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg puddle-bg--light">Ads built on trust,</span>
-                      <span class="puddle-bg puddle-bg--light">not just clicks</span>
-                    </h3>
-                    <a class="service-card__link service-card__link--light" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/3.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-              <li class="services__item">
-                <article class="service-card">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg">First when</span>
-                      <span class="puddle-bg">they search</span>
-                    </h3>
-                    <a class="service-card__link" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/4.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-              <li class="services__item">
-                <article class="service-card service-card--accent-bg">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg puddle-bg--light">A back end that</span>
-                      <span class="puddle-bg puddle-bg--light">never sleeps</span>
-                    </h3>
-                    <a class="service-card__link" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/5.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-              <li class="services__item">
-                <article class="service-card service-card--dark-bg">
-                  <div class="service-card__body">
-                    <h3 class="service-card__title">
-                      <span class="puddle-bg">Old estimates,</span>
-                      <span class="puddle-bg">new revenue</span>
-                    </h3>
-                    <a class="service-card__link service-card__link--light" href="#contact">
-                    <span class="service-card__link-icon-wrapper">
-                      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                    </span>
-                      <span class="service-card__link-label">Learn more</span>
-                    </a>
-                  </div>
-                  <img class="service-card__image" src="./assets/images/services/6.svg" alt="" width="210" height="170" loading="lazy" />
-                </article>
-              </li>
-            </ul>
-            <div class="services__banner banner">
-              <div class="banner__inner">
-                <div class="banner__body">
-                  <h3 class="banner__title">Let's make you the obvious choice</h3>
-                  <div class="banner__description">
-                    <p>Book a free proposal and we'll show you exactly how we make you the most trusted name in your market and keep your phone ringing.</p>
-                  </div>
-                  <a class="banner__button button" href="#contact">
-                    Get your free proposal
-                  </a>
-                </div>
-                <img class="banner__image hidden-mobile" src="./assets/images/backgrounds/banner-bg.svg" alt="" width="494" height="394" loading="lazy" />
-              </div>
-            </div>
-          </div>
+        <div class="moment reveal">
+          <span class="moment-n">02</span>
+          <div class="moment-when"><span class="mi"><svg class="icon"><use href="#i-moon"/></svg></span><h3>A form comes in at 9 PM</h3></div>
+          <p class="moment-then">Nobody responds until morning. <strong>They've already moved on.</strong></p>
         </div>
-      </section>
-      <section class="section container" id="cases">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Case Studies</h2>
-          <div class="section__description">
-            <p>Real campaigns, real dashboards, real booked jobs. This is the machine working.</p>
-          </div>
-        </header>
-        <div class="section__body">
-          <ul class="grid grid--2" style="list-style:none;padding:0;margin:0;">
-            <li>
-              <article class="case-card">
-                <div class="case-card__media"><img src="./assets/images/proof/result-80k.jpg" alt="Client results: 38 leads, 80% booking rate, 40% close rate, $80,000+ return" loading="lazy" /></div>
-                <p class="case-card__cap"><b>$80,000+ returned</b>38 leads from one campaign. 80% booking rate, 40% close rate.</p>
-              </article>
-            </li>
-            <li>
-              <article class="case-card">
-                <div class="case-card__media"><img src="./assets/images/proof/result-93k.jpg" alt="Client results: 31 leads at $10.88 each, $93,000 value" loading="lazy" /></div>
-                <p class="case-card__cap"><b>$93,000 in value</b>31 leads at $10.88 each from $337 of ad spend.</p>
-              </article>
-            </li>
-            <li>
-              <article class="case-card">
-                <div class="case-card__media"><img src="./assets/images/proof/ads-225.jpg" alt="Google Ads: 689 clicks, 225 conversions, 32.66% conversion rate, $1.08K cost" loading="lazy" /></div>
-                <p class="case-card__cap"><b>225 leads at $4.80 each</b>689 clicks, a 32.7% conversion rate, on $1.08K of ad spend.</p>
-              </article>
-            </li>
-            <li>
-              <article class="case-card">
-                <div class="case-card__media"><img src="./assets/images/proof/monthly-15jobs.jpg" alt="Monthly overview: 30 leads, 25 booked assessments, 15 booked jobs" loading="lazy" /></div>
-                <p class="case-card__cap"><b>15 jobs booked in a month</b>30 leads turned into 25 booked assessments and 15 booked jobs.</p>
-              </article>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section class="section section--hidden-x container" id="why">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Why It Works</h2>
-          <div class="section__description">
-            <p>Homeowners shop around on big jobs. The one that looks the most trustworthy wins. That is the thing no other agency actually builds for you.</p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="studies">
-            <ul class="studies__list">
-              <li class="studies__item">
-                <div class="studies__description">
-                  <p>Nobody buys $8k to $30k foundation and waterproofing work from a company with no reputation. We make you look like the established, proven specialist, so you win before the first call even happens.</p>
-                </div>
-                <a class="studies__link" href="#contact">
-                  <span>Learn more</span>
-                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                </a>
-              </li>
-              <li class="studies__item">
-                <div class="studies__description">
-                  <p>Every competitor runs the same generic "free estimate" ad. We run trust: real customer results and before-and-afters that tell homeowners why your town already picks you. You stand out instead of racing to the bottom.</p>
-                </div>
-                <a class="studies__link" href="#contact">
-                  <span>Learn more</span>
-                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                </a>
-              </li>
-              <li class="studies__item">
-                <div class="studies__description">
-                  <p>The fastest reply wins. Our back-end answers every lead and follows up automatically, so a homeowner with a wet basement never has time to call the next guy. Speed reads as reliable. Reliable is trust.</p>
-                </div>
-                <a class="studies__link" href="#contact">
-                  <span>Learn more</span>
-                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 13.701C0.532561 14.1152 0.286748 15.0326 0.700962 15.75C1.11518 16.4674 2.03256 16.7133 2.75 16.299L1.25 13.701ZM20.7694 5.38823C20.9838 4.58803 20.5089 3.76552 19.7087 3.55111L6.66874 0.0570541C5.86854 -0.157359 5.04603 0.317515 4.83162 1.11771C4.61721 1.91791 5.09208 2.74042 5.89228 2.95483L17.4834 6.06066L14.3776 17.6518C14.1631 18.452 14.638 19.2745 15.4382 19.4889C16.2384 19.7033 17.0609 19.2284 17.2753 18.4282L20.7694 5.38823ZM2.75 16.299L20.0705 6.29904L18.5705 3.70096L1.25 13.701L2.75 16.299Z" fill="#085CF0"/></svg>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <section class="section container" id="process">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Our Process</h2>
-          <div class="section__description">
-            <p>
-              How we make you the obvious choice<br />
-              and keep your calendar full
-            </p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="process">
-            <ol class="process__list">
-              <li class="process__item">
-                <details class="process__accordion" open>
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">Build your trust &amp; authority</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>Before we spend a dollar chasing leads, we make you look like the safest choice in town: a steady stream of fresh reviews, real proof, and specialist positioning around the exact work you do. Authority gets homeowners to pay attention. Trust gets them to sign.</p>
-                  </div>
-                </details>
-              </li>
-              <li class="process__item">
-                <details class="process__accordion">
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">Position you as the specialist</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>One clear problem, named the same way across every touchpoint: bowing walls, foundation piers, wet crawl space, encapsulation. You look like the proven specialist, not a "we do everything" generalist.</p>
-                  </div>
-                </details>
-              </li>
-              <li class="process__item">
-                <details class="process__accordion">
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">Turn on lead generation</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>Now that the reputation is behind you, we put you in front of homeowners the moment they're searching. That is ready to buy traffic routed straight into your follow up. You front and own the ad spend directly, and we never mark it up.</p>
-                  </div>
-                </details>
-              </li>
-              <li class="process__item">
-                <details class="process__accordion">
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">Automate the follow-up</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>Every new lead and estimate enters the back end: an instant opening message, spaced follow ups if there's no reply, and a missed call text back so no call ever goes cold. Positive replies get a booking link and a nudge to call. It runs without you lifting a finger.</p>
-                  </div>
-                </details>
-              </li>
-              <li class="process__item">
-                <details class="process__accordion">
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">You work the live replies</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>Mavly builds and maintains the machine. You work the live replies and own the customer relationship, the part only you can do. Old, unsold estimates get reactivated too: booked work from homeowners who stalled, at zero extra ad spend.</p>
-                  </div>
-                </details>
-              </li>
-              <li class="process__item">
-                <details class="process__accordion">
-                  <summary class="process__accordion-header">
-                    <h3 class="process__accordion-title">We optimize and compound</h3>
-                    <span class="process__accordion-indicator"></span>
-                  </summary>
-                  <div class="process__accordion-body">
-                    <p>We keep watching what competitors run, keep the reviews and trust ads fresh, and keep the machine improving month over month, so you stay the most trusted name in your market, not just for a season.</p>
-                  </div>
-                </details>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </section>
-      <section class="section container" id="pricing">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Get Started</h2>
-          <div class="section__description">
-            <p>One flat monthly rate for the whole machine: the trust engine, the lead generation, and the automation. You own your ad spend directly, and we never mark it up.</p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="services">
-            <div class="services__banner banner">
-              <div class="banner__inner">
-                <div class="banner__body">
-                  <h3 class="banner__title">Want a real number?</h3>
-                  <div class="banner__description">
-                    <p>What it costs depends on your market and how far you want to push it. Book a quick call and we'll give you a straight number. No pressure, no contract.</p>
-                  </div>
-                  <a class="banner__button button" href="#contact">
-                    Book here to get your quote
-                  </a>
-                </div>
-                <img class="banner__image hidden-mobile" src="./assets/images/backgrounds/banner-bg.svg" alt="" width="494" height="394" loading="lazy" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section container" id="results">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Real Results</h2>
-          <div class="section__description">
-            <p>
-              $1.50 a lead. 225 conversions at a 32% rate. $80,000+ back from a single campaign. First lead in under an hour. Real clients, real numbers.
-            </p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="reviews">
-            <div class="reviews__slider">
-              <ul class="reviews__slider-list">
-                <li class="reviews__slider-item">
-                  <blockquote class="review-card review-card--shot"><img src="./assets/images/testimonials/braden.png" alt="Slack message from Braden: what a great way to end the year, you did an awesome job and it is already having a big impact." loading="lazy" /></blockquote>
-                </li>
-                <li class="reviews__slider-item">
-                  <blockquote class="review-card review-card--shot"><img src="./assets/images/testimonials/juan.jpg" alt="Message from Juan Urzua: two leads, feels good waking up to new clients." loading="lazy" /></blockquote>
-                </li>
-                <li class="reviews__slider-item">
-                  <blockquote class="review-card review-card--shot"><img src="./assets/images/testimonials/robert.jpg" alt="Message from Robert Ciepiela: going to sign one in Arlington Heights, two story home." loading="lazy" /></blockquote>
-                </li>
-              </ul>
-            </div>
-            <div class="reviews__actions">
-              <button class="reviews__arrow-button" type="button" disabled>
-                <span class="visually-hidden">Previous slide</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 13.5C22.8284 13.5 23.5 12.8284 23.5 12C23.5 11.1716 22.8284 10.5 22 10.5L22 13.5ZM0.939341 10.9393C0.353554 11.5251 0.353554 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97918 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.939341 10.9393ZM22 10.5L2 10.5L2 13.5L22 13.5L22 10.5Z" fill="white" fill-opacity="0.3" /></svg>
-              </button>
-              <div class="reviews__pagination pagination">
-                <ul class="pagination__list">
-                  <li class="pagination__item"><button class="pagination__button is-current" type="button"><span class="visually-hidden">First slide</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.0099 2.05941L14 0L11.9604 7.0099L14 14L7.0099 11.9604L0 14L2.05941 7.0099L0 0L7.0099 2.05941Z" fill="white" /></svg></button></li>
-                  <li class="pagination__item"><button class="pagination__button" type="button"><span class="visually-hidden">Second slide</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.0099 2.05941L14 0L11.9604 7.0099L14 14L7.0099 11.9604L0 14L2.05941 7.0099L0 0L7.0099 2.05941Z" fill="white" /></svg></button></li>
-                  <li class="pagination__item"><button class="pagination__button" type="button"><span class="visually-hidden">Third slide</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.0099 2.05941L14 0L11.9604 7.0099L14 14L7.0099 11.9604L0 14L2.05941 7.0099L0 0L7.0099 2.05941Z" fill="white" /></svg></button></li>
-                </ul>
-              </div>
-              <button class="reviews__arrow-button" type="button">
-                <span class="visually-hidden">Next slide</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10.5C1.17157 10.5 0.5 11.1716 0.5 12C0.5 12.8284 1.17157 13.5 2 13.5L2 10.5ZM23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807613 11.9792 0.807613 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM2 13.5L22 13.5L22 10.5L2 10.5L2 13.5Z" fill="white" /></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section container" id="contact">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">Contact Us</h2>
-          <div class="section__description">
-            <p>
-              Pick a time that works for you. Book a quick call and we'll show you the plan for your market.
-            </p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="contact-us">
-            <div class="contact-us__booking">
-              <iframe src="https://api.leadconnectorhq.com/widget/booking/ufEtFsK29fYGQ5WPoGz6" allow="payment" style="width:100%;border:none;overflow:hidden;min-height:740px;" scrolling="no" id="ufEtFsK29fYGQ5WPoGz6_1786205791214" title="Book a call with Mavly Digital"></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section container" id="about">
-        <header class="section__header">
-          <h2 class="section__title puddle-bg">About</h2>
-          <div class="section__description">
-            <p>The person who builds and runs your machine</p>
-          </div>
-        </header>
-        <div class="section__body">
-          <div class="about">
-            <div class="about__inner">
-              <img class="about__photo" src="./assets/images/david.jpg" alt="David, founder of Mavly Digital LLC" width="420" height="560" loading="lazy" />
-              <div class="about__text">
-                <h3>Hey, I'm David.</h3>
-                <p>I started Mavly because I watched good contractors lose $8k to $30k jobs to companies that were only better at one thing: looking trustworthy. So that is what I build for you first. The reviews, the proof, the specialist look. Then the lead generation and the back end that answers every lead before your competition wakes up.</p>
-                <p>You stay on the tools and close the work. I keep the machine running and get paid to make your phone ring. Simple as that.</p>
-                <p class="about__sign">David, Founder of Mavly Digital LLC</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="footer container">
-      <div class="footer__inner">
-        <div class="footer__navigation">
-          <a class="footer__logo logo" href="#top">
-            <svg class="logo__star" width="22" height="24" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 1C14 1 3 13 3 20A11 11 0 0 0 25 20C25 13 14 1 14 1Z" fill="#085CF0"/><path d="M9 19.5A5 5 0 0 0 14 24.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-            <span class="logo__text">Mavly</span>
-          </a>
-          <nav class="footer__menu">
-            <ul class="footer__menu-list">
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#the-system">The System</a></li>
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#cases">Case Studies</a></li>
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#process">Process</a></li>
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#results">Results</a></li>
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#about">About</a></li>
-              <li class="footer__menu-item"><a class="footer__menu-link" href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="footer__body">
-          <div class="footer__contacts">
-            <h2 class="footer__contacts-title h4 puddle-bg">Contact us:</h2>
-            <address class="footer__contacts-body">
-              <p>Email:
-                <a href="mailto:hello@mavlydigital.com">hello@mavlydigital.com</a>
-              </p>
-              <p>
-                Address: 15 Tanguay Ave, Ste 112u<br />
-                Nashua, New Hampshire 03063
-              </p>
-              <p>Mavly builds and runs the machine. You work the live replies and own the customer.</p>
-            </address>
-          </div>
-          <form class="footer__subscribe-form subscribe-form" action="mailto:hello@mavlydigital.com" method="post" enctype="text/plain">
-            <h2 class="visually-hidden">Subscription</h2>
-            <div class="subscribe-form__field field field--big-height field--dark-bg">
-              <label class="field__label visually-hidden" for="subscribe-email">Email</label>
-              <input class="field__input" id="subscribe-email" name="email" placeholder="Email" type="email" required />
-            </div>
-            <button class="subscribe-form__button button button--accent" type="submit">
-              Get your free proposal
-            </button>
-          </form>
-        </div>
-        <div class="footer__extra">
-          <p class="footer__copyright">
-            Copyright &copy; <time datetime="2026">2026</time> Mavly Digital LLC All rights reserved.
-          </p>
-          <span class="footer__legal-links">
-            <a class="footer__privacy-policy-link" href="privacy-policy.html">Privacy Policy</a>
-            <a class="footer__privacy-policy-link" href="terms-and-conditions.html">Terms of Service</a>
-          </span>
+        <div class="moment reveal">
+          <span class="moment-n">03</span>
+          <div class="moment-when"><span class="mi"><svg class="icon"><use href="#i-doc"/></svg></span><h3>You send an estimate</h3></div>
+          <p class="moment-then">They'll think about it. Nobody follows up. <strong>The opportunity goes cold.</strong></p>
         </div>
       </div>
-    </footer>
-    <dialog class="mobile-overlay visible-mobile" id="mobileOverlay">
-      <form class="mobile-overlay__close-button-wrapper" method="dialog">
-        <button class="mobile-overlay__close-button cross-button" type="submit">
-          <span class="visually-hidden">Close navigation menu</span>
-        </button>
-      </form>
-      <div class="mobile-overlay__body">
-        <ul class="mobile-overlay__list">
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#the-system">The System</a></li>
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#cases">Case Studies</a></li>
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#process">Process</a></li>
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#results">Results</a></li>
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#about">About</a></li>
-          <li class="mobile-overlay__item"><a class="mobile-overlay__link" href="#contact">Contact</a></li>
+      <p class="moments-foot reveal">You already paid to create some of these. You just <em>didn't get the job.</em></p>
+    </div>
+  </section>
+
+  <!-- FIND -->
+  <section class="section">
+    <div class="wrap find">
+      <div class="reveal">
+        <span class="pill"><span class="dot"></span>First, we inspect</span>
+        <h2 class="gradient-heading">We map exactly what is costing you jobs</h2>
+        <p>Before we tell you to spend more on leads, we inspect the sales process you already have. Every call, every form, every estimate. We show you exactly where the money is going.</p>
+        <p class="hi">No new website. No new logo. No 14 campaigns. We start by plugging the holes that cost you real jobs.</p>
+      </div>
+      <div class="leak-scan reveal" aria-hidden="true">
+        <div class="top"><i></i><i></i><i></i><span>business inspection · your area</span></div>
+        <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Missed calls</span><span class="lv">leaking</span></div>
+        <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Slow responses</span><span class="lv">leaking</span></div>
+        <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Leads that never book</span><span class="lv">leaking</span></div>
+        <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Estimates with no follow-up</span><span class="lv">leaking</span></div>
+        <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Old leads forgotten in a CRM</span><span class="lv">leaking</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPTURE — big visual: what one lost moment costs -->
+  <section class="section capture-sec" id="capture">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>How it works</span>
+        <h2 class="gradient-heading">This is what one missed moment costs</h2>
+        <p>Friday, 9:47 PM. A homeowner calls about a roof leak. What happens in the next five minutes decides whether that's your $8,400 job — or your competitor's.</p>
+      </div>
+
+      <div class="phones">
+        <!-- WITHOUT -->
+        <article class="phone-col without reveal" aria-label="Without Mavly">
+          <div class="phone-label"><span class="dot-r"></span>Without Mavly</div>
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="ps-status"><span>9:47 PM · Friday</span><span class="sig">●●●</span></div>
+              <div class="ps-missed">
+                <div class="pm-ico"><svg class="icon" style="width:16px;height:16px;color:#ff6a72"><use href="#i-phone"/></svg></div>
+                <div class="pm-text">
+                  <b>Missed call</b>
+                  <small>(555) 234-1298</small>
+                  <small class="dim">9:47 PM · no voicemail</small>
+                </div>
+                <span class="pm-badge">3</span>
+              </div>
+              <div class="ps-silence">
+                <div class="silence-row"><svg class="icon"><use href="#i-x"/></svg><span>No auto-reply</span></div>
+                <div class="silence-row"><svg class="icon"><use href="#i-x"/></svg><span>No follow-up text</span></div>
+                <div class="silence-row"><svg class="icon"><use href="#i-x"/></svg><span>No callback the next day</span></div>
+                <div class="silence-mark">— silence —</div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-outcome bad">
+            <span class="oc-label">Outcome</span>
+            <b>Homeowner called your competitor at 9:49 PM. Job booked with them Monday.</b>
+            <span class="oc-cost">$8,400 lost</span>
+          </div>
+        </article>
+
+        <!-- vs divider -->
+        <div class="vs" aria-hidden="true"><span>vs</span></div>
+
+        <!-- WITH -->
+        <article class="phone-col with reveal" aria-label="With Mavly">
+          <div class="phone-label"><span class="dot-b"></span>With Mavly</div>
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen chat">
+              <div class="ps-status light"><span>9:47 PM · Friday</span><span class="sig">●●●</span></div>
+              <div class="msg out"><p>Hey — this is Mavly for [Your Company]. We just missed you. Can we text you back about the roof? Reply YES.</p><small>9:47 PM · auto-sent</small></div>
+              <div class="msg in"><p>YES. There's a leak over the garage.</p><small>9:52 PM</small></div>
+              <div class="msg out"><p>Got it. Free 15-min inspection Monday at 10 AM works?</p><small>9:52 PM</small></div>
+              <div class="msg in"><p>Perfect.</p><small>9:54 PM</small></div>
+              <div class="msg-booked">✓ Booked · Monday 10 AM</div>
+            </div>
+          </div>
+          <div class="phone-outcome good">
+            <span class="oc-label">Outcome</span>
+            <b>Inspection booked in 7 minutes. Estimate signed Wednesday.</b>
+            <span class="oc-cost win">$8,400 won</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- multiplier -->
+      <div class="multiplier reveal">
+        <div class="mult-side">
+          <span class="mult-eyebrow">One story. Now multiply it.</span>
+          <div class="mult-num">$47,300</div>
+          <span class="mult-sub">a month, quietly walking out the door</span>
+        </div>
+        <p class="mult-copy">That's the average our inspections find sitting in missed calls, unread forms, cold estimates, and old leads. The jobs are already there. Someone else is picking them up.</p>
+      </div>
+
+      <!-- categories, small -->
+      <p class="losing-head reveal">Where the money goes</p>
+      <ul class="losing-grid">
+        <li class="lg reveal"><svg class="icon"><use href="#i-phone"/></svg><b>Missed calls</b><small>The single biggest bleed on most sites we inspect.</small></li>
+        <li class="lg reveal"><svg class="icon"><use href="#i-moon"/></svg><b>After hours</b><small>Homeowners don't only call 9 to 5. Silence loses the job.</small></li>
+        <li class="lg reveal"><svg class="icon"><use href="#i-inbox"/></svg><b>New inquiries</b><small>A form sits unread while they message the next guy.</small></li>
+        <li class="lg reveal"><svg class="icon"><use href="#i-clock"/></svg><b>Unbooked leads</b><small>Interested. Not scheduled. One nudge away.</small></li>
+        <li class="lg reveal"><svg class="icon"><use href="#i-doc"/></svg><b>Cold estimates</b><small>"Let me think about it" isn't always a no.</small></li>
+        <li class="lg reveal"><svg class="icon"><use href="#i-database"/></svg><b>Old CRM leads</b><small>Hundreds of past conversations. Zero follow-up.</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TRADES (real photos) -->
+  <section class="section trades" id="trades">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>Who we work with</span>
+        <h2 class="gradient-heading">High-stakes work homeowners are scared to get wrong</h2>
+        <p>If your ticket is thousands and the homeowner can't easily judge the quality, the trusted contractor wins every time. That's you.</p>
+      </div>
+
+      <ul class="trade-grid">
+        <li class="trade">
+          <figure><img src="assets/img/trade-mold.jpg" alt="Mold remediation specialist working in a treated interior" loading="lazy"></figure>
+          <div class="trade-body">
+            <b>Mold remediation</b>
+            <small>Health-critical work. Trust and speed matter more than price.</small>
+          </div>
+        </li>
+        <li class="trade">
+          <figure><img src="assets/img/trade-crawlspace.jpg" alt="Encapsulated crawl space with insulation and vapor barrier" loading="lazy"></figure>
+          <div class="trade-body">
+            <b>Crawl space encapsulation</b>
+            <small>Nobody buys this on price alone. Reputation closes it.</small>
+          </div>
+        </li>
+        <li class="trade">
+          <figure><img src="assets/img/trade-retaining.jpg" alt="Finished stone retaining wall with landscaping" loading="lazy"></figure>
+          <div class="trade-body">
+            <b>Retaining walls &amp; hardscape</b>
+            <small>High-ticket, long-lead. The follow-up wins the bid.</small>
+          </div>
+        </li>
+        <li class="trade">
+          <figure><img src="assets/img/trade-decks.jpg" alt="Custom deck and outdoor patio build" loading="lazy"></figure>
+          <div class="trade-body">
+            <b>Decks &amp; outdoor living</b>
+            <small>Homeowners shop 3-4 quotes. Speed of reply decides.</small>
+          </div>
+        </li>
+        <li class="trade">
+          <figure><img src="assets/img/trade-lighting.jpg" alt="Landscape path and garden lighting at dusk" loading="lazy"></figure>
+          <div class="trade-body">
+            <b>Landscape lighting</b>
+            <small>Design-led, referral-heavy. Missed calls kill jobs.</small>
+          </div>
+        </li>
+        <li class="trade more">
+          <div class="trade-more">
+            <span class="tm-count">+5</span>
+            <b>more trades we serve</b>
+            <p class="tm-list">Waterproofing · Foundation repair · Epoxy &amp; concrete · Tree removal · Artificial turf</p>
+            <small>Same problem, every one. Same fix.</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TEAM BAND -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>We don't replace your people</span>
+        <h2 class="gradient-heading">Your team still does the part that needs a person</h2>
+      </div>
+      <ul class="team-row reveal">
+        <li><svg class="icon"><use href="#i-check"/></svg> Your team still sells</li>
+        <li><svg class="icon"><use href="#i-check"/></svg> Your team still runs the jobs</li>
+        <li><svg class="icon"><use href="#i-check"/></svg> Your team still talks to homeowners</li>
+      </ul>
+      <p class="lead center reveal" style="margin-top:30px;text-align:center">We just make sure fewer opportunities disappear before your team gets the chance. The system handles the repetitive follow-up and keeps the conversation moving. Your people handle the part that actually requires a person.</p>
+    </div>
+  </section>
+
+  <!-- TURN ON LEADS -->
+  <section class="section">
+    <div class="wrap split rev">
+      <div class="reveal">
+        <span class="pill"><span class="dot"></span>Then we turn on the leads</span>
+        <h2 class="gradient-heading">Once the leaks are fixed, we open the tap</h2>
+        <p>Now we know your business can actually handle what comes in. So instead of pouring more leads into a broken process, we send more homeowners into a system built to catch them.</p>
+        <p class="hi">The second layer: create demand.</p>
+        <ul class="chips">
+          <li>Google</li><li>Meta</li><li>Local search</li><li>Landing pages</li><li>More channels</li>
         </ul>
+        <p>Now those leads aren't slipping through cracks. They enter a system designed to respond, follow up, book and convert.</p>
       </div>
-    </dialog>
-    <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
-  </body>
+      <figure class="demand-art reveal" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none">
+          <g stroke="#3f78ff" stroke-width="2" opacity=".5"><circle cx="100" cy="100" r="88"/><circle cx="100" cy="100" r="60"/></g>
+          <g fill="#5b8bff"><circle cx="30" cy="46" r="4"/><circle cx="168" cy="60" r="3.5"/><circle cx="150" cy="24" r="3"/><circle cx="52" cy="20" r="3"/></g>
+          <path d="M30 46 Q100 60 100 100 M168 60 Q110 70 100 100 M150 24 Q108 62 100 100 M52 20 Q92 60 100 100" stroke="#2f6bff" stroke-width="1.5" stroke-dasharray="2 6" opacity=".7"/>
+          <circle cx="100" cy="100" r="26" fill="#2f6bff"/><circle cx="100" cy="100" r="11" fill="#bcd4ff"/>
+          <path d="M100 126 L100 176" stroke="#bcd4ff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M92 168 L100 178 L108 168" stroke="#bcd4ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TWO LAYERS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2 class="gradient-heading">Two layers. One goal.</h2>
+        <p>First we inspect and repair what you have. Then we scale what is working.</p>
+      </div>
+      <div class="diptych">
+        <div class="layer reveal">
+          <span class="lnum">Layer 01</span>
+          <h3>The Inspection &amp; Repair</h3>
+          <p>Recover the opportunities you're already getting.</p>
+          <ul><li>Missed calls</li><li>New inquiries</li><li>Unbooked leads</li><li>Cold estimates</li><li>Old opportunities</li></ul>
+        </div>
+        <div class="dip-arrow reveal">→</div>
+        <div class="layer two reveal">
+          <span class="lnum">Layer 02</span>
+          <h3>The Growth Phase</h3>
+          <p>Once the foundation is solid, bring in more qualified homeowners.</p>
+          <ul><li>More demand</li><li>More conversations</li><li>More appointments</li><li>More jobs</li></ul>
+        </div>
+      </div>
+      <p class="diptych-foot reveal">Getting 50 inquiries and losing 20 to bad follow-up? Another 50 just gives you more to lose. We fix that first.</p>
+    </div>
+  </section>
+
+  <!-- IMAGINE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>Imagine what changes</span>
+        <h2 class="gradient-heading">The opportunities finally have somewhere to go</h2>
+      </div>
+      <div class="imagine">
+        <div class="im reveal"><span class="was">A homeowner calls after hours</span><span class="now"><svg class="icon"><use href="#i-check"/></svg> Instead of silence, they get a response.</span></div>
+        <div class="im reveal"><span class="was">Someone fills out your form mid-job</span><span class="now"><svg class="icon"><use href="#i-check"/></svg> They don't sit waiting until tomorrow.</span></div>
+        <div class="im reveal"><span class="was">A homeowner doesn't decide on the estimate</span><span class="now"><svg class="icon"><use href="#i-check"/></svg> They don't disappear forever.</span></div>
+        <div class="im reveal"><span class="was">Someone contacted you six months ago</span><span class="now"><svg class="icon"><use href="#i-check"/></svg> They get another reason to talk.</span></div>
+      </div>
+      <p class="lead center reveal" style="margin-top:30px;text-align:center">None of this requires you to magically become better at marketing. It just means the opportunities coming through the door finally have somewhere to go.</p>
+    </div>
+  </section>
+
+  <!-- TWO QUESTIONS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>Not another marketing package</span>
+        <h2 class="gradient-heading">The entire model is two questions</h2>
+        <p>We're not here to sell you services you don't need. It starts and ends with these.</p>
+      </div>
+      <div class="qs">
+        <div class="q reveal"><span class="qn">01</span><h3>Where are you losing jobs right now?</h3><span>Then we fix that.</span></div>
+        <div class="q two reveal"><span class="qn">02</span><h3>How do we bring you more of the right homeowners?</h3><span>Once the first part is working.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARE — two dashboards -->
+  <section class="section care-sec">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>Same funnel, different scoreboard</span>
+        <h2 class="gradient-heading">Two dashboards. Only one pays for your truck.</h2>
+        <p>Your last agency probably showed you the left one. We only look at the right.</p>
+      </div>
+
+      <div class="dashboards">
+        <!-- Vanity dashboard -->
+        <article class="dash vanity reveal">
+          <header class="dash-head">
+            <div>
+              <b>Monthly Ad Report</b>
+              <small>What most agencies email you</small>
+            </div>
+            <span class="dash-tag dash-tag-mute">Vanity</span>
+          </header>
+          <ul class="dash-metrics">
+            <li><span>Impressions</span><b>42,318</b><em>+18.4%</em></li>
+            <li><span>Clicks</span><b>3,204</b><em>+7.2%</em></li>
+            <li><span>Click-through rate</span><b>12.4%</b><em>+0.8pt</em></li>
+            <li><span>Cost per click</span><b>$4.20</b><em>−12%</em></li>
+            <li><span>Followers gained</span><b>+284</b><em>+22%</em></li>
+          </ul>
+          <p class="dash-foot">Where did all this land? Nobody asks.</p>
+        </article>
+
+        <!-- Real dashboard -->
+        <article class="dash real reveal">
+          <header class="dash-head">
+            <div>
+              <b>Money-in-the-Bank Report</b>
+              <small>What Mavly measures</small>
+            </div>
+            <span class="dash-tag dash-tag-live"><span class="lv"></span>Money</span>
+          </header>
+          <ul class="dash-funnel">
+            <li><span class="fn-lbl">Raised their hand</span><b class="fn-num">87</b><span class="fn-bar" style="--w:100%"></span></li>
+            <li><span class="fn-lbl">Got a response</span><b class="fn-num">72</b><span class="fn-bar" style="--w:83%"></span></li>
+            <li><span class="fn-lbl">Real conversation</span><b class="fn-num">41</b><span class="fn-bar" style="--w:47%"></span></li>
+            <li><span class="fn-lbl">Appointment booked</span><b class="fn-num">23</b><span class="fn-bar" style="--w:26%"></span></li>
+            <li><span class="fn-lbl">Estimate sent</span><b class="fn-num">18</b><span class="fn-bar" style="--w:21%"></span></li>
+            <li class="fn-win"><span class="fn-lbl">Signed jobs</span><b class="fn-num">7</b><span class="fn-bar" style="--w:8%"></span></li>
+          </ul>
+          <p class="dash-foot"><b>$58,400</b> in signed work · <b>$41,600</b> in open estimates</p>
+        </article>
+      </div>
+
+      <p class="care-close reveal">Impressions don't fund payroll. Signed jobs do. That's the only scoreboard we play on.</p>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section" id="roadmap">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>Your marketing doesn't end at the lead</span>
+        <h2 class="gradient-heading">A lead is only the start. The money is the finish line.</h2>
+        <p>Every step is another place a good opportunity can quietly disappear. We watch the whole path.</p>
+      </div>
+      <div class="roadmap" id="road">
+        <div class="road-rail"><div class="road-fill" id="roadfill"><span class="fill-head"></span></div></div>
+        <ol class="road-nodes">
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-eye"/></svg></div><div class="rn-card"><b>Homeowner sees you</b><small>The search, the ad, the referral</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-phone"/></svg></div><div class="rn-card"><b>Homeowner contacts you</b><small>A call, a form, a message</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-chat"/></svg></div><div class="rn-card"><b>You respond</b><small>Fast, even after hours</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-chat"/></svg></div><div class="rn-card"><b>Conversation happens</b><small>Real back-and-forth, not a dead end</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-cal"/></svg></div><div class="rn-card"><b>Appointment gets booked</b><small>On the calendar, confirmed</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-doc"/></svg></div><div class="rn-card"><b>Estimate gets sent</b><small>The number is in their hands</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-clock"/></svg></div><div class="rn-card"><b>Follow-up happens</b><small>The nudge most contractors skip</small></div></li>
+          <li class="road-node win"><div class="rn-dot"><svg class="icon"><use href="#i-trophy"/></svg></div><div class="rn-card"><b>Job gets won</b><small>The only metric that pays</small></div></li>
+        </ol>
+      </div>
+      <p class="roadmap-foot reveal">A lead is only an opportunity. The money comes when that opportunity becomes a job.</p>
+    </div>
+  </section>
+
+  <!-- JOBS -->
+  <section class="section jobs">
+    <div class="wrap">
+      <h2 class="gradient-heading reveal" style="font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-.04em;margin-bottom:20px">Built for high-value home services</h2>
+      <p class="reveal">If one job is worth thousands, you don't need hundreds of extra customers for this to matter. Sometimes one recovered job pays for the entire system. So we focus on the leaks that actually move revenue. Not vanity metrics. Not busywork. Not marketing for the sake of marketing.</p>
+      <div class="word reveal">Jobs.</div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>What happens when we start</span>
+        <h2 class="gradient-heading">You never have to guess where the money went</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="sn">Step 01</span><span class="si"><svg class="icon"><use href="#i-search"/></svg></span><h3>We inspect your process</h3><p>Where leads come from, how fast you respond, what happens after hours and to old leads.</p></div>
+        <div class="step reveal"><span class="sn">Step 02</span><span class="si"><svg class="icon"><use href="#i-phone"/></svg></span><h3>We find the leaks</h3><p>Exactly where potential jobs are falling through the cracks.</p></div>
+        <div class="step reveal"><span class="sn">Step 03</span><span class="si"><svg class="icon"><use href="#i-wrench"/></svg></span><h3>We fix them</h3><p>The right follow-up and recovery systems, put in place.</p></div>
+        <div class="step reveal"><span class="sn">Step 04</span><span class="si"><svg class="icon"><use href="#i-chart"/></svg></span><h3>We watch the numbers</h3><p>Conversations, appointments, recovered jobs and the revenue the system influenced.</p></div>
+        <div class="step reveal"><span class="sn">Step 05</span><span class="si"><svg class="icon"><use href="#i-rocket"/></svg></span><h3>Then we scale</h3><p>Once the foundation works, we bring more qualified homeowners into it.</p></div>
+      </div>
+      <p class="steps-foot reveal">You can see it. You can measure it. You can improve it. Then you can scale it. Inspect first. Then turn up the leads.</p>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="section founder" id="founder">
+    <div class="wrap founder-inner">
+      <figure class="founder-photo reveal">
+        <img src="assets/img/david.jpg" alt="David — Founder of Mavly Digital" loading="lazy">
+        <span class="founder-tag"><span class="dot-b"></span> Founder · Nashua, NH</span>
+      </figure>
+      <div class="founder-text reveal">
+        <span class="pill"><span class="dot"></span>Who runs this</span>
+        <h2 class="gradient-heading">You're not talking to an agency floor. You're talking to me.</h2>
+        <p>I'm David. I built Mavly because I watched too many great contractors lose jobs to slicker competitors who did one thing better — followed up faster. So I stopped selling "leads" and started fixing what really costs you money: the calls that go silent, the estimates that go cold, the old CRM leads nobody touched.</p>
+        <p>When you book a call, it's me on the other end. I'll pull up your area live and show you exactly what's slipping through. If there's nothing to fix, I'll tell you. If there is, we'll talk about what it takes.</p>
+        <a href="#book" class="btn btn-primary">Book a call with me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVENUE IMPACT (Uiverse dashboard card) -->
+  <section class="section impact" id="impact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>What the math looks like</span>
+        <h2 class="gradient-heading">Here's what next month could look like</h2>
+        <p>Based on the leaks we typically find on a first inspection. Real numbers only, no vanity metrics.</p>
+      </div>
+
+      <div class="impact-card reveal">
+        <div class="impact-glow"></div>
+        <div class="impact-shell">
+          <div class="ic-head">
+            <div class="ic-title">
+              <span class="ic-title-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </span>
+              <div>
+                <b>Revenue Impact</b>
+                <small>Projected 6-month lift</small>
+              </div>
+            </div>
+            <span class="ic-live"><span class="ic-live-dot"></span>Live estimate</span>
+          </div>
+
+          <div class="ic-stats">
+            <div class="ic-stat">
+              <span class="ic-lbl">Jobs recovered / mo</span>
+              <b class="ic-num">+15</b>
+              <span class="ic-delta up">+12.3%</span>
+            </div>
+            <div class="ic-stat">
+              <span class="ic-lbl">Revenue added / mo</span>
+              <b class="ic-num">+$120K</b>
+              <span class="ic-delta up">+18.6%</span>
+            </div>
+            <div class="ic-stat">
+              <span class="ic-lbl">Reply time</span>
+              <b class="ic-num">&lt;1 hr</b>
+              <span class="ic-delta up">24× faster</span>
+            </div>
+          </div>
+
+          <div class="ic-chart" aria-label="6-month revenue projection">
+            <div class="bars">
+              <span class="bar" style="--h:38%"><i style="--f:60%"></i><em>M1</em></span>
+              <span class="bar" style="--h:48%"><i style="--f:65%"></i><em>M2</em></span>
+              <span class="bar" style="--h:58%"><i style="--f:72%"></i><em>M3</em></span>
+              <span class="bar" style="--h:68%"><i style="--f:80%"></i><em>M4</em></span>
+              <span class="bar" style="--h:80%"><i style="--f:85%"></i><em>M5</em></span>
+              <span class="bar" style="--h:94%"><i style="--f:92%"></i><em>M6</em></span>
+            </div>
+            <span class="chart-y">$0 → $720K</span>
+          </div>
+
+          <div class="ic-foot">
+            <span class="ic-note">Based on inspections of contractors in your ticket range</span>
+            <a href="#book" class="btn btn-primary" style="padding:9px 18px;font-size:.88rem">Get my numbers →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-sec" id="book">
+    <div class="wrap">
+      <div class="cta-head reveal">
+        <h2 class="gradient-heading cta-title">Book your <span class="hl">free inspection</span></h2>
+        <p>We'll look at your current process live and show you where opportunities are slipping away. If everything's already handled, we'll tell you. No pitch. No pressure.</p>
+      </div>
+      <div class="booking reveal">
+        <iframe src="https://api.leadconnectorhq.com/widget/booking/ufEtFsK29fYGQ5WPoGz6" allow="payment" scrolling="no" id="ufEtFsK29fYGQ5WPoGz6_1786205791214" title="Book a call with Mavly Digital"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>Straight answers</span>
+        <h2 class="gradient-heading">Questions you're right to ask</h2>
+      </div>
+      <div class="faq">
+        <details class="reveal"><summary>Do you generate leads? <span class="pm">+</span></summary><p>Yes, but that's not where we start. First we make sure your business can properly capture the opportunities it's already getting. Once that's working, we help generate more qualified demand.</p></details>
+        <details class="reveal"><summary>Why not just run Google or Facebook ads? <span class="pm">+</span></summary><p>You can. But if the leads you already get aren't handled properly, more leads just make the leak bigger. We fix the process first, then scale acquisition.</p></details>
+        <details class="reveal"><summary>Does this replace my employees? <span class="pm">+</span></summary><p>No. Your team still handles sales, appointments and jobs. The system just makes sure fewer opportunities disappear because someone was busy, unavailable or forgot to follow up.</p></details>
+        <details class="reveal"><summary>What if our follow-up is already good? <span class="pm">+</span></summary><p>Then that's a good thing. We'll look for other leaks. If there isn't a meaningful problem, you may not need us.</p></details>
+        <details class="reveal"><summary>Is this an AI system? <span class="pm">+</span></summary><p>Technology is part of the mechanism, but that's not the product. The product is more opportunities turning into real conversations, appointments and jobs.</p></details>
+        <details class="reveal"><summary>What if I need more leads? <span class="pm">+</span></summary><p>That's the second layer. Once your process is working, we build and manage acquisition to bring more qualified homeowners into it.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="section final">
+    <div class="wrap">
+      <h2 class="gradient-heading reveal">Inspect first.<br><span class="ink-blue" style="-webkit-text-fill-color:var(--blue-hi);color:var(--blue-hi)">Then build bigger.</span></h2>
+      <p class="reveal">You don't have to choose between better conversion and more leads. First capture what you already have. Then bring in more of it.</p>
+      <a href="#book" class="btn btn-primary btn-lg reveal">Show me how it works</a>
+      <p class="note reveal">You cannot scale a broken sales process. Lets inspect yours first.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="brand"><img class="brand-logo" src="assets/img/logo.png" alt="Mavly Digital" width="36" height="36"><span class="brand-word">Mavly<span class="brand-word-sub">Digital</span></span></a>
+        <p>We inspect the sales process high-value contractors already have. Fix what is costing them jobs. Then bring in more qualified homeowners. You do the work. We run the system.</p>
+        <a href="mailto:hello@mavlydigital.com" class="mail">hello@mavlydigital.com</a>
+      </div>
+      <div class="foot-col">
+        <h4>The System</h4>
+        <a href="#problem">The Problem</a>
+        <a href="#capture">How It Works</a>
+        <a href="#roadmap">The Journey</a>
+        <a href="#process">Process</a>
+        <a href="#book">Book a call</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms of Service</a>
+        <p>15 Tanguay Ave, Ste 112u</p>
+        <p>Nashua, New Hampshire 03063</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>Copyright © 2026 Mavly Digital LLC All rights reserved.</p>
+      <nav>
+        <a href="terms-and-conditions.html">Terms</a>
+        <a href="privacy-policy.html">Privacy</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<a href="#book" class="sticky-cta" id="stickyCta">Book my free inspection</a>
+
+<script>
+document.documentElement.classList.add('js');
+// sticky cta on scroll
+const sticky=document.getElementById('stickyCta');
+addEventListener('scroll',()=>{ sticky.classList.toggle('show', scrollY>700) },{passive:true});
+// mobile nav
+const mnav=document.getElementById('mnav');
+document.getElementById('burger').onclick=()=>mnav.classList.add('open');
+document.getElementById('mclose').onclick=()=>mnav.classList.remove('open');
+mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'));
+// reveals
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// roadmap: fill line + glowing head + activate dots as they cross the trigger
+const road=document.getElementById('road'), fill=document.getElementById('roadfill');
+const nodes=road? [...road.querySelectorAll('.road-node')] : [];
+function roadUpdate(){
+  if(!road) return;
+  const r=road.getBoundingClientRect();
+  const vh=innerHeight;
+  const mark=vh*0.62; // trigger line
+  // fill percentage: how far the trigger line has moved down through the roadmap
+  const total=r.height;
+  const passed=Math.min(Math.max(mark-r.top,0),total);
+  const pct=passed/total*100;
+  fill.style.height=pct+'%';
+  fill.classList.toggle('active', pct>1 && pct<99);
+  nodes.forEach(n=>{
+    const d=n.querySelector('.rn-dot').getBoundingClientRect();
+    n.classList.toggle('on', d.top+d.height/2 <= mark);
+  });
+}
+addEventListener('scroll',roadUpdate,{passive:true});
+addEventListener('resize',roadUpdate);
+roadUpdate();
+</script>
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+</body>
 </html>
