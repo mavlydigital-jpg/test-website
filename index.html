@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mavly Digital — Stop Losing Jobs You Already Paid For</title>
 <meta name="description" content="We inspect the sales process high-value home-service contractors already have. Fix what is costing jobs. Then bring more homeowners in. Book your free business inspection.">
-<link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/logo-icon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -72,8 +73,12 @@ h1,h2,h3{color:var(--ink);text-wrap:balance;line-height:1.1;font-weight:600;lett
 .nav{ position:fixed; top:0; left:0; right:0; z-index:100; border-bottom:1px solid var(--border);
   background:rgba(0,0,0,.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
 .nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; position:relative }
-.brand{ font-weight:600; font-size:1.1rem; color:#fff; display:flex; align-items:center; gap:8px; z-index:2 }
-.brand .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px rgba(47,107,255,.8)}
+.brand{ display:inline-flex; align-items:center; gap:10px; z-index:2; text-decoration:none; color:#fff }
+.brand-logo{ width:34px; height:34px; display:block; object-fit:contain; filter:drop-shadow(0 0 10px rgba(47,107,255,.4)) }
+.brand-word{ font-weight:600; font-size:1.05rem; letter-spacing:-.02em; line-height:1; color:#fff }
+.brand-word-sub{ font-weight:400; color:var(--muted); margin-left:5px }
+.footer .brand-logo{ width:30px; height:30px }
+.footer .brand-word{ font-size:1rem }
 .nav-links{ display:none; gap:32px; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) }
 .nav-links a{ color:rgba(255,255,255,.6); font-size:.88rem; transition:color .2s }
 .nav-links a:hover{ color:#fff }
@@ -613,7 +618,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
 <!-- NAV -->
 <header class="nav">
   <div class="wrap">
-    <a href="#top" class="brand"><span class="brand-dot"></span> Mavly</a>
+    <a href="#top" class="brand"><img class="brand-logo" src="assets/img/logo.png" alt="Mavly Digital" width="36" height="36"><span class="brand-word">Mavly<span class="brand-word-sub">Digital</span></span></a>
     <nav class="nav-links">
       <a href="#problem">The Problem</a>
       <a href="#capture">How It Works</a>
@@ -1216,7 +1221,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a href="#top" class="brand"><span class="brand-dot"></span> Mavly</a>
+        <a href="#top" class="brand"><img class="brand-logo" src="assets/img/logo.png" alt="Mavly Digital" width="36" height="36"><span class="brand-word">Mavly<span class="brand-word-sub">Digital</span></span></a>
         <p>We inspect the sales process high-value contractors already have. Fix what is costing them jobs. Then bring in more qualified homeowners. You do the work. We run the system.</p>
         <a href="mailto:hello@mavlydigital.com" class="mail">hello@mavlydigital.com</a>
       </div>
