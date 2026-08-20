@@ -228,27 +228,36 @@ h1,h2,h3{color:var(--ink);text-wrap:balance;line-height:1.1;font-weight:600;lett
 .care-col.yes .icon{ color:var(--blue-hi) }
 .care-col .icon{flex:none}
 
-/* ============ ROADMAP (animated, fixed) ============ */
-.roadmap{ position:relative; margin-top:clamp(50px,7vw,70px); max-width:760px; margin-inline:auto }
-.road-line{ position:absolute; left:29px; top:16px; bottom:16px; width:3px; border-radius:3px; background:rgba(255,255,255,.08) }
-.road-line .fill{ position:absolute; inset:0 0 auto 0; height:0%; background:linear-gradient(var(--blue),var(--blue-hi)); border-radius:3px; box-shadow:0 0 18px rgba(47,107,255,.7); transition:height .12s linear }
-@media(min-width:720px){ .road-line{left:50%;transform:translateX(-50%)} }
-.road-node{ position:relative; display:grid; grid-template-columns:60px 1fr; align-items:center; gap:20px; padding-block:22px }
+/* ============ ROADMAP (aligned, animated) ============ */
+.roadmap{ position:relative; margin-top:clamp(50px,7vw,70px); max-width:900px; margin-inline:auto; padding-block:12px }
+.road-rail{ position:absolute; left:32px; top:24px; bottom:24px; width:2px; border-radius:2px; background:rgba(255,255,255,.08); z-index:0 }
+@media(min-width:720px){ .road-rail{ left:50%; transform:translateX(-1px) } }
+.road-fill{ position:absolute; inset:0 0 auto 0; height:0%; background:linear-gradient(180deg,var(--blue) 0%,var(--blue-hi) 100%); border-radius:2px; box-shadow:0 0 24px rgba(47,107,255,.55); transition:height .15s linear }
+.fill-head{ position:absolute; bottom:-7px; left:50%; transform:translateX(-50%); width:16px; height:16px; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#e7f0ff,var(--blue-hi) 55%,var(--blue) 100%);
+  box-shadow:0 0 0 4px rgba(47,107,255,.18), 0 0 22px 6px rgba(47,107,255,.6), 0 0 50px rgba(91,139,255,.35);
+  opacity:0; transition:opacity .3s var(--ease) }
+.road-fill.active .fill-head{ opacity:1; animation:pulse 2.2s var(--ease) infinite }
+@keyframes pulse{ 0%,100%{ box-shadow:0 0 0 4px rgba(47,107,255,.18), 0 0 22px 6px rgba(47,107,255,.55), 0 0 50px rgba(91,139,255,.3) } 50%{ box-shadow:0 0 0 8px rgba(47,107,255,.10), 0 0 30px 8px rgba(47,107,255,.75), 0 0 60px rgba(91,139,255,.45) } }
+.road-nodes{ list-style:none; padding:0; margin:0; position:relative; z-index:1 }
+.road-node{ display:grid; grid-template-columns:64px 1fr; align-items:center; gap:20px; padding-block:22px }
 @media(min-width:720px){
-  .road-node{ grid-template-columns:1fr 60px 1fr }
-  .road-node .rn-card{ grid-column:3; text-align:left; justify-items:start }
-  .road-node:nth-child(even) .rn-card{ grid-column:1; text-align:right; justify-items:end }
-  .road-node:nth-child(even) .rn-dot{ grid-column:2 }
+  .road-node{ grid-template-columns:1fr 64px 1fr; gap:36px }
+  .road-node .rn-dot{ grid-column:2; justify-self:center }
+  .road-node .rn-card{ grid-column:3 }
+  .road-node:nth-child(even) .rn-card{ grid-column:1; text-align:right }
 }
-.rn-dot{ width:58px;height:58px;border-radius:50%; background:#0a0a12; border:2px solid var(--border);
-  display:grid; place-items:center; color:var(--muted); font-size:22px; z-index:2; justify-self:center;
-  transition:border-color .35s var(--ease), color .35s var(--ease), background .35s var(--ease), box-shadow .35s var(--ease), transform .35s var(--ease); }
-.rn-card{ display:flex; flex-direction:column; gap:4px }
-.rn-card b{ color:#fff; font-size:1.12rem; font-weight:500 }
-.rn-card small{ color:var(--muted); font-size:.88rem }
-.road-node.on .rn-dot{ border-color:var(--blue); color:#fff; background:var(--blue); box-shadow:0 0 24px -2px rgba(47,107,255,.85); transform:scale(1.06) }
-.road-node.win.on .rn-dot{ background:linear-gradient(140deg,#3f78ff,#1c4fd6) }
-.road-node.win .rn-card b{ color:var(--blue-hi) }
+.rn-dot{ width:60px; height:60px; border-radius:50%; background:#0a0a12; border:2px solid rgba(255,255,255,.12);
+  display:grid; place-items:center; color:rgba(255,255,255,.55); justify-self:center; z-index:2;
+  transition:all .45s var(--ease); }
+.rn-dot .icon{ width:22px; height:22px }
+.rn-card{ padding:20px 24px; border-radius:14px; background:rgba(255,255,255,.02); border:1px solid var(--border); transition:all .4s var(--ease); display:inline-block }
+.rn-card b{ display:block; color:#fff; font-size:1.05rem; font-weight:500; line-height:1.2 }
+.rn-card small{ display:block; color:var(--muted); font-size:.86rem; margin-top:6px }
+.road-node.on .rn-dot{ background:var(--blue); border-color:var(--blue-hi); color:#fff; box-shadow:0 0 30px -2px rgba(47,107,255,.85), 0 0 0 6px rgba(47,107,255,.12); transform:scale(1.08) }
+.road-node.on .rn-card{ border-color:rgba(47,107,255,.35); background:linear-gradient(150deg,rgba(47,107,255,.10),rgba(47,107,255,.02)) }
+.road-node.win.on .rn-dot{ background:linear-gradient(140deg,#4a86ff,#1c4fd6) }
+.road-node.win.on .rn-card b{ color:var(--blue-hi) }
 .roadmap-foot{ text-align:center; margin-top:44px; color:var(--muted); max-width:52ch; margin-inline:auto }
 
 /* ============ JOBS statement ============ */
@@ -768,15 +777,17 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
         <p>Every step is another place a good opportunity can quietly disappear. We watch the whole path.</p>
       </div>
       <div class="roadmap" id="road">
-        <div class="road-line"><div class="fill" id="roadfill"></div></div>
-        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-eye"/></svg></div><div class="rn-card"><b>Homeowner sees you</b><small>The search, the ad, the referral</small></div></div>
-        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-phone"/></svg></div><div class="rn-card"><b>Homeowner contacts you</b><small>A call, a form, a message</small></div></div>
-        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-chat"/></svg></div><div class="rn-card"><b>You respond</b><small>Fast, even after hours</small></div></div>
-        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-chat"/></svg></div><div class="rn-card"><b>Conversation happens</b><small>Real back-and-forth, not a dead end</small></div></div>
-        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-cal"/></svg></div><div class="rn-card"><b>Appointment gets booked</b><small>On the calendar, confirmed</small></div></div>
-        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-doc"/></svg></div><div class="rn-card"><b>Estimate gets sent</b><small>The number is in their hands</small></div></div>
-        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-clock"/></svg></div><div class="rn-card"><b>Follow-up happens</b><small>The nudge most contractors skip</small></div></div>
-        <div class="road-node win"><div class="rn-dot"><svg class="icon"><use href="#i-trophy"/></svg></div><div class="rn-card"><b>Job gets won</b><small>The only metric that pays</small></div></div>
+        <div class="road-rail"><div class="road-fill" id="roadfill"><span class="fill-head"></span></div></div>
+        <ol class="road-nodes">
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-eye"/></svg></div><div class="rn-card"><b>Homeowner sees you</b><small>The search, the ad, the referral</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-phone"/></svg></div><div class="rn-card"><b>Homeowner contacts you</b><small>A call, a form, a message</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-chat"/></svg></div><div class="rn-card"><b>You respond</b><small>Fast, even after hours</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-chat"/></svg></div><div class="rn-card"><b>Conversation happens</b><small>Real back-and-forth, not a dead end</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-cal"/></svg></div><div class="rn-card"><b>Appointment gets booked</b><small>On the calendar, confirmed</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-doc"/></svg></div><div class="rn-card"><b>Estimate gets sent</b><small>The number is in their hands</small></div></li>
+          <li class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-clock"/></svg></div><div class="rn-card"><b>Follow-up happens</b><small>The nudge most contractors skip</small></div></li>
+          <li class="road-node win"><div class="rn-dot"><svg class="icon"><use href="#i-trophy"/></svg></div><div class="rn-card"><b>Job gets won</b><small>The only metric that pays</small></div></li>
+        </ol>
       </div>
       <p class="roadmap-foot reveal">A lead is only an opportunity. The money comes when that opportunity becomes a job.</p>
     </div>
@@ -902,20 +913,20 @@ mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'
 // reveals
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-// roadmap: fill line + activate dots as they cross the viewport middle
+// roadmap: fill line + glowing head + activate dots as they cross the trigger
 const road=document.getElementById('road'), fill=document.getElementById('roadfill');
-const nodes=[...document.querySelectorAll('.road-node')];
+const nodes=road? [...road.querySelectorAll('.road-node')] : [];
 function roadUpdate(){
   if(!road) return;
   const r=road.getBoundingClientRect();
   const vh=innerHeight;
-  const mark=vh*0.68; // trigger line inside viewport
-  // fill percentage: how far the trigger line has moved into the roadmap
-  const start=r.top;
-  const end=r.bottom;
+  const mark=vh*0.62; // trigger line
+  // fill percentage: how far the trigger line has moved down through the roadmap
   const total=r.height;
-  const passed=Math.min(Math.max(mark-start,0),total);
-  fill.style.height=(passed/total*100)+'%';
+  const passed=Math.min(Math.max(mark-r.top,0),total);
+  const pct=passed/total*100;
+  fill.style.height=pct+'%';
+  fill.classList.toggle('active', pct>1 && pct<99);
   nodes.forEach(n=>{
     const d=n.querySelector('.rn-dot').getBoundingClientRect();
     n.classList.toggle('on', d.top+d.height/2 <= mark);
