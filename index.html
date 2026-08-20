@@ -325,6 +325,76 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
   .road-line .fill{height:100%!important}
   .road-node .rn-dot{border-color:var(--blue);color:#fff;background:var(--blue)}
 }
+
+/* ========== CAPTURE: phones + multiplier + losing grid ========== */
+.capture-sec{ background:radial-gradient(ellipse 90% 60% at 50% 20%, rgba(47,107,255,.12), transparent 65%) }
+.phones{ margin-top:clamp(50px,7vw,80px); display:grid; gap:24px; align-items:center }
+@media(min-width:920px){ .phones{ grid-template-columns:1fr auto 1fr; gap:36px } }
+.phone-col{ display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center }
+.phone-label{ display:inline-flex; align-items:center; gap:8px; color:var(--muted); font-size:.85rem; font-weight:500;
+  padding:6px 14px; border-radius:100px; border:1px solid var(--border); background:var(--panel) }
+.dot-r{width:8px;height:8px;border-radius:50%;background:#ff6a72;box-shadow:0 0 10px rgba(255,106,114,.7)}
+.dot-b{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px rgba(47,107,255,.8)}
+.phone{ width:100%; max-width:290px; aspect-ratio:9/17.5; border-radius:36px; padding:10px;
+  background:linear-gradient(160deg,#1a1a22,#0a0a10); border:1px solid var(--border-hi);
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.06); position:relative }
+.phone-notch{ position:absolute; top:14px; left:50%; transform:translateX(-50%);
+  width:96px; height:22px; border-radius:20px; background:#000; z-index:2 }
+.phone-screen{ height:100%; border-radius:28px; background:#0a0a12; padding:36px 14px 18px;
+  display:flex; flex-direction:column; gap:14px; overflow:hidden; position:relative }
+.ps-status{ display:flex; justify-content:space-between; font-size:.72rem; color:var(--muted); padding:0 4px }
+.ps-status .sig{letter-spacing:1px}
+.ps-status.light{ color:rgba(255,255,255,.75) }
+.ps-missed{ background:rgba(255,106,114,.08); border:1px solid rgba(255,106,114,.25);
+  border-radius:14px; padding:12px; display:flex; gap:10px; align-items:center; text-align:left }
+.pm-ico{ width:32px; height:32px; border-radius:50%; background:rgba(255,106,114,.16); display:grid; place-items:center; flex:none }
+.pm-text{ display:flex; flex-direction:column; gap:1px; flex:1; min-width:0 }
+.pm-text b{ color:#ff9199; font-size:.78rem; font-weight:500 }
+.pm-text small{ color:rgba(255,255,255,.7); font-size:.7rem; line-height:1.2 }
+.pm-text small.dim{ color:rgba(255,255,255,.35); font-size:.66rem }
+.pm-badge{ background:#ff6a72; color:#fff; font-size:.65rem; font-weight:600; padding:2px 8px; border-radius:100px; align-self:flex-start; flex:none }
+.ps-silence{ display:flex; flex-direction:column; gap:10px; margin-top:6px; padding:8px }
+.silence-row{ display:flex; align-items:center; gap:8px; color:rgba(255,255,255,.28); font-size:.72rem; text-decoration:line-through; text-decoration-color:rgba(255,106,114,.4) }
+.silence-row .icon{ width:12px;height:12px;color:rgba(255,106,114,.6) }
+.silence-mark{ margin-top:auto; text-align:center; color:rgba(255,255,255,.25); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; padding-block:12px 6px }
+.phone-screen.chat{ padding:36px 12px 14px; gap:8px; overflow:hidden; background:linear-gradient(180deg,#0a0a12,#0f1220) }
+.msg{ max-width:82%; padding:8px 12px; border-radius:14px; font-size:.72rem; line-height:1.4; display:flex; flex-direction:column; gap:3px }
+.msg p{ margin:0 }
+.msg small{ font-size:.6rem; opacity:.6 }
+.msg.out{ background:rgba(255,255,255,.08); color:#fff; align-self:flex-start; border-top-left-radius:4px }
+.msg.in{ background:var(--blue); color:#fff; align-self:flex-end; border-top-right-radius:4px }
+.msg.in small{ color:rgba(255,255,255,.75); text-align:right }
+.msg.out small{ color:rgba(255,255,255,.5) }
+.msg-booked{ margin-top:auto; align-self:center; background:rgba(47,107,255,.14); color:var(--blue-hi);
+  border:1px solid rgba(47,107,255,.35); padding:6px 14px; border-radius:100px; font-size:.72rem; font-weight:500 }
+.phone-outcome{ max-width:290px; padding:16px 18px; border-radius:14px; text-align:left; border:1px solid var(--border); width:100% }
+.phone-outcome.bad{ background:rgba(255,106,114,.06); border-color:rgba(255,106,114,.28) }
+.phone-outcome.good{ background:rgba(47,107,255,.08); border-color:rgba(47,107,255,.32) }
+.oc-label{ display:block; font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.14em; margin-bottom:6px; font-weight:500 }
+.phone-outcome b{ display:block; color:#fff; font-weight:500; font-size:.92rem; line-height:1.4 }
+.oc-cost{ display:inline-block; margin-top:10px; font-size:1.4rem; font-weight:600; letter-spacing:-.02em; color:#ff9199 }
+.oc-cost.win{ color:var(--blue-hi) }
+.vs{ display:grid; place-items:center; color:var(--muted); font-size:.85rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500 }
+.vs span{ padding:8px 14px; border:1px solid var(--border); border-radius:100px; background:var(--panel); backdrop-filter:blur(6px) }
+.multiplier{ margin-top:clamp(60px,8vw,90px); border:1px solid var(--border); border-radius:24px;
+  background:linear-gradient(150deg,rgba(47,107,255,.14),rgba(47,107,255,.02));
+  padding:clamp(30px,4vw,48px); display:grid; gap:28px; align-items:center }
+@media(min-width:820px){ .multiplier{ grid-template-columns:auto 1fr; gap:60px } }
+.mult-side{ text-align:left }
+.mult-eyebrow{ display:block; color:var(--blue-hi); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:500; margin-bottom:12px }
+.mult-num{ font-size:clamp(3.2rem,8vw,5.5rem); color:#fff; font-weight:600; line-height:.95; letter-spacing:-.045em }
+.mult-sub{ display:block; color:var(--muted); margin-top:10px; font-size:.92rem }
+.mult-copy{ color:var(--muted); font-size:1.02rem; line-height:1.7; max-width:52ch }
+.losing-head{ margin-top:clamp(50px,7vw,80px); text-align:center; color:var(--muted); font-size:.82rem; letter-spacing:.16em; text-transform:uppercase; font-weight:500; margin-bottom:24px }
+.losing-grid{ display:grid; gap:14px; padding:0; list-style:none }
+@media(min-width:600px){ .losing-grid{ grid-template-columns:repeat(2,1fr) } }
+@media(min-width:900px){ .losing-grid{ grid-template-columns:repeat(3,1fr) } }
+.lg{ border:1px solid var(--border); border-radius:14px; padding:20px 22px; background:var(--panel); backdrop-filter:blur(8px);
+  display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto; gap:4px 14px; transition:border-color .2s, background .2s }
+.lg:hover{ border-color:var(--border-hi); background:var(--panel-hi) }
+.lg .icon{ grid-row:1/3; align-self:start; margin-top:3px; color:var(--blue-hi); width:20px; height:20px }
+.lg b{ color:#fff; font-weight:500; font-size:.95rem }
+.lg small{ color:var(--muted); font-size:.82rem; line-height:1.45 }
 </style>
 </head>
 <body>
@@ -363,7 +433,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
     </nav>
     <div class="nav-cta">
       <a href="#book" class="btn btn-ghost" style="padding:8px 16px">Sign in</a>
-      <a href="#book" class="btn btn-primary" style="padding:8px 18px">Find my leaks</a>
+      <a href="#book" class="btn btn-primary" style="padding:8px 18px">Book my inspection</a>
     </div>
     <button class="nav-burger" id="burger" aria-label="Open menu">☰</button>
   </div>
@@ -375,7 +445,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
   <a href="#roadmap">The Journey</a>
   <a href="#process">Process</a>
   <a href="#faq">FAQ</a>
-  <a href="#book" class="btn btn-primary btn-lg">Find my leaks</a>
+  <a href="#book" class="btn btn-primary btn-lg">Book my inspection</a>
 </div>
 
 <main id="top">
@@ -389,9 +459,9 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
         <a href="#capture">See how it works <svg class="icon" style="width:12px;height:12px"><use href="#i-arrow-r"/></svg></a>
       </div>
       <h1 class="gradient-heading reveal">Stop losing jobs you<br>already paid for</h1>
-      <p class="sub reveal">Fix the leaks in your sales process first. Then bring in more homeowners.</p>
+      <p class="sub reveal">We inspect the sales process you already have. Fix what is costing you jobs. Then bring more homeowners in.</p>
       <div class="hero-cta reveal">
-        <a href="#book" class="btn btn-primary btn-lg">Show me where I'm losing jobs</a>
+        <a href="#book" class="btn btn-primary btn-lg">Book my free inspection</a>
         <a href="#capture" class="btn btn-ghost btn-lg">See how it works</a>
       </div>
       <div class="hero-metrics reveal">
@@ -415,7 +485,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
       <div class="intro-body reveal">
         <p>You can spend thousands getting homeowners to call, fill out a form, or request an estimate.</p>
         <p>But if calls go unanswered, leads don't get followed up with, or estimates sit untouched, you're losing jobs before your marketing even gets a chance to work.</p>
-        <p class="hi">We help contractors fix those leaks first. Then, once the system is working, we help bring in more qualified homeowners.</p>
+        <p class="hi">So before we recommend a single new lead, we inspect the process you already have. We fix what is broken. Then, and only then, we bring more homeowners in.</p>
       </div>
     </div>
   </section>
@@ -453,13 +523,13 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
   <section class="section">
     <div class="wrap find">
       <div class="reveal">
-        <span class="pill"><span class="dot"></span>First, we find the leaks</span>
-        <h2 class="gradient-heading">Where are your opportunities disappearing?</h2>
-        <p>Before we tell you to spend more on leads, we map exactly where the ones you already get are slipping away. Then we build the system around those gaps.</p>
+        <span class="pill"><span class="dot"></span>First, we inspect</span>
+        <h2 class="gradient-heading">We map exactly what is costing you jobs</h2>
+        <p>Before we tell you to spend more on leads, we inspect the sales process you already have. Every call, every form, every estimate. We show you exactly where the money is going.</p>
         <p class="hi">No new website. No new logo. No 14 campaigns. We start by plugging the holes that cost you real jobs.</p>
       </div>
       <div class="leak-scan reveal" aria-hidden="true">
-        <div class="top"><i></i><i></i><i></i><span>leak report · your area</span></div>
+        <div class="top"><i></i><i></i><i></i><span>business inspection · your area</span></div>
         <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Missed calls</span><span class="lv">leaking</span></div>
         <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Slow responses</span><span class="lv">leaking</span></div>
         <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Leads that never book</span><span class="lv">leaking</span></div>
@@ -469,23 +539,92 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
     </div>
   </section>
 
-  <!-- CAPTURE -->
-  <section class="section" id="capture">
+  <!-- CAPTURE — big visual: what one lost moment costs -->
+  <section class="section capture-sec" id="capture">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="pill"><span class="dot"></span>The first layer</span>
-        <h2 class="gradient-heading">Capture more of what you already have</h2>
-        <p>When a homeowner raises their hand, the goal is simple. Don't let them disappear.</p>
+        <span class="pill"><span class="dot"></span>How it works</span>
+        <h2 class="gradient-heading">This is what one missed moment costs</h2>
+        <p>Friday, 9:47 PM. A homeowner calls about a roof leak. What happens in the next five minutes decides whether that's your $8,400 job — or your competitor's.</p>
       </div>
-      <div class="cap-grid">
-        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-phone"/></svg></span><h3>Missed calls</h3><p>If your team can't answer, the conversation doesn't have to end there.</p></div>
-        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-moon"/></svg></span><h3>After hours</h3><p>Homeowners don't only call 9 to 5. The system responds when your office is closed.</p></div>
-        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-inbox"/></svg></span><h3>New inquiries</h3><p>A form shouldn't sit there while someone wonders if anyone even saw it.</p></div>
-        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-clock"/></svg></span><h3>Unbooked leads</h3><p>Some homeowners need a little more follow-up before they're ready to schedule.</p></div>
-        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-doc"/></svg></span><h3>Old estimates</h3><p>"Let me think about it" isn't always a no. Sometimes they just need another conversation.</p></div>
-        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-database"/></svg></span><h3>Old leads</h3><p>Past opportunities in your database that were never properly followed up with.</p></div>
+
+      <div class="phones">
+        <!-- WITHOUT -->
+        <article class="phone-col without reveal" aria-label="Without Mavly">
+          <div class="phone-label"><span class="dot-r"></span>Without Mavly</div>
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="ps-status"><span>9:47 PM · Friday</span><span class="sig">●●●</span></div>
+              <div class="ps-missed">
+                <div class="pm-ico"><svg class="icon" style="width:16px;height:16px;color:#ff6a72"><use href="#i-phone"/></svg></div>
+                <div class="pm-text">
+                  <b>Missed call</b>
+                  <small>(555) 234-1298</small>
+                  <small class="dim">9:47 PM · no voicemail</small>
+                </div>
+                <span class="pm-badge">3</span>
+              </div>
+              <div class="ps-silence">
+                <div class="silence-row"><svg class="icon"><use href="#i-x"/></svg><span>No auto-reply</span></div>
+                <div class="silence-row"><svg class="icon"><use href="#i-x"/></svg><span>No follow-up text</span></div>
+                <div class="silence-row"><svg class="icon"><use href="#i-x"/></svg><span>No callback the next day</span></div>
+                <div class="silence-mark">— silence —</div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-outcome bad">
+            <span class="oc-label">Outcome</span>
+            <b>Homeowner called your competitor at 9:49 PM. Job booked with them Monday.</b>
+            <span class="oc-cost">$8,400 lost</span>
+          </div>
+        </article>
+
+        <!-- vs divider -->
+        <div class="vs" aria-hidden="true"><span>vs</span></div>
+
+        <!-- WITH -->
+        <article class="phone-col with reveal" aria-label="With Mavly">
+          <div class="phone-label"><span class="dot-b"></span>With Mavly</div>
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen chat">
+              <div class="ps-status light"><span>9:47 PM · Friday</span><span class="sig">●●●</span></div>
+              <div class="msg out"><p>Hey — this is Mavly for [Your Company]. We just missed you. Can we text you back about the roof? Reply YES.</p><small>9:47 PM · auto-sent</small></div>
+              <div class="msg in"><p>YES. There's a leak over the garage.</p><small>9:52 PM</small></div>
+              <div class="msg out"><p>Got it. Free 15-min inspection Monday at 10 AM works?</p><small>9:52 PM</small></div>
+              <div class="msg in"><p>Perfect.</p><small>9:54 PM</small></div>
+              <div class="msg-booked">✓ Booked · Monday 10 AM</div>
+            </div>
+          </div>
+          <div class="phone-outcome good">
+            <span class="oc-label">Outcome</span>
+            <b>Inspection booked in 7 minutes. Estimate signed Wednesday.</b>
+            <span class="oc-cost win">$8,400 won</span>
+          </div>
+        </article>
       </div>
-      <p class="cap-foot reveal">We bring those conversations back to life.</p>
+
+      <!-- multiplier -->
+      <div class="multiplier reveal">
+        <div class="mult-side">
+          <span class="mult-eyebrow">One story. Now multiply it.</span>
+          <div class="mult-num">$47,300</div>
+          <span class="mult-sub">a month, quietly walking out the door</span>
+        </div>
+        <p class="mult-copy">That's the average our inspections find sitting in missed calls, unread forms, cold estimates, and old leads. The jobs are already there. Someone else is picking them up.</p>
+      </div>
+
+      <!-- categories, small -->
+      <p class="losing-head reveal">Where the money goes</p>
+      <ul class="losing-grid">
+        <li class="lg reveal"><svg class="icon"><use href="#i-phone"/></svg><b>Missed calls</b><small>The single biggest bleed on most sites we inspect.</small></li>
+        <li class="lg reveal"><svg class="icon"><use href="#i-moon"/></svg><b>After hours</b><small>Homeowners don't only call 9 to 5. Silence loses the job.</small></li>
+        <li class="lg reveal"><svg class="icon"><use href="#i-inbox"/></svg><b>New inquiries</b><small>A form sits unread while they message the next guy.</small></li>
+        <li class="lg reveal"><svg class="icon"><use href="#i-clock"/></svg><b>Unbooked leads</b><small>Interested. Not scheduled. One nudge away.</small></li>
+        <li class="lg reveal"><svg class="icon"><use href="#i-doc"/></svg><b>Cold estimates</b><small>"Let me think about it" isn't always a no.</small></li>
+        <li class="lg reveal"><svg class="icon"><use href="#i-database"/></svg><b>Old CRM leads</b><small>Hundreds of past conversations. Zero follow-up.</small></li>
+      </ul>
     </div>
   </section>
 
@@ -536,19 +675,19 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
     <div class="wrap">
       <div class="sec-head reveal">
         <h2 class="gradient-heading">Two layers. One goal.</h2>
-        <p>First we make your existing demand work harder. Then we create more of it.</p>
+        <p>First we inspect and repair what you have. Then we scale what is working.</p>
       </div>
       <div class="diptych">
         <div class="layer reveal">
           <span class="lnum">Layer 01</span>
-          <h3>Fix the leaks</h3>
+          <h3>The Inspection &amp; Repair</h3>
           <p>Recover the opportunities you're already getting.</p>
           <ul><li>Missed calls</li><li>New inquiries</li><li>Unbooked leads</li><li>Cold estimates</li><li>Old opportunities</li></ul>
         </div>
         <div class="dip-arrow reveal">→</div>
         <div class="layer two reveal">
           <span class="lnum">Layer 02</span>
-          <h3>Fill the pipeline</h3>
+          <h3>The Growth Phase</h3>
           <p>Once the foundation is solid, bring in more qualified homeowners.</p>
           <ul><li>More demand</li><li>More conversations</li><li>More appointments</li><li>More jobs</li></ul>
         </div>
@@ -660,7 +799,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
         <h2 class="gradient-heading">You never have to guess where the money went</h2>
       </div>
       <div class="steps">
-        <div class="step reveal"><span class="sn">Step 01</span><span class="si"><svg class="icon"><use href="#i-search"/></svg></span><h3>We look at your process</h3><p>Where leads come from, how fast you respond, what happens after hours and to old leads.</p></div>
+        <div class="step reveal"><span class="sn">Step 01</span><span class="si"><svg class="icon"><use href="#i-search"/></svg></span><h3>We inspect your process</h3><p>Where leads come from, how fast you respond, what happens after hours and to old leads.</p></div>
         <div class="step reveal"><span class="sn">Step 02</span><span class="si"><svg class="icon"><use href="#i-phone"/></svg></span><h3>We find the leaks</h3><p>Exactly where potential jobs are falling through the cracks.</p></div>
         <div class="step reveal"><span class="sn">Step 03</span><span class="si"><svg class="icon"><use href="#i-wrench"/></svg></span><h3>We fix them</h3><p>The right follow-up and recovery systems, put in place.</p></div>
         <div class="step reveal"><span class="sn">Step 04</span><span class="si"><svg class="icon"><use href="#i-chart"/></svg></span><h3>We watch the numbers</h3><p>Conversations, appointments, recovered jobs and the revenue the system influenced.</p></div>
@@ -675,7 +814,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
     <div class="wrap">
       <div class="cta-head reveal">
         <span class="pill"><span class="dot"></span>Ready when you are</span>
-        <h2 class="gradient-heading">See where you're losing jobs</h2>
+        <h2 class="gradient-heading">Book your free business inspection</h2>
         <p>We'll look at your current process live and show you where opportunities are slipping away. If everything's already handled, we'll tell you. No pitch. No pressure.</p>
       </div>
       <div class="booking reveal">
@@ -705,10 +844,10 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
   <!-- FINAL -->
   <section class="section final">
     <div class="wrap">
-      <h2 class="gradient-heading reveal">Fix the leaks.<br><span class="ink-blue" style="-webkit-text-fill-color:var(--blue-hi);color:var(--blue-hi)">Then fill the pipeline.</span></h2>
+      <h2 class="gradient-heading reveal">Inspect first.<br><span class="ink-blue" style="-webkit-text-fill-color:var(--blue-hi);color:var(--blue-hi)">Then build bigger.</span></h2>
       <p class="reveal">You don't have to choose between better conversion and more leads. First capture what you already have. Then bring in more of it.</p>
       <a href="#book" class="btn btn-primary btn-lg reveal">Show me how it works</a>
-      <p class="note reveal">More leads won't fix a leaky process. Let's fix the process first.</p>
+      <p class="note reveal">You cannot scale a broken sales process. Lets inspect yours first.</p>
     </div>
   </section>
 
@@ -719,7 +858,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
     <div class="foot-top">
       <div class="foot-brand">
         <a href="#top" class="brand"><span class="brand-dot"></span> Mavly</a>
-        <p>We help home-service contractors capture the jobs they're already losing, then bring in more qualified homeowners. You do the work. We plug the leaks.</p>
+        <p>We inspect the sales process high-value contractors already have. Fix what is costing them jobs. Then bring in more qualified homeowners. You do the work. We run the system.</p>
         <a href="mailto:hello@mavlydigital.com" class="mail">hello@mavlydigital.com</a>
       </div>
       <div class="foot-col">
@@ -748,7 +887,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
   </div>
 </footer>
 
-<a href="#book" class="sticky-cta" id="stickyCta">Show me where I'm losing jobs</a>
+<a href="#book" class="sticky-cta" id="stickyCta">Book my free inspection</a>
 
 <script>
 document.documentElement.classList.add('js');
