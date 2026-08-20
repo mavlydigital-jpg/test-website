@@ -1,466 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mavly Digital — Stop Losing Jobs You Already Paid For</title>
-  <meta name="description" content="Fix the leaks in your sales process first. Then bring in more homeowners. We help home-service contractors recover the jobs slipping through the cracks.">
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mavly Digital — Stop Losing Jobs You Already Paid For</title>
+<meta name="description" content="Fix the leaks in your sales process first, then bring in more homeowners. Mavly helps high-value home-service contractors capture the jobs slipping through the cracks.">
+<link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05060b; --bg-2:#080a12; --surface:#0d1019; --surface-2:#11141f;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+  --ink:#f4f6fc; --ink-2:#c3cbdd; --muted:#8d97b0;
+  --blue:#2f6bff; --blue-lo:#1c4fd6; --blue-hi:#5b8bff; --ice:#bcd4ff;
+  --red:#ff6a72;
+  --display:'Anton',Impact,sans-serif;
+  --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  --z-nav:100; --z-sticky:80; --z-top:90;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --wrap:1180px; --pad:clamp(20px,5vw,64px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg); color:var(--ink-2); font-family:var(--sans);
+  font-size:clamp(16px,1.05vw,18px); line-height:1.65; font-weight:400;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+body::before{ /* ambient blue field */
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(60vw 50vh at 78% -8%, rgba(47,107,255,.20), transparent 60%),
+    radial-gradient(46vw 46vh at 8% 12%, rgba(47,107,255,.10), transparent 62%);
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--blue);color:#fff}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{ font-family:var(--sans); font-weight:700; font-size:.82rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--blue-hi); display:inline-flex; align-items:center; gap:10px; }
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--blue)}
+h1,h2,h3{color:var(--ink);text-wrap:balance;line-height:1}
+.display{ font-family:var(--display); font-weight:400; text-transform:uppercase;
+  letter-spacing:.005em; line-height:.94; }
+.ink-blue{color:var(--blue-hi)}
+.section{padding-block:clamp(72px,10vw,140px);position:relative}
+.lead{color:var(--ink-2);font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.7;max-width:64ch}
+.center{text-align:center;margin-inline:auto}
+.icon{width:1em;height:1em;display:inline-block;vertical-align:-.15em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* buttons */
+.btn{ display:inline-flex; align-items:center; gap:10px; font-family:var(--sans); font-weight:700;
+  font-size:1rem; padding:16px 26px; border-radius:100px; cursor:pointer; border:1px solid transparent;
+  transition:transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease); }
+.btn-primary{ background:var(--blue); color:#fff; box-shadow:0 10px 30px -8px rgba(47,107,255,.6); }
+.btn-primary:hover{ transform:translateY(-2px); background:#3f78ff; box-shadow:0 16px 40px -8px rgba(47,107,255,.75); }
+.btn-ghost{ background:rgba(255,255,255,.02); border-color:var(--line-2); color:var(--ink); }
+.btn-ghost:hover{ background:rgba(255,255,255,.06); transform:translateY(-2px) }
+
+/* ============ NAV ============ */
+.nav{ position:fixed; inset:0 0 auto 0; z-index:var(--z-nav); transition:background .3s, border-color .3s, backdrop-filter .3s;
+  border-bottom:1px solid transparent; }
+.nav.scrolled{ background:rgba(6,7,12,.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom-color:var(--line); }
+.nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:74px; }
+.brand{ font-family:var(--display); text-transform:uppercase; font-size:1.5rem; color:var(--ink); letter-spacing:.02em; display:flex; align-items:center; gap:10px }
+.brand .dot{ width:11px;height:11px;border-radius:50%;background:var(--blue);box-shadow:0 0 16px 2px rgba(47,107,255,.8) }
+.nav-links{ display:none; gap:34px; align-items:center }
+.nav-links a{ color:var(--muted); font-weight:600; font-size:.98rem; transition:color .2s }
+.nav-links a:hover{ color:var(--ink) }
+.nav-cta{ display:none }
+.nav-burger{ background:none;border:1px solid var(--line-2);color:var(--ink);width:44px;height:44px;border-radius:12px;display:grid;place-items:center;cursor:pointer;font-size:1.4rem }
+@media(min-width:940px){ .nav-links,.nav-cta{display:flex} .nav-burger{display:none} }
+.mnav{ position:fixed; inset:0; z-index:calc(var(--z-nav) + 1); background:rgba(6,7,12,.96); backdrop-filter:blur(10px);
+  display:flex; flex-direction:column; gap:8px; padding:90px var(--pad) 40px; transform:translateY(-100%); transition:transform .4s var(--ease); }
+.mnav.open{transform:translateY(0)}
+.mnav a{ font-family:var(--display); text-transform:uppercase; font-size:2rem; color:var(--ink); padding-block:8px }
+.mnav .btn{ margin-top:20px; justify-content:center }
+.mnav-close{ position:absolute; top:22px; right:var(--pad); background:none;border:1px solid var(--line-2);color:var(--ink);width:44px;height:44px;border-radius:12px;font-size:1.4rem;cursor:pointer }
+
+/* ============ HERO ============ */
+.hero{ padding-top:clamp(120px,18vh,190px); padding-bottom:clamp(60px,9vw,110px); position:relative }
+.hero-tag{ display:inline-flex; align-items:center; gap:10px; font-weight:600; font-size:.95rem; color:var(--ice);
+  background:rgba(47,107,255,.1); border:1px solid rgba(47,107,255,.28); padding:8px 16px; border-radius:100px; }
+.hero-tag .pulse{ width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 0 rgba(47,107,255,.7);animation:pulse 2.4s infinite }
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,107,255,.6)}70%{box-shadow:0 0 0 12px rgba(47,107,255,0)}100%{box-shadow:0 0 0 0 rgba(47,107,255,0)}}
+.hero h1{ font-family:var(--display); text-transform:uppercase; font-size:clamp(3rem,9vw,6rem); line-height:.9;
+  margin-top:26px; max-width:15ch; letter-spacing:.004em; }
+.hero h1 .paid{ color:var(--blue-hi); position:relative; white-space:nowrap }
+.hero-sub{ margin-top:28px; font-size:clamp(1.1rem,1.7vw,1.45rem); color:var(--ink-2); max-width:44ch; line-height:1.55; font-weight:500 }
+.hero-cta{ display:flex; gap:14px; flex-wrap:wrap; margin-top:38px }
+.hero-metrics{ display:flex; flex-wrap:wrap; gap:14px 40px; margin-top:52px; padding-top:34px; border-top:1px solid var(--line) }
+.hero-metrics div{ display:flex; flex-direction:column }
+.hero-metrics b{ font-family:var(--display); font-size:clamp(1.7rem,3vw,2.4rem); color:var(--ink); font-weight:400; letter-spacing:.01em }
+.hero-metrics span{ color:var(--muted); font-size:.9rem; font-weight:500; margin-top:2px }
+.hero-metrics em{ color:var(--blue-hi); font-style:normal }
+
+/* trades marquee */
+.marquee{ margin-top:70px; border-block:1px solid var(--line); padding-block:18px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent); }
+.marquee-track{ display:flex; gap:56px; width:max-content; animation:scroll 34s linear infinite; }
+.marquee-track span{ color:var(--muted); font-weight:600; font-size:1.05rem; letter-spacing:.01em; white-space:nowrap; display:inline-flex; align-items:center; gap:56px }
+.marquee-track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--blue)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ============ INTRO ============ */
+.intro-grid{ display:grid; gap:40px; align-items:start }
+@media(min-width:860px){ .intro-grid{ grid-template-columns:0.9fr 1.1fr; gap:clamp(40px,6vw,90px) } }
+.intro-grid h2{ font-family:var(--display); text-transform:uppercase; font-size:clamp(2rem,4.4vw,3.4rem); line-height:.96 }
+.intro-body p{ margin-bottom:18px; font-size:clamp(1.05rem,1.4vw,1.22rem); line-height:1.7 }
+.intro-body p.hi{ color:var(--ink); font-weight:600 }
+
+/* section heading block */
+.sec-head{ max-width:62ch }
+.sec-head.center{text-align:center}
+.sec-head h2{ font-family:var(--display); text-transform:uppercase; font-size:clamp(2.1rem,5vw,3.8rem); line-height:.95; margin-top:18px }
+.sec-head p{ margin-top:18px; color:var(--muted); font-size:1.1rem; max-width:56ch }
+.sec-head.center p{ margin-inline:auto }
+
+/* ============ FAILURE MOMENTS (editorial rows) ============ */
+.moments{ margin-top:clamp(40px,6vw,72px); display:grid; gap:0 }
+.moment{ display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:center; padding-block:30px; border-top:1px solid var(--line) }
+.moment:last-child{border-bottom:1px solid var(--line)}
+@media(min-width:760px){ .moment{ grid-template-columns:80px 1.1fr 1fr; gap:34px } }
+.moment-n{ font-family:var(--display); font-size:2.4rem; color:var(--blue); line-height:1; opacity:.9 }
+.moment-when{ display:flex; align-items:center; gap:16px }
+.moment-when .mi{ width:52px;height:52px;border-radius:14px;background:rgba(47,107,255,.12);border:1px solid rgba(47,107,255,.25);display:grid;place-items:center;color:var(--blue-hi);flex:none;font-size:22px }
+.moment-when h3{ font-size:1.35rem; color:var(--ink); font-weight:700; line-height:1.15 }
+.moment-then{ color:var(--muted); font-size:1.08rem }
+.moment-then strong{color:var(--ink-2);font-weight:600}
+.moments-foot{ margin-top:38px; font-size:clamp(1.15rem,2vw,1.5rem); color:var(--ink); font-weight:600; max-width:40ch }
+.moments-foot em{color:var(--blue-hi);font-style:normal}
+
+/* ============ DISAPPEAR (find the leaks) ============ */
+.find{ display:grid; gap:44px; align-items:center }
+@media(min-width:900px){ .find{ grid-template-columns:1fr 1fr; gap:clamp(44px,6vw,90px) } }
+.find h2{ font-family:var(--display); text-transform:uppercase; font-size:clamp(2rem,4.6vw,3.4rem); line-height:.96; margin-top:16px }
+.find p{ margin-top:20px; color:var(--ink-2); font-size:1.12rem; line-height:1.7 }
+.find p.hi{color:var(--ink);font-weight:600}
+.leak-scan{ background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:12px; box-shadow:0 30px 70px -30px rgba(0,0,0,.8) }
+.leak-scan .top{ display:flex; align-items:center; gap:8px; padding:12px 14px 16px }
+.leak-scan .top i{ width:11px;height:11px;border-radius:50%;background:#2a3350;display:inline-block }
+.leak-scan .top span{ margin-left:auto;color:var(--muted);font-size:.82rem;font-weight:600 }
+.leak-row{ display:flex; align-items:center; gap:14px; padding:16px 16px; border-radius:12px; }
+.leak-row + .leak-row{ margin-top:4px }
+.leak-row .lx{ width:34px;height:34px;border-radius:9px;background:rgba(255,106,114,.12);color:var(--red);display:grid;place-items:center;flex:none;font-size:17px }
+.leak-row .lt{ color:var(--ink-2); font-weight:600; font-size:1.02rem }
+.leak-row .lv{ margin-left:auto; color:var(--red); font-weight:700; font-size:.9rem; background:rgba(255,106,114,.1); padding:5px 11px; border-radius:100px }
+
+/* ============ CAPTURE LIST ============ */
+.cap-grid{ margin-top:clamp(44px,6vw,72px); display:grid; gap:0; border:1px solid var(--line); border-radius:22px; overflow:hidden; background:var(--surface) }
+@media(min-width:680px){ .cap-grid{ grid-template-columns:1fr 1fr } }
+@media(min-width:1000px){ .cap-grid{ grid-template-columns:1fr 1fr 1fr } }
+.cap{ padding:32px; border-top:1px solid var(--line); border-left:1px solid var(--line); transition:background .25s }
+.cap:hover{ background:var(--surface-2) }
+.cap .ci{ width:46px;height:46px;border-radius:12px;background:linear-gradient(140deg,#3f78ff,#1c4fd6);display:grid;place-items:center;color:#fff;font-size:20px;box-shadow:0 8px 22px -8px rgba(47,107,255,.7) }
+.cap h3{ font-size:1.22rem; color:var(--ink); margin-top:20px; font-weight:700 }
+.cap p{ margin-top:10px; color:var(--muted); font-size:1rem; line-height:1.6 }
+.cap-foot{ margin-top:34px; text-align:center; font-size:1.3rem; color:var(--ink); font-weight:600 }
+
+/* ============ TEAM BAND ============ */
+.band-center{text-align:center}
+.team-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:36px }
+.team-row li{ list-style:none; display:flex; align-items:center; gap:10px; background:var(--surface); border:1px solid var(--line);
+  padding:14px 22px; border-radius:100px; color:var(--ink); font-weight:600; font-size:1.05rem }
+.team-row .icon{ color:var(--blue-hi); font-size:1.15rem }
+
+/* ============ SPLIT (turn on leads) ============ */
+.split{ display:grid; gap:44px; align-items:center }
+@media(min-width:900px){ .split{ grid-template-columns:1.1fr .9fr; gap:clamp(44px,6vw,90px) } .split.rev>*:first-child{order:2} }
+.split h2{ font-family:var(--display); text-transform:uppercase; font-size:clamp(2rem,4.6vw,3.4rem); line-height:.96; margin-top:16px }
+.split p{ margin-top:18px; color:var(--ink-2); font-size:1.1rem; line-height:1.7 }
+.split p.hi{color:var(--ink);font-weight:600}
+.chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:22px }
+.chips li{ list-style:none; background:rgba(47,107,255,.08); border:1px solid rgba(47,107,255,.25); color:var(--ice); padding:9px 16px; border-radius:100px; font-weight:600; font-size:.98rem }
+.demand-art{ aspect-ratio:1; border:1px solid var(--line); border-radius:24px; background:
+  radial-gradient(circle at 50% 30%, rgba(47,107,255,.22), transparent 60%), var(--surface); position:relative; overflow:hidden; display:grid; place-items:center }
+.demand-art svg{width:78%;height:78%}
+
+/* ============ TWO LAYERS ============ */
+.diptych{ margin-top:clamp(44px,6vw,64px); display:grid; gap:20px; align-items:stretch }
+@media(min-width:820px){ .diptych{ grid-template-columns:1fr auto 1fr } }
+.layer{ border:1px solid var(--line); border-radius:22px; padding:38px; background:var(--surface) }
+.layer.two{ background:linear-gradient(150deg,rgba(47,107,255,.16),rgba(47,107,255,.04)); border-color:rgba(47,107,255,.35) }
+.layer .lnum{ font-family:var(--display); font-size:1.1rem; color:var(--blue-hi); letter-spacing:.05em }
+.layer h3{ font-family:var(--display); text-transform:uppercase; font-size:1.9rem; margin-top:10px; line-height:1 }
+.layer p{ margin-top:16px; color:var(--ink-2); line-height:1.65 }
+.layer ul{ margin-top:16px; display:flex; flex-wrap:wrap; gap:8px }
+.layer li{ list-style:none; font-size:.9rem; color:var(--muted); background:rgba(255,255,255,.04); padding:6px 12px; border-radius:8px }
+.dip-arrow{ display:grid; place-items:center; color:var(--blue); font-size:2rem }
+@media(max-width:819px){ .dip-arrow{transform:rotate(90deg)} }
+.diptych-foot{ text-align:center; margin-top:30px; font-size:1.2rem; color:var(--ink); font-weight:600 }
+
+/* ============ IMAGINE ============ */
+.imagine{ margin-top:clamp(44px,6vw,64px); display:grid; gap:16px }
+@media(min-width:760px){ .imagine{ grid-template-columns:1fr 1fr } }
+.im{ border:1px solid var(--line); border-radius:18px; padding:28px 30px; background:var(--surface) }
+.im .was{ display:block; color:var(--muted); text-decoration:line-through; text-decoration-color:rgba(255,106,114,.5); font-size:.98rem }
+.im .now{ display:flex; gap:12px; align-items:flex-start; margin-top:12px; color:var(--ink); font-weight:600; font-size:1.12rem; line-height:1.4 }
+.im .now .icon{ color:var(--blue-hi); flex:none; margin-top:3px }
+
+/* ============ TWO QUESTIONS ============ */
+.qs{ margin-top:clamp(40px,6vw,60px); display:grid; gap:20px }
+@media(min-width:760px){ .qs{ grid-template-columns:1fr 1fr } }
+.q{ border:1px solid var(--line); border-radius:22px; padding:40px; background:var(--surface); position:relative }
+.q.two{ background:linear-gradient(150deg,rgba(47,107,255,.15),rgba(47,107,255,.03)); border-color:rgba(47,107,255,.35) }
+.q .qn{ font-family:var(--display); font-size:3rem; color:rgba(255,255,255,.1); line-height:1 }
+.q.two .qn{ color:rgba(91,139,255,.35) }
+.q h3{ font-size:1.6rem; margin-top:6px; line-height:1.1 }
+.q span{ display:block; margin-top:14px; color:var(--blue-hi); font-weight:600 }
+
+/* ============ CARE (scorecard) ============ */
+.care{ margin-top:clamp(44px,6vw,64px); display:grid; gap:20px; max-width:920px; margin-inline:auto }
+@media(min-width:760px){ .care{ grid-template-columns:1fr 1fr } }
+.care-col{ border:1px solid var(--line); border-radius:22px; padding:36px; background:var(--surface) }
+.care-col.yes{ background:linear-gradient(150deg,rgba(47,107,255,.14),rgba(47,107,255,.03)); border-color:rgba(47,107,255,.35) }
+.care-col h3{ font-size:1.2rem; margin-bottom:20px; display:flex; align-items:center; gap:10px }
+.care-col ul{ display:grid; gap:14px }
+.care-col li{ list-style:none; display:flex; align-items:center; gap:13px; font-size:1.08rem }
+.care-col.no li{ color:var(--muted) }
+.care-col.no .icon{ color:var(--red) }
+.care-col.yes li{ color:var(--ink) }
+.care-col.yes .icon{ color:var(--blue-hi) }
+.care-col .icon{flex:none}
+
+/* ============ ROADMAP (animated) ============ */
+.roadmap{ position:relative; margin-top:clamp(50px,7vw,80px); max-width:760px; margin-inline:auto; }
+.road-line{ position:absolute; left:29px; top:16px; bottom:16px; width:3px; border-radius:3px; background:rgba(255,255,255,.08) }
+.road-line .fill{ position:absolute; inset:0 0 auto 0; height:0%; background:linear-gradient(var(--blue),var(--blue-hi)); border-radius:3px; box-shadow:0 0 18px rgba(47,107,255,.7); transition:height .15s linear }
+@media(min-width:720px){ .road-line{left:50%;transform:translateX(-50%)} }
+.road-node{ position:relative; display:grid; grid-template-columns:60px 1fr; align-items:center; gap:20px; padding-block:20px; }
+@media(min-width:720px){
+  .road-node{ grid-template-columns:1fr 60px 1fr; }
+  .road-node .rn-card{ grid-column:3 }
+  .road-node:nth-child(even) .rn-card{ grid-column:1; text-align:right; justify-items:end }
+  .road-node:nth-child(even) .rn-dot{ grid-column:2 }
+}
+.rn-dot{ width:60px;height:60px;border-radius:50%; background:var(--surface); border:2px solid var(--line-2);
+  display:grid; place-items:center; color:var(--muted); font-size:22px; z-index:2; justify-self:center;
+  transition:border-color .4s var(--ease), color .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease), transform .4s var(--ease); }
+.rn-card{ display:flex; flex-direction:column; gap:4px }
+.rn-card b{ color:var(--ink); font-size:1.18rem; font-weight:700 }
+.rn-card small{ color:var(--muted); font-size:.92rem; font-weight:500 }
+.road-node.on .rn-dot{ border-color:var(--blue); color:#fff; background:var(--blue); box-shadow:0 0 26px -2px rgba(47,107,255,.85); transform:scale(1.06) }
+.road-node.win.on .rn-dot{ background:linear-gradient(140deg,#3f78ff,#1c4fd6) }
+.road-node.win .rn-card b{ color:var(--blue-hi) }
+.roadmap-foot{ text-align:center; margin-top:44px; color:var(--muted); max-width:52ch; margin-inline:auto }
+
+/* ============ JOBS statement ============ */
+.jobs{ text-align:center; background:radial-gradient(ellipse 70% 60% at 50% 50%, rgba(47,107,255,.14), transparent 65%) }
+.jobs p{ max-width:60ch; margin-inline:auto; color:var(--ink-2); font-size:1.15rem; line-height:1.7 }
+.jobs .word{ font-family:var(--display); text-transform:uppercase; font-size:clamp(4rem,15vw,10rem); color:var(--blue); line-height:.8; margin-top:30px; letter-spacing:.01em; }
+
+/* ============ PROCESS STEPPER ============ */
+.steps{ margin-top:clamp(44px,6vw,72px); display:grid; gap:22px; counter-reset:s }
+@media(min-width:640px){ .steps{ grid-template-columns:repeat(auto-fit,minmax(200px,1fr)) } }
+.step{ position:relative; border:1px solid var(--line); border-radius:20px; padding:30px 26px; background:var(--surface) }
+.step .sn{ font-family:var(--display); font-size:1rem; color:var(--blue-hi); letter-spacing:.06em }
+.step .si{ width:48px;height:48px;border-radius:13px;background:rgba(47,107,255,.12);border:1px solid rgba(47,107,255,.25);display:grid;place-items:center;color:var(--blue-hi);font-size:21px;margin-top:14px }
+.step h3{ font-size:1.16rem; margin-top:18px }
+.step p{ margin-top:10px; color:var(--muted); font-size:.98rem; line-height:1.55 }
+.steps-foot{ margin-top:34px; text-align:center; color:var(--ink); font-weight:600; font-size:1.15rem; max-width:60ch; margin-inline:auto }
+
+/* ============ CTA + BOOKING ============ */
+.cta-sec{ background:radial-gradient(ellipse 80% 70% at 50% 0%, rgba(47,107,255,.2), transparent 62%) }
+.cta-head{ text-align:center; max-width:44ch; margin-inline:auto; margin-bottom:44px }
+.cta-head h2{ font-family:var(--display); text-transform:uppercase; font-size:clamp(2.3rem,5.5vw,4rem); line-height:.95; margin-top:16px }
+.cta-head p{ margin-top:20px; color:var(--ink-2); font-size:1.12rem; line-height:1.6 }
+.booking{ background:#fff; border-radius:24px; overflow:hidden; padding:10px; box-shadow:0 40px 90px -40px rgba(0,0,0,.9); max-width:900px; margin-inline:auto }
+.booking iframe{width:100%;border:none;min-height:740px;display:block}
+
+/* ============ FAQ ============ */
+.faq{ max-width:820px; margin-inline:auto; margin-top:clamp(40px,6vw,60px); display:grid; gap:14px }
+.faq details{ border:1px solid var(--line); border-radius:16px; background:var(--surface); padding:6px 26px; transition:border-color .2s }
+.faq details[open]{ border-color:var(--line-2) }
+.faq summary{ list-style:none; cursor:pointer; display:flex; justify-content:space-between; gap:20px; align-items:center;
+  padding-block:22px; font-size:1.15rem; font-weight:700; color:var(--ink) }
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{ flex:none; width:28px;height:28px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--blue-hi);transition:transform .3s var(--ease),background .3s }
+.faq details[open] summary .pm{ transform:rotate(45deg); background:rgba(47,107,255,.15) }
+.faq p{ padding:0 0 24px; color:var(--muted); font-size:1.05rem; line-height:1.7 }
+
+/* ============ FINAL ============ */
+.final{ text-align:center; background:radial-gradient(ellipse 70% 70% at 50% 100%, rgba(47,107,255,.24), transparent 68%) }
+.final h2{ font-family:var(--display); text-transform:uppercase; font-size:clamp(2.6rem,7vw,5.5rem); line-height:.9; max-width:16ch; margin-inline:auto }
+.final h2 .ink-blue{color:var(--blue-hi)}
+.final p{ margin-top:26px; color:var(--ink-2); font-size:1.15rem; max-width:50ch; margin-inline:auto; line-height:1.6 }
+.final .btn{ margin-top:36px }
+.final .note{ margin-top:26px; color:var(--muted); font-size:1rem }
+
+/* ============ FOOTER ============ */
+footer{ border-top:1px solid var(--line); padding-block:60px 34px; margin-top:40px }
+.foot-top{ display:grid; gap:40px }
+@media(min-width:760px){ .foot-top{ grid-template-columns:1.6fr 1fr 1fr } }
+.foot-brand .brand{margin-bottom:16px}
+.foot-brand p{ color:var(--muted); max-width:40ch; line-height:1.6 }
+.foot-brand a.mail{ color:var(--blue-hi); font-weight:600; display:inline-block; margin-top:16px }
+.foot-col h4{ color:var(--ink); font-size:.85rem; text-transform:uppercase; letter-spacing:.1em; margin-bottom:16px }
+.foot-col a,.foot-col p{ display:block; color:var(--muted); font-weight:500; margin-bottom:11px; transition:color .2s; font-size:.98rem }
+.foot-col a:hover{color:var(--ink)}
+.foot-bottom{ margin-top:46px; padding-top:26px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; align-items:center }
+.foot-bottom p{ color:var(--muted); font-size:.9rem }
+.foot-bottom nav{ display:flex; gap:22px }
+.foot-bottom a{ color:var(--muted); font-size:.9rem }
+.foot-bottom a:hover{color:var(--ink)}
+
+/* sticky + back to top */
+.sticky-cta{ position:fixed; left:50%; bottom:20px; transform:translateX(-50%); z-index:var(--z-sticky);
+  background:var(--blue); color:#fff; font-weight:700; padding:14px 26px; border-radius:100px; box-shadow:0 14px 34px -8px rgba(47,107,255,.7);
+  opacity:0; pointer-events:none; transition:opacity .3s, transform .3s; white-space:nowrap }
+.sticky-cta.show{ opacity:1; pointer-events:auto }
+@media(min-width:940px){ .sticky-cta{display:none} }
+
+/* reveal */
+.js .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease) }
+.js .reveal.in{ opacity:1; transform:none }
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .reveal{opacity:1;transform:none}
+  .road-line .fill{height:100%!important}
+  .road-node .rn-dot{border-color:var(--blue);color:#fff;background:var(--blue)}
+}
+</style>
 </head>
+<body>
 
-<body id="top">
+<!-- icon defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 17z"/><line x1="16" y1="2" x2="22" y2="8"/><line x1="22" y1="2" x2="16" y2="8"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></symbol>
+<symbol id="i-inbox" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></symbol>
+<symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.2 5.2l-6 6a2 2 0 1 0 2.8 2.8l6-6a4 4 0 0 0 5.2-5.2l-2.6 2.6-2.4-.6-.6-2.4z"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><line x1="4" y1="20" x2="4" y2="12"/><line x1="10" y1="20" x2="10" y2="5"/><line x1="16" y1="20" x2="16" y2="14"/><line x1="21" y1="20" x2="3" y2="20"/></symbol>
+<symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8a2 2 0 0 0-3 0z"/><path d="M12 15l-3-3a22 22 0 0 1 8-11c3 0 5 2 5 5a22 22 0 0 1-11 8z"/><path d="M9 12H4s.5-2.8 2-4a3 3 0 0 1 3 0"/><path d="M12 15v5s2.8-.5 4-2a3 3 0 0 0 0-3"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+<symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M6 2h12v7a6 6 0 0 1-12 0z"/><line x1="12" y1="15" x2="12" y2="19"/><path d="M8 22h8l-1-3H9z"/></symbol>
+<symbol id="i-handshake" viewBox="0 0 24 24"><path d="M11 17l2 2 4-4"/><path d="M2 9l4-4 5 5-2 2a2 2 0 0 1-3 0z"/><path d="M22 9l-4-4-5 5"/><path d="M13 6l3 3"/></symbol>
+</defs></svg>
 
-  <!-- icon sprite -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 17z"/><line x1="17" y1="2" x2="23" y2="8"/><line x1="23" y1="2" x2="17" y2="8"/></symbol>
-      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
-      <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></symbol>
-      <symbol id="i-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.5 5.1 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></symbol>
-      <symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
-      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
-      <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.2 5.2l-6 6a2 2 0 1 0 2.8 2.8l6-6a4 4 0 0 0 5.2-5.2l-2.6 2.6-2.4-.6-.6-2.4z"/></symbol>
-      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="20" x2="4" y2="12"/><line x1="10" y1="20" x2="10" y2="6"/><line x1="16" y1="20" x2="16" y2="14"/><line x1="21" y1="20" x2="3" y2="20"/></symbol>
-      <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8a2 2 0 0 0-3 0z"/><path d="M12 15l-3-3a22 22 0 0 1 8-11c3 0 5 2 5 5a22 22 0 0 1-11 8z"/><path d="M9 12H4s.5-2.8 2-4a3 3 0 0 1 3 0"/><path d="M12 15v5s2.8-.5 4-2a3 3 0 0 0 0-3"/></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
-      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
-      <symbol id="i-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></symbol>
-      <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
-      <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></symbol>
-      <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></symbol>
-      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
-      <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M6 2h12v7a6 6 0 0 1-12 0z"/><line x1="12" y1="15" x2="12" y2="19"/><path d="M8 22h8l-1-3H9z"/></symbol>
-    </defs>
-  </svg>
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><span class="dot"></span> Mavly</a>
+    <nav class="nav-links">
+      <a href="#problem">The Problem</a>
+      <a href="#capture">How It Works</a>
+      <a href="#roadmap">The Journey</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#book" class="btn btn-primary nav-cta">Find my leaks</a>
+    <button class="nav-burger" id="burger" aria-label="Open menu">☰</button>
+  </div>
+</header>
+<div class="mnav" id="mnav">
+  <button class="mnav-close" id="mclose" aria-label="Close menu">✕</button>
+  <a href="#problem">The Problem</a>
+  <a href="#capture">How It Works</a>
+  <a href="#roadmap">The Journey</a>
+  <a href="#process">Process</a>
+  <a href="#faq">FAQ</a>
+  <a href="#book" class="btn btn-primary">Find my leaks</a>
+</div>
 
-  <!-- #HEADER -->
-  <header class="header" data-header>
-    <div class="container">
-      <a href="#top" class="logo">Mavly</a>
-      <nav class="navbar" data-navbar>
-        <div class="wrapper">
-          <a href="#top" class="logo">Mavly</a>
-          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
-            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-          </button>
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="hero-tag reveal"><span class="pulse"></span> For high-value home-service contractors</span>
+      <h1 class="reveal">Stop losing jobs you <span class="paid">already paid for</span></h1>
+      <p class="hero-sub reveal">Fix the leaks in your sales process first. Then bring in more homeowners.</p>
+      <div class="hero-cta reveal">
+        <a href="#book" class="btn btn-primary">Show me where I'm losing jobs</a>
+        <a href="#capture" class="btn btn-ghost">See how it works</a>
+      </div>
+      <div class="hero-metrics reveal">
+        <div><b>$93k</b><span>recovered from dead quotes</span></div>
+        <div><b>80%</b><span>booking rate</span></div>
+        <div><b>&lt;1hr</b><span>first reply, <em>day one</em></span></div>
+      </div>
+    </div>
+    <div class="marquee reveal" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Waterproofing</span><span>Foundation repair</span><span>Crawl space</span><span>Mold remediation</span><span>Tree removal</span><span>Epoxy &amp; concrete</span><span>Decks &amp; outdoor</span><span>Retaining walls</span><span>Artificial turf</span><span>Landscape lighting</span>
+        <span>Waterproofing</span><span>Foundation repair</span><span>Crawl space</span><span>Mold remediation</span><span>Tree removal</span><span>Epoxy &amp; concrete</span><span>Decks &amp; outdoor</span><span>Retaining walls</span><span>Artificial turf</span><span>Landscape lighting</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section">
+    <div class="wrap intro-grid">
+      <h2 class="reveal">You're bleeding jobs before the marketing even starts</h2>
+      <div class="intro-body reveal">
+        <p>You can spend thousands getting homeowners to call, fill out a form, or request an estimate.</p>
+        <p>But if calls go unanswered, leads don't get followed up with, or estimates sit untouched, you're losing jobs before your marketing even gets a chance to work.</p>
+        <p class="hi">We help contractors fix those leaks first. Then, once the system is working, we help bring in more qualified homeowners.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM: failure moments -->
+  <section class="section" id="problem">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">More leads aren't the answer</span>
+        <h2>Watch a good opportunity vanish</h2>
+        <p>Before you spend another dollar on advertising, look at what happens when someone actually contacts you.</p>
+      </div>
+      <div class="moments">
+        <div class="moment reveal">
+          <span class="moment-n">01</span>
+          <div class="moment-when"><span class="mi"><svg class="icon"><use href="#i-phone"/></svg></span><h3>A homeowner calls</h3></div>
+          <p class="moment-then">Nobody answers. <strong>They call the next contractor.</strong></p>
         </div>
-        <ul class="navbar-list">
-          <li class="navbar-item"><a href="#top" class="navbar-link" data-nav-link>Home</a></li>
-          <li class="navbar-item"><a href="#problem" class="navbar-link" data-nav-link>The Problem</a></li>
-          <li class="navbar-item"><a href="#capture" class="navbar-link" data-nav-link>How It Works</a></li>
-          <li class="navbar-item"><a href="#steps" class="navbar-link" data-nav-link>Process</a></li>
-          <li class="navbar-item"><a href="#faq" class="navbar-link" data-nav-link>FAQ</a></li>
+        <div class="moment reveal">
+          <span class="moment-n">02</span>
+          <div class="moment-when"><span class="mi"><svg class="icon"><use href="#i-moon"/></svg></span><h3>A form comes in at 9 PM</h3></div>
+          <p class="moment-then">Nobody responds until morning. <strong>They've already moved on.</strong></p>
+        </div>
+        <div class="moment reveal">
+          <span class="moment-n">03</span>
+          <div class="moment-when"><span class="mi"><svg class="icon"><use href="#i-doc"/></svg></span><h3>You send an estimate</h3></div>
+          <p class="moment-then">They'll think about it. Nobody follows up. <strong>The opportunity goes cold.</strong></p>
+        </div>
+      </div>
+      <p class="moments-foot reveal">You already paid to create some of these. You just <em>didn't get the job.</em></p>
+    </div>
+  </section>
+
+  <!-- FIND THE LEAKS -->
+  <section class="section">
+    <div class="wrap find">
+      <div class="reveal">
+        <span class="eyebrow">First, we find the leaks</span>
+        <h2>Where are your opportunities disappearing?</h2>
+        <p>Before we tell you to spend more on leads, we map exactly where the ones you already get are slipping away. Then we build the system around those gaps.</p>
+        <p class="hi">No new website. No new logo. No 14 campaigns. We start by plugging the holes that cost you real jobs.</p>
+      </div>
+      <div class="leak-scan reveal" aria-hidden="true">
+        <div class="top"><i></i><i></i><i></i><span>leak report · your area</span></div>
+        <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Missed calls</span><span class="lv">leaking</span></div>
+        <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Slow responses</span><span class="lv">leaking</span></div>
+        <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Leads that never book</span><span class="lv">leaking</span></div>
+        <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Estimates with no follow-up</span><span class="lv">leaking</span></div>
+        <div class="leak-row"><span class="lx"><svg class="icon"><use href="#i-x"/></svg></span><span class="lt">Old leads forgotten in a CRM</span><span class="lv">leaking</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPTURE -->
+  <section class="section" id="capture">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">The first layer</span>
+        <h2>Capture more of what you already have</h2>
+        <p>When a homeowner raises their hand, the goal is simple. Don't let them disappear.</p>
+      </div>
+      <div class="cap-grid">
+        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-phone"/></svg></span><h3>Missed calls</h3><p>If your team can't answer, the conversation doesn't have to end there.</p></div>
+        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-moon"/></svg></span><h3>After hours</h3><p>Homeowners don't only call 9 to 5. The system responds when your office is closed.</p></div>
+        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-inbox"/></svg></span><h3>New inquiries</h3><p>A form shouldn't sit there while someone wonders if anyone even saw it.</p></div>
+        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-clock"/></svg></span><h3>Unbooked leads</h3><p>Some homeowners need a little more follow-up before they're ready to schedule.</p></div>
+        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-doc"/></svg></span><h3>Old estimates</h3><p>"Let me think about it" isn't always a no. Sometimes they just need another conversation.</p></div>
+        <div class="cap reveal"><span class="ci"><svg class="icon"><use href="#i-database"/></svg></span><h3>Old leads</h3><p>Past opportunities in your database that were never properly followed up with.</p></div>
+      </div>
+      <p class="cap-foot reveal">We bring those conversations back to life.</p>
+    </div>
+  </section>
+
+  <!-- TEAM BAND -->
+  <section class="section band-center">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">We don't replace your people</span>
+        <h2>Your team still does the part that needs a person</h2>
+      </div>
+      <ul class="team-row reveal">
+        <li><svg class="icon"><use href="#i-check"/></svg> Your team still sells</li>
+        <li><svg class="icon"><use href="#i-check"/></svg> Your team still runs the jobs</li>
+        <li><svg class="icon"><use href="#i-check"/></svg> Your team still talks to homeowners</li>
+      </ul>
+      <p class="lead center reveal" style="margin-top:30px">We just make sure fewer opportunities disappear before your team gets the chance. The system handles the repetitive follow-up and keeps the conversation moving. Your people handle the part that actually requires a person.</p>
+    </div>
+  </section>
+
+  <!-- TURN ON LEADS -->
+  <section class="section">
+    <div class="wrap split rev">
+      <div class="reveal">
+        <span class="eyebrow">Then we turn on the leads</span>
+        <h2>Once the leaks are fixed, we open the tap</h2>
+        <p>Now we know your business can actually handle what comes in. So instead of pouring more leads into a broken process, we send more homeowners into a system built to catch them.</p>
+        <p class="hi">The second layer: create demand.</p>
+        <ul class="chips">
+          <li>Google</li><li>Meta</li><li>Local search</li><li>Landing pages</li><li>More channels</li>
         </ul>
+        <p>Now those leads aren't slipping through cracks. They enter a system designed to respond, follow up, book and convert.</p>
+      </div>
+      <figure class="demand-art reveal" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none">
+          <g stroke="#3f78ff" stroke-width="2" opacity=".5"><circle cx="100" cy="100" r="88"/><circle cx="100" cy="100" r="60"/></g>
+          <g fill="#5b8bff"><circle cx="30" cy="46" r="4"/><circle cx="168" cy="60" r="3.5"/><circle cx="150" cy="24" r="3"/><circle cx="52" cy="20" r="3"/></g>
+          <path d="M30 46 Q100 60 100 100 M168 60 Q110 70 100 100 M150 24 Q108 62 100 100 M52 20 Q92 60 100 100" stroke="#2f6bff" stroke-width="1.5" stroke-dasharray="2 6" opacity=".7"/>
+          <circle cx="100" cy="100" r="26" fill="#2f6bff"/><circle cx="100" cy="100" r="11" fill="#bcd4ff"/>
+          <path d="M100 126 L100 176" stroke="#bcd4ff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M92 168 L100 178 L108 168" stroke="#bcd4ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TWO LAYERS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <h2>Two layers. One goal.</h2>
+        <p>First we make your existing demand work harder. Then we create more of it.</p>
+      </div>
+      <div class="diptych">
+        <div class="layer reveal">
+          <span class="lnum">Layer 01</span>
+          <h3>Fix the leaks</h3>
+          <p>Recover the opportunities you're already getting.</p>
+          <ul><li>Missed calls</li><li>New inquiries</li><li>Unbooked leads</li><li>Cold estimates</li><li>Old opportunities</li></ul>
+        </div>
+        <div class="dip-arrow reveal">→</div>
+        <div class="layer two reveal">
+          <span class="lnum">Layer 02</span>
+          <h3>Fill the pipeline</h3>
+          <p>Once the foundation is solid, bring in more qualified homeowners.</p>
+          <ul><li>More demand</li><li>More conversations</li><li>More appointments</li><li>More jobs</li></ul>
+        </div>
+      </div>
+      <p class="diptych-foot reveal">Getting 50 inquiries and losing 20 to bad follow-up? Another 50 just gives you more to lose. We fix that first.</p>
+    </div>
+  </section>
+
+  <!-- IMAGINE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">Imagine what changes</span>
+        <h2>The opportunities finally have somewhere to go</h2>
+      </div>
+      <div class="imagine">
+        <div class="im reveal"><span class="was">A homeowner calls after hours</span><span class="now"><svg class="icon"><use href="#i-check"/></svg> Instead of silence, they get a response.</span></div>
+        <div class="im reveal"><span class="was">Someone fills out your form mid-job</span><span class="now"><svg class="icon"><use href="#i-check"/></svg> They don't sit waiting until tomorrow.</span></div>
+        <div class="im reveal"><span class="was">A homeowner doesn't decide on the estimate</span><span class="now"><svg class="icon"><use href="#i-check"/></svg> They don't disappear forever.</span></div>
+        <div class="im reveal"><span class="was">Someone contacted you six months ago</span><span class="now"><svg class="icon"><use href="#i-check"/></svg> They get another reason to talk.</span></div>
+      </div>
+      <p class="lead center reveal" style="margin-top:34px">None of this requires you to magically become better at marketing. It just means the opportunities coming through the door finally have somewhere to go.</p>
+    </div>
+  </section>
+
+  <!-- TWO QUESTIONS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">Not another marketing package</span>
+        <h2>The entire model is two questions</h2>
+        <p>We're not here to sell you services you don't need. It starts and ends with these.</p>
+      </div>
+      <div class="qs">
+        <div class="q reveal"><span class="qn">01</span><h3>Where are you losing jobs right now?</h3><span>Then we fix that.</span></div>
+        <div class="q two reveal"><span class="qn">02</span><h3>How do we bring you more of the right homeowners?</h3><span>Once the first part is working.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">What we actually care about</span>
+        <h2>What happens after they raise their hand</h2>
+      </div>
+      <div class="care">
+        <div class="care-col no reveal">
+          <h3><svg class="icon"><use href="#i-x"/></svg> Not this</h3>
+          <ul>
+            <li><svg class="icon"><use href="#i-x"/></svg> Impressions</li>
+            <li><svg class="icon"><use href="#i-x"/></svg> Followers</li>
+            <li><svg class="icon"><use href="#i-x"/></svg> How many people clicked an ad</li>
+            <li><svg class="icon"><use href="#i-x"/></svg> A pretty dashboard</li>
+          </ul>
+        </div>
+        <div class="care-col yes reveal">
+          <h3><svg class="icon"><use href="#i-check"/></svg> This</h3>
+          <ul>
+            <li><svg class="icon"><use href="#i-check"/></svg> Did they get a response?</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Did they have a conversation?</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Did they book?</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Did they get an estimate?</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Did they become a customer?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP (animated) -->
+  <section class="section" id="roadmap">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">Your marketing doesn't end at the lead</span>
+        <h2>A lead is only the start. The money is the finish line.</h2>
+        <p>Every step is another place a good opportunity can quietly disappear. We watch the whole path.</p>
+      </div>
+      <div class="roadmap" id="road">
+        <div class="road-line"><div class="fill" id="roadfill"></div></div>
+        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-eye"/></svg></div><div class="rn-card"><b>Homeowner sees you</b><small>The search, the ad, the referral</small></div></div>
+        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-phone"/></svg></div><div class="rn-card"><b>Homeowner contacts you</b><small>A call, a form, a message</small></div></div>
+        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-chat"/></svg></div><div class="rn-card"><b>You respond</b><small>Fast, even after hours</small></div></div>
+        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-chat"/></svg></div><div class="rn-card"><b>Conversation happens</b><small>Real back-and-forth, not a dead end</small></div></div>
+        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-cal"/></svg></div><div class="rn-card"><b>Appointment gets booked</b><small>On the calendar, confirmed</small></div></div>
+        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-doc"/></svg></div><div class="rn-card"><b>Estimate gets sent</b><small>The number is in their hands</small></div></div>
+        <div class="road-node"><div class="rn-dot"><svg class="icon"><use href="#i-clock"/></svg></div><div class="rn-card"><b>Follow-up happens</b><small>The nudge most contractors skip</small></div></div>
+        <div class="road-node win"><div class="rn-dot"><svg class="icon"><use href="#i-trophy"/></svg></div><div class="rn-card"><b>Job gets won</b><small>The only metric that pays</small></div></div>
+      </div>
+      <p class="roadmap-foot reveal">A lead is only an opportunity. The money comes when that opportunity becomes a job.</p>
+    </div>
+  </section>
+
+  <!-- JOBS -->
+  <section class="section jobs">
+    <div class="wrap">
+      <div class="sec-head center reveal" style="border:0">
+        <h2 class="display" style="font-size:clamp(2rem,4.6vw,3.4rem)">Built for high-value home services</h2>
+      </div>
+      <p class="reveal" style="margin-top:22px">If one job is worth thousands, you don't need hundreds of extra customers for this to matter. Sometimes one recovered job pays for the entire system. So we focus on the leaks that actually move revenue. Not vanity metrics. Not busywork. Not marketing for the sake of marketing.</p>
+      <div class="word reveal">Jobs.</div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">What happens when we start</span>
+        <h2>You never have to guess where the money went</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="sn">Step 01</span><span class="si"><svg class="icon"><use href="#i-search"/></svg></span><h3>We look at your process</h3><p>Where leads come from, how fast you respond, what happens after hours and to old leads.</p></div>
+        <div class="step reveal"><span class="sn">Step 02</span><span class="si"><svg class="icon"><use href="#i-phone"/></svg></span><h3>We find the leaks</h3><p>Exactly where potential jobs are falling through the cracks.</p></div>
+        <div class="step reveal"><span class="sn">Step 03</span><span class="si"><svg class="icon"><use href="#i-wrench"/></svg></span><h3>We fix them</h3><p>The right follow-up and recovery systems, put in place.</p></div>
+        <div class="step reveal"><span class="sn">Step 04</span><span class="si"><svg class="icon"><use href="#i-chart"/></svg></span><h3>We watch the numbers</h3><p>Conversations, appointments, recovered jobs and the revenue the system influenced.</p></div>
+        <div class="step reveal"><span class="sn">Step 05</span><span class="si"><svg class="icon"><use href="#i-rocket"/></svg></span><h3>Then we scale</h3><p>Once the foundation works, we bring more qualified homeowners into it.</p></div>
+      </div>
+      <p class="steps-foot reveal">You can see it. You can measure it. You can improve it. Then you can scale it. Fix the leaks, then turn up the leads.</p>
+    </div>
+  </section>
+
+  <!-- CTA + BOOKING -->
+  <section class="section cta-sec" id="book">
+    <div class="wrap">
+      <div class="cta-head reveal">
+        <span class="eyebrow center">Ready when you are</span>
+        <h2>See where you're losing jobs</h2>
+        <p>We'll look at your current process live and show you where opportunities are slipping away. If everything's already handled, we'll tell you. No pitch. No pressure.</p>
+      </div>
+      <div class="booking reveal">
+        <iframe src="https://api.leadconnectorhq.com/widget/booking/ufEtFsK29fYGQ5WPoGz6" allow="payment" scrolling="no" id="ufEtFsK29fYGQ5WPoGz6_1786205791214" title="Book a call with Mavly Digital"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <span class="eyebrow center">Straight answers</span>
+        <h2>Questions you're right to ask</h2>
+      </div>
+      <div class="faq">
+        <details class="reveal"><summary>Do you generate leads? <span class="pm">+</span></summary><p>Yes, but that's not where we start. First we make sure your business can properly capture the opportunities it's already getting. Once that's working, we help generate more qualified demand.</p></details>
+        <details class="reveal"><summary>Why not just run Google or Facebook ads? <span class="pm">+</span></summary><p>You can. But if the leads you already get aren't handled properly, more leads just make the leak bigger. We fix the process first, then scale acquisition.</p></details>
+        <details class="reveal"><summary>Does this replace my employees? <span class="pm">+</span></summary><p>No. Your team still handles sales, appointments and jobs. The system just makes sure fewer opportunities disappear because someone was busy, unavailable or forgot to follow up.</p></details>
+        <details class="reveal"><summary>What if our follow-up is already good? <span class="pm">+</span></summary><p>Then that's a good thing. We'll look for other leaks. If there isn't a meaningful problem, you may not need us.</p></details>
+        <details class="reveal"><summary>Is this an AI system? <span class="pm">+</span></summary><p>Technology is part of the mechanism, but that's not the product. The product is more opportunities turning into real conversations, appointments and jobs.</p></details>
+        <details class="reveal"><summary>What if I need more leads? <span class="pm">+</span></summary><p>That's the second layer. Once your process is working, we build and manage acquisition to bring more qualified homeowners into it.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="section final">
+    <div class="wrap">
+      <h2 class="reveal">Fix the leaks. <span class="ink-blue">Then fill the pipeline.</span></h2>
+      <p class="reveal">You don't have to choose between better conversion and more leads. First capture what you already have. Then bring in more of it.</p>
+      <a href="#book" class="btn btn-primary reveal">Show me how it works</a>
+      <p class="note reveal">More leads won't fix a leaky process. Let's fix the process first.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="brand"><span class="dot"></span> Mavly</a>
+        <p>We help home-service contractors capture the jobs they're already losing, then bring in more qualified homeowners. You do the work. We plug the leaks.</p>
+        <a href="mailto:hello@mavlydigital.com" class="mail">hello@mavlydigital.com</a>
+      </div>
+      <div class="foot-col">
+        <h4>The System</h4>
+        <a href="#problem">The Problem</a>
+        <a href="#capture">How It Works</a>
+        <a href="#roadmap">The Journey</a>
+        <a href="#process">Process</a>
+        <a href="#book">Book a call</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms of Service</a>
+        <p>15 Tanguay Ave, Ste 112u</p>
+        <p>Nashua, New Hampshire 03063</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>Copyright © 2026 Mavly Digital LLC All rights reserved.</p>
+      <nav>
+        <a href="terms-and-conditions.html">Terms</a>
+        <a href="privacy-policy.html">Privacy</a>
       </nav>
-      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-      </button>
-      <a href="#contact" class="btn btn-primary">Let's Talk</a>
-      <div class="overlay" data-nav-toggler data-overlay></div>
     </div>
-  </header>
+  </div>
+</footer>
 
-  <main>
-    <article>
+<a href="#book" class="sticky-cta" id="stickyCta">Show me where I'm losing jobs</a>
 
-      <!-- #HERO -->
-      <section class="section hero" id="home" aria-label="hero">
-        <div class="container hero-inner">
-          <div class="float-card float-a">
-            <span class="fc-label"><span class="fc-dot"></span> Jobs recovered</span>
-            <span class="fc-num">$93k</span>
-            <svg class="fc-spark" viewBox="0 0 120 34" fill="none" aria-hidden="true"><polyline points="0,28 20,24 40,26 60,16 80,18 100,8 120,4" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="fc-up">recovered from dead quotes</span>
-          </div>
-          <div class="float-card float-b">
-            <span class="fc-label"><span class="fc-dot"></span> First reply</span>
-            <span class="fc-num">&lt; 1 hr</span>
-            <svg class="fc-spark" viewBox="0 0 120 34" fill="none" aria-hidden="true"><polyline points="0,20 20,22 40,14 60,16 80,10 100,12 120,6" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="fc-up">from the day we switch it on</span>
-          </div>
-
-          <p class="hero-eyebrow">For high-value home-service contractors</p>
-          <h1 class="hero-title">Stop losing jobs you <span class="hl">already paid for</span></h1>
-          <p class="hero-text">Fix the leaks in your sales process first. Then bring in more homeowners.</p>
-
-          <div class="hero-ctas">
-            <a href="#contact" class="btn btn-primary">Show me where I'm losing jobs</a>
-            <a href="#capture" class="btn btn-ghost"><svg class="ic"><use href="#i-play"/></svg> See how it works</a>
-          </div>
-
-          <ul class="hero-stats">
-            <li><span class="hs-num">$93k</span><span class="hs-lbl">recovered</span></li>
-            <li><span class="hs-num">80%</span><span class="hs-lbl">booking rate</span></li>
-            <li><span class="hs-num">40%</span><span class="hs-lbl">close rate</span></li>
-            <li><span class="hs-num">24/7</span><span class="hs-lbl">response</span></li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- intro -->
-      <section class="section band-intro" aria-label="intro">
-        <div class="container">
-          <div class="prose">
-            <p>You can spend thousands getting homeowners to call, fill out a form, or request an estimate.</p>
-            <p>But if calls go unanswered, leads don't get followed up with, or estimates sit untouched, you're losing jobs before your marketing even gets a chance to work.</p>
-            <p class="prose-strong">We help contractors fix those leaks first. Then, once the system is working, we help bring in more qualified homeowners.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- #PROBLEM -->
-      <section class="section problem" id="problem" aria-label="the problem">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">More leads aren't always the answer</p>
-          <h2 class="h2 section-title text-center">Look at what happens when someone <span class="has-before">actually contacts you</span></h2>
-          <p class="who-sub text-center">Before you spend another dollar on advertising, watch a good opportunity disappear three ways.</p>
-
-          <ul class="card-grid three">
-            <li class="dark-card">
-              <span class="card-ic"><svg class="ic"><use href="#i-phone"/></svg></span>
-              <h3>A homeowner calls</h3>
-              <p>Nobody answers. They call the next contractor.</p>
-            </li>
-            <li class="dark-card">
-              <span class="card-ic"><svg class="ic"><use href="#i-moon"/></svg></span>
-              <h3>A form comes in at 9 PM</h3>
-              <p>Nobody responds until the next morning. They've already moved on.</p>
-            </li>
-            <li class="dark-card">
-              <span class="card-ic"><svg class="ic"><use href="#i-doc"/></svg></span>
-              <h3>You send an estimate</h3>
-              <p>They say they'll think about it. Nobody follows up. The opportunity goes cold.</p>
-            </li>
-          </ul>
-
-          <p class="problem-close text-center">And that's the frustrating part. You already paid to create some of these opportunities. You just didn't get the job.</p>
-        </div>
-      </section>
-
-      <!-- #FIX THE LEAKS (bucket) -->
-      <section class="section leaks" aria-label="fix the leaks">
-        <div class="container split">
-          <figure class="split-art">
-            <svg viewBox="0 0 260 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="art-bucket">
-              <path d="M55 70 L205 70 L188 250 A6 6 0 0 1 182 256 L78 256 A6 6 0 0 1 72 250 Z" fill="#0d1c44" stroke="#22356a" stroke-width="3"/>
-              <ellipse cx="130" cy="70" rx="75" ry="16" fill="#0a1636" stroke="#22356a" stroke-width="3"/>
-              <path d="M62 120 L198 120 L188 250 A6 6 0 0 1 182 256 L78 256 A6 6 0 0 1 72 250 Z" fill="url(#water)"/>
-              <ellipse cx="130" cy="120" rx="68" ry="13" fill="#1e63d6"/>
-              <defs><linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e63d6"/><stop offset="1" stop-color="#0b3aa0"/></linearGradient></defs>
-              <circle cx="95" cy="180" r="5" fill="#06070d"/><circle cx="150" cy="205" r="5" fill="#06070d"/><circle cx="120" cy="230" r="5" fill="#06070d"/>
-              <g fill="#3B82F6"><circle cx="95" cy="205" r="4"/><circle cx="95" cy="222" r="3"/><circle cx="150" cy="230" r="4"/><circle cx="120" cy="255" r="4"/></g>
-            </svg>
-          </figure>
-          <div class="split-text">
-            <p class="section-subtitle has-before">First, we fix the leaks</p>
-            <h2 class="h2 section-title">Think of your business like a <span class="has-before">bucket</span></h2>
-            <p class="prose-line">You can keep pouring more water into it. But if there are holes in the bottom, you're still losing water. That's how we look at your marketing.</p>
-            <p class="prose-line prose-strong">Before we tell you to spend more money on leads, we want to know: where are your opportunities disappearing?</p>
-            <ul class="disappear-list">
-              <li><svg class="ic"><use href="#i-x"/></svg> Missed calls</li>
-              <li><svg class="ic"><use href="#i-x"/></svg> Slow responses</li>
-              <li><svg class="ic"><use href="#i-x"/></svg> Leads that never book</li>
-              <li><svg class="ic"><use href="#i-x"/></svg> Estimates nobody followed up with</li>
-              <li><svg class="ic"><use href="#i-x"/></svg> Old leads sitting in a CRM everyone forgot about</li>
-            </ul>
-            <p class="prose-line">We find the leaks and build a system around them.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- #CAPTURE (layer 1) -->
-      <section class="section capture" id="capture" aria-label="layer one">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">The first layer</p>
-          <h2 class="h2 section-title text-center">Capture more of what you <span class="has-before">already have</span></h2>
-          <p class="who-sub text-center">When a homeowner raises their hand, the goal is simple. Don't let them disappear.</p>
-
-          <ul class="card-grid three">
-            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-phone"/></svg></span><h3>Missed calls</h3><p>If your team can't answer, the conversation doesn't have to end there.</p></li>
-            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-moon"/></svg></span><h3>After hours</h3><p>Homeowners don't always contact you during business hours. The system can respond when your office is closed.</p></li>
-            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-inbox"/></svg></span><h3>New inquiries</h3><p>When someone fills out a form or asks for information, they shouldn't have to wait around wondering if anyone saw it.</p></li>
-            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-clock"/></svg></span><h3>Unbooked leads</h3><p>Some homeowners need a little more follow up before they're ready to schedule.</p></li>
-            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-doc"/></svg></span><h3>Old estimates</h3><p>"Let me think about it" isn't always a no. Sometimes people just need another conversation.</p></li>
-            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-database"/></svg></span><h3>Old leads</h3><p>You may already have past opportunities in your database that were never properly followed up with.</p></li>
-          </ul>
-          <p class="problem-close text-center">We help bring those conversations back to life.</p>
-        </div>
-      </section>
-
-      <!-- #NOT REPLACING SALES TEAM -->
-      <section class="section band" aria-label="not replacing your team">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">We're not trying to replace your sales team</p>
-          <h2 class="h2 section-title text-center">Your team still does the part that <span class="has-before">needs a person</span></h2>
-          <ul class="team-list">
-            <li><svg class="ic"><use href="#i-check"/></svg> Your team still sells</li>
-            <li><svg class="ic"><use href="#i-check"/></svg> Your team still runs the jobs</li>
-            <li><svg class="ic"><use href="#i-check"/></svg> Your team still talks to homeowners</li>
-          </ul>
-          <p class="prose center">We're simply making sure fewer opportunities disappear before your team gets the chance. The system handles the repetitive follow up and keeps the conversation moving. Your people handle the part that actually requires a person.</p>
-        </div>
-      </section>
-
-      <!-- #TURN ON LEADS -->
-      <section class="section leaks" aria-label="then we turn on the leads">
-        <div class="container split reverse">
-          <figure class="split-art">
-            <svg viewBox="0 0 260 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="art-funnel">
-              <g fill="#3B82F6"><circle cx="60" cy="30" r="6"/><circle cx="110" cy="24" r="5"/><circle cx="160" cy="32" r="6"/><circle cx="200" cy="26" r="5"/><circle cx="85" cy="52" r="4"/><circle cx="175" cy="54" r="4"/></g>
-              <path d="M30 80 L230 80 L160 165 L160 235 L100 260 L100 165 Z" fill="#0d1c44" stroke="#22356a" stroke-width="3" stroke-linejoin="round"/>
-              <path d="M30 80 L230 80 L182 138 L78 138 Z" fill="url(#funnelg)"/>
-              <defs><linearGradient id="funnelg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e63d6"/><stop offset="1" stop-color="#0b3aa0"/></linearGradient></defs>
-              <g fill="#AFE9FD"><circle cx="130" cy="250" r="6"/><circle cx="130" cy="272" r="5"/></g>
-            </svg>
-          </figure>
-          <div class="split-text">
-            <p class="section-subtitle has-before">Then we turn on the leads</p>
-            <h2 class="h2 section-title">Once the leaks are fixed, that's when it gets <span class="has-before">interesting</span></h2>
-            <p class="prose-line">Now we know your business can actually handle the opportunities coming in. So instead of pouring more leads into a broken process, we start sending more homeowners into a system built to capture them.</p>
-            <p class="prose-line prose-strong">That's the second layer. Create demand.</p>
-            <ul class="channel-chips">
-              <li>Google</li><li>Meta</li><li>Local search</li><li>Landing pages</li><li>Other acquisition channels</li>
-            </ul>
-            <p class="prose-line">Now those leads aren't entering a leaky bucket. They're entering a system designed to respond, follow up, book and convert.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- #TWO LAYERS -->
-      <section class="section layers" aria-label="two layers">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">Two layers. One goal.</p>
-          <h2 class="h2 section-title text-center">First make your demand <span class="has-before">work harder</span>. Then create more of it.</h2>
-
-          <div class="layers-flow">
-            <div class="layer-box">
-              <span class="layer-tag">1 · Fix the leaks</span>
-              <p>Recover the opportunities you're already getting: missed calls, new inquiries, unbooked leads, cold estimates, old opportunities.</p>
-            </div>
-            <span class="layer-arrow"><svg class="ic"><use href="#i-arrow-down"/></svg></span>
-            <div class="layer-box accent">
-              <span class="layer-tag">2 · Fill the pipeline</span>
-              <p>Once the foundation is solid, bring in more qualified homeowners. More demand, more conversations, more appointments, more jobs.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- #WHY START HERE -->
-      <section class="section band" aria-label="why start here">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">Why start here?</p>
-          <h2 class="h2 section-title text-center">More leads doesn't mean <span class="has-before">more jobs</span></h2>
-          <p class="prose center">If you're getting 50 inquiries and losing 20 because nobody followed up properly, getting another 50 doesn't solve the real problem. It just gives you more opportunities to lose. We'd rather fix that first. Then scale what works.</p>
-        </div>
-      </section>
-
-      <!-- #IMAGINE -->
-      <section class="section imagine" aria-label="imagine what changes">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">Imagine what changes</p>
-          <h2 class="h2 section-title text-center">The opportunities finally have <span class="has-before">somewhere to go</span></h2>
-          <ul class="imagine-list">
-            <li class="imagine-card"><span class="im-before">A homeowner calls after hours</span><span class="im-after"><svg class="ic"><use href="#i-check"/></svg> Instead of silence, they get a response.</span></li>
-            <li class="imagine-card"><span class="im-before">Someone fills out your form while your team is on a job</span><span class="im-after"><svg class="ic"><use href="#i-check"/></svg> They don't sit there waiting until tomorrow.</span></li>
-            <li class="imagine-card"><span class="im-before">A homeowner gets an estimate and doesn't decide</span><span class="im-after"><svg class="ic"><use href="#i-check"/></svg> They don't disappear forever.</span></li>
-            <li class="imagine-card"><span class="im-before">Someone who contacted you six months ago</span><span class="im-after"><svg class="ic"><use href="#i-check"/></svg> They get another reason to have the conversation.</span></li>
-          </ul>
-          <p class="prose center">None of this requires you to magically become better at marketing. It means the opportunities coming through the door finally have somewhere to go.</p>
-        </div>
-      </section>
-
-      <!-- #NOT A PACKAGE -->
-      <section class="section band" aria-label="not another package">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">This is not another marketing package</p>
-          <h2 class="h2 section-title text-center">The entire model is <span class="has-before">two questions</span></h2>
-          <p class="prose center">We're not interested in selling you a bunch of services you don't need. No new website, no new logo, no social posts and 14 campaigns. We start with one question.</p>
-          <div class="qa-pair">
-            <div class="qa-box"><span class="qa-n">01</span><p>Where are you losing jobs right now?</p><span class="qa-sub">Then we fix that.</span></div>
-            <div class="qa-box accent"><span class="qa-n">02</span><p>How do we bring you more of the right homeowners?</p><span class="qa-sub">Once the first part is working.</span></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- #WHAT WE CARE ABOUT -->
-      <section class="section care" aria-label="what we care about">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">What we actually care about</p>
-          <h2 class="h2 section-title text-center">What happens after they <span class="has-before">raise their hand</span></h2>
-          <div class="care-cols">
-            <div class="care-col care-not">
-              <p class="care-head">Not this</p>
-              <ul>
-                <li><svg class="ic"><use href="#i-x"/></svg> Impressions</li>
-                <li><svg class="ic"><use href="#i-x"/></svg> Followers</li>
-                <li><svg class="ic"><use href="#i-x"/></svg> How many people clicked an ad</li>
-                <li><svg class="ic"><use href="#i-x"/></svg> A pretty dashboard</li>
-              </ul>
-            </div>
-            <div class="care-col care-yes">
-              <p class="care-head">This</p>
-              <ul>
-                <li><svg class="ic"><use href="#i-check"/></svg> Did they get a response?</li>
-                <li><svg class="ic"><use href="#i-check"/></svg> Did they have a conversation?</li>
-                <li><svg class="ic"><use href="#i-check"/></svg> Did they book?</li>
-                <li><svg class="ic"><use href="#i-check"/></svg> Did they get an estimate?</li>
-                <li><svg class="ic"><use href="#i-check"/></svg> Did they become a customer?</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- #JOURNEY -->
-      <section class="section journey-sec" aria-label="the journey">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">Your marketing doesn't end when the lead comes in</p>
-          <h2 class="h2 section-title text-center">A lead is only an opportunity. The money comes when it becomes a <span class="has-before">job</span>.</h2>
-          <ol class="journey">
-            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-eye"/></svg></span> Homeowner sees you</li>
-            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-phone"/></svg></span> Homeowner contacts you</li>
-            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-chat"/></svg></span> You respond</li>
-            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-chat"/></svg></span> Conversation happens</li>
-            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-calendar"/></svg></span> Appointment gets booked</li>
-            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-doc"/></svg></span> Estimate gets sent</li>
-            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-clock"/></svg></span> Follow up happens</li>
-            <li class="j-step win"><span class="j-ic"><svg class="ic"><use href="#i-trophy"/></svg></span> Job gets won</li>
-          </ol>
-          <p class="prose center">Every step matters. And every step is another place where a good opportunity can disappear.</p>
-        </div>
-      </section>
-
-      <!-- #BUILT FOR -->
-      <section class="section band highlight-band" aria-label="built for high value">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">Built for high-value home-service businesses</p>
-          <h2 class="h2 section-title text-center">One recovered job can pay for the <span class="has-before">entire system</span></h2>
-          <p class="prose center">If one job is worth thousands of dollars, you don't need hundreds of extra customers for this to matter. That's why we focus on the leaks that actually affect revenue. Not vanity metrics. Not busywork. Not marketing for the sake of marketing.</p>
-          <p class="one-word">Jobs.</p>
-        </div>
-      </section>
-
-      <!-- #STEPS -->
-      <section class="section steps" id="steps" aria-label="process">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">What happens when we start</p>
-          <h2 class="h2 section-title text-center">You don't have to guess where the <span class="has-before">money is going</span></h2>
-          <ol class="step-list">
-            <li class="step-card"><span class="step-n">01</span><span class="card-ic"><svg class="ic"><use href="#i-search"/></svg></span><h3>We look at your current process</h3><p>Where your leads come from, how fast you respond, what happens after hours, to missed calls, to estimates that don't close, to old leads.</p></li>
-            <li class="step-card"><span class="step-n">02</span><span class="card-ic"><svg class="ic"><use href="#i-phone"/></svg></span><h3>We find the leaks</h3><p>We figure out where potential jobs are falling through the cracks.</p></li>
-            <li class="step-card"><span class="step-n">03</span><span class="card-ic"><svg class="ic"><use href="#i-wrench"/></svg></span><h3>We fix them</h3><p>We put the right follow up and recovery systems in place.</p></li>
-            <li class="step-card"><span class="step-n">04</span><span class="card-ic"><svg class="ic"><use href="#i-chart"/></svg></span><h3>We watch the numbers</h3><p>Conversations, appointments, recovered opportunities and the revenue influenced by the system.</p></li>
-            <li class="step-card"><span class="step-n">05</span><span class="card-ic"><svg class="ic"><use href="#i-rocket"/></svg></span><h3>Then we scale</h3><p>Once the foundation is working, we start bringing more qualified homeowners into the system.</p></li>
-          </ol>
-          <p class="problem-close text-center">You can see it. You can measure it. You can improve it. And then you can scale it. Fix the leaks. Then turn up the leads.</p>
-        </div>
-      </section>
-
-      <!-- #PIPELINE -->
-      <section class="section band" aria-label="your next job">
-        <div class="container">
-          <p class="section-subtitle has-before text-center">Your next job might already be in your pipeline</p>
-          <h2 class="h2 section-title text-center">You might not need another hundred leads <span class="has-before">tomorrow</span></h2>
-          <p class="prose center">You might need to recover the ten opportunities that never got a proper follow up. And once those are being handled properly? Then let's go get another hundred. Fix what isn't working. Make the existing demand more valuable. Then create more demand.</p>
-        </div>
-      </section>
-
-      <!-- #CONTACT / CLOSE -->
-      <section class="section close" id="contact" aria-label="book a call">
-        <div class="container">
-          <div class="close-content">
-            <p class="section-subtitle has-before">Ready to see where you're losing jobs?</p>
-            <h2 class="h2 section-title">Let's fix the process first.</h2>
-            <p class="close-text">We'll look at your current process and show you where opportunities may be slipping away. If everything is already handled properly, we'll tell you. No complicated pitch. No pressure. Just a look at what's happening between the first homeowner contact and the final job.</p>
-          </div>
-          <div class="booking-embed">
-            <iframe src="https://api.leadconnectorhq.com/widget/booking/ufEtFsK29fYGQ5WPoGz6" allow="payment" style="width:100%;border:none;overflow:hidden;min-height:740px;" scrolling="no" id="ufEtFsK29fYGQ5WPoGz6_1786205791214" title="Book a call with Mavly Digital"></iframe>
-          </div>
-        </div>
-      </section>
-
-      <!-- #FAQ -->
-      <section class="section blog" id="faq" aria-label="faq">
-        <div class="container">
-          <p class="section-subtitle text-center has-before">Frequently asked questions</p>
-          <h2 class="h2 section-title text-center">Questions you are <span class="has-before">right to ask</span></h2>
-          <ul class="faq-list">
-            <li><details class="faq-item"><summary>Do you generate leads?</summary><p>Yes, but that's not where we start. We start by making sure your business can properly capture the opportunities it's already getting. Once that's working, we can help generate more qualified demand.</p></details></li>
-            <li><details class="faq-item"><summary>Why not just run Google or Facebook ads?</summary><p>You can. But if the leads you're already getting aren't being handled properly, adding more leads can simply make the leak bigger. We fix the process first. Then we scale acquisition.</p></details></li>
-            <li><details class="faq-item"><summary>Does this replace my employees?</summary><p>No. Your team still handles sales, appointments and jobs. The system helps make sure fewer opportunities disappear because someone was busy, unavailable or forgot to follow up.</p></details></li>
-            <li><details class="faq-item"><summary>What if our current follow up is already good?</summary><p>Then that's a good thing. We'll look for other leaks. If there isn't a meaningful problem, you may not need us.</p></details></li>
-            <li><details class="faq-item"><summary>Is this an AI system?</summary><p>Technology is part of the mechanism. But that's not the product. The product is more opportunities turning into real conversations, appointments and jobs.</p></details></li>
-            <li><details class="faq-item"><summary>What happens if I need more leads?</summary><p>That's where the second layer comes in. Once your process is working, we can build and manage acquisition campaigns to bring more qualified homeowners into it.</p></details></li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- #FINAL CLOSE -->
-      <section class="section final" aria-label="final">
-        <div class="container">
-          <h2 class="final-title">Fix the leaks. <span class="hl">Then fill the pipeline.</span></h2>
-          <p class="prose center">You don't have to choose between better conversion and more leads. First, make sure you're capturing what you already have. Then, bring in more of it.</p>
-          <a href="#contact" class="btn btn-primary">Show me how it works</a>
-          <p class="final-note">More leads won't fix a leaky process. Let's fix the process first.</p>
-        </div>
-      </section>
-
-    </article>
-  </main>
-
-  <!-- #FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top section">
-        <div class="footer-brand">
-          <a href="#top" class="logo">Mavly</a>
-          <p class="footer-text">We help home-service contractors capture the jobs they're already losing, then bring in more qualified homeowners. You do the work. We plug the leaks.</p>
-          <a href="mailto:hello@mavlydigital.com" class="footer-link footer-email">hello@mavlydigital.com</a>
-        </div>
-        <ul class="footer-list">
-          <li><p class="footer-list-title">The System</p></li>
-          <li><a href="#problem" class="footer-link">The Problem</a></li>
-          <li><a href="#capture" class="footer-link">How It Works</a></li>
-          <li><a href="#steps" class="footer-link">Process</a></li>
-          <li><a href="#faq" class="footer-link">FAQ</a></li>
-          <li><a href="#contact" class="footer-link">Book a call</a></li>
-        </ul>
-        <ul class="footer-list">
-          <li><p class="footer-list-title">Company</p></li>
-          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="terms-and-conditions.html" class="footer-link">Terms of Service</a></li>
-          <li><p class="footer-link">15 Tanguay Ave, Ste 112u</p></li>
-          <li><p class="footer-link">Nashua, New Hampshire 03063</p></li>
-        </ul>
-      </div>
-      <div class="footer-bottom">
-        <p class="copyright">Copyright &copy; 2026 Mavly Digital LLC All rights reserved.</p>
-        <ul class="footer-bottom-list">
-          <li><a href="terms-and-conditions.html" class="footer-bottom-link">Terms and conditions</a></li>
-          <li><a href="privacy-policy.html" class="footer-bottom-link">Privacy policy</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <a href="#contact" class="sticky-cta">Show me where I'm losing jobs</a>
-  <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
-    <ion-icon name="arrow-up" aria-hidden="true"></ion-icon>
-  </a>
-
-  <script src="./assets/js/script.js" defer></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
-
+<script>
+document.documentElement.classList.add('js');
+// nav scroll state
+const nav=document.getElementById('nav'), sticky=document.getElementById('stickyCta');
+addEventListener('scroll',()=>{
+  const y=scrollY;
+  nav.classList.toggle('scrolled', y>20);
+  sticky.classList.toggle('show', y>700);
+},{passive:true});
+// mobile nav
+const mnav=document.getElementById('mnav');
+document.getElementById('burger').onclick=()=>mnav.classList.add('open');
+document.getElementById('mclose').onclick=()=>mnav.classList.remove('open');
+mnav.querySelectorAll('a').forEach(a=>a.onclick=()=>mnav.classList.remove('open'));
+// reveals
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// roadmap progress + node activation
+const road=document.getElementById('road'), fill=document.getElementById('roadfill');
+const nodes=[...document.querySelectorAll('.road-node')];
+function roadUpdate(){
+  if(!road) return;
+  const r=road.getBoundingClientRect();
+  const vh=innerHeight;
+  const total=r.height;
+  const progressed=Math.min(Math.max((vh*0.6 - r.top),0), total);
+  fill.style.height=(progressed/total*100)+'%';
+  const mark=r.top+progressed;
+  nodes.forEach(n=>{
+    const nr=n.querySelector('.rn-dot').getBoundingClientRect();
+    n.classList.toggle('on', nr.top+nr.height/2 <= mark);
+  });
+}
+addEventListener('scroll',roadUpdate,{passive:true});
+addEventListener('resize',roadUpdate);
+roadUpdate();
+</script>
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
 </body>
-
 </html>
