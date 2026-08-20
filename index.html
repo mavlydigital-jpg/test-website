@@ -256,10 +256,11 @@ h1,h2,h3{color:var(--ink);text-wrap:balance;line-height:1.1;font-weight:600;lett
   .road-node:nth-child(even) .rn-card{ grid-column:1; text-align:right }
 }
 .rn-dot{ width:60px; height:60px; border-radius:50%; background:#0a0a12; border:2px solid rgba(255,255,255,.12);
-  display:grid; place-items:center; color:rgba(255,255,255,.55); justify-self:center; z-index:2;
-  transition:all .45s var(--ease); }
+  display:grid; place-items:center; color:rgba(255,255,255,.55); z-index:2;
+  transition:all .45s var(--ease); place-self:center }
 .rn-dot .icon{ width:22px; height:22px }
-.rn-card{ padding:20px 24px; border-radius:14px; background:rgba(255,255,255,.02); border:1px solid var(--border); transition:all .4s var(--ease); display:inline-block }
+.rn-card{ padding:20px 24px; border-radius:14px; background:rgba(255,255,255,.02); border:1px solid var(--border); transition:all .4s var(--ease); width:fit-content; max-width:100%; place-self:center start }
+@media(min-width:720px){ .road-node:nth-child(even) .rn-card{ place-self:center end } }
 .rn-card b{ display:block; color:#fff; font-size:1.05rem; font-weight:500; line-height:1.2 }
 .rn-card small{ display:block; color:var(--muted); font-size:.86rem; margin-top:6px }
 .road-node.on .rn-dot{ background:var(--blue); border-color:var(--blue-hi); color:#fff; box-shadow:0 0 30px -2px rgba(47,107,255,.85), 0 0 0 6px rgba(47,107,255,.12); transform:scale(1.08) }
@@ -486,6 +487,44 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
 .founder-text p{ color:var(--muted); font-size:1.02rem; line-height:1.7; margin-top:18px; max-width:56ch }
 .founder-text .btn{ margin-top:26px }
 
+/* ============ IMPACT (Uiverse-style dashboard card) ============ */
+.impact{ background:radial-gradient(ellipse 60% 60% at 50% 30%, rgba(47,107,255,.14), transparent 65%) }
+.impact-card{ position:relative; max-width:720px; margin:clamp(50px,7vw,80px) auto 0; padding:1.5px; border-radius:22px;
+  background:linear-gradient(135deg, rgba(47,107,255,.55), rgba(91,139,255,.15) 40%, rgba(47,107,255,.35) 100%);
+  box-shadow:0 40px 100px -30px rgba(0,0,0,.8), 0 0 60px rgba(47,107,255,.15); }
+.impact-glow{ position:absolute; inset:-40px; border-radius:44px; background:radial-gradient(ellipse at center, rgba(47,107,255,.35), transparent 60%); filter:blur(40px); z-index:-1; pointer-events:none; opacity:.55 }
+.impact-shell{ background:#05060a; border-radius:20px; padding:clamp(24px,3vw,34px); display:flex; flex-direction:column; gap:22px }
+.ic-head{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,.06); flex-wrap:wrap }
+.ic-title{ display:flex; align-items:center; gap:12px }
+.ic-title-icon{ width:36px; height:36px; border-radius:10px; display:grid; place-items:center; color:#fff;
+  background:linear-gradient(135deg,#3B82F6,#085CF0); box-shadow:0 8px 22px -6px rgba(47,107,255,.55) }
+.ic-title-icon svg{ width:18px; height:18px }
+.ic-title b{ color:#fff; font-weight:600; font-size:1rem; display:block; line-height:1.15 }
+.ic-title small{ color:var(--muted); font-size:.78rem; display:block; margin-top:2px }
+.ic-live{ display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:100px;
+  background:rgba(47,107,255,.12); color:var(--blue-hi); font-size:.72rem; font-weight:500; border:1px solid rgba(47,107,255,.25) }
+.ic-live-dot{ width:6px; height:6px; border-radius:50%; background:var(--blue-hi); box-shadow:0 0 8px rgba(91,139,255,.8); animation:pulse-live 1.8s var(--ease) infinite }
+@keyframes pulse-live{ 0%,100%{ opacity:1 } 50%{ opacity:.35 } }
+
+.ic-stats{ display:grid; grid-template-columns:1fr; gap:12px }
+@media(min-width:600px){ .ic-stats{ grid-template-columns:repeat(3,1fr) } }
+.ic-stat{ background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.05); border-radius:12px; padding:14px 16px }
+.ic-lbl{ display:block; color:var(--muted); font-size:.75rem; font-weight:500 }
+.ic-num{ display:block; color:#fff; font-weight:600; font-size:1.5rem; letter-spacing:-.02em; line-height:1.1; margin-top:6px }
+.ic-delta{ display:inline-block; margin-top:6px; font-size:.72rem; font-weight:500; color:var(--blue-hi) }
+.ic-delta.up::before{ content:"↑ "; font-weight:700 }
+
+.ic-chart{ background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.05); border-radius:12px; padding:16px; position:relative }
+.bars{ display:flex; align-items:flex-end; justify-content:space-between; gap:10px; height:108px }
+.bar{ position:relative; flex:1; height:var(--h); background:rgba(47,107,255,.16); border-radius:4px 4px 0 0; overflow:hidden; display:flex; align-items:flex-end; transition:filter .3s var(--ease) }
+.bar i{ display:block; width:100%; height:var(--f); background:linear-gradient(180deg,var(--blue-hi),var(--blue)); border-radius:4px 4px 0 0; box-shadow:0 -4px 12px rgba(47,107,255,.5) }
+.bar em{ position:absolute; bottom:-22px; left:50%; transform:translateX(-50%); color:var(--muted); font-style:normal; font-size:.68rem; font-weight:500 }
+.ic-chart{ padding-bottom:34px }
+.chart-y{ position:absolute; top:12px; right:14px; color:var(--muted); font-size:.72rem; font-weight:500 }
+
+.ic-foot{ display:flex; align-items:center; justify-content:space-between; gap:14px; padding-top:6px; border-top:1px solid rgba(255,255,255,.06); padding-top:20px; flex-wrap:wrap }
+.ic-note{ color:var(--muted); font-size:.78rem }
+
 /* ============ PREMIUM CARDS (site-wide) — subtle blur glow behind ============ */
 .step, .q, .layer, .care-col, .im, .trade, .faq details, .phone-outcome, .mult-side{
   position:relative; overflow:hidden;
@@ -550,7 +589,6 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
-      <a href="#book" class="btn btn-ghost" style="padding:8px 16px">Sign in</a>
       <a href="#book" class="btn btn-primary" style="padding:8px 18px">Book my inspection</a>
     </div>
     <button class="nav-burger" id="burger" aria-label="Open menu">☰</button>
@@ -1011,6 +1049,70 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
         <p>I'm David. I built Mavly because I watched too many great contractors lose jobs to slicker competitors who did one thing better — followed up faster. So I stopped selling "leads" and started fixing what really costs you money: the calls that go silent, the estimates that go cold, the old CRM leads nobody touched.</p>
         <p>When you book a call, it's me on the other end. I'll pull up your area live and show you exactly what's slipping through. If there's nothing to fix, I'll tell you. If there is, we'll talk about what it takes.</p>
         <a href="#book" class="btn btn-primary">Book a call with me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVENUE IMPACT (Uiverse dashboard card) -->
+  <section class="section impact" id="impact">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>What the math looks like</span>
+        <h2 class="gradient-heading">Here's what next month could look like</h2>
+        <p>Based on the leaks we typically find on a first inspection. Real numbers only, no vanity metrics.</p>
+      </div>
+
+      <div class="impact-card reveal">
+        <div class="impact-glow"></div>
+        <div class="impact-shell">
+          <div class="ic-head">
+            <div class="ic-title">
+              <span class="ic-title-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </span>
+              <div>
+                <b>Revenue Impact</b>
+                <small>Projected 6-month lift</small>
+              </div>
+            </div>
+            <span class="ic-live"><span class="ic-live-dot"></span>Live estimate</span>
+          </div>
+
+          <div class="ic-stats">
+            <div class="ic-stat">
+              <span class="ic-lbl">Jobs recovered / mo</span>
+              <b class="ic-num">+15</b>
+              <span class="ic-delta up">+12.3%</span>
+            </div>
+            <div class="ic-stat">
+              <span class="ic-lbl">Revenue added / mo</span>
+              <b class="ic-num">+$120K</b>
+              <span class="ic-delta up">+18.6%</span>
+            </div>
+            <div class="ic-stat">
+              <span class="ic-lbl">Reply time</span>
+              <b class="ic-num">&lt;1 hr</b>
+              <span class="ic-delta up">24× faster</span>
+            </div>
+          </div>
+
+          <div class="ic-chart" aria-label="6-month revenue projection">
+            <div class="bars">
+              <span class="bar" style="--h:38%"><i style="--f:60%"></i><em>M1</em></span>
+              <span class="bar" style="--h:48%"><i style="--f:65%"></i><em>M2</em></span>
+              <span class="bar" style="--h:58%"><i style="--f:72%"></i><em>M3</em></span>
+              <span class="bar" style="--h:68%"><i style="--f:80%"></i><em>M4</em></span>
+              <span class="bar" style="--h:80%"><i style="--f:85%"></i><em>M5</em></span>
+              <span class="bar" style="--h:94%"><i style="--f:92%"></i><em>M6</em></span>
+            </div>
+            <span class="chart-y">$0 → $720K</span>
+          </div>
+
+          <div class="ic-foot">
+            <span class="ic-note">Based on inspections of contractors in your ticket range</span>
+            <a href="#book" class="btn btn-primary" style="padding:9px 18px;font-size:.88rem">Get my numbers →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
