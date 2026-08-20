@@ -33,6 +33,10 @@
       <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
       <symbol id="i-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></symbol>
       <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M6 2h12v7a6 6 0 0 1-12 0z"/><line x1="12" y1="15" x2="12" y2="19"/><path d="M8 22h8l-1-3H9z"/></symbol>
     </defs>
   </svg>
 
@@ -66,17 +70,15 @@
   <main>
     <article>
 
-      <!-- #HERO (Verda style) -->
+      <!-- #HERO -->
       <section class="section hero" id="home" aria-label="hero">
         <div class="container hero-inner">
-
           <div class="float-card float-a">
             <span class="fc-label"><span class="fc-dot"></span> Jobs recovered</span>
             <span class="fc-num">$93k</span>
             <svg class="fc-spark" viewBox="0 0 120 34" fill="none" aria-hidden="true"><polyline points="0,28 20,24 40,26 60,16 80,18 100,8 120,4" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="fc-up">+ recovered from dead quotes</span>
+            <span class="fc-up">recovered from dead quotes</span>
           </div>
-
           <div class="float-card float-b">
             <span class="fc-label"><span class="fc-dot"></span> First reply</span>
             <span class="fc-num">&lt; 1 hr</span>
@@ -85,14 +87,8 @@
           </div>
 
           <p class="hero-eyebrow">For high-value home-service contractors</p>
-
-          <h1 class="hero-title">
-            Stop losing jobs you <span class="hl">already paid for</span>
-          </h1>
-
-          <p class="hero-text">
-            Fix the leaks in your sales process first. Then bring in more homeowners.
-          </p>
+          <h1 class="hero-title">Stop losing jobs you <span class="hl">already paid for</span></h1>
+          <p class="hero-text">Fix the leaks in your sales process first. Then bring in more homeowners.</p>
 
           <div class="hero-ctas">
             <a href="#contact" class="btn btn-primary">Show me where I'm losing jobs</a>
@@ -105,53 +101,135 @@
             <li><span class="hs-num">40%</span><span class="hs-lbl">close rate</span></li>
             <li><span class="hs-num">24/7</span><span class="hs-lbl">response</span></li>
           </ul>
+        </div>
+      </section>
 
+      <!-- intro -->
+      <section class="section band-intro" aria-label="intro">
+        <div class="container">
+          <div class="prose">
+            <p>You can spend thousands getting homeowners to call, fill out a form, or request an estimate.</p>
+            <p>But if calls go unanswered, leads don't get followed up with, or estimates sit untouched, you're losing jobs before your marketing even gets a chance to work.</p>
+            <p class="prose-strong">We help contractors fix those leaks first. Then, once the system is working, we help bring in more qualified homeowners.</p>
+          </div>
         </div>
       </section>
 
       <!-- #PROBLEM -->
       <section class="section problem" id="problem" aria-label="the problem">
         <div class="container">
-          <p class="section-subtitle has-before text-center">More leads aren't the answer</p>
+          <p class="section-subtitle has-before text-center">More leads aren't always the answer</p>
           <h2 class="h2 section-title text-center">Look at what happens when someone <span class="has-before">actually contacts you</span></h2>
+          <p class="who-sub text-center">Before you spend another dollar on advertising, watch a good opportunity disappear three ways.</p>
 
           <ul class="card-grid three">
             <li class="dark-card">
               <span class="card-ic"><svg class="ic"><use href="#i-phone"/></svg></span>
-              <h3>The call goes unanswered</h3>
-              <p>A homeowner calls. Nobody picks up. They call the next contractor.</p>
+              <h3>A homeowner calls</h3>
+              <p>Nobody answers. They call the next contractor.</p>
             </li>
             <li class="dark-card">
               <span class="card-ic"><svg class="ic"><use href="#i-moon"/></svg></span>
-              <h3>The form comes in at 9 PM</h3>
-              <p>Nobody replies until morning. By then they've already moved on.</p>
+              <h3>A form comes in at 9 PM</h3>
+              <p>Nobody responds until the next morning. They've already moved on.</p>
             </li>
             <li class="dark-card">
               <span class="card-ic"><svg class="ic"><use href="#i-doc"/></svg></span>
-              <h3>The estimate goes cold</h3>
-              <p>They say they'll think about it. Nobody follows up. The job disappears.</p>
+              <h3>You send an estimate</h3>
+              <p>They say they'll think about it. Nobody follows up. The opportunity goes cold.</p>
             </li>
           </ul>
 
-          <p class="problem-close text-center">You already paid to create these opportunities. You just didn't get the job.</p>
+          <p class="problem-close text-center">And that's the frustrating part. You already paid to create some of these opportunities. You just didn't get the job.</p>
+        </div>
+      </section>
+
+      <!-- #FIX THE LEAKS (bucket) -->
+      <section class="section leaks" aria-label="fix the leaks">
+        <div class="container split">
+          <figure class="split-art">
+            <svg viewBox="0 0 260 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="art-bucket">
+              <path d="M55 70 L205 70 L188 250 A6 6 0 0 1 182 256 L78 256 A6 6 0 0 1 72 250 Z" fill="#0d1c44" stroke="#22356a" stroke-width="3"/>
+              <ellipse cx="130" cy="70" rx="75" ry="16" fill="#0a1636" stroke="#22356a" stroke-width="3"/>
+              <path d="M62 120 L198 120 L188 250 A6 6 0 0 1 182 256 L78 256 A6 6 0 0 1 72 250 Z" fill="url(#water)"/>
+              <ellipse cx="130" cy="120" rx="68" ry="13" fill="#1e63d6"/>
+              <defs><linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e63d6"/><stop offset="1" stop-color="#0b3aa0"/></linearGradient></defs>
+              <circle cx="95" cy="180" r="5" fill="#06070d"/><circle cx="150" cy="205" r="5" fill="#06070d"/><circle cx="120" cy="230" r="5" fill="#06070d"/>
+              <g fill="#3B82F6"><circle cx="95" cy="205" r="4"/><circle cx="95" cy="222" r="3"/><circle cx="150" cy="230" r="4"/><circle cx="120" cy="255" r="4"/></g>
+            </svg>
+          </figure>
+          <div class="split-text">
+            <p class="section-subtitle has-before">First, we fix the leaks</p>
+            <h2 class="h2 section-title">Think of your business like a <span class="has-before">bucket</span></h2>
+            <p class="prose-line">You can keep pouring more water into it. But if there are holes in the bottom, you're still losing water. That's how we look at your marketing.</p>
+            <p class="prose-line prose-strong">Before we tell you to spend more money on leads, we want to know: where are your opportunities disappearing?</p>
+            <ul class="disappear-list">
+              <li><svg class="ic"><use href="#i-x"/></svg> Missed calls</li>
+              <li><svg class="ic"><use href="#i-x"/></svg> Slow responses</li>
+              <li><svg class="ic"><use href="#i-x"/></svg> Leads that never book</li>
+              <li><svg class="ic"><use href="#i-x"/></svg> Estimates nobody followed up with</li>
+              <li><svg class="ic"><use href="#i-x"/></svg> Old leads sitting in a CRM everyone forgot about</li>
+            </ul>
+            <p class="prose-line">We find the leaks and build a system around them.</p>
+          </div>
         </div>
       </section>
 
       <!-- #CAPTURE (layer 1) -->
       <section class="section capture" id="capture" aria-label="layer one">
         <div class="container">
-          <p class="section-subtitle has-before text-center">Layer 1 · Fix the leaks</p>
+          <p class="section-subtitle has-before text-center">The first layer</p>
           <h2 class="h2 section-title text-center">Capture more of what you <span class="has-before">already have</span></h2>
           <p class="who-sub text-center">When a homeowner raises their hand, the goal is simple. Don't let them disappear.</p>
 
           <ul class="card-grid three">
             <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-phone"/></svg></span><h3>Missed calls</h3><p>If your team can't answer, the conversation doesn't have to end there.</p></li>
-            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-moon"/></svg></span><h3>After hours</h3><p>Homeowners don't only call 9 to 5. The system replies when your office is closed.</p></li>
-            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-inbox"/></svg></span><h3>New inquiries</h3><p>A form or a question shouldn't sit there while someone wonders if anyone saw it.</p></li>
+            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-moon"/></svg></span><h3>After hours</h3><p>Homeowners don't always contact you during business hours. The system can respond when your office is closed.</p></li>
+            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-inbox"/></svg></span><h3>New inquiries</h3><p>When someone fills out a form or asks for information, they shouldn't have to wait around wondering if anyone saw it.</p></li>
             <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-clock"/></svg></span><h3>Unbooked leads</h3><p>Some homeowners need a little more follow up before they're ready to schedule.</p></li>
-            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-doc"/></svg></span><h3>Old estimates</h3><p>"Let me think about it" isn't always a no. Sometimes they just need another conversation.</p></li>
-            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-database"/></svg></span><h3>Old leads</h3><p>Past opportunities sitting in your database that were never properly followed up with.</p></li>
+            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-doc"/></svg></span><h3>Old estimates</h3><p>"Let me think about it" isn't always a no. Sometimes people just need another conversation.</p></li>
+            <li class="dark-card sm"><span class="card-ic"><svg class="ic"><use href="#i-database"/></svg></span><h3>Old leads</h3><p>You may already have past opportunities in your database that were never properly followed up with.</p></li>
           </ul>
+          <p class="problem-close text-center">We help bring those conversations back to life.</p>
+        </div>
+      </section>
+
+      <!-- #NOT REPLACING SALES TEAM -->
+      <section class="section band" aria-label="not replacing your team">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">We're not trying to replace your sales team</p>
+          <h2 class="h2 section-title text-center">Your team still does the part that <span class="has-before">needs a person</span></h2>
+          <ul class="team-list">
+            <li><svg class="ic"><use href="#i-check"/></svg> Your team still sells</li>
+            <li><svg class="ic"><use href="#i-check"/></svg> Your team still runs the jobs</li>
+            <li><svg class="ic"><use href="#i-check"/></svg> Your team still talks to homeowners</li>
+          </ul>
+          <p class="prose center">We're simply making sure fewer opportunities disappear before your team gets the chance. The system handles the repetitive follow up and keeps the conversation moving. Your people handle the part that actually requires a person.</p>
+        </div>
+      </section>
+
+      <!-- #TURN ON LEADS -->
+      <section class="section leaks" aria-label="then we turn on the leads">
+        <div class="container split reverse">
+          <figure class="split-art">
+            <svg viewBox="0 0 260 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="art-funnel">
+              <g fill="#3B82F6"><circle cx="60" cy="30" r="6"/><circle cx="110" cy="24" r="5"/><circle cx="160" cy="32" r="6"/><circle cx="200" cy="26" r="5"/><circle cx="85" cy="52" r="4"/><circle cx="175" cy="54" r="4"/></g>
+              <path d="M30 80 L230 80 L160 165 L160 235 L100 260 L100 165 Z" fill="#0d1c44" stroke="#22356a" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M30 80 L230 80 L182 138 L78 138 Z" fill="url(#funnelg)"/>
+              <defs><linearGradient id="funnelg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e63d6"/><stop offset="1" stop-color="#0b3aa0"/></linearGradient></defs>
+              <g fill="#AFE9FD"><circle cx="130" cy="250" r="6"/><circle cx="130" cy="272" r="5"/></g>
+            </svg>
+          </figure>
+          <div class="split-text">
+            <p class="section-subtitle has-before">Then we turn on the leads</p>
+            <h2 class="h2 section-title">Once the leaks are fixed, that's when it gets <span class="has-before">interesting</span></h2>
+            <p class="prose-line">Now we know your business can actually handle the opportunities coming in. So instead of pouring more leads into a broken process, we start sending more homeowners into a system built to capture them.</p>
+            <p class="prose-line prose-strong">That's the second layer. Create demand.</p>
+            <ul class="channel-chips">
+              <li>Google</li><li>Meta</li><li>Local search</li><li>Landing pages</li><li>Other acquisition channels</li>
+            </ul>
+            <p class="prose-line">Now those leads aren't entering a leaky bucket. They're entering a system designed to respond, follow up, book and convert.</p>
+          </div>
         </div>
       </section>
 
@@ -169,9 +247,104 @@
             <span class="layer-arrow"><svg class="ic"><use href="#i-arrow-down"/></svg></span>
             <div class="layer-box accent">
               <span class="layer-tag">2 · Fill the pipeline</span>
-              <p>Once the foundation is solid, bring in more qualified homeowners. More demand, more appointments, more jobs.</p>
+              <p>Once the foundation is solid, bring in more qualified homeowners. More demand, more conversations, more appointments, more jobs.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- #WHY START HERE -->
+      <section class="section band" aria-label="why start here">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Why start here?</p>
+          <h2 class="h2 section-title text-center">More leads doesn't mean <span class="has-before">more jobs</span></h2>
+          <p class="prose center">If you're getting 50 inquiries and losing 20 because nobody followed up properly, getting another 50 doesn't solve the real problem. It just gives you more opportunities to lose. We'd rather fix that first. Then scale what works.</p>
+        </div>
+      </section>
+
+      <!-- #IMAGINE -->
+      <section class="section imagine" aria-label="imagine what changes">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Imagine what changes</p>
+          <h2 class="h2 section-title text-center">The opportunities finally have <span class="has-before">somewhere to go</span></h2>
+          <ul class="imagine-list">
+            <li class="imagine-card"><span class="im-before">A homeowner calls after hours</span><span class="im-after"><svg class="ic"><use href="#i-check"/></svg> Instead of silence, they get a response.</span></li>
+            <li class="imagine-card"><span class="im-before">Someone fills out your form while your team is on a job</span><span class="im-after"><svg class="ic"><use href="#i-check"/></svg> They don't sit there waiting until tomorrow.</span></li>
+            <li class="imagine-card"><span class="im-before">A homeowner gets an estimate and doesn't decide</span><span class="im-after"><svg class="ic"><use href="#i-check"/></svg> They don't disappear forever.</span></li>
+            <li class="imagine-card"><span class="im-before">Someone who contacted you six months ago</span><span class="im-after"><svg class="ic"><use href="#i-check"/></svg> They get another reason to have the conversation.</span></li>
+          </ul>
+          <p class="prose center">None of this requires you to magically become better at marketing. It means the opportunities coming through the door finally have somewhere to go.</p>
+        </div>
+      </section>
+
+      <!-- #NOT A PACKAGE -->
+      <section class="section band" aria-label="not another package">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">This is not another marketing package</p>
+          <h2 class="h2 section-title text-center">The entire model is <span class="has-before">two questions</span></h2>
+          <p class="prose center">We're not interested in selling you a bunch of services you don't need. No new website, no new logo, no social posts and 14 campaigns. We start with one question.</p>
+          <div class="qa-pair">
+            <div class="qa-box"><span class="qa-n">01</span><p>Where are you losing jobs right now?</p><span class="qa-sub">Then we fix that.</span></div>
+            <div class="qa-box accent"><span class="qa-n">02</span><p>How do we bring you more of the right homeowners?</p><span class="qa-sub">Once the first part is working.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- #WHAT WE CARE ABOUT -->
+      <section class="section care" aria-label="what we care about">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">What we actually care about</p>
+          <h2 class="h2 section-title text-center">What happens after they <span class="has-before">raise their hand</span></h2>
+          <div class="care-cols">
+            <div class="care-col care-not">
+              <p class="care-head">Not this</p>
+              <ul>
+                <li><svg class="ic"><use href="#i-x"/></svg> Impressions</li>
+                <li><svg class="ic"><use href="#i-x"/></svg> Followers</li>
+                <li><svg class="ic"><use href="#i-x"/></svg> How many people clicked an ad</li>
+                <li><svg class="ic"><use href="#i-x"/></svg> A pretty dashboard</li>
+              </ul>
+            </div>
+            <div class="care-col care-yes">
+              <p class="care-head">This</p>
+              <ul>
+                <li><svg class="ic"><use href="#i-check"/></svg> Did they get a response?</li>
+                <li><svg class="ic"><use href="#i-check"/></svg> Did they have a conversation?</li>
+                <li><svg class="ic"><use href="#i-check"/></svg> Did they book?</li>
+                <li><svg class="ic"><use href="#i-check"/></svg> Did they get an estimate?</li>
+                <li><svg class="ic"><use href="#i-check"/></svg> Did they become a customer?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- #JOURNEY -->
+      <section class="section journey-sec" aria-label="the journey">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Your marketing doesn't end when the lead comes in</p>
+          <h2 class="h2 section-title text-center">A lead is only an opportunity. The money comes when it becomes a <span class="has-before">job</span>.</h2>
+          <ol class="journey">
+            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-eye"/></svg></span> Homeowner sees you</li>
+            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-phone"/></svg></span> Homeowner contacts you</li>
+            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-chat"/></svg></span> You respond</li>
+            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-chat"/></svg></span> Conversation happens</li>
+            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-calendar"/></svg></span> Appointment gets booked</li>
+            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-doc"/></svg></span> Estimate gets sent</li>
+            <li class="j-step"><span class="j-ic"><svg class="ic"><use href="#i-clock"/></svg></span> Follow up happens</li>
+            <li class="j-step win"><span class="j-ic"><svg class="ic"><use href="#i-trophy"/></svg></span> Job gets won</li>
+          </ol>
+          <p class="prose center">Every step matters. And every step is another place where a good opportunity can disappear.</p>
+        </div>
+      </section>
+
+      <!-- #BUILT FOR -->
+      <section class="section band highlight-band" aria-label="built for high value">
+        <div class="container">
+          <p class="section-subtitle has-before text-center">Built for high-value home-service businesses</p>
+          <h2 class="h2 section-title text-center">One recovered job can pay for the <span class="has-before">entire system</span></h2>
+          <p class="prose center">If one job is worth thousands of dollars, you don't need hundreds of extra customers for this to matter. That's why we focus on the leaks that actually affect revenue. Not vanity metrics. Not busywork. Not marketing for the sake of marketing.</p>
+          <p class="one-word">Jobs.</p>
         </div>
       </section>
 
@@ -180,31 +353,23 @@
         <div class="container">
           <p class="section-subtitle has-before text-center">What happens when we start</p>
           <h2 class="h2 section-title text-center">You don't have to guess where the <span class="has-before">money is going</span></h2>
-
           <ol class="step-list">
-            <li class="step-card"><span class="step-n">01</span><span class="card-ic"><svg class="ic"><use href="#i-search"/></svg></span><h3>Look at your process</h3><p>Where your leads come from, how fast you respond, what happens after hours.</p></li>
-            <li class="step-card"><span class="step-n">02</span><span class="card-ic"><svg class="ic"><use href="#i-phone"/></svg></span><h3>Find the leaks</h3><p>We find exactly where potential jobs are falling through the cracks.</p></li>
-            <li class="step-card"><span class="step-n">03</span><span class="card-ic"><svg class="ic"><use href="#i-wrench"/></svg></span><h3>Fix them</h3><p>We put the right follow-up and recovery systems in place.</p></li>
-            <li class="step-card"><span class="step-n">04</span><span class="card-ic"><svg class="ic"><use href="#i-chart"/></svg></span><h3>Watch the numbers</h3><p>Conversations, appointments, recovered jobs, revenue the system influenced.</p></li>
-            <li class="step-card"><span class="step-n">05</span><span class="card-ic"><svg class="ic"><use href="#i-rocket"/></svg></span><h3>Then we scale</h3><p>Once the foundation works, we bring more qualified homeowners into it.</p></li>
+            <li class="step-card"><span class="step-n">01</span><span class="card-ic"><svg class="ic"><use href="#i-search"/></svg></span><h3>We look at your current process</h3><p>Where your leads come from, how fast you respond, what happens after hours, to missed calls, to estimates that don't close, to old leads.</p></li>
+            <li class="step-card"><span class="step-n">02</span><span class="card-ic"><svg class="ic"><use href="#i-phone"/></svg></span><h3>We find the leaks</h3><p>We figure out where potential jobs are falling through the cracks.</p></li>
+            <li class="step-card"><span class="step-n">03</span><span class="card-ic"><svg class="ic"><use href="#i-wrench"/></svg></span><h3>We fix them</h3><p>We put the right follow up and recovery systems in place.</p></li>
+            <li class="step-card"><span class="step-n">04</span><span class="card-ic"><svg class="ic"><use href="#i-chart"/></svg></span><h3>We watch the numbers</h3><p>Conversations, appointments, recovered opportunities and the revenue influenced by the system.</p></li>
+            <li class="step-card"><span class="step-n">05</span><span class="card-ic"><svg class="ic"><use href="#i-rocket"/></svg></span><h3>Then we scale</h3><p>Once the foundation is working, we start bringing more qualified homeowners into the system.</p></li>
           </ol>
+          <p class="problem-close text-center">You can see it. You can measure it. You can improve it. And then you can scale it. Fix the leaks. Then turn up the leads.</p>
         </div>
       </section>
 
-      <!-- #FAQ -->
-      <section class="section blog" id="faq" aria-label="faq">
+      <!-- #PIPELINE -->
+      <section class="section band" aria-label="your next job">
         <div class="container">
-          <p class="section-subtitle text-center has-before">Straight answers</p>
-          <h2 class="h2 section-title text-center">Questions you are <span class="has-before">right to ask</span></h2>
-
-          <ul class="faq-list">
-            <li><details class="faq-item"><summary>Do you generate leads?</summary><p>Yes, but not where we start. First we make sure your business captures the opportunities it already gets. Then we help create more qualified demand.</p></details></li>
-            <li><details class="faq-item"><summary>Why not just run Google or Facebook ads?</summary><p>You can. But if the leads you already get aren't handled properly, more leads just make the leak bigger. We fix the process first, then scale acquisition.</p></details></li>
-            <li><details class="faq-item"><summary>Does this replace my employees?</summary><p>No. Your team still handles sales, appointments and jobs. The system just makes sure fewer opportunities disappear because someone was busy or forgot to follow up.</p></details></li>
-            <li><details class="faq-item"><summary>What if our follow-up is already good?</summary><p>Good. We'll look for other leaks. If there isn't a meaningful problem, you may not need us.</p></details></li>
-            <li><details class="faq-item"><summary>Is this an AI system?</summary><p>Technology is part of the mechanism, but that's not the product. The product is more opportunities turning into real conversations, appointments and jobs.</p></details></li>
-            <li><details class="faq-item"><summary>What if I need more leads?</summary><p>That's the second layer. Once your process works, we build and manage acquisition to bring more qualified homeowners into it.</p></details></li>
-          </ul>
+          <p class="section-subtitle has-before text-center">Your next job might already be in your pipeline</p>
+          <h2 class="h2 section-title text-center">You might not need another hundred leads <span class="has-before">tomorrow</span></h2>
+          <p class="prose center">You might need to recover the ten opportunities that never got a proper follow up. And once those are being handled properly? Then let's go get another hundred. Fix what isn't working. Make the existing demand more valuable. Then create more demand.</p>
         </div>
       </section>
 
@@ -212,13 +377,39 @@
       <section class="section close" id="contact" aria-label="book a call">
         <div class="container">
           <div class="close-content">
-            <p class="section-subtitle has-before">Fix the leaks. Then fill the pipeline.</p>
-            <h2 class="h2 section-title">Ready to see where you're losing jobs?</h2>
-            <p class="close-text">We'll look at your current process and show you where opportunities may be slipping away. If everything is handled properly, we'll tell you. No complicated pitch. No pressure.</p>
+            <p class="section-subtitle has-before">Ready to see where you're losing jobs?</p>
+            <h2 class="h2 section-title">Let's fix the process first.</h2>
+            <p class="close-text">We'll look at your current process and show you where opportunities may be slipping away. If everything is already handled properly, we'll tell you. No complicated pitch. No pressure. Just a look at what's happening between the first homeowner contact and the final job.</p>
           </div>
           <div class="booking-embed">
             <iframe src="https://api.leadconnectorhq.com/widget/booking/ufEtFsK29fYGQ5WPoGz6" allow="payment" style="width:100%;border:none;overflow:hidden;min-height:740px;" scrolling="no" id="ufEtFsK29fYGQ5WPoGz6_1786205791214" title="Book a call with Mavly Digital"></iframe>
           </div>
+        </div>
+      </section>
+
+      <!-- #FAQ -->
+      <section class="section blog" id="faq" aria-label="faq">
+        <div class="container">
+          <p class="section-subtitle text-center has-before">Frequently asked questions</p>
+          <h2 class="h2 section-title text-center">Questions you are <span class="has-before">right to ask</span></h2>
+          <ul class="faq-list">
+            <li><details class="faq-item"><summary>Do you generate leads?</summary><p>Yes, but that's not where we start. We start by making sure your business can properly capture the opportunities it's already getting. Once that's working, we can help generate more qualified demand.</p></details></li>
+            <li><details class="faq-item"><summary>Why not just run Google or Facebook ads?</summary><p>You can. But if the leads you're already getting aren't being handled properly, adding more leads can simply make the leak bigger. We fix the process first. Then we scale acquisition.</p></details></li>
+            <li><details class="faq-item"><summary>Does this replace my employees?</summary><p>No. Your team still handles sales, appointments and jobs. The system helps make sure fewer opportunities disappear because someone was busy, unavailable or forgot to follow up.</p></details></li>
+            <li><details class="faq-item"><summary>What if our current follow up is already good?</summary><p>Then that's a good thing. We'll look for other leaks. If there isn't a meaningful problem, you may not need us.</p></details></li>
+            <li><details class="faq-item"><summary>Is this an AI system?</summary><p>Technology is part of the mechanism. But that's not the product. The product is more opportunities turning into real conversations, appointments and jobs.</p></details></li>
+            <li><details class="faq-item"><summary>What happens if I need more leads?</summary><p>That's where the second layer comes in. Once your process is working, we can build and manage acquisition campaigns to bring more qualified homeowners into it.</p></details></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- #FINAL CLOSE -->
+      <section class="section final" aria-label="final">
+        <div class="container">
+          <h2 class="final-title">Fix the leaks. <span class="hl">Then fill the pipeline.</span></h2>
+          <p class="prose center">You don't have to choose between better conversion and more leads. First, make sure you're capturing what you already have. Then, bring in more of it.</p>
+          <a href="#contact" class="btn btn-primary">Show me how it works</a>
+          <p class="final-note">More leads won't fix a leaky process. Let's fix the process first.</p>
         </div>
       </section>
 
