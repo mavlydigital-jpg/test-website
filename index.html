@@ -401,9 +401,55 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
 .lg{ border:1px solid var(--border); border-radius:14px; padding:20px 22px; background:var(--panel); backdrop-filter:blur(8px);
   display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto; gap:4px 14px; transition:border-color .2s, background .2s }
 .lg:hover{ border-color:var(--border-hi); background:var(--panel-hi) }
+.lg{ position:relative; overflow:hidden; background:#0a0a0f }
+.lg::before{ content:""; position:absolute; top:-60%; left:50%; transform:translateX(-50%);
+  width:70%; height:120%; border-radius:50%; background:rgba(47,107,255,.10); filter:blur(50px); z-index:0; transition:background .5s var(--ease) }
+.lg:hover::before{ background:rgba(47,107,255,.16) }
+.lg > *{ position:relative; z-index:1 }
 .lg .icon{ grid-row:1/3; align-self:start; margin-top:3px; color:var(--blue-hi); width:20px; height:20px }
 .lg b{ color:#fff; font-weight:500; font-size:.95rem }
 .lg small{ color:var(--muted); font-size:.82rem; line-height:1.45 }
+
+/* ============ TRADES (real photos) ============ */
+.trades{ background:radial-gradient(ellipse 60% 40% at 50% 0%, rgba(47,107,255,.10), transparent 60%) }
+.trade-grid{ list-style:none; padding:0; margin-top:clamp(50px,7vw,80px); display:grid; gap:20px }
+@media(min-width:640px){ .trade-grid{ grid-template-columns:repeat(2,1fr) } }
+@media(min-width:1000px){ .trade-grid{ grid-template-columns:repeat(3,1fr) } }
+.trade{ background:#0a0a0f; border:1px solid var(--border); border-radius:18px; overflow:hidden;
+  transition:border-color .3s var(--ease), transform .4s var(--ease); position:relative }
+.trade:hover{ border-color:rgba(47,107,255,.35); transform:translateY(-2px) }
+.trade figure{ aspect-ratio:16/10; overflow:hidden; margin:0; position:relative }
+.trade figure::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55)); pointer-events:none }
+.trade img{ width:100%; height:100%; object-fit:cover; transition:transform 1.2s var(--ease) }
+.trade:hover img{ transform:scale(1.05) }
+.trade-body{ padding:20px 22px }
+.trade-body b{ display:block; color:#fff; font-weight:500; font-size:1.05rem }
+.trade-body small{ display:block; color:var(--muted); font-size:.88rem; margin-top:6px; line-height:1.5 }
+.trade.more{ display:grid; place-items:center; background:linear-gradient(150deg,rgba(47,107,255,.14),rgba(47,107,255,.02)); border-color:rgba(47,107,255,.35) }
+.trade-more{ padding:32px; text-align:center; display:flex; flex-direction:column; gap:14px; align-items:center }
+.trade-more b{ color:#fff; font-weight:500; font-size:1.05rem }
+.trade-chips{ list-style:none; padding:0; display:flex; flex-wrap:wrap; gap:8px; justify-content:center }
+.trade-chips li{ color:var(--ice); background:rgba(47,107,255,.10); border:1px solid rgba(47,107,255,.25);
+  padding:6px 12px; border-radius:100px; font-size:.82rem; font-weight:500 }
+.trade-more small{ color:var(--muted); font-size:.85rem }
+
+/* ============ FOUNDER ============ */
+.founder{ background:radial-gradient(ellipse 55% 65% at 20% 40%, rgba(47,107,255,.14), transparent 60%) }
+.founder-inner{ display:grid; gap:44px; align-items:center }
+@media(min-width:880px){ .founder-inner{ grid-template-columns:0.9fr 1.1fr; gap:clamp(50px,7vw,90px) } }
+.founder-photo{ margin:0; position:relative; border-radius:20px; overflow:hidden; border:1px solid var(--border-hi);
+  box-shadow:0 40px 90px -35px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.03) inset;
+  max-width:460px; margin-inline:auto; aspect-ratio:4/5 }
+.founder-photo img{ width:100%; height:100%; object-fit:cover; display:block }
+.founder-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(0,0,0,.55)); pointer-events:none }
+.founder-tag{ position:absolute; left:16px; bottom:16px; z-index:2; display:inline-flex; align-items:center; gap:8px;
+  padding:8px 14px; border-radius:100px; background:rgba(10,10,15,.72); backdrop-filter:blur(10px);
+  border:1px solid var(--border-hi); color:#fff; font-size:.82rem; font-weight:500 }
+.founder-text .pill{ margin-bottom:20px }
+.founder-text h2{ font-size:clamp(2rem,4.4vw,3rem); font-weight:500; letter-spacing:-.04em; line-height:1.05 }
+.founder-text p{ color:var(--muted); font-size:1.02rem; line-height:1.7; margin-top:18px; max-width:56ch }
+.founder-text .btn{ margin-top:26px }
 </style>
 </head>
 <body>
@@ -436,8 +482,9 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
     <nav class="nav-links">
       <a href="#problem">The Problem</a>
       <a href="#capture">How It Works</a>
+      <a href="#trades">Trades</a>
       <a href="#roadmap">The Journey</a>
-      <a href="#process">Process</a>
+      <a href="#founder">About</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
@@ -450,6 +497,7 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
 <div class="mnav" id="mnav">
   <button class="mnav-close" id="mclose" aria-label="Close menu">✕</button>
   <a href="#problem">The Problem</a>
+  <a href="#trades">Trades</a>
   <a href="#capture">How It Works</a>
   <a href="#roadmap">The Journey</a>
   <a href="#process">Process</a>
@@ -637,6 +685,68 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
     </div>
   </section>
 
+  <!-- TRADES (real photos) -->
+  <section class="section trades" id="trades">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="pill"><span class="dot"></span>Who we work with</span>
+        <h2 class="gradient-heading">High-stakes work homeowners are scared to get wrong</h2>
+        <p>If your ticket is thousands and the homeowner can't easily judge the quality, the trusted contractor wins every time. That's you.</p>
+      </div>
+
+      <ul class="trade-grid">
+        <li class="trade">
+          <figure><img src="assets/img/trade-mold.jpg" alt="Mold remediation specialist working in a treated interior" loading="lazy"></figure>
+          <div class="trade-body">
+            <b>Mold remediation</b>
+            <small>Health-critical work. Trust and speed matter more than price.</small>
+          </div>
+        </li>
+        <li class="trade">
+          <figure><img src="assets/img/trade-crawlspace.jpg" alt="Encapsulated crawl space with insulation and vapor barrier" loading="lazy"></figure>
+          <div class="trade-body">
+            <b>Crawl space encapsulation</b>
+            <small>Nobody buys this on price alone. Reputation closes it.</small>
+          </div>
+        </li>
+        <li class="trade">
+          <figure><img src="assets/img/trade-retaining.jpg" alt="Finished stone retaining wall with landscaping" loading="lazy"></figure>
+          <div class="trade-body">
+            <b>Retaining walls &amp; hardscape</b>
+            <small>High-ticket, long-lead. The follow-up wins the bid.</small>
+          </div>
+        </li>
+        <li class="trade">
+          <figure><img src="assets/img/trade-decks.jpg" alt="Custom deck and outdoor patio build" loading="lazy"></figure>
+          <div class="trade-body">
+            <b>Decks &amp; outdoor living</b>
+            <small>Homeowners shop 3-4 quotes. Speed of reply decides.</small>
+          </div>
+        </li>
+        <li class="trade">
+          <figure><img src="assets/img/trade-lighting.jpg" alt="Landscape path and garden lighting at dusk" loading="lazy"></figure>
+          <div class="trade-body">
+            <b>Landscape lighting</b>
+            <small>Design-led, referral-heavy. Missed calls kill jobs.</small>
+          </div>
+        </li>
+        <li class="trade more">
+          <div class="trade-more">
+            <b>And a few more</b>
+            <ul class="trade-chips">
+              <li>Waterproofing</li>
+              <li>Foundation repair</li>
+              <li>Epoxy &amp; concrete</li>
+              <li>Tree removal</li>
+              <li>Artificial turf</li>
+            </ul>
+            <small>Different trades. Same problem. Same fix.</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- TEAM BAND -->
   <section class="section">
     <div class="wrap">
@@ -817,6 +927,23 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
         <div class="step reveal"><span class="sn">Step 05</span><span class="si"><svg class="icon"><use href="#i-rocket"/></svg></span><h3>Then we scale</h3><p>Once the foundation works, we bring more qualified homeowners into it.</p></div>
       </div>
       <p class="steps-foot reveal">You can see it. You can measure it. You can improve it. Then you can scale it. Inspect first. Then turn up the leads.</p>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="section founder" id="founder">
+    <div class="wrap founder-inner">
+      <figure class="founder-photo reveal">
+        <img src="assets/img/david.jpg" alt="David — Founder of Mavly Digital" loading="lazy">
+        <span class="founder-tag"><span class="dot-b"></span> Founder · Nashua, NH</span>
+      </figure>
+      <div class="founder-text reveal">
+        <span class="pill"><span class="dot"></span>Who runs this</span>
+        <h2 class="gradient-heading">You're not talking to an agency floor. You're talking to me.</h2>
+        <p>I'm David. I built Mavly because I watched too many great contractors lose jobs to slicker competitors who did one thing better — followed up faster. So I stopped selling "leads" and started fixing what really costs you money: the calls that go silent, the estimates that go cold, the old CRM leads nobody touched.</p>
+        <p>When you book a call, it's me on the other end. I'll pull up your area live and show you exactly what's slipping through. If there's nothing to fix, I'll tell you. If there is, we'll talk about what it takes.</p>
+        <a href="#book" class="btn btn-primary">Book a call with me</a>
+      </div>
     </div>
   </section>
 
