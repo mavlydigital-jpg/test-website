@@ -89,7 +89,15 @@ h1,h2,h3{color:var(--ink);text-wrap:balance;line-height:1.1;font-weight:600;lett
 .mnav-close{ position:absolute; top:14px; right:var(--pad); background:none;border:1px solid var(--border);color:#fff;width:40px;height:40px;border-radius:10px;font-size:1.2rem;cursor:pointer }
 
 /* ============ HERO ============ */
-.hero{ padding-top:clamp(110px,16vh,160px); padding-bottom:clamp(60px,9vw,110px); text-align:center; position:relative }
+.hero{ padding-top:clamp(110px,16vh,160px); padding-bottom:clamp(60px,9vw,110px); text-align:center; position:relative; overflow:hidden }
+.hero.has-video{ min-height:100vh; display:flex; flex-direction:column; justify-content:center }
+.hero-video{ position:absolute; inset:0; z-index:-1; overflow:hidden }
+.hero-video video{ width:100%; height:100%; object-fit:cover; display:block }
+.hero-video-scrim{ position:absolute; inset:0; background:
+  linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.75) 55%, #000 100%),
+  radial-gradient(ellipse 70% 60% at 50% 40%, rgba(47,107,255,.22), transparent 65%);
+  z-index:1; pointer-events:none }
+.hero.has-video > .wrap{ position:relative; z-index:2 }
 .hero .pill{margin-inline:auto}
 .hero h1{ margin-top:26px; font-size:clamp(2.5rem,6.5vw,4.5rem); font-weight:500; letter-spacing:-.045em; max-width:18ch; margin-inline:auto; line-height:1.05 }
 .hero .sub{ margin-top:22px; color:var(--muted); font-size:clamp(.95rem,1.3vw,1.1rem); max-width:52ch; margin-inline:auto; line-height:1.6 }
@@ -344,13 +352,40 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
   padding:6px 14px; border-radius:100px; border:1px solid var(--border); background:var(--panel) }
 .dot-r{width:8px;height:8px;border-radius:50%;background:#ff6a72;box-shadow:0 0 10px rgba(255,106,114,.7)}
 .dot-b{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px rgba(47,107,255,.8)}
-.phone{ width:100%; max-width:290px; aspect-ratio:9/17.5; border-radius:36px; padding:10px;
-  background:linear-gradient(160deg,#1a1a22,#0a0a10); border:1px solid var(--border-hi);
-  box-shadow:0 40px 90px -30px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.06); position:relative }
-.phone-notch{ position:absolute; top:14px; left:50%; transform:translateX(-50%);
-  width:96px; height:22px; border-radius:20px; background:#000; z-index:2 }
-.phone-screen{ height:100%; border-radius:28px; background:#0a0a12; padding:36px 14px 18px;
-  display:flex; flex-direction:column; gap:14px; overflow:hidden; position:relative }
+/* iPhone 16 — dynamic island, titanium body, side buttons */
+.phone{ width:100%; max-width:320px; aspect-ratio:9/19.5; border-radius:54px; padding:10px;
+  background:
+    linear-gradient(150deg, #3a3a44 0%, #1a1a22 22%, #0d0d13 55%, #232329 100%);
+  border:1px solid #2b2b33;
+  box-shadow:
+    0 70px 140px -50px rgba(0,0,0,.95),
+    0 30px 60px -30px rgba(0,0,0,.7),
+    inset 0 0 0 1.5px rgba(255,255,255,.05),
+    inset 0 2px 0 rgba(255,255,255,.06),
+    inset 0 -2px 0 rgba(0,0,0,.5);
+  position:relative;
+}
+/* left side buttons */
+.phone::before{ content:""; position:absolute; left:-3px; top:16%; width:3px; height:3.5%;
+  border-radius:2px 0 0 2px; background:linear-gradient(#4a4a52,#2a2a30);
+  box-shadow:0 6% 0 -1px #4a4a52, 0 12% 0 -1px #4a4a52 }
+/* right side button (power) */
+.phone::after{ content:""; position:absolute; right:-3px; top:28%; width:3px; height:11%;
+  border-radius:0 2px 2px 0; background:linear-gradient(#4a4a52,#2a2a30) }
+/* dynamic island */
+.phone-notch{ position:absolute; top:16px; left:50%; transform:translateX(-50%);
+  width:112px; height:32px; border-radius:20px; background:#000; z-index:3;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04), 0 2px 8px rgba(0,0,0,.6);
+}
+.phone-notch::after{ content:""; position:absolute; right:11px; top:50%; transform:translateY(-50%);
+  width:9px; height:9px; border-radius:50%;
+  background:radial-gradient(circle at 32% 32%, #1a2030 0%, #05070a 55%);
+  box-shadow:inset 0 0 0 1px rgba(120,140,180,.15), inset 0 0 4px rgba(60,90,140,.4);
+}
+.phone-screen{ height:100%; border-radius:44px; background:#000; padding:56px 16px 22px;
+  display:flex; flex-direction:column; gap:12px; overflow:hidden; position:relative;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);
+}
 .ps-status{ display:flex; justify-content:space-between; font-size:.72rem; color:var(--muted); padding:0 4px }
 .ps-status .sig{letter-spacing:1px}
 .ps-status.light{ color:rgba(255,255,255,.75) }
@@ -450,6 +485,33 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
 .founder-text h2{ font-size:clamp(2rem,4.4vw,3rem); font-weight:500; letter-spacing:-.04em; line-height:1.05 }
 .founder-text p{ color:var(--muted); font-size:1.02rem; line-height:1.7; margin-top:18px; max-width:56ch }
 .founder-text .btn{ margin-top:26px }
+
+/* ============ PREMIUM CARDS (site-wide) — subtle blur glow behind ============ */
+.step, .q, .layer, .care-col, .im, .trade, .faq details, .phone-outcome, .mult-side{
+  position:relative; overflow:hidden;
+}
+.step, .q, .layer, .care-col, .im, .trade{ background-color:#0a0a0f }
+.step::before, .q::before, .layer::before, .care-col::before, .im::before, .trade::before, .faq details::before, .phone-outcome::before{
+  content:""; position:absolute; top:-60%; left:50%; transform:translateX(-50%);
+  width:80%; height:120%; border-radius:50%;
+  background:rgba(47,107,255,.09); filter:blur(60px); z-index:0; pointer-events:none;
+  transition:background .5s var(--ease);
+}
+.step:hover::before, .q:hover::before, .layer:hover::before, .care-col:hover::before,
+.im:hover::before, .trade:hover::before, .faq details[open]::before{ background:rgba(47,107,255,.16) }
+.q.two::before, .layer.two::before, .care-col.yes::before{ background:rgba(47,107,255,.20) }
+.q.two:hover::before, .layer.two:hover::before, .care-col.yes:hover::before{ background:rgba(47,107,255,.28) }
+.phone-outcome.bad::before{ background:rgba(255,106,114,.10) }
+.phone-outcome.good::before{ background:rgba(47,107,255,.14) }
+/* keep inner content above glow */
+.step > *, .q > *, .layer > *, .care-col > *, .im > *, .trade > *, .faq details > *, .phone-outcome > *{ position:relative; z-index:1 }
+
+/* thin top divider on cards with an icon header (Uiverse look) */
+.step .si + h3, .q .qn + h3, .care-col ul, .layer p:first-of-type{ /* no-op selectors kept for future */ }
+
+/* trades: darker card body over image */
+.trade{ background:#0a0a0f }
+.trade figure{ background:#0a0a0f }
 </style>
 </head>
 <body>
@@ -508,7 +570,13 @@ footer{ border-top:1px solid var(--border); padding-block:56px 32px; margin-top:
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero has-video">
+    <div class="hero-video" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/img/hero-bg.jpg">
+        <source src="assets/video/hero-bg.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-scrim"></div>
+    </div>
     <div class="wrap">
       <div class="pill reveal">
         <span class="dot"></span>
