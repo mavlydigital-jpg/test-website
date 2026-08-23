@@ -1,35 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy | Mavly Digital LLC</title>
-    <meta name="description" content="Privacy Policy for Mavly Digital LLC, lead generation and automation for waterproofing, foundation, and crawl space contractors." />
-    <link rel="icon" href="favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <link rel="stylesheet" href="styles/main.min.css" />
-  </head>
-  <body class="legal-page">
-    <header class="header">
-      <div class="header__inner container">
-        <a class="header__logo logo" href="index.html" aria-label="Mavly home">
-          <svg class="logo__star" width="26" height="28" viewBox="0 0 28 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 1C14 1 3 13 3 20A11 11 0 0 0 25 20C25 13 14 1 14 1Z" fill="#085CF0"/><path d="M9 19.5A5 5 0 0 0 14 24.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-          <span class="logo__text">Mavly</span>
-        </a>
-        <a class="header__button button button--transparent" href="index.html">Back to site</a>
-      </div>
-    </header>
-    <main>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Mavly Digital LLC</title>
+<meta name="description" content="Privacy Policy for Mavly Digital LLC, marketing and automation for high-value home-service contractors.">
+<link rel="icon" href="assets/img/logo-icon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --panel:rgba(23,23,28,.55); --border:rgba(63,63,70,.55); --border-hi:rgba(96,96,110,.7);
+  --ink:#fff; --ink-2:rgba(255,255,255,.72); --muted:#9ca3af;
+  --blue:#2f6bff; --blue-hi:#5b8bff;
+  --font:'Poppins',system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --wrap:1180px; --pad:clamp(20px,5vw,64px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;font-family:var(--font)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink-2);font-weight:400;font-size:16px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60vw 55vh at 80% -5%,rgba(47,107,255,.16),transparent 55%),radial-gradient(50vw 50vh at 5% 15%,rgba(47,107,255,.08),transparent 60%)}
+a{color:var(--blue-hi);text-decoration:none} a:hover{color:#fff}
+::selection{background:var(--blue);color:#fff}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--border);background:rgba(0,0,0,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.brand img{width:34px;height:34px;object-fit:contain;display:block}
+.brand-word{font-weight:600;font-size:1.05rem;letter-spacing:-.02em}
+.brand-word span{font-weight:400;color:var(--muted);margin-left:5px}
+.back-btn{display:inline-flex;align-items:center;gap:8px;color:#fff;padding:9px 18px;border-radius:100px;border:1px solid var(--border);background:rgba(255,255,255,.04);font-size:.88rem;font-weight:500}
+.back-btn:hover{background:rgba(255,255,255,.08);color:#fff}
+
+/* hero */
+.legal-hero{padding:clamp(56px,9vw,110px) 0 clamp(24px,3vw,36px)}
+.legal-eyebrow{display:inline-block;color:var(--blue-hi);font-weight:600;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;background:rgba(47,107,255,.10);border:1px solid rgba(47,107,255,.28);padding:6px 14px;border-radius:100px;margin-bottom:22px}
+.legal-title{font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.05;font-weight:500;letter-spacing:-.045em;color:#fff;background:linear-gradient(180deg,#fff,#fff,rgba(255,255,255,.6));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:22px;text-wrap:balance}
+.legal-intro{color:var(--muted);font-size:clamp(1rem,1.15vw,1.1rem);line-height:1.7;max-width:70ch}
+
+/* layout */
+.legal{display:grid;gap:44px;padding-block:24px clamp(60px,9vw,120px)}
+@media(min-width:960px){.legal{grid-template-columns:220px minmax(0,1fr);gap:64px}}
+.legal__toc{position:relative}
+@media(min-width:960px){.legal__toc{position:sticky;top:88px;align-self:start;border-left:1px solid var(--border);padding-left:20px}}
+.legal__toc p{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.legal__toc a{display:block;color:var(--ink-2);font-size:.88rem;line-height:1.55;padding-block:6px;transition:color .2s;text-decoration:none}
+.legal__toc a:hover{color:var(--blue-hi)}
+
+/* content article */
+.legal__content{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid var(--border);border-radius:22px;padding:clamp(28px,4vw,44px);position:relative;overflow:hidden}
+.legal__content::before{content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:80%;height:60%;border-radius:50%;background:rgba(47,107,255,.08);filter:blur(80px);z-index:0;pointer-events:none}
+.legal__content > *{position:relative;z-index:1}
+.legal__content section + section{margin-top:36px;padding-top:36px;border-top:1px solid var(--border)}
+.legal__content h2{font-size:clamp(1.4rem,2.2vw,1.75rem);color:#fff;font-weight:500;letter-spacing:-.02em;line-height:1.2;margin-bottom:16px;text-wrap:balance}
+.legal__content h3{font-size:1.05rem;color:#fff;font-weight:500;margin:24px 0 10px;letter-spacing:-.01em}
+.legal__content p{color:var(--ink-2);font-size:.96rem;line-height:1.75;margin-bottom:12px;max-width:72ch}
+.legal__content ul{padding-left:20px;margin:14px 0}
+.legal__content li{color:var(--ink-2);font-size:.94rem;line-height:1.7;margin-bottom:8px;max-width:70ch}
+.legal__content strong{color:#fff;font-weight:600}
+
+/* footer */
+.foot{border-top:1px solid var(--border);padding:32px 0 40px}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.container{max-width:none;margin:0;padding:0}
+.foot p{color:var(--muted);font-size:.82rem}
+.foot nav{display:flex;gap:20px}
+.foot a{color:var(--muted);font-size:.82rem;text-decoration:none}
+.foot a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.png" alt="Mavly Digital" width="34" height="34">
+      <span class="brand-word">Mavly<span>Digital</span></span>
+    </a>
+    <a href="index.html" class="back-btn">← Back to site</a>
+  </div>
+</header>
+
+<main class="wrap">
+
       <header class="legal-hero">
-        <div class="container">
-          <div class="legal-eyebrow">Last Updated: May 12, 2026</div>
+        <div class="legal-eyebrow">Last Updated: May 12, 2026</div>
           <h1 class="legal-title">Privacy Policy</h1>
           <p class="legal-intro">This Privacy Policy explains how Mavly Digital LLC collects, uses, stores, and shares personal information when you visit our website, book a call, use our marketing services, or communicate with us.</p>
         </div>
       </header>
 
-      <div class="container">
-        <div class="legal">
+      <div class="legal">
           <aside class="legal__toc" aria-label="Privacy Policy contents">
             <p>Contents</p>
             <a href="#information">Information We Collect</a>
@@ -159,15 +225,19 @@
           </article>
         </div>
       </div>
-    </main>
-    <div class="container">
-      <div class="legal-footer">
-        <p>Copyright &copy; 2026 Mavly Digital LLC All rights reserved.</p>
-        <span>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-and-conditions.html">Terms of Service</a>
-        </span>
-      </div>
-    </div>
-  </body>
+    
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Copyright &copy; 2026 Mavly Digital LLC All rights reserved.</p>
+    <nav>
+      <a href="terms-and-conditions.html">Terms</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="index.html">Home</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
 </html>
