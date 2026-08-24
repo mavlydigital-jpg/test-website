@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mavly · Facebook/IG Carousel — You Don't Need More Leads</title>
+<link rel="icon" href="../assets/img/logo-icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --ink:#fff; --ink-2:rgba(255,255,255,.72); --muted:#9ca3af;
+  --blue:#2f6bff; --blue-hi:#5b8bff; --ice:#bcd4ff;
+  --border:rgba(63,63,70,.55); --panel:rgba(23,23,28,.55);
+  --font:'Poppins',system-ui,-apple-system,sans-serif;
+  --slide-w:1080px; --slide-h:1350px;
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; font-family:var(--font) }
+body{ background:#08090c; color:var(--ink-2); min-height:100vh; padding-block:40px; overflow-x:hidden }
+
+/* control bar */
+.controls{ position:sticky; top:16px; z-index:50; max-width:1200px; margin:0 auto 32px; padding:14px 22px;
+  border:1px solid var(--border); background:rgba(0,0,0,.72); backdrop-filter:blur(14px); border-radius:100px;
+  display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap }
+.controls-left{ display:flex; align-items:center; gap:12px }
+.controls-left img{ width:32px; height:32px; object-fit:contain }
+.controls-left b{ color:#fff; font-weight:600 }
+.controls-left small{ color:var(--muted); font-size:.85rem; margin-left:8px }
+.dl-btn{ display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:100px;
+  background:linear-gradient(to bottom,#fff,rgba(255,255,255,.9)); color:#000; font-weight:600;
+  border:0; cursor:pointer; font-size:.9rem; box-shadow:0 12px 30px -8px rgba(255,255,255,.25);
+  transition:transform .2s ease }
+.dl-btn:hover{ transform:scale(1.03) }
+.dl-btn:disabled{ opacity:.6; cursor:wait }
+.dl-status{ color:var(--muted); font-size:.85rem; margin-right:10px; min-width:120px; text-align:right }
+
+/* deck */
+.deck{ display:flex; flex-direction:column; gap:28px; align-items:center; padding-inline:20px }
+
+/* individual slide (1080x1350) */
+.slide{
+  width:var(--slide-w); height:var(--slide-h);
+  background:#000; color:#fff; position:relative;
+  overflow:hidden; border-radius:0;
+  display:flex; flex-direction:column;
+  padding:80px 80px;
+  /* scale down on screens smaller than 1080 for preview */
+  transform-origin:top center;
+}
+/* atmospheric radial */
+.slide::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(60% 55% at 78% -8%, rgba(47,107,255,.22), transparent 60%),
+    radial-gradient(50% 60% at 8% 12%, rgba(47,107,255,.10), transparent 65%);
+  pointer-events:none; z-index:0;
+}
+.slide > *{ position:relative; z-index:1 }
+
+/* top row */
+.top{ display:flex; justify-content:space-between; align-items:center }
+.brand{ display:flex; align-items:center; gap:14px }
+.brand img{ width:52px; height:52px; object-fit:contain }
+.brand-word{ font-weight:600; font-size:1.4rem; letter-spacing:-.02em; line-height:1 }
+.brand-word em{ font-style:normal; font-weight:400; color:var(--muted); margin-left:6px }
+.count{ color:var(--muted); font-weight:500; font-size:1.05rem; letter-spacing:.14em }
+
+/* eyebrow pill */
+.eyebrow{ display:inline-flex; align-items:center; gap:10px; padding:9px 20px; border-radius:100px;
+  border:1px solid rgba(47,107,255,.35); background:rgba(47,107,255,.10);
+  color:var(--blue-hi); font-size:1rem; font-weight:500; letter-spacing:.02em; align-self:flex-start }
+.eyebrow-dot{ width:8px; height:8px; border-radius:50%; background:var(--blue-hi); box-shadow:0 0 10px rgba(91,139,255,.8) }
+
+/* main body */
+.body{ flex:1; display:flex; flex-direction:column; justify-content:center; gap:26px }
+.h{ font-weight:500; letter-spacing:-.045em; line-height:1.02; color:#fff;
+  background:linear-gradient(180deg,#fff,#fff,rgba(255,255,255,.65));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  text-wrap:balance }
+.h-xl{ font-size:158px }
+.h-lg{ font-size:130px }
+.h-md{ font-size:98px }
+.h-sm{ font-size:76px }
+.hl{ display:inline-block; background:var(--blue); color:#fff; -webkit-text-fill-color:#fff;
+  padding:4px 28px 12px; border-radius:26px; margin-block:6px }
+.sub{ color:var(--ink-2); font-size:38px; line-height:1.4; font-weight:400; max-width:900px }
+.callout{ color:var(--blue-hi); font-size:36px; font-weight:500 }
+
+/* scenario slide layout */
+.scene{ display:flex; flex-direction:column; gap:34px; padding-top:24px }
+.scene-row{ display:flex; align-items:flex-start; gap:32px; padding:36px 40px; border-radius:22px;
+  border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.02) }
+.scene-row.hurt{ border-color:rgba(255,106,114,.28); background:rgba(255,106,114,.06) }
+.scene-ic{ width:76px; height:76px; border-radius:20px; display:grid; place-items:center;
+  background:rgba(47,107,255,.14); border:1px solid rgba(47,107,255,.3); color:var(--blue-hi); flex:none }
+.scene-ic.red{ background:rgba(255,106,114,.14); border-color:rgba(255,106,114,.32); color:#ff9199 }
+.scene-ic svg{ width:36px; height:36px; stroke-width:2; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round }
+.scene-text{ display:flex; flex-direction:column; gap:8px }
+.scene-text b{ color:#fff; font-weight:600; font-size:44px; line-height:1.1; letter-spacing:-.02em }
+.scene-text span{ color:var(--muted); font-size:32px; font-weight:400 }
+
+/* pivot slide (6) */
+.pivot{ display:grid; grid-template-columns:1fr; gap:40px }
+.pivot-line{ padding:44px 52px; border-radius:24px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.02) }
+.pivot-line.bright{ background:linear-gradient(140deg, rgba(47,107,255,.20), rgba(47,107,255,.03));
+  border-color:rgba(47,107,255,.4); box-shadow:0 40px 90px -35px rgba(47,107,255,.35) }
+.pivot-tag{ color:var(--muted); font-size:32px; letter-spacing:.14em; text-transform:uppercase; font-weight:500 }
+.pivot-line.bright .pivot-tag{ color:var(--blue-hi) }
+.pivot-h{ color:#fff; font-size:90px; font-weight:500; letter-spacing:-.035em; line-height:1.05; margin-top:12px }
+
+/* bottom (bookmark) */
+.bottom{ display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:44px }
+.handle{ color:var(--muted); font-weight:500; font-size:1.1rem }
+.swipe{ display:inline-flex; align-items:center; gap:12px; padding:14px 24px; border-radius:100px;
+  border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:#fff; font-weight:500; font-size:1.1rem }
+.swipe .arrow{ width:18px; height:18px }
+.cta-btn{ display:inline-flex; align-items:center; gap:12px; padding:22px 40px; border-radius:100px;
+  background:linear-gradient(to bottom,#fff,rgba(255,255,255,.9)); color:#000; font-weight:600; font-size:32px;
+  box-shadow:0 30px 70px -15px rgba(255,255,255,.35) }
+
+/* final slide (8) - CTA */
+.slide-final{ display:flex; flex-direction:column; justify-content:space-between }
+.final-h{ font-size:150px; line-height:1; font-weight:500; letter-spacing:-.045em; color:#fff;
+  background:linear-gradient(180deg,#fff,#fff,rgba(255,255,255,.65));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent }
+.final-body{ flex:1; display:flex; flex-direction:column; justify-content:center; gap:44px }
+.final-sub{ color:var(--ink-2); font-size:40px; line-height:1.4; max-width:850px }
+.final-domain{ color:var(--blue-hi); font-size:36px; font-weight:500 }
+
+/* preview scaling */
+.stage{ transform:scale(var(--scale, 0.5)); transform-origin:top center;
+  width:var(--slide-w); height:var(--slide-h) }
+.stage-wrap{ height:calc(var(--slide-h) * var(--scale, 0.5)); position:relative; margin-bottom:20px }
+
+@media (max-width: 1200px){ .stage-wrap{ --scale: 0.45 } }
+@media (max-width: 700px){ .stage-wrap{ --scale: 0.3 } .controls{ flex-direction:column; border-radius:20px; padding:14px } }
+</style>
+</head>
+<body>
+
+<!-- shared icon defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ic-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 17z"/><line x1="16" y1="2" x2="22" y2="8"/><line x1="22" y1="2" x2="16" y2="8"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="ic-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></symbol>
+  <symbol id="ic-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+</defs></svg>
+
+<div class="controls">
+  <div class="controls-left">
+    <img src="../assets/img/logo.png" alt="Mavly">
+    <b>Mavly · IG/FB Carousel</b>
+    <small>8 slides · 1080×1350 · portrait 4:5</small>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span class="dl-status" id="status"></span>
+    <button class="dl-btn" id="dl">Download all as ZIP ↓</button>
+  </div>
+</div>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1 -->
+  <div class="stage-wrap"><div class="stage"><div class="slide" data-slide="1">
+    <div class="top">
+      <div class="brand"><img src="../assets/img/logo.png" alt=""><span class="brand-word">Mavly<em>Digital</em></span></div>
+      <div class="count">01 / 08</div>
+    </div>
+    <div class="body">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>For high-ticket home-service pros</span>
+      <h1 class="h h-xl">You might not need <span class="hl">more leads.</span></h1>
+    </div>
+    <div class="bottom">
+      <span class="handle">@mavlydigital</span>
+      <span class="swipe">Swipe <svg class="arrow"><use href="#ic-arrow"/></svg></span>
+    </div>
+  </div></div></div>
+
+  <!-- SLIDE 2 -->
+  <div class="stage-wrap"><div class="stage"><div class="slide" data-slide="2">
+    <div class="top">
+      <div class="brand"><img src="../assets/img/logo.png" alt=""><span class="brand-word">Mavly<em>Digital</em></span></div>
+      <div class="count">02 / 08</div>
+    </div>
+    <div class="body">
+      <h1 class="h h-lg">You might need to stop <span class="hl">losing the ones</span> you already have.</h1>
+    </div>
+    <div class="bottom">
+      <span class="handle">@mavlydigital</span>
+      <span class="swipe">Swipe <svg class="arrow"><use href="#ic-arrow"/></svg></span>
+    </div>
+  </div></div></div>
+
+  <!-- SLIDE 3 -->
+  <div class="stage-wrap"><div class="stage"><div class="slide" data-slide="3">
+    <div class="top">
+      <div class="brand"><img src="../assets/img/logo.png" alt=""><span class="brand-word">Mavly<em>Digital</em></span></div>
+      <div class="count">03 / 08</div>
+    </div>
+    <div class="body">
+      <div class="scene">
+        <div class="scene-row hurt">
+          <span class="scene-ic red"><svg><use href="#ic-phone"/></svg></span>
+          <div class="scene-text"><b>A homeowner calls.</b><span>Ring. Ring. Ring.</span></div>
+        </div>
+        <div class="scene-row hurt">
+          <span class="scene-ic red"><svg><use href="#ic-phone"/></svg></span>
+          <div class="scene-text"><b>Nobody answers.</b><span>They dial the next contractor.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span class="handle">@mavlydigital</span>
+      <span class="swipe">Swipe <svg class="arrow"><use href="#ic-arrow"/></svg></span>
+    </div>
+  </div></div></div>
+
+  <!-- SLIDE 4 -->
+  <div class="stage-wrap"><div class="stage"><div class="slide" data-slide="4">
+    <div class="top">
+      <div class="brand"><img src="../assets/img/logo.png" alt=""><span class="brand-word">Mavly<em>Digital</em></span></div>
+      <div class="count">04 / 08</div>
+    </div>
+    <div class="body">
+      <div class="scene">
+        <div class="scene-row hurt">
+          <span class="scene-ic red"><svg><use href="#ic-moon"/></svg></span>
+          <div class="scene-text"><b>A form comes in at 9 PM.</b><span>Weekend project. Big ticket.</span></div>
+        </div>
+        <div class="scene-row hurt">
+          <span class="scene-ic red"><svg><use href="#ic-moon"/></svg></span>
+          <div class="scene-text"><b>Nobody replies until morning.</b><span>By then they've already moved on.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span class="handle">@mavlydigital</span>
+      <span class="swipe">Swipe <svg class="arrow"><use href="#ic-arrow"/></svg></span>
+    </div>
+  </div></div></div>
+
+  <!-- SLIDE 5 -->
+  <div class="stage-wrap"><div class="stage"><div class="slide" data-slide="5">
+    <div class="top">
+      <div class="brand"><img src="../assets/img/logo.png" alt=""><span class="brand-word">Mavly<em>Digital</em></span></div>
+      <div class="count">05 / 08</div>
+    </div>
+    <div class="body">
+      <div class="scene">
+        <div class="scene-row hurt">
+          <span class="scene-ic red"><svg><use href="#ic-doc"/></svg></span>
+          <div class="scene-text"><b>An estimate doesn't close.</b><span>"Let me think about it."</span></div>
+        </div>
+        <div class="scene-row hurt">
+          <span class="scene-ic red"><svg><use href="#ic-doc"/></svg></span>
+          <div class="scene-text"><b>Nobody follows up.</b><span>The job walks to your competitor.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span class="handle">@mavlydigital</span>
+      <span class="swipe">Swipe <svg class="arrow"><use href="#ic-arrow"/></svg></span>
+    </div>
+  </div></div></div>
+
+  <!-- SLIDE 6 -->
+  <div class="stage-wrap"><div class="stage"><div class="slide" data-slide="6">
+    <div class="top">
+      <div class="brand"><img src="../assets/img/logo.png" alt=""><span class="brand-word">Mavly<em>Digital</em></span></div>
+      <div class="count">06 / 08</div>
+    </div>
+    <div class="body">
+      <div class="pivot">
+        <div class="pivot-line">
+          <span class="pivot-tag">That's not a</span>
+          <div class="pivot-h">Lead problem.</div>
+        </div>
+        <div class="pivot-line bright">
+          <span class="pivot-tag">That's a</span>
+          <div class="pivot-h">Follow-up problem.</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <span class="handle">@mavlydigital</span>
+      <span class="swipe">Swipe <svg class="arrow"><use href="#ic-arrow"/></svg></span>
+    </div>
+  </div></div></div>
+
+  <!-- SLIDE 7 -->
+  <div class="stage-wrap"><div class="stage"><div class="slide" data-slide="7">
+    <div class="top">
+      <div class="brand"><img src="../assets/img/logo.png" alt=""><span class="brand-word">Mavly<em>Digital</em></span></div>
+      <div class="count">07 / 08</div>
+    </div>
+    <div class="body">
+      <p class="callout">Before you spend more on ads —</p>
+      <h1 class="h h-lg"><span class="hl">Fix the leaks</span> first.</h1>
+      <p class="sub">A business inspection first. Then, when the process is airtight, you turn the tap back on.</p>
+    </div>
+    <div class="bottom">
+      <span class="handle">@mavlydigital</span>
+      <span class="swipe">Swipe <svg class="arrow"><use href="#ic-arrow"/></svg></span>
+    </div>
+  </div></div></div>
+
+  <!-- SLIDE 8 - final CTA -->
+  <div class="stage-wrap"><div class="stage"><div class="slide slide-final" data-slide="8">
+    <div class="top">
+      <div class="brand"><img src="../assets/img/logo.png" alt=""><span class="brand-word">Mavly<em>Digital</em></span></div>
+      <div class="count">08 / 08</div>
+    </div>
+    <div class="final-body">
+      <span class="eyebrow"><span class="eyebrow-dot"></span>Free business inspection</span>
+      <h1 class="final-h">Then turn the leads <span class="hl">back on.</span></h1>
+      <p class="final-sub">A 15-minute look at your area. We show you where opportunities are slipping away. No pitch, no pressure.</p>
+      <a class="cta-btn" href="https://mavlydigital.com">Book at mavlydigital.com →</a>
+    </div>
+    <div class="bottom">
+      <span class="handle">@mavlydigital · Nashua, NH</span>
+      <span class="final-domain">mavlydigital.com</span>
+    </div>
+  </div></div></div>
+
+</div>
+
+<!-- html2canvas + JSZip for zip export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const btn = document.getElementById('dl');
+const status = document.getElementById('status');
+btn.addEventListener('click', async () => {
+  const slides = document.querySelectorAll('.slide');
+  btn.disabled = true;
+  const zip = new JSZip();
+  for (let i = 0; i < slides.length; i++){
+    const el = slides[i];
+    status.textContent = `Rendering ${i+1}/${slides.length}…`;
+    // temporarily unscale wrapper for capture
+    const wrap = el.closest('.stage');
+    const prev = wrap.style.transform;
+    wrap.style.transform = 'none';
+    // wait for reflow + fonts
+    await document.fonts.ready;
+    await new Promise(r => setTimeout(r, 60));
+    const canvas = await html2canvas(el, {
+      backgroundColor: '#000000',
+      width: 1080, height: 1350,
+      scale: 1, useCORS: true, allowTaint: true, logging: false,
+    });
+    wrap.style.transform = prev;
+    const blob = await new Promise(r => canvas.toBlob(r, 'image/png', 0.95));
+    const n = String(i+1).padStart(2,'0');
+    zip.file(`mavly-carousel-${n}.png`, blob);
+  }
+  status.textContent = 'Zipping…';
+  const zipBlob = await zip.generateAsync({type:'blob'});
+  const url = URL.createObjectURL(zipBlob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'mavly-carousel-you-dont-need-more-leads.zip';
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
+  status.textContent = 'Done ✓';
+  btn.disabled = false;
+});
+</script>
+
+</body>
+</html>
